@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@layer base{
+  html,body{margin:0;padding:0;}
+  body{overscroll-behavior:none;}
+  main>:first-child{margin-top:0!important;}
+  main>:last-child{margin-bottom:0!important;}
+}
+::-webkit-scrollbar{display:none;}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-dim": "#ECEFEC",
+        "on-surface-variant": "#78847C",
+        "on-tertiary-fixed-variant": "#633f11",
+        "dark-surface-dim": "#202E27",
+        "error": "#BA1A1A",
+        "secondary-container": "#DDEDE2",
+        "on-tertiary-container": "#daa770",
+        "on-surface": "#202B25",
+        "surface-container-highest": "#d9e6dc",
+        "surface-container-lowest": "#ffffff",
+        "inverse-surface": "#28332d",
+        "error-container": "#FFDAD6",
+        "on-primary-fixed": "#002115",
+        "surface-container": "#e4f1e7",
+        "tertiary": "#442700",
+        "on-secondary": "#ffffff",
+        "inverse-on-surface": "#e7f4ea",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffddbb",
+        "dark-surface": "#18231E",
+        "primary-container": "#E7EFE8",
+        "on-error": "#ffffff",
+        "primary-fixed": "#c0ecd5",
+        "inverse-primary": "#a5d0ba",
+        "on-error-container": "#410002",
+        "surface-variant": "#d9e6dc",
+        "dark-on-surface": "#F1F4F0",
+        "dark-outline": "#3B4B41",
+        "primary": "#093425",
+        "secondary-fixed": "#c9ebd4",
+        "surface-container-low": "#eaf7ed",
+        "tertiary-fixed-dim": "#f2bc84",
+        "surface-bright": "#f0fdf3",
+        "tertiary-container": "#FDF6EE",
+        "outline-variant": "#c1c8c2",
+        "dark-secondary": "#A9C5AF",
+        "outline": "#E3EAE4",
+        "surface": "#F3F5F2",
+        "dark-on-surface-variant": "#B1BDB4",
+        "on-secondary-fixed": "#032113",
+        "on-secondary-container": "#4d6b59",
+        "surface-container-high": "#E7EFE8",
+        "dark-soft-green": "#354A3D",
+        "on-secondary-fixed-variant": "#304d3c",
+        "on-primary": "#FFFFFF",
+        "on-primary-container": "#202B25",
+        "on-background": "#131e18",
+        "secondary": "#476553",
+        "secondary-fixed-dim": "#adceb8",
+        "on-primary-fixed-variant": "#264e3d",
+        "dark-surface-container-high": "#304338",
+        "dark-primary": "#8FAF9A",
+        "primary-fixed-dim": "#a5d0ba",
+        "on-tertiary-fixed": "#2b1700",
+        "dark-surface-container": "#26372E",
+        "background": "#f0fdf3",
+        "surface-tint": "#3e6654",
+        "dark-sidebar": "#1D2A23"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-2xl": "3rem",
+        "space-xs": "0.25rem",
+        "space-md": "1rem",
+        "gutter-mobile": "1rem",
+        "space-xl": "2rem",
+        "margin-mobile": "1rem",
+        "space-lg": "1.5rem",
+        "margin": "2rem",
+        "gutter": "1.5rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "headline-sm": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"],
+        "headline-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"],
+        "label-md": ["Plus Jakarta Sans"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "label-lg": ["Plus Jakarta Sans"]
+      },
+      "fontSize": {
+        "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col flex-1 overflow-y-auto">
+<div class="p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">cottage</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Nestora</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Living OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm">v2.4</span>
+</div>
+<div class="px-space-md pb-space-sm">
+<div class="relative">
+<label class="sr-only" for="workspace-select">Select Workspace</label>
+<div class="relative flex items-center bg-surface-container-lowest rounded-xl p-space-sm shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline">
+<div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-primary flex-shrink-0 mr-space-sm">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<select class="w-full bg-transparent font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer pr-6 font-semibold" id="workspace-select">
+<option value="green-park">Green Park Towers (Portfolio)</option>
+<option selected="" value="oakwood-4b">Oakwood Co-Living #4B (Household)</option>
+<option value="system-admin">System Admin (Platform Console)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-space-md py-space-xs flex flex-col gap-space-md" data-active-classes="bg-primary-container text-primary font-semibold shadow-sm">
+<div>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#">
+<span class="font-label-lg text-label-lg">Overview &amp; Executive Summary</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Buildings Portfolio</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="buildings" href="#">
+<span class="font-label-lg text-label-lg">Buildings &amp; Units</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="residents" href="#">
+<span class="font-label-lg text-label-lg">Residents, Owners &amp; Leases</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="financials" href="#">
+<span class="font-label-lg text-label-lg">Financials &amp; Contributions</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="maintenance" href="#">
+<span class="font-label-lg text-label-lg">Maintenance &amp; Dispatch</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="documents" href="#">
+<span class="font-label-lg text-label-lg">Documents &amp; Legal</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="meetings" href="#">
+<span class="font-label-lg text-label-lg">Meetings &amp; Assembly Voting</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Living (Co-Household)</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-roommates" href="#">
+<span class="font-label-lg text-label-lg">Roommates &amp; Roster</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-expenses" href="#">
+<span class="font-label-lg text-label-lg">Expenses &amp; Splits Ledger</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-chores" href="#">
+<span class="font-label-lg text-label-lg">Chores &amp; Rotation</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-pantry" href="#">
+<span class="font-label-lg text-label-lg">Shopping &amp; Pantry</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-bills" href="#">
+<span class="font-label-lg text-label-lg">Bills &amp; Shared Calendar</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-rules" href="#">
+<span class="font-label-lg text-label-lg">House Rules &amp; Governance</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Nestora Intelligence</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="intelligence" href="#">
+<span class="font-label-lg text-label-lg">AI Assistant &amp; Action Hub</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Administration &amp; System</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin" href="#">
+<span class="font-label-lg text-label-lg">Platform Admin Console</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-audit" href="#">
+<span class="font-label-lg text-label-lg">Global Audit &amp; Logs</span>
+</a>
+</div>
+</nav>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm border-t border-outline">
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">cloud_done</span>Vault Storage</span>
+<span class="text-primary font-semibold">14.2 / 20 GB</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 71%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold font-label-md text-label-md flex-shrink-0">
+          SB
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Sarah Ben Ali</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Admin &amp; Lead Tenant</span>
+</div>
+</div>
+<a class="w-7 h-7 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</a>
+</div>
+</div>
+</aside>
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-outline">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Oakwood Co-Living #4B</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-80 h-9 pl-9 pr-14 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline" placeholder="Search units, expenses, logs..." readonly="" type="text"/>
+<span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant">Ctrl+K</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative group">
+<button class="flex items-center gap-space-xs h-9 px-space-sm bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Quick Action</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" onclick="document.documentElement.classList.toggle('dark')" title="Toggle Theme">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+</button>
+<button class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" title="Notifications">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<a class="flex items-center gap-space-xs pl-space-xs pr-space-sm py-1 rounded-xl bg-surface-container-lowest border border-outline hover:bg-surface-container transition-colors" data-path="settings" href="#">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-semibold">
+          SB
+        </div>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">keyboard_arrow_down</span>
+</a>
+</div>
+</header>
+<main class="w-full pt-16 px-space-lg bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<!-- Breadcrumbs & Document Vault Master Header -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="hover:text-primary cursor-pointer transition-colors">Green Park Towers</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors">Portfolio Management</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Documents &amp; Legal Vault</span>
+</div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Legal &amp; Statutory Repository</h1>
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            SOC2 Type II • HIPAA Sealed
+          </div>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+            RCW 64.90 Multi-Family Verified
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 flex-wrap">
+<span>Encrypted Cloud Vault (256-Bit AES)</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-semibold text-on-surface">14.2 / 20.0 GB</span> Allocated
+          <span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-semibold text-on-surface">184 Total Documents</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-error font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[15px]">notification_important</span>
+            12 Expiring in &lt; 30 Days
+          </span>
+</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="h-10 px-space-md rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-space-xs hover:bg-surface-container-highest transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">folder_zip</span>
+<span>Export Audit Dossier</span>
+</button>
+<button class="h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center gap-space-xs hover:opacity-95 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[20px]">post_add</span>
+<span>+ Upload Legal Document / Addendum</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Executive Compliance & Legal Health KPIs -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Statutory Compliance -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary-container/40 rounded-full blur-2xl group-hover:scale-125 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Statutory Compliance</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">98.4%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Tier 1 Rating</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low/60 p-2.5 rounded-xl flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span class="text-on-surface-variant truncate">2 Minor Flips in Review</span>
+<span class="font-semibold text-primary flex items-center gap-0.5">RCW 64.90 • PASS</span>
+</div>
+</div>
+<!-- Active Lease & Deed Vault -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:scale-125 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Lease &amp; Deed Vault</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">48 / 34</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Leases / Deeds</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">real_estate_agent</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low/60 p-2.5 rounded-xl flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">100% Units Executed</span>
+<span class="font-semibold text-tertiary-fixed-variant">6 Q1 Renewals Pending</span>
+</div>
+</div>
+<!-- Vendor MSAs & COIs -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary-container rounded-full blur-2xl group-hover:scale-125 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Vendor MSAs &amp; COIs</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">28</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Active Policies</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[22px]">shield</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-tertiary-container/50 p-2.5 rounded-xl flex items-center justify-between font-label-sm text-label-sm text-on-tertiary-container">
+<span class="font-medium">$2M Minimums Verified</span>
+<span class="font-bold text-error flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+          4 Due &lt; 30d
+        </span>
+</div>
+</div>
+<!-- Governance & HOA Bylaws -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-surface-container-highest/60 rounded-full blur-2xl group-hover:scale-125 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Governance &amp; CC&amp;Rs</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">v4.2</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">2024 Ratified</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low/60 p-2.5 rounded-xl flex items-center justify-between font-label-sm text-label-sm text-on-surface">
+<span class="text-on-surface-variant">Supermajority (79.2%)</span>
+<span class="font-semibold text-primary">Board Certified</span>
+</div>
+</div>
+</div>
+<!-- Main Body Grid: 8 Cols Repository + 4 Cols Inspector & Signature Queue -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Categories, Filters, and Main Repository Table (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Category Tabs with Counts -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1">
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center gap-2 whitespace-nowrap shadow-sm">
+<span>All Documents</span>
+<span class="px-1.5 py-0.5 rounded-full bg-white/20 text-white font-label-sm text-label-sm">184</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md flex items-center gap-2 whitespace-nowrap hover:bg-surface-container-high transition-colors">
+<span>Master Deeds &amp; Bylaws</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm">14</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md flex items-center gap-2 whitespace-nowrap hover:bg-surface-container-high transition-colors">
+<span>Tenant Leases &amp; Addenda</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm">54</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md flex items-center gap-2 whitespace-nowrap hover:bg-surface-container-high transition-colors">
+<span>Vendor MSAs &amp; COIs</span>
+<span class="px-1.5 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">32</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md flex items-center gap-2 whitespace-nowrap hover:bg-surface-container-high transition-colors">
+<span>Municipal &amp; Fire Certs</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm">28</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md flex items-center gap-2 whitespace-nowrap hover:bg-surface-container-high transition-colors">
+<span>Board Minutes &amp; Resolutions</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm">56</span>
+</button>
+</div>
+<!-- Advanced Filter & Search Bar -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row gap-space-sm items-center justify-between">
+<!-- Search Input -->
+<div class="relative w-full md:w-80 flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-white" placeholder="Search by name, contractor, RCW tag..." type="text"/>
+</div>
+<!-- Filter Dropdowns -->
+<div class="flex items-center gap-space-xs w-full md:w-auto flex-wrap">
+<!-- Complex/Building -->
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-xl bg-surface-container-low font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer">
+<option>All Complexes (48 Units)</option>
+<option>Tower A (24 Units)</option>
+<option>Tower B (18 Units)</option>
+<option>East Mews (6 Units)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 pointer-events-none text-on-surface-variant text-[16px]">keyboard_arrow_down</span>
+</div>
+<!-- Expiration Window -->
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-xl bg-surface-container-low font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer">
+<option>All Statuses</option>
+<option selected="">Expiring &lt; 30 Days (12)</option>
+<option>Active Perpetual</option>
+<option>Lapsed / Archive</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 pointer-events-none text-on-surface-variant text-[16px]">keyboard_arrow_down</span>
+</div>
+<!-- Regulatory Filter Tag -->
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-xl bg-surface-container-low font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer">
+<option>Regulatory Tag: Any</option>
+<option>RCW 64.90 (WUCIOA)</option>
+<option>City Fire Code §901</option>
+<option>OSHA / L&amp;I</option>
+<option>IRS 1099 Vendor</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 pointer-events-none text-on-surface-variant text-[16px]">tune</span>
+</div>
+<button class="h-10 w-10 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-surface-container-highest transition-colors" title="Toggle Grid / List View">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+</div>
+</div>
+<!-- Main Legal Document Repository Cards List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Row 1: Active Focus Document (Seattle Fire Marshal Annual Sprinkler) -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-sm pl-2">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-xl bg-error-container text-on-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer">
+                    Seattle Fire Marshal Annual Sprinkler &amp; Riser Certificate #SFM-8821
+                  </h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">PDF • 4.8 MB</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">City Certified</span>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<span class="font-medium text-on-surface">Tower A &amp; Tower B Riser Infrastructure</span>
+<span>•</span>
+<span>Issuer: City of Seattle Fire Dept</span>
+<span>•</span>
+<span>Sha-256: <span class="font-mono text-label-sm">8a9f...c42e</span></span>
+</div>
+</div>
+</div>
+<!-- Expiration & Status -->
+<div class="flex items-center gap-space-md justify-between xl:justify-end flex-shrink-0 pl-2 xl:pl-0">
+<div class="flex flex-col xl:items-end">
+<span class="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                  Expires Nov 24, 2024 (6 Days)
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Re-inspection booked with Cascade</span>
+</div>
+<!-- Quick action icon group -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-primary bg-surface-container hover:bg-surface-container-high transition-colors" title="Quick Read">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Download Official Scan">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Share Secure Watermarked Token">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="More Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Additional Row Meta Strip -->
+<div class="pl-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/40 rounded-xl px-3 py-1.5">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+                Backflow hydrostatic log verified
+              </span>
+<span>•</span>
+<span>Auditor: Eleanor Hayes</span>
+</div>
+<span class="text-primary font-semibold hover:underline cursor-pointer">Inspector Dossier Opened →</span>
+</div>
+</div>
+<!-- Row 2: Trane Commercial Services MSA & $5M COI -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary-fixed-dim"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-sm pl-2">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">hvac</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer">
+                    Trane Commercial Systems — Master Service Agreement &amp; $5.0M COI
+                  </h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">PDF • 6.2 MB</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Tier 1 Partner</span>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<span class="font-medium text-on-surface">Building-Wide Central Chiller Plant</span>
+<span>•</span>
+<span>Insurer: Travelers Indemnity Co.</span>
+<span>•</span>
+<span>Policy #TR-994022-WA</span>
+</div>
+</div>
+</div>
+<!-- Expiration & Status -->
+<div class="flex items-center gap-space-md justify-between xl:justify-end flex-shrink-0 pl-2 xl:pl-0">
+<div class="flex flex-col xl:items-end">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                  Expires Dec 15, 2024 (27 Days)
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Renewal COI requested via DocuSign</span>
+</div>
+<!-- Quick action icon group -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Quick Read">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Download Official Scan">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Share Secure Watermarked Token">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="More Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pl-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/40 rounded-xl px-3 py-1.5">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px] text-secondary">check_circle</span>
+                Additional Insured Endorsement Attached
+              </span>
+<span>•</span>
+<span>Signed by J. Trane (VP Commercial)</span>
+</div>
+<span class="text-secondary font-semibold hover:underline cursor-pointer">View Insurance Ledger →</span>
+</div>
+</div>
+<!-- Row 3: 2024 Master Declaration of CC&Rs v4.2 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-sm pl-2">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">account_balance</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer">
+                    2024 Master Declaration of Covenants, Conditions &amp; Restrictions (CC&amp;Rs) v4.2
+                  </h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">PDF • 14.1 MB</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">RCW 64.90 Certified</span>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<span class="font-medium text-on-surface">Whole Portfolio • 48 Units &amp; Common Elements</span>
+<span>•</span>
+<span>Recorded: King County Records #2024-0911802</span>
+</div>
+</div>
+</div>
+<!-- Expiration & Status -->
+<div class="flex items-center gap-space-md justify-between xl:justify-end flex-shrink-0 pl-2 xl:pl-0">
+<div class="flex flex-col xl:items-end">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+                  Perpetual Archive • Active
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Supermajority quorum approved</span>
+</div>
+<!-- Quick action icon group -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Quick Read">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Download Official Scan">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Share Secure Watermarked Token">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="More Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pl-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/40 rounded-xl px-3 py-1.5">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary">groups</span>
+                79.2% Homeowner supermajority recorded
+              </span>
+<span>•</span>
+<span>Next mandatory review: 2027</span>
+</div>
+<span class="text-primary font-semibold hover:underline cursor-pointer">Compare with v4.1 Diff →</span>
+</div>
+</div>
+<!-- Row 4: Unit A-402 Master Lease Agreement & House Charter Addendum -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-sm pl-2">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">contract</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer">
+                    Unit A-402 Master Lease &amp; Co-Living Charter Addendum (Sarah Ben Ali)
+                  </h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">PDF • 3.2 MB</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Dual-Signed (DocuSign)</span>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<span class="font-medium text-on-surface">Tower A • Unit 402</span>
+<span>•</span>
+<span>Tenant: Sarah Ben Ali &amp; 3 Co-Occupants</span>
+<span>•</span>
+<span>HO-4 Policy on file</span>
+</div>
+</div>
+</div>
+<!-- Expiration & Status -->
+<div class="flex items-center gap-space-md justify-between xl:justify-end flex-shrink-0 pl-2 xl:pl-0">
+<div class="flex flex-col xl:items-end">
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">event_available</span>
+                  Term Thru Jun 30, 2025
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Rent: $4,850/mo • Auto-Pay Active</span>
+</div>
+<!-- Quick action icon group -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Quick Read">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Download Official Scan">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Share Secure Watermarked Token">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="More Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pl-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/40 rounded-xl px-3 py-1.5">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary">security</span>
+                $4,850 Escrow Security Deposit Held (JPMorgan Chase)
+              </span>
+<span>•</span>
+<span>Lead-Based Paint Disclosure: Acknowledged</span>
+</div>
+<span class="text-primary font-semibold hover:underline cursor-pointer">Open Household Roster →</span>
+</div>
+</div>
+<!-- Row 5: Washington State RCW 64.90 Reserve Study Statutory Certification -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-sm pl-2">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">analytics</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer">
+                    Washington State RCW 64.90 Statutory Reserve Study (30-Year Comprehensive)
+                  </h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">PDF • 8.4 MB</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">100% Fully Funded</span>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<span class="font-medium text-on-surface">Green Park Towers Portfolio HOA</span>
+<span>•</span>
+<span>Author: Association Reserves Northwest LLC</span>
+<span>•</span>
+<span>RS-ID #44910</span>
+</div>
+</div>
+</div>
+<!-- Expiration & Status -->
+<div class="flex items-center gap-space-md justify-between xl:justify-end flex-shrink-0 pl-2 xl:pl-0">
+<div class="flex flex-col xl:items-end">
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                  Valid thru Q4 2025
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Annual visual inspection required Oct 2025</span>
+</div>
+<!-- Quick action icon group -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Quick Read">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Download Official Scan">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Share Secure Watermarked Token">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="More Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pl-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/40 rounded-xl px-3 py-1.5">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary">currency_exchange</span>
+                Reserve Account Balance: $842,500
+              </span>
+<span>•</span>
+<span>Adequacy Score: 104%</span>
+</div>
+<span class="text-primary font-semibold hover:underline cursor-pointer">Open Capital Forecast →</span>
+</div>
+</div>
+<!-- Row 6: Otis Gen2 Elevator Modernization Lien Waiver & Warranty -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary-fixed-dim"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-sm pl-2">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">elevator</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer">
+                    Otis Gen2 Elevator Modernization Final Lien Waiver &amp; 10-Yr Warranty Deed
+                  </h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">PDF • 5.1 MB</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Lien Cleared</span>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<span class="font-medium text-on-surface">Tower B Dual Traction Core</span>
+<span>•</span>
+<span>Contractor: Otis Elevator Company</span>
+<span>•</span>
+<span>Executed: Oct 2024</span>
+</div>
+</div>
+</div>
+<!-- Expiration & Status -->
+<div class="flex items-center gap-space-md justify-between xl:justify-end flex-shrink-0 pl-2 xl:pl-0">
+<div class="flex flex-col xl:items-end">
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                  Warranty Valid Thru 2034
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Full unconditional mechanics waiver</span>
+</div>
+<!-- Quick action icon group -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Quick Read">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Download Official Scan">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Share Secure Watermarked Token">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="More Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pl-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/40 rounded-xl px-3 py-1.5">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px] text-secondary">approval</span>
+                City of Seattle L&amp;I Operating Permit #ELEV-7740 Attached
+              </span>
+<span>•</span>
+<span>Service Tier: 24/7 Priority Emergency</span>
+</div>
+<span class="text-primary font-semibold hover:underline cursor-pointer">Dispatch Portal →</span>
+</div>
+</div>
+</div>
+<!-- Pagination & Ledger Status -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span>Showing <strong class="text-on-surface">1 - 6</strong> of 184 legal files</span>
+<span>•</span>
+<span class="text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+            Vault synced 4 mins ago
+          </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-semibold">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center justify-center font-medium">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center justify-center font-medium">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center justify-center font-medium">31</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Inspector & Action Rail (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- FOCUSED DOCUMENT INSPECTOR DOSSIER -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Active Inspector</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">DOC-8821-WA</span>
+</div>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Expand Sidebar">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+<!-- Document Preview Window with Watermark Stamp -->
+<div class="relative w-full h-44 rounded-xl bg-surface-container-low overflow-hidden flex flex-col justify-between p-space-md shadow-inner">
+<img class="absolute inset-0 w-full h-full object-cover opacity-35 mix-blend-multiply" data-alt="High-resolution legal document scan of a municipal fire marshal compliance certificate with state watermarks, stamp impressions, and formal signatures in muted botanical green and crisp monochrome" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNatOVtMTroGsDW_vOCfXyTmekRwW2m1MYIbQSHLMpC5nm8PkK8BmS0Q_JYVOnjHq1u0ouj5VMnHfIfkAJ8NFAudim5FVPMeaa--Wv8E6Z2g9DNo6sEWcLsFc-S2kY3TRm4R7o-Us-EqYOiaJY72qziqCKNeC9vh8e8NMQZGGPM1xdjiz0xbUlSmdWvKBALhmjy2PRIUoJpyxVsYQAWVLj7hi0c4KWIhd3niKktnA"/>
+<div class="relative z-10 flex items-start justify-between">
+<span class="px-2 py-1 rounded bg-surface/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-mono font-semibold">SFM-8821.PDF</span>
+<div class="px-2 py-0.5 rounded bg-error/90 text-white font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">alarm</span>
+              Expiring
+            </div>
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Cryptographically Sealed</span>
+</div>
+<button class="h-8 px-2.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 hover:opacity-95">
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+              Read
+            </button>
+</div>
+</div>
+<!-- Title & Metadata Grid -->
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+            Seattle Fire Sprinkler Certificate
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Issued to Green Park Towers (Tower A &amp; B) pursuant to Seattle Fire Code §901.6 &amp; NFPA 25 Standard.
+          </p>
+</div>
+<div class="grid grid-cols-2 gap-space-sm bg-surface-container-low/50 p-space-sm rounded-xl text-label-sm font-label-sm">
+<div>
+<span class="text-on-surface-variant block">Uploaded By</span>
+<span class="font-semibold text-on-surface">Eleanor Hayes (PM)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">File Size • Format</span>
+<span class="font-semibold text-on-surface">4.8 MB • PDF/A</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">Auditor Badge</span>
+<span class="font-semibold text-on-surface">#4491-WA Dept Fire</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">Urgency Status</span>
+<span class="font-bold text-error">Expires Nov 24, 2024</span>
+</div>
+</div>
+<!-- Regulatory Checklist -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Statutory Compliance Check</span>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-body-sm text-body-sm p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="text-on-surface font-medium">SFC §901.6 Annual Test</span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Verified</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="text-on-surface font-medium">Backflow Hydrostatic Seal</span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Passed</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-variant text-[18px]">pending</span>
+<span class="text-on-surface font-medium">2024-2025 Renewal Inspection</span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-tertiary-fixed-variant">Booked Nov 24</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons for Inspector -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<button class="w-full h-10 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 hover:opacity-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">send_time_extension</span>
+<span>Dispatch Cascade Plumbing Alert</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[16px]">campaign</span>
+              Tenant Notice
+            </button>
+<button class="h-9 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[16px]">history</span>
+              Version History
+            </button>
+</div>
+</div>
+</div>
+<!-- PENDING SIGNATURES & DOCUSIGN QUEUE -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">edit_document</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Signatures Queue</h4>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">2 Awaiting</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Pending Item 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Unit B-105 Lease Renewal</span>
+<span class="font-label-sm text-label-sm text-error font-medium">Pending 3d</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Signer: Chloe Zhao • Tenant</p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">DocuSign #ENV-3918</span>
+<button class="text-primary font-label-sm text-label-sm font-semibold hover:underline flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">send</span>
+                Resend Ping
+              </button>
+</div>
+</div>
+<!-- Pending Item 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Apex Electrical MSA Amendment</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed-variant font-medium">Pending 1d</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Signer: Marcus Vance • HOA President</p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">DocuSign #ENV-4011</span>
+<button class="text-primary font-label-sm text-label-sm font-semibold hover:underline flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">send</span>
+                Resend Ping
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- VAULT STORAGE ALLOCATION BREAKDOWN -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">cloud_sync</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Storage Allocation</h4>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">71% Utilized</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">14.2 GB</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">of 20.0 GB Tier Limit</span>
+</div>
+<!-- Segmented Storage Bar -->
+<div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 48%;" title="Leases &amp; Deeds: 6.8 GB"></div>
+<div class="h-full bg-secondary" style="width: 28%;" title="Municipal &amp; Blueprints: 4.1 GB"></div>
+<div class="h-full bg-secondary-fixed-dim" style="width: 16%;" title="Board Minutes: 2.3 GB"></div>
+<div class="h-full bg-tertiary-fixed-dim" style="width: 8%;" title="Vendor COIs: 1.0 GB"></div>
+</div>
+<!-- Storage Legend -->
+<div class="grid grid-cols-2 gap-2 pt-2 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary flex-shrink-0"></span>
+<span class="text-on-surface-variant truncate">Leases &amp; Deeds (6.8 GB)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary flex-shrink-0"></span>
+<span class="text-on-surface-variant truncate">Blueprints &amp; Certs (4.1 GB)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary-fixed-dim flex-shrink-0"></span>
+<span class="text-on-surface-variant truncate">Board Minutes (2.3 GB)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-tertiary-fixed-dim flex-shrink-0"></span>
+<span class="text-on-surface-variant truncate">Vendor COIs (1.0 GB)</span>
+</div>
+</div>
+<button class="mt-2 w-full py-2 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-surface-container-highest transition-colors">
+<span>Manage Vault Quotas &amp; Retention Policies</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Architectural & Legal Compliance Footer Bar -->
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">security</span>
+        Green Park Towers Legal Vault
+      </span>
+<span>•</span>
+<span>SOC2 Type II Certified Cloud Storage</span>
+<span>•</span>
+<span>RCW 64.90 &amp; Uniform Common Interest Ownership Act (WUCIOA) Compliant</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-mono text-label-sm text-secondary">SHA-256 Ledger Sealed</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<a class="text-primary font-semibold hover:underline" href="#">Download Master Audit Log</a>
+</div>
+</div>
+</div></main>
+</div>
+</body></html>

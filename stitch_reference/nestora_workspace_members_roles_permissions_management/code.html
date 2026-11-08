@@ -1,0 +1,1128 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nestora - Buildings Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#234B3A",
+            "primary-container": "#234B3A",
+            "primary-dark": "#8FAF9A",
+            "secondary": "#476553",
+            "secondary-container": "#c9ebd4",
+            "warm-ivory": "#F7F6F0",
+            "warm-accent": "#D9A66F",
+            "tertiary-fixed": "#ffddbb",
+            "tertiary-container": "#5f3c0e",
+            "surface": "#F3F5F2",
+            "surface-card": "#FFFFFF",
+            "surface-container-low": "#ECEFEC",
+            "surface-container-high": "#e1e3e0",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#414844",
+            "text-muted": "#78847C",
+            "dark-bg": "#18231E",
+            "dark-surface": "#26372E",
+            "dark-sidebar": "#1D2A23",
+            "dark-border": "#354A3D",
+            "dark-text": "#F1F4F0",
+            "dark-text-muted": "#B1BDB4"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<meta content="web_dashboard" name="shell-type"></head>
+<body class="bg-[#F3F5F2] dark:bg-[#18231E] font-sans text-on-surface dark:text-[#F1F4F0] antialiased transition-colors duration-300">
+<!-- Persistent Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#1D2A23] border-r border-[#E3EAE4] dark:border-[#354A3D] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-colors duration-300" id="main-sidebar">
+<div class="flex flex-col">
+<!-- Logo + Brand name + Tagline Pill -->
+<div class="h-16 px-5 flex items-center justify-between border-b border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[18px] tracking-tight text-[#234B3A] dark:text-[#F1F4F0] leading-none">Nestora</span>
+<span class="text-[10px] font-semibold text-[#78847C] dark:text-[#B1BDB4] tracking-wide mt-0.5">Buildings OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#c9ebd4]/60 text-[#234B3A] dark:bg-[#354A3D] dark:text-[#8FAF9A]">PRO</span>
+</div>
+<!-- Workspace Dropdown with Quick Switch -->
+<div class="px-4 py-3">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-2.5 flex items-center justify-between border border-[#E3EAE4]/60 dark:border-[#354A3D]/70 hover:border-[#234B3A]/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-7 h-7 rounded-lg bg-[#234B3A]/10 dark:bg-[#8FAF9A]/20 flex items-center justify-center text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[17px]">apartment</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#78847C] dark:text-[#B1BDB4]">Workspace</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Nestora Buildings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[18px] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">swap_horiz</span>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-5 pt-1 pb-1.5 flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Main Management</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 px-3">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Buildings & Units -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="">Buildings &amp; Units</span>
+</a>
+<!-- Residents & Owners -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="">Residents &amp; Owners</span>
+</a>
+<!-- Shared Expenses -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="">Shared Expenses</span>
+</a>
+<!-- Maintenance (Badge 4) -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="">Maintenance</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[11px] font-bold">4</span>
+</a>
+<!-- Documents -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="">Documents</span>
+</a>
+<!-- Meetings & Voting -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">how_to_vote</span>
+<span class="">Meetings &amp; Voting</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="">Calendar</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="">Reports</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Community Care / Profile -->
+<div class="flex flex-col gap-2.5 p-3.5 border-t border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-3 flex flex-col gap-1 border border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2 text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[19px]">support_agent</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0]">Community Care</span>
+</div>
+<p class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4] leading-snug">Need operational guidance or 24/7 hotline?</p>
+<a class="text-[12px] font-semibold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-1 mt-1" href="#">
+<span class="">Support Desk</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-[#354A3D]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-[#1D2A23]"></span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[12.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Sarah Ben Ali</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Admin</span>
+</div>
+</div>
+<button class="text-[#78847C] dark:text-[#B1BDB4] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] p-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="pl-64">
+<!-- Top Header -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#F3F5F2]/80 dark:bg-[#18231E]/80 backdrop-blur-xl border-b border-[#E3EAE4] dark:border-[#354A3D] z-40 flex items-center justify-between px-6 transition-colors duration-300">
+<!-- Breadcrumb + Page Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-[13px] font-medium text-[#78847C] dark:text-[#B1BDB4]">
+<span class="hover:text-[#234B3A] dark:hover:text-[#8FAF9A] cursor-pointer">Nestora Buildings</span>
+<span class="text-[#78847C]/60">/</span>
+<span class="text-[#191c1b] dark:text-[#F1F4F0] font-semibold">Dashboard</span>
+</div>
+<!-- Search Bar with Ctrl+K -->
+<div class="relative flex items-center ml-2">
+<span class="material-symbols-outlined absolute left-3.5 text-[#78847C] dark:text-[#B1BDB4] text-[19px]">search</span>
+<input class="w-72 lg:w-80 h-10 pl-10 pr-12 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#191c1b] dark:text-[#F1F4F0] placeholder:text-[#78847C] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#234B3A] dark:focus:ring-[#8FAF9A] transition-all shadow-xs" placeholder="Search units, residents, tickets..." type="text">
+<kbd class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#ECEFEC] dark:bg-[#1D2A23] text-[#78847C] dark:text-[#B1BDB4]">Ctrl K</kbd>
+</div>
+<!-- Portfolio Status Tag -->
+<div class="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c9ebd4]/70 dark:bg-[#354A3D] border border-[#c9ebd4] dark:border-[#354A3D]">
+<span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#8FAF9A] animate-pulse"></span>
+<span class="text-[11px] font-bold text-[#234B3A] dark:text-[#8FAF9A] uppercase tracking-wider">12 Units Live</span>
+</div>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Interactive Theme Switcher Button -->
+
+<!-- Notifications with Badge -->
+<button class="relative w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] flex items-center justify-center text-[#414844] dark:text-[#F1F4F0] hover:bg-[#ECEFEC] dark:hover:bg-[#354A3D] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</span>
+</button>
+<div class="h-6 w-px bg-[#E3EAE4] dark:bg-[#354A3D] mx-1"></div>
+<!-- Profile Avatar & Details -->
+<div class="flex items-center gap-2.5 pl-1 py-1 pr-2 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] hover:shadow-xs transition-all cursor-pointer">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<div class="hidden md:flex flex-col text-left pr-1">
+<span class="text-[12px] font-bold text-[#191c1b] dark:text-[#F1F4F0] leading-none">Sarah Ben Ali</span>
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] mt-0.5 font-medium">(Admin)</span>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="relative pt-20 w-full px-6 py-6 min-h-screen"><div class="flex flex-col w-full gap-8">
+<!-- Top Section: Header & Actions -->
+<section class="flex flex-col xl:flex-row xl:items-end justify-between gap-6 pb-2">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Workspace Settings</span>
+<span class="text-on-surface-variant/40 text-xs">/</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Members &amp; Role Permissions</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Access Control &amp; Roster</h1>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/60 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold">Active Tenancy: Green Park Towers • 48 Members Active • 4 Pending</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-start xl:self-auto">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_download</span>
+<span class="">Export Roster (CSV)</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:opacity-95 transition-all" onclick="document.getElementById('invite-modal').classList.toggle('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span class="">+ Invite New Member</span>
+</button>
+</div>
+</section>
+<!-- Section 2: Role Summary Bento Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Administrators -->
+<div class="group flex flex-col justify-between p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 transition-transform group-hover:scale-125 pointer-events-none"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">admin_panel_settings</span>
+</div>
+<span class="font-label-md text-label-md font-bold px-2.5 py-0.5 rounded-full bg-primary-container text-primary">Tier 0</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">4</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Workspace Administrators</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Full system governance, internal administrative role permissions, root compliance, and audit authority.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">4 MFA Compliant</span>
+<span class="material-symbols-outlined text-[18px] text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Property Managers -->
+<div class="group flex flex-col justify-between p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-secondary-container/40 transition-transform group-hover:scale-125 pointer-events-none"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">engineering</span>
+</div>
+<span class="font-label-md text-label-md font-bold px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant">Tier 1</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">6</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Property Managers &amp; Staff</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Vendor contracts, work orders, incident ticketing, digital keys, and notice board bulletins.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">All towers covered</span>
+<span class="material-symbols-outlined text-[18px] text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Owners & Trustees -->
+<div class="group flex flex-col justify-between p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-tertiary-fixed/30 transition-transform group-hover:scale-125 pointer-events-none"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<span class="font-label-md text-label-md font-bold px-2.5 py-0.5 rounded-full bg-tertiary-fixed/40 text-tertiary">Tier 2</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">28</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Owners &amp; Trustees</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Quorum assemblies, binding proxy voting, reserve fund vault, and unit deeds review.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">18 Voting Delegates</span>
+<span class="material-symbols-outlined text-[18px] text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Tenants & Residents -->
+<div class="group flex flex-col justify-between p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-surface-container-high transition-transform group-hover:scale-125 pointer-events-none"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">group</span>
+</div>
+<span class="font-label-md text-label-md font-bold px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant">Tier 3</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">34</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Tenants &amp; Co-Living</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Daily parcel locker PINs, concierge dispatch, guest parking, and clubhouse reservations.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">4 Pending activation</span>
+<span class="material-symbols-outlined text-[18px] text-primary">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Member Directory & Filters -->
+<section class="flex flex-col rounded-2xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<!-- Filter bar -->
+<div class="p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-surface-container-lowest">
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-1">
+<!-- Search input -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3.5 top-2.5 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-10 pl-10 pr-4 rounded-xl bg-surface text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs transition-all" id="member-search" placeholder="Filter by name, email, or unit..." type="text">
+</div>
+<!-- Role dropdown filter -->
+<div class="relative">
+<select class="h-10 px-3.5 pr-8 rounded-xl bg-surface text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary shadow-xs cursor-pointer appearance-none" id="role-filter">
+<option value="all">All Roles (48)</option>
+<option value="admin">Administrators</option>
+<option value="manager">Property Managers</option>
+<option value="trustee">Board Trustees</option>
+<option value="owner">Owners</option>
+<option value="tenant">Tenants</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
+</div>
+<!-- Unit scope filter -->
+<div class="relative">
+<select class="h-10 px-3.5 pr-8 rounded-xl bg-surface text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary shadow-xs cursor-pointer appearance-none">
+<option value="all">All Tower Zones</option>
+<option value="tower-a">Tower A (West Wing)</option>
+<option value="tower-b">Tower B (East Wing)</option>
+<option value="penthouses">Penthouses (PH 1-4)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Tab filters for Status -->
+<div class="flex items-center gap-1 p-1 rounded-xl bg-surface self-start sm:self-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest font-label-md text-label-md font-semibold text-primary shadow-xs" type="button">Active (48)</button>
+<button class="px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Pending (4)</button>
+<button class="px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Suspended (1)</button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<th class="py-3 px-5">Member Name</th>
+<th class="py-3 px-4">Unit #</th>
+<th class="py-3 px-4">Assigned Role</th>
+<th class="py-3 px-4">Access Scope</th>
+<th class="py-3 px-4">2FA Security</th>
+<th class="py-3 px-4">Last Active</th>
+<th class="py-3 px-5 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 font-body-sm text-body-sm text-on-surface">
+<!-- Row 1: Sarah Ben Ali -->
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover shadow-xs" data-alt="Close up warm studio portrait of Sarah Ben Ali, a 30-something Mediterranean woman with thoughtful confident expression, deep pine green architectural backdrop, soft daylighting, cinematic high quality portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxQGiCcEA1V0msopcdsRLfZjkKlXrKtvHQTisJ76c2nW7O5y53WpvWcqSdq0aqFRPW0c3gK2EbTLGG_Mt1J5j_OFXHloIIyC6vFFHjyagNjdPbCH6pBg3HcVYvKpenjcIx_IwrsURvveyjh_7SUToa4FELUiBbCvT0bsUHwEzlOhlGcVMM3u19Y1ROGzVHsilnzfTycFvAiak5tccobErROuGktC0fL3izJcvJ3Lw">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Sarah Ben Ali</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">sarah.benali@greenparkhoa.org</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-medium text-on-surface">PH-01</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">shield_person</span>
+                Admin • Board Chair
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Full Portfolio</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm font-semibold">Enforced (FIDO2)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant font-label-sm text-label-sm">Active now</td>
+<td class="py-3.5 px-5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Edit Role" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Manage Credentials" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Marcus Vance -->
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed text-tertiary font-label-lg text-label-lg font-bold flex items-center justify-center">MV</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Marcus Vance</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">m.vance@vancerealty.co.uk</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-medium text-on-surface">Tower A-1402</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-fixed/60 text-tertiary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">how_to_vote</span>
+                Board Trustee
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Tower A &amp; Grounds</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-sm text-label-sm font-semibold">Compliant (TOTP)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant font-label-sm text-label-sm">24m ago</td>
+<td class="py-3.5 px-5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Edit Role" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Transfer Ownership" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Dr. Julian Croft -->
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover shadow-xs" data-alt="Headshot of Dr Julian Croft, an elegant mature gentleman in his 50s with tortoiseshell glasses and tweed collar, soft ambient light, warm olive background, sharp cinematic lighting, property owner." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1WjKliKp2bkZ6pPpj1h_QfsH_rauAmaD6NIxZxdv99JlNcJlIFetkbEnRo9lSAFGElWYpsAbn0xcIIAFCT4R29MxwC82qVsoucKqshY3nsCrB-Gp5K6ijRJ8dhfV5dH14sN4LSos4HOXeUR0btM268PUe0W7LCWI77SkcwaZe5NeZl5hy-zsfYGcvnlaKo0iiqmY2u55RVn3iA4VwWhJ8qlw5s1bFqe0X1hlVlIY">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Dr. Julian Croft</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">j.croft@medres-uk.org</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-medium text-on-surface">Tower B-0804</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">apartment</span>
+                Deed Owner
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Unit B-0804</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-sm text-label-sm font-semibold">Compliant (SMS)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant font-label-sm text-label-sm">Yesterday, 18:20</td>
+<td class="py-3.5 px-5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Edit Role" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Manage Unit" type="button">
+<span class="material-symbols-outlined text-[18px]">domain</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Elena Rostova -->
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover shadow-xs" data-alt="Portrait of Elena Rostova, female attorney in sharp charcoal blazer, modern minimalist glass office background with indoor greenery, natural light, confident legal counsel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB0YtHkzf2uvh_LseaWQb1X0WAAmNTd5Vr29LSRIJXC8jYtlbu2JFGUOVh56qhuFZVhZdai5ZsVvi7uozR1VCkiIgVu98aPahdxQKsckDSVJ0-HoJJZimg-mhgHicIU8oNsxkSxasU8DnYtLDIlLmHc3lcYblucPJu4DFSAbM7CTFGgiBTvunacQIyMM1gDxm0MeO1-K4Z_aR8uuYRKAvOfLKC0mlPJK8rvIK1muw">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Elena Rostova</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">elena@rostova-legal.ch</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-medium text-on-surface">External</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">gavel</span>
+                Legal Counsel
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Bylaws &amp; Vaults</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm font-semibold">Enforced (Yubikey)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant font-label-sm text-label-sm">3 days ago</td>
+<td class="py-3.5 px-5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Edit Role" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Revoke Access" type="button">
+<span class="material-symbols-outlined text-[18px] text-error">person_remove</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Liam O'Connor -->
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-primary font-label-lg text-label-lg font-bold flex items-center justify-center">LO</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Liam O'Connor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">liam.oc@outlook.ie</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-medium text-on-surface">Tower A-0301</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                Tenant Resident
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Unit A-0301</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">lock_open</span>
+<span class="font-label-sm text-label-sm">Standard (App)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant font-label-sm text-label-sm">5h ago</td>
+<td class="py-3.5 px-5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Edit Role" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Revoke Access" type="button">
+<span class="material-symbols-outlined text-[18px] text-error">person_remove</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Chloe Zhao -->
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover shadow-xs" data-alt="Portrait of Chloe Zhao, young creative professional Asian woman smiling gently in natural earth-tone knit sweater, bright sunlit modern apartment interior with green foliage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP0weBZZb6knKQ9BJC1ohKEAFpDoHdBCc-dHsNgoZuwdhoujscOaBc_BevR3ulHaq55xzB0blexgxV2JbxQjctc_XjphUdVZV-9MPXZf4QcRApVGvtsq3VjCPnZpXgZ97OgerwYZlmKPi3q2Ce8XPeaS4mJEbBsIiG_WJvl6nlTTq6hndy3H9buxm8ADR08xxGNx7c4hbRvDJIKWvgd8K83pH0c9lq-WWLR75XeIA">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Chloe Zhao</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">chloe.zhao@designlab.io</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-medium text-on-surface">Tower B-0412</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                Tenant Resident
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Unit B-0412</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm font-semibold">Compliant (Passkey)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant font-label-sm text-label-sm">Oct 24, 09:15</td>
+<td class="py-3.5 px-5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Edit Role" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" title="Revoke Access" type="button">
+<span class="material-symbols-outlined text-[18px] text-error">person_remove</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Stats -->
+<div class="p-4 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-3 font-label-md text-label-md text-on-surface-variant">
+<span class="">Showing 6 of 48 active roster members</span>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-lg bg-surface-container-lowest shadow-xs text-on-surface-variant hover:text-on-surface disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="px-2.5 py-1 rounded-md bg-primary text-on-primary font-bold">1</span>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container-highest transition-colors" type="button">2</button>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container-highest transition-colors" type="button">3</button>
+<button class="p-1.5 rounded-lg bg-surface-container-lowest shadow-xs text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 4: Granular Permission Matrix & Customizer -->
+<section class="flex flex-col gap-5 rounded-2xl bg-surface-container-lowest p-6 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">policy</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Granular Permission Matrix</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Role-based access controls across workspace operational domains. Click any cell to toggle privileges.</p>
+</div>
+<!-- Domain Navigation Pills -->
+<div class="flex items-center gap-1.5 p-1 rounded-xl bg-surface overflow-x-auto max-w-full">
+<button class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-xs whitespace-nowrap" type="button">Financials &amp; Escrow</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">Maintenance Dispatch</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">Legal Repository</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">Resident Broadcasts</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">Audit &amp; Logs</button>
+</div>
+</div>
+<!-- Matrix Table -->
+<div class="overflow-x-auto rounded-xl bg-surface">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface font-label-md text-label-md">
+<th class="py-3 px-5 font-semibold">Workspace Role</th>
+<th class="py-3 px-3 text-center">View Ledger</th>
+<th class="py-3 px-3 text-center">Create Invoices</th>
+<th class="py-3 px-3 text-center">Edit Reserves</th>
+<th class="py-3 px-3 text-center">Approve Major Expenses</th>
+<th class="py-3 px-3 text-center">Sudo Override</th>
+<th class="py-3 px-5 text-right">Audit Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/60 font-body-sm text-body-sm">
+<!-- Administrator Row -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Workspace Administrator</span>
+</div>
+</td>
+<!-- View -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center hover:opacity-85" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Create -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center hover:opacity-85" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Edit -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center hover:opacity-85" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Release Escrow -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center hover:opacity-85" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Sudo -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-tertiary-fixed text-tertiary font-bold inline-flex items-center justify-center shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+</button>
+</td>
+<td class="py-3.5 px-5 text-right font-label-sm text-label-sm font-semibold text-primary">Unrestricted</td>
+</tr>
+<!-- Property Managers Row -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Property Managers &amp; Staff</span>
+</div>
+</td>
+<!-- View -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Create -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Edit -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center hover:bg-surface-container-highest" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<!-- Release Escrow -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center hover:bg-surface-container-highest" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<!-- Sudo -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<td class="py-3.5 px-5 text-right font-label-sm text-label-sm text-on-surface-variant">Dual-approval cap $5k</td>
+</tr>
+<!-- Owners & Board Trustees Row -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Owners &amp; Board Trustees</span>
+</div>
+</td>
+<!-- View -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Create -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<!-- Edit -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<!-- Release Escrow -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-primary text-on-primary inline-flex items-center justify-center" title="Requires Board Resolution" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+</td>
+<!-- Sudo -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<td class="py-3.5 px-5 text-right font-label-sm text-label-sm text-on-surface-variant">Voting Resolution Only</td>
+</tr>
+<!-- Tenants Row -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-container-high"></span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Tenants &amp; Residents</span>
+</div>
+</td>
+<!-- View -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container text-on-surface-variant inline-flex items-center justify-center" title="Own unit statement only" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</td>
+<!-- Create -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<!-- Edit -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<!-- Release Escrow -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<!-- Sudo -->
+<td class="py-3.5 px-3 text-center">
+<button class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</td>
+<td class="py-3.5 px-5 text-right font-label-sm text-label-sm text-on-surface-variant">Unit Personal Scope</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Matrix Footnote info -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">info</span>
+<span class="">Approval requires confirmation from 2 Board Trustees.</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface underline" type="button">Discard Changes</button>
+<button class="px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-xs hover:opacity-90" type="button">Commit Policy Changes</button>
+</div>
+</div>
+</section>
+<!-- Section 5: Pending Invitations & Join Link Generator -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Link Generator (1 Col) -->
+<div class="flex flex-col justify-between p-6 rounded-2xl bg-surface-container-lowest shadow-sm gap-5">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">link</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Secure Join Link</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed/60 text-tertiary font-label-sm text-label-sm font-bold">Single-Use</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Generate an encrypted onboarding URL pre-bound to tenancy verification and e-signature workflows.
+        </p>
+<!-- Domain restriction badge -->
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Domain Restricted</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">Only allows logins with @greenparkhoa.org</span>
+</div>
+</div>
+<!-- Generated Link box -->
+<div class="flex flex-col gap-1.5 mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Temporary Invitation URL</span>
+<div class="flex items-center gap-2 p-2 rounded-xl bg-surface-container text-on-surface">
+<input class="w-full bg-transparent font-label-sm text-label-sm text-on-surface font-mono outline-none border-none p-0 select-all" id="share-link-input" readonly="" type="text" value="https://app.nestora.io/join/gp-towers?token=9f82d1c3a">
+<button class="p-1.5 rounded-lg bg-surface-container-lowest hover:bg-white text-primary shadow-xs transition-all" onclick="navigator.clipboard.writeText(document.getElementById('share-link-input').value); alert('Invite link copied to clipboard!');" title="Copy to clipboard" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">timer</span>
+<span class="">Expires in 47h 58m</span>
+</div>
+<button class="px-3.5 py-2 rounded-xl bg-surface-container text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors" type="button">
+          Regenerate Key
+        </button>
+</div>
+</div>
+<!-- Pending Invitations List (2 Cols) -->
+<div class="lg:col-span-2 flex flex-col p-6 rounded-2xl bg-surface-container-lowest shadow-sm gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">outgoing_mail</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Pending Invitations (4)</h3>
+</div>
+<button class="font-label-md text-label-md font-semibold text-primary hover:underline" type="button">Resend All Reminders</button>
+</div>
+<!-- Invites List -->
+<div class="divide-y divide-surface-container-high/40 flex flex-col">
+<!-- Invite item 1 -->
+<div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold">
+              AM
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Amira Mansour</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container font-label-sm text-label-sm text-primary font-medium">Tenant Resident</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">amira.m@greenparkhoa.org • Assigned to Unit A-0902</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Invited 6 hours ago</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container transition-colors" type="button">Resend</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error transition-colors" title="Revoke Invitation" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+</div>
+<!-- Invite item 2 -->
+<div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold">
+              DK
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">David Kowalski</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high font-label-sm text-label-sm text-on-surface font-medium">HVAC Specialist (Vendor)</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">d.kowalski@nordicthermo.co.uk • Maintenance Scope</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Invited 1 day ago</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container transition-colors" type="button">Resend</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error transition-colors" title="Revoke Invitation" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+</div>
+<!-- Invite item 3 -->
+<div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold">
+              SL
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Sophia Larsson</span>
+<span class="px-2 py-0.5 rounded-md bg-tertiary-fixed font-label-sm text-label-sm text-tertiary font-medium">Co-Owner Trustee</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">sophia.l@larssonholdings.se • Unit B-1201</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Invited 2 days ago</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container transition-colors" type="button">Resend</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error transition-colors" title="Revoke Invitation" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+</div>
+<!-- Invite item 4 -->
+<div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold">
+              KA
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Kenji Arakawa</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container font-label-sm text-label-sm text-primary font-medium">Tenant Resident</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">kenji.arakawa@arakawagroup.jp • Unit A-0205</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Invited 3 days ago</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container transition-colors" type="button">Resend</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error transition-colors" title="Revoke Invitation" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Slide-Over / Modal: Invite New Member -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4" id="invite-modal">
+<div class="w-full max-w-lg rounded-2xl bg-surface-container-lowest p-6 shadow-xl flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Invite Workspace Member</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Add new tenant, staff, or trustee to Green Park Towers</span>
+</div>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('invite-modal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-4" onsubmit="event.preventDefault(); alert('Invitation successfully queued!'); document.getElementById('invite-modal').classList.add('hidden');">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface">Full Legal Name</label>
+<input class="h-10 px-3.5 rounded-xl bg-surface text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="e.g. Thomas Lindqvist" required="" type="text">
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface">Email Address</label>
+<input class="h-10 px-3.5 rounded-xl bg-surface text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="thomas@domain.com" required="" type="email">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface">Assigned Role</label>
+<select class="h-10 px-3 rounded-xl bg-surface text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary shadow-xs cursor-pointer">
+<option value="tenant">Tenant Resident</option>
+<option value="owner">Deed Owner</option>
+<option value="trustee">Board Trustee</option>
+<option value="staff">Property Manager</option>
+<option value="admin">Administrator</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface">Unit Assignment</label>
+<input class="h-10 px-3.5 rounded-xl bg-surface text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="e.g. Tower A-0504" type="text">
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface">Access Scope</label>
+<select class="h-10 px-3 rounded-xl bg-surface text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary shadow-xs cursor-pointer">
+<option>Individual Assigned Unit Only</option>
+<option>Tower A Full Access</option>
+<option>Tower B Full Access</option>
+<option>Full Portfolio Management Scope</option>
+</select>
+</div>
+<div class="p-3 rounded-xl bg-surface-container flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" id="mfa-enforce" type="checkbox">
+<label class="font-body-sm text-body-sm text-on-surface" for="mfa-enforce">Enforce hardware 2FA / Passkey on first login</label>
+</div>
+<div class="flex items-center justify-end gap-3 pt-3">
+<button class="px-4 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface" onclick="document.getElementById('invite-modal').classList.add('hidden')" type="button">Cancel</button>
+<button class="px-5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-md hover:opacity-95" type="submit">Send Invitation Link</button>
+</div>
+</form>
+</div>
+</div>
+</div></main>
+</div>
+<!-- Interactive Scripts: Theme Switcher & Checklist -->
+<script>
+    // Theme Switcher Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const iconLight = document.getElementById('theme-icon-light');
+    const iconDark = document.getElementById('theme-icon-dark');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+      }
+    }
+
+    // Default to Light mode or read preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentDark = false;
+    updateThemeUI(currentDark);
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        currentDark = !currentDark;
+        updateThemeUI(currentDark);
+      });
+    }
+
+    // Checklist interactive counters
+    document.querySelectorAll('.task-checkbox').forEach(box => {
+      box.addEventListener('change', () => {
+        const all = document.querySelectorAll('.task-checkbox');
+        const unchecked = Array.from(all).filter(b => !b.checked).length;
+        const badge = document.getElementById('tasks-remaining-badge');
+        if (badge) {
+          badge.textContent = `${unchecked} of ${all.length} tasks incomplete`;
+        }
+      });
+    });
+  </script>
+
+
+</body></html>

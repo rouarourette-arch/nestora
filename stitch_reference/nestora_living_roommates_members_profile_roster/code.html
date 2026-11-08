@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"text-secondary":"#78847C","dark-soft-green":"#354A3D","surface":"#f8faf7","on-secondary":"#ffffff","surface-container-high":"#e7e9e6","warm-ivory":"#F7F6F0","dark-primary":"#8FAF9A","dark-border":"#3B4B41","on-error-container":"#93000a","on-secondary-container":"#4d6b59","inverse-primary":"#a5d0ba","surface-container-lowest":"#ffffff","surface-container":"#eceeeb","primary-fixed-dim":"#a5d0ba","on-tertiary-fixed":"#2b1700","dark-background":"#18231E","tertiary":"#442700","secondary-fixed-dim":"#adceb8","surface-variant":"#e1e3e0","outline-variant":"#c1c8c2","on-primary":"#ffffff","primary-fixed":"#c0ecd5","outline":"#717974","surface-container-highest":"#e1e3e0","on-error":"#ffffff","secondary":"#476553","on-primary-container":"#8fbaa4","on-secondary-fixed-variant":"#304d3c","on-tertiary-container":"#daa770","dark-surface-secondary":"#202E27","background":"#f8faf7","on-background":"#191c1b","surface-bright":"#f8faf7","on-surface-variant":"#414844","tertiary-fixed":"#ffddbb","dark-text-primary":"#F1F4F0","secondary-fixed":"#c9ebd4","pale-green":"#DDEDE2","on-tertiary-fixed-variant":"#633f11","dark-surface-elevated":"#304338","on-primary-fixed":"#002115","surface-tint":"#3e6654","on-secondary-fixed":"#032113","soft-green":"#E7EFE8","dark-sidebar":"#1D2A23","on-tertiary":"#ffffff","text-primary":"#202B25","dark-secondary":"#A9C5AF","tertiary-container":"#5f3c0e","tertiary-fixed-dim":"#f2bc84","secondary-container":"#c9ebd4","surface-container-low":"#f2f4f1","on-surface":"#191c1b","primary":"#093425","inverse-surface":"#2e312f","dark-surface":"#26372E","on-primary-fixed-variant":"#264e3d","dark-text-secondary":"#B1BDB4","primary-container":"#234b3a","surface-dim":"#d8dbd8","surface-secondary":"#ECEFEC","error":"#ba1a1a","border-subtle":"#E3EAE4","error-container":"#ffdad6","inverse-on-surface":"#eff1ee"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","margin":"1rem","gutter-desktop":"1.5rem","margin-tablet":"1.5rem","gutter":"1.25rem","space-lg":"1rem","space-xl":"1.5rem","margin-desktop":"2rem","space-xs":"0.25rem","space-md":"0.75rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"caption-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-medium":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"caption-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"label-md":["14px",{"lineHeight":"18px","fontWeight":"500"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["17px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">cottage</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Nestora Living</span><span class="font-caption-sm text-caption-sm text-text-secondary">Co-Living Household</span></div></div><div class="px-space-lg pb-space-md"><div class="p-space-sm rounded-xl bg-surface-container-lowest flex items-center justify-between shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-soft-green flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[18px]">apartment</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-text-primary truncate font-semibold">Oakwood Co-Living #4B</span><span class="font-caption-sm text-caption-sm text-text-secondary truncate">Household Workspace</span></div></div><span class="material-symbols-outlined text-outline text-[20px]">unfold_more</span></div></div><nav class="flex-1 px-space-md flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="roommates-and-members" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-md text-label-md">Roommates &amp; Members</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="expenses-and-splits" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-label-md text-label-md">Expenses &amp; Splits</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="chores-and-tasks" href="#"><span class="material-symbols-outlined text-[20px]">checklist</span><span class="font-label-md text-label-md">Chores &amp; Tasks</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="shopping-lists" href="#"><span class="material-symbols-outlined text-[20px]">shopping_cart</span><span class="font-label-md text-label-md">Shopping Lists</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bills-and-calendar" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span class="font-label-md text-label-md">Bills &amp; Calendar</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="household-rules-and-settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-md text-label-md">Household Rules &amp; Settings</span></a></nav></div><div class="p-space-lg flex flex-col gap-space-md"><div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] flex flex-col gap-space-xs"><div class="flex items-center justify-between text-caption-sm font-caption-sm"><span class="text-text-secondary flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">cloud</span>Cloud Vault</span><span class="text-primary font-semibold">14.2 / 20 GB</span></div><div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden"><div class="bg-primary h-full rounded-full" style="width: 71%;"></div></div></div><div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-text-primary truncate font-semibold">Sarah Ben Ali</span><span class="font-caption-sm text-caption-sm text-text-secondary truncate">Lead Roommate</span></div></div><button class="text-outline hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><span class="font-label-md text-label-md text-text-secondary">Oakwood Co-Living #4B</span><span class="text-outline-variant font-body-md">/</span><span class="font-headline-sm text-headline-sm text-text-primary">Roommate &amp; Chore Hub</span></div><div class="flex items-center gap-space-lg"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-80 h-10 pl-9 pr-14 rounded-xl bg-surface-container-lowest text-text-primary placeholder:text-text-secondary font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]" placeholder="Search chores, expenses, groceries..." readonly="" type="text"/><span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container text-caption-sm font-caption-sm text-text-secondary">Ctrl+K</span></div><div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-pale-green text-primary font-caption-sm text-caption-sm font-semibold"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>4 Roommates Synced</span></div><div class="flex items-center gap-space-xs"><button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><button class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-error text-on-error font-caption-sm text-[10px] flex items-center justify-center font-bold">2</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 px-space-xl bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full">
+<!-- Interactive Script for Filtering, Tabs & Modals -->
+<script>
+    function switchRosterView(view) {
+      const cards = document.querySelectorAll('.member-card');
+      const tabs = document.querySelectorAll('.roster-tab-btn');
+      tabs.forEach(btn => {
+        btn.classList.remove('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+        btn.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      const activeTab = document.getElementById('tab-' + view);
+      if (activeTab) {
+        activeTab.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        activeTab.classList.add('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+      }
+
+      cards.forEach(card => {
+        if (view === 'all') {
+          card.classList.remove('hidden');
+        } else if (view === 'active') {
+          card.classList.toggle('hidden', card.dataset.status === 'away');
+        } else if (view === 'away') {
+          card.classList.toggle('hidden', card.dataset.status !== 'away');
+        } else if (view === 'pending-dues') {
+          card.classList.toggle('hidden', card.dataset.dues !== 'pending');
+        }
+      });
+    }
+
+    function toggleDetails(id) {
+      const panel = document.getElementById(id);
+      if (panel) {
+        panel.classList.toggle('hidden');
+      }
+    }
+
+    function quickToast(msg) {
+      const toast = document.getElementById('toast-notification');
+      const text = document.getElementById('toast-text');
+      if (toast && text) {
+        text.innerText = msg;
+        toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+        setTimeout(() => {
+          toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        }, 3200);
+      }
+    }
+
+    // Set sidebar active state to Roommates & Members
+    document.addEventListener("DOMContentLoaded", () => {
+      const sidebarLinks = document.querySelectorAll("aside nav a");
+      sidebarLinks.forEach(link => {
+        if (link.getAttribute("data-path") === "roommates-and-members") {
+          link.className = "flex items-center gap-space-md px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary font-semibold shadow-sm";
+        } else {
+          link.className = "flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors";
+        }
+      });
+    });
+  </script>
+<!-- Ambient Toast Notification -->
+<div class="fixed bottom-6 right-8 z-50 flex items-center gap-space-md px-space-lg py-space-md rounded-xl bg-primary text-on-primary shadow-xl opacity-0 translate-y-4 pointer-events-none transition-all duration-300" id="toast-notification">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed">check_circle</span>
+<span class="font-label-lg text-label-lg" id="toast-text">Action completed successfully.</span>
+</div>
+<!-- Page Header & Action Bar -->
+<div class="flex flex-col gap-space-lg pb-space-lg">
+<!-- Breadcrumb & Status Pill -->
+<div class="flex flex-wrap items-center justify-between gap-y-space-sm">
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<span>Oakwood Co-Living #4B</span>
+<span class="text-outline-variant">/</span>
+<span class="font-semibold text-primary">Household &amp; Member Profiles</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>All 4 Leases Active &amp; Verified</span>
+</div>
+</div>
+<!-- Main Title & CTA Ribbon -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Roommates &amp; Member Directory</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Manage co-living agreements, room allocations, lease terms, chore karma, split arrangements, and emergency contacts.
+        </p>
+</div>
+<div class="flex items-center flex-wrap gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-lg py-2.5 rounded-xl bg-surface-container hover:bg-surface-variant text-on-surface font-label-lg text-label-lg transition-colors shadow-sm" onclick="quickToast('Generating official lease roster PDF...')">
+<span class="material-symbols-outlined text-[18px] text-secondary">picture_as_pdf</span>
+<span>Export Household Lease Roster (PDF)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-lg py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-colors shadow-md" onclick="quickToast('Invitation modal triggered for new prospective flatmate.')">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ Invite New Flatmate / Sublet</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Header Metric Summary (4 Cards Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg mb-space-xl">
+<!-- Metric 1: Active Roster -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Active Roster</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary">4 / 4</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Occupants</span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-sm text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>100% Occupancy</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">242 days left</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Metric 2: Household Harmony -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Household Harmony</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">sentiment_very_satisfied</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary">98%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Score</span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-sm text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+<span>14-Day Perfect Streak</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">0 disputes</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 98%;"></div>
+</div>
+</div>
+<!-- Metric 3: Monthly Rent Pool -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Monthly Rent Pool</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary">$2,800</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ month</span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-sm text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+<span>Master Lease Pool</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">100% On-time</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Metric 4: Keycard & Guest Readiness -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Access &amp; Security</span>
+<div class="w-8 h-8 rounded-lg bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary">4 Verified</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Smart Keys</span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-sm text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">contact_emergency</span>
+<span>4 Contacts Stored</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">Lock 92% Batt</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 92%;"></div>
+</div>
+</div>
+</div>
+<!-- Main Grid: Roommate Profiles Dossier (Left 8 Cols) + Household Context & House Rules (Right 4 Cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT 8 COLS: Member Dossiers & Profiles -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Filter Bar & Segmented Pills -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto">
+<button class="roster-tab-btn px-space-md py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-sm" id="tab-all" onclick="switchRosterView('all')">
+            All Roommates (4)
+          </button>
+<button class="roster-tab-btn px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md transition-all" id="tab-active" onclick="switchRosterView('active')">
+            Currently In-House (3)
+          </button>
+<button class="roster-tab-btn px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md transition-all" id="tab-away" onclick="switchRosterView('away')">
+            Away / Traveling (1)
+          </button>
+<button class="roster-tab-btn px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md transition-all" id="tab-pending-dues" onclick="switchRosterView('pending-dues')">
+            Pending Dues (2)
+          </button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md px-space-sm py-1">
+<span class="material-symbols-outlined text-[16px]">sort</span>
+<span>Sorted by Room #</span>
+</div>
+</div>
+<!-- MEMBER CARD 1: Sarah Ben Ali (You - Lead Roommate & Primary Leaseholder) -->
+<div class="member-card flex flex-col rounded-xl bg-surface-container p-space-lg shadow-sm hover:shadow-md transition-shadow relative" data-dues="none" data-status="active">
+<!-- Floating Accent Indicator -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<!-- Member Avatar & Basic Identification -->
+<div class="flex items-start gap-space-md">
+<div class="relative">
+<div class="w-16 h-16 rounded-2xl bg-primary text-on-primary flex items-center justify-center font-headline-md text-headline-md font-bold shadow-md">
+                SB
+              </div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-secondary-container flex items-center justify-center text-primary shadow">
+<span class="material-symbols-outlined text-[13px] font-bold">star</span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Sarah Ben Ali</h2>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">You (Lead Tenant)</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">Primary Signer</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-medium mt-0.5">
+                Room #1 — Master Suite with Private Bath &amp; Balcony
+              </span>
+<div class="flex items-center gap-space-sm mt-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">badge</span> Leaseholder ID: OAK-4B-01</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">wifi</span> Hybrid WFH (Mon / Thu)</span>
+</div>
+</div>
+</div>
+<!-- Karma Score & Balance Pill -->
+<div class="flex md:flex-col items-end justify-between md:justify-start gap-space-xs">
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">eco</span>
+<span>38 Karma Pts (#2)</span>
+</div>
+<div class="flex items-center gap-1 px-space-sm py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold">
+<span>+$145.50 Net Balance</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Owed to you by roommates</span>
+</div>
+</div>
+<!-- 3-Column Dossier Breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-lg p-space-md rounded-xl bg-surface-container-low">
+<!-- Sub-block A: Lease & Financials -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Financial &amp; Lease Terms</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">$750.00 <span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/ mo (26.8%)</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deposit: $1,000.00 held in Escrow</p>
+<p class="font-label-sm text-label-sm text-secondary font-medium">Term: Sep 1, 2024 – Aug 31, 2025</p>
+<div class="flex items-center gap-1 text-on-surface font-label-sm text-label-sm mt-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">credit_card</span>
+<span>Chase Autopay Active (1st of Mo)</span>
+</div>
+</div>
+<!-- Sub-block B: Routine & Responsibilities -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Primary Duty &amp; Habits</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">cleaning_services</span>
+<span>Kitchen Deep Clean</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Counters, stove tops, &amp; sink sanitization</p>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>98% On-time Chore Completion</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pets: Dog friendly • 0 current guests</span>
+</div>
+<!-- Sub-block C: Emergency Contact & Keys -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Emergency &amp; Security</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Leila Ben Ali (Sister)</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">(206) 555-0142</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Keycard: Schlage Smart Code #01</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Assigned Spot: Garage Bay #1</p>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mt-space-md pt-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>Master Lease Guarantor Verified</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Opening Sarah\\'s Lease Annex document...')">
+              View Lease Annex
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Keycard code modal opened.')">
+              Manage Keycard
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm" onclick="quickToast('Editing Lead Profile details...')">
+              Edit My Profile
+            </button>
+</div>
+</div>
+</div>
+<!-- MEMBER CARD 2: Marcus Vance -->
+<div class="member-card flex flex-col rounded-xl bg-surface-container p-space-lg shadow-sm hover:shadow-md transition-shadow relative" data-dues="pending" data-status="active">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container text-primary flex items-center justify-center font-headline-md text-headline-md font-bold shadow-sm">
+              MV
+            </div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Marcus Vance</h2>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Co-Tenant</span>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span>🏆 Oct Karma Champion</span>
+</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-medium mt-0.5">
+                Room #2 — East Garden Room (Shared Bath A)
+              </span>
+<div class="flex items-center gap-space-sm mt-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">directions_car</span> Spot #1 (Driveway) • WA 8XYZ23</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">alarm</span> Early Riser (6:00 AM)</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-end justify-between md:justify-start gap-space-xs">
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-secondary-container text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">military_tech</span>
+<span>42 Karma Pts (#1)</span>
+</div>
+<div class="flex items-center gap-1 px-space-sm py-0.5 rounded-md bg-tertiary-container text-tertiary font-label-md text-label-md font-bold">
+<span>-$42.00 to Sarah</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Auto-settles Oct 31</span>
+</div>
+</div>
+<!-- 3-Column Dossier Breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-lg p-space-md rounded-xl bg-surface-container-low">
+<!-- Col 1 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Lease Details</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">$700.00 <span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/ mo (25.0%)</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deposit: $900.00 in Escrow</p>
+<p class="font-label-sm text-label-sm text-secondary font-medium">Lease End: Aug 31, 2025</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Split Method: Fixed 25% share</span>
+</div>
+<!-- Col 2 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Assigned Duty &amp; Habits</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">recycling</span>
+<span>Recycling &amp; Trash Bins</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Curbside every Tuesday evening</p>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+<span>100% On-time (Zero penalties)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dietary: Strict Vegetarian • Non-smoker</span>
+</div>
+<!-- Col 3 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Emergency &amp; Vehicle</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">David Vance (Father)</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">(206) 555-0189</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Vehicle: 2021 Subaru Outback (Green)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Keycard: Schlage Smart Code #02</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm mt-space-md pt-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Covering Liam's trash chores this weekend (+1.5 karma)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Showing Marcus split transaction history...')">
+              View Splits
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Ping dispatched to Marcus.')">
+              Ping Member
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Opening room reassignment protocol...')">
+              Reassign Room
+            </button>
+</div>
+</div>
+</div>
+<!-- MEMBER CARD 3: Chloe Zhao -->
+<div class="member-card flex flex-col rounded-xl bg-surface-container p-space-lg shadow-sm hover:shadow-md transition-shadow relative" data-dues="pending" data-status="active">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-container text-tertiary flex items-center justify-center font-headline-md text-headline-md font-bold shadow-sm">
+              CZ
+            </div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Chloe Zhao</h2>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Co-Tenant</span>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-container text-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">person_pin_circle</span>
+<span>Guest Visiting Nov 7–10</span>
+</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-medium mt-0.5">
+                Room #3 — Corner Loft Room (Shared Bath A)
+              </span>
+<div class="flex items-center gap-space-sm mt-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">palette</span> Graphic Designer</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">bedtime</span> Night Owl</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">potted_plant</span> Living Room Botanist</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-end justify-between md:justify-start gap-space-xs">
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">eco</span>
+<span>32 Karma Pts (#3)</span>
+</div>
+<div class="flex items-center gap-1 px-space-sm py-0.5 rounded-md bg-tertiary-container text-tertiary font-label-md text-label-md font-bold">
+<span>-$103.50 owed to Sarah</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Venmo: @chloe-zhao</span>
+</div>
+</div>
+<!-- 3-Column Dossier Breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-lg p-space-md rounded-xl bg-surface-container-low">
+<!-- Col 1 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Financial &amp; Lease</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">$700.00 <span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/ mo (25.0%)</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deposit: $900.00 in Escrow</p>
+<p class="font-label-sm text-label-sm text-secondary font-medium">Lease End: Aug 31, 2025</p>
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-semibold mt-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Grocery Split Overdue (4 days)</span>
+</div>
+</div>
+<!-- Col 2 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Primary Chore &amp; Guest Notice</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">vacuum</span>
+<span>Living Room Vacuum &amp; Dust</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Carpets, credenza, &amp; common sofa</p>
+<div class="p-space-xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm mt-1">
+<span class="font-bold text-primary">Guest pass:</span> Sister Maya Zhao (Approved 4/4 flatmates)
+            </div>
+</div>
+<!-- Col 3 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Emergency &amp; Credentials</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Kevin Zhao (Brother)</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">(415) 555-0199</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Keycard: Schlage Smart Code #03</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Guest Parking: Spot #2 reserved Nov 7–10</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm mt-space-md pt-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>House plant agreement active (Responsible for foyer ficus)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Guest pass details for Maya Zhao displayed.')">
+              View Guest Pass
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-tertiary text-on-tertiary hover:opacity-90 font-label-md text-label-md font-semibold transition-colors shadow-sm" onclick="quickToast('Payment nudge ping sent via WhatsApp to Chloe.')">
+              Send WhatsApp Nudge ($103.50)
+            </button>
+</div>
+</div>
+</div>
+<!-- MEMBER CARD 4: Liam O'Connor (Away Mode) -->
+<div class="member-card flex flex-col rounded-xl bg-surface-container p-space-lg shadow-sm hover:shadow-md transition-shadow relative" data-dues="none" data-status="away">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high text-on-surface-variant flex items-center justify-center font-headline-md text-headline-md font-bold shadow-sm">
+              LO
+            </div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Liam O'Connor</h2>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Co-Tenant</span>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-container text-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span>Away in Portland (Oct 31 – Nov 3)</span>
+</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-medium mt-0.5">
+                Room #4 — North Garden Room (Shared Bath B)
+              </span>
+<div class="flex items-center gap-space-sm mt-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">wifi</span> CenturyLink Fiber Lead Payer ($80/mo)</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">flight_takeoff</span> Expected Return: Sunday 8 PM</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-end justify-between md:justify-start gap-space-xs">
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">eco</span>
+<span>28 Karma Pts (#4)</span>
+</div>
+<div class="flex items-center gap-1 px-space-sm py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold">
+<span>$0.00 Fully Settled</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">All accounts balanced</span>
+</div>
+</div>
+<!-- 3-Column Dossier Breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-lg p-space-md rounded-xl bg-surface-container-low">
+<!-- Col 1 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Financial &amp; Utilities</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">$650.00 <span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/ mo (23.2%)</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deposit: $850.00 in Escrow</p>
+<p class="font-label-sm text-label-sm text-secondary font-medium">Gigabit Fiber: $80 reimbursed</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lease End: Aug 31, 2025</span>
+</div>
+<!-- Col 2 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Duty Status (Rebalanced)</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">bathtub</span>
+<span>Bathroom Deep Clean</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Paused during away travel period</p>
+<div class="p-space-xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm mt-1">
+<span class="font-bold text-primary">Delegation:</span> Transferred to Marcus Vance (+1.5 Karma bonus credited)
+            </div>
+</div>
+<!-- Col 3 -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Emergency &amp; Key Access</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Maeve O'Connor (Mother)</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">(503) 555-0177</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Keycard: Schlage Smart Code #04</p>
+<p class="font-label-sm text-label-sm text-secondary font-medium">Away status auto-expires Nov 3</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm mt-space-md pt-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">flight</span>
+<span>Travel departure logged via Nestora Companion Mobile App</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Itinerary details: Portland, OR — Return flight AS 244 Nov 3.')">
+              View Itinerary
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Opening Liam rent split calculator...')">
+              Adjust Rent Split
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors" onclick="quickToast('Opening direct message with Liam...')">
+              Message Liam
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT 4 COLS: Companion Rules, Shared Lock Controls & Landlord Panel -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- PANEL 1: Shared Keycard & Smart Lock Access -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">lock</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Smart Lock &amp; Access</h3>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">92% Battery</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Hardware: Schlage Encode Plus (Firmware v4.18) • Master PIN restricted to Sarah Ben Ali.
+        </p>
+<!-- Access Roster List -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">vpn_key</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Front Entry Code #01</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sarah Ben Ali (Master)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">•••• 8419</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">vpn_key</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Front Entry Code #02</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Marcus Vance</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">•••• 3091</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">vpn_key</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Front Entry Code #03</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chloe Zhao</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">•••• 7724</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">vpn_key</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Front Entry Code #04</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Liam O'Connor</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">•••• 1988</span>
+</div>
+<!-- Temporary Guest Pass -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-tertiary-container">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">key_off</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-tertiary font-bold">Guest Pass (Maya Zhao)</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Valid Nov 7–10, 2024</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-tertiary font-bold">Auto-Gen</span>
+</div>
+</div>
+<button class="mt-space-md w-full py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1" onclick="quickToast('Access credentials dispatched via encrypted SMS.')">
+<span class="material-symbols-outlined text-[16px]">send_to_mobile</span>
+<span>Resend Codes to All Phones</span>
+</button>
+</div>
+<!-- PANEL 2: Household Agreement & Compatibility Matrix -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">handshake</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">House Rules &amp; Matrix</h3>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold">4/4 Signed</span>
+</div>
+<div class="flex flex-col gap-space-sm mt-space-sm">
+<!-- Item 1: Quiet Hours -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<div class="flex items-center justify-between font-label-md text-label-md font-semibold text-on-surface">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">bedtime</span> Quiet Hours</span>
+<span class="text-secondary font-bold">10:00 PM – 7:00 AM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Extended to 11:30 PM on Fri–Sat evenings.</span>
+</div>
+<!-- Item 2: Guest Overnight Limits -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<div class="flex items-center justify-between font-label-md text-label-md font-semibold text-on-surface">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">group_add</span> Guest Limits</span>
+<span class="text-secondary font-bold">Max 3 Consecutive Nights</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Requires 48h group WhatsApp notice prior to arrival.</span>
+</div>
+<!-- Item 3: Thermostat Policy -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<div class="flex items-center justify-between font-label-md text-label-md font-semibold text-on-surface">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">thermostat</span> Ecobee Thermostat</span>
+<span class="text-secondary font-bold">68°F Day / 65°F Night</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Eco-mode schedules auto-lock during peak utility hours.</span>
+</div>
+<!-- Item 4: Household Kitty / Staples Fund -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<div class="flex items-center justify-between font-label-md text-label-md font-semibold text-on-surface">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">savings</span> Household Kitty Fund</span>
+<span class="text-secondary font-bold">$105.00 / room / mo</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$420 total pool covers paper towels, olive oil, coffee &amp; detergent.</span>
+</div>
+</div>
+</div>
+<!-- PANEL 3: Sublet Policy & Lease Transfer Rules -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center gap-space-xs pb-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Sublet &amp; Transfer Policy</h3>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">calendar_clock</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">30-Day Mandatory Notice</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Departing members must formally declare intent via Nestora portal 30 days ahead.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">how_to_vote</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Roommate Supermajority</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Any new subtenant must interview and earn at least 3 of 4 flatmate approvals.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">receipt_long</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">$75 Landlord Transfer Fee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Standard background &amp; credit verification processing handled by Oakwood Corp.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 4: Property Manager & Landlord Contacts -->
+<div class="flex flex-col p-space-lg rounded-xl bg-primary text-on-primary shadow-md">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-semibold">Property Management</span>
+<span class="px-space-sm py-0.5 rounded bg-primary-container text-primary-fixed font-label-sm text-label-sm font-bold">24/7 Desk</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-primary">Oakwood Management Corp</h4>
+<p class="font-body-sm text-body-sm text-inverse-on-surface mt-1">Property Manager: Eleanor Hayes</p>
+<div class="flex flex-col gap-space-xs mt-space-md">
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-inverse-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">mail</span>
+<span>office@oakwoodliving.com</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-inverse-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">call</span>
+<span>24/7 Emergency: (206) 555-0900</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-inverse-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">location_city</span>
+<span>Building Suite #100, Seattle WA</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm mt-space-lg">
+<button class="py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-variant transition-colors flex items-center justify-center gap-1" onclick="quickToast('Opening emergency maintenance ticket...')">
+<span class="material-symbols-outlined text-[16px] text-error">build</span>
+<span>Maintenance</span>
+</button></div>
+<button class="py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-colors flex items-center justify-center gap-1" onclick="quickToast('Initiating call to Eleanor Hayes...')">
+<span class="material-symbols-outlined text-[16px]">phone_in_talk</span>
+<span>Call Desk</span>
+</button></div>
+</div>
+</div>
+</div>
+</main></div>
+<!-- Household Room & Floorplan Allocation Diagram -->
+<div class="mt-space-xl p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Oakwood Unit #4B — Architectural Allocation &amp; SqFt Breakdown</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total Suite Footprint: 1,840 sq ft • 4 Private Rooms, 2.5 Baths, Living, Kitchen &amp; Terrace</p>
+</div>
+<div class="flex items-center gap-space-md text-on-surface font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-primary"></span> Occupied (4)</span>
+<span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-surface-container-high"></span> Vacant (0)</span>
+</div>
+</div>
+<!-- Visual Interactive Allocation Bar -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm pt-space-xs">
+<!-- Unit 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm font-bold text-primary">Room #1 (Master)</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-primary font-label-sm text-label-sm font-bold">26.8%</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">420 sq ft</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Sarah Ben Ali</span>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs font-label-sm text-label-sm text-secondary font-semibold">
+<span>Private En-suite</span>
+<span>$750/mo</span>
+</div>
+</div>
+<!-- Unit 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm font-bold text-primary">Room #2 (East)</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-primary font-label-sm text-label-sm font-bold">25.0%</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">360 sq ft</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Marcus Vance</span>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs font-label-sm text-label-sm text-secondary font-semibold">
+<span>Garden View</span>
+<span>$700/mo</span>
+</div>
+</div>
+<!-- Unit 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm font-bold text-primary">Room #3 (Loft)</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-primary font-label-sm text-label-sm font-bold">25.0%</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">350 sq ft</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Chloe Zhao</span>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs font-label-sm text-label-sm text-secondary font-semibold">
+<span>Corner Skylight</span>
+<span>$700/mo</span>
+</div>
+</div>
+<!-- Unit 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm font-bold text-primary">Room #4 (North)</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-primary font-label-sm text-label-sm font-bold">23.2%</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">330 sq ft</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Liam O'Connor</span>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs font-label-sm text-label-sm text-secondary font-semibold">
+<span>Patio Access</span>
+<span>$650/mo</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>

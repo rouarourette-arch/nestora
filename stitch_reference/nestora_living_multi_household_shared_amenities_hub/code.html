@@ -1,0 +1,583 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"text-secondary":"#78847C","dark-soft-green":"#354A3D","surface":"#f8faf7","on-secondary":"#ffffff","surface-container-high":"#e7e9e6","warm-ivory":"#F7F6F0","dark-primary":"#8FAF9A","dark-border":"#3B4B41","on-error-container":"#93000a","on-secondary-container":"#4d6b59","inverse-primary":"#a5d0ba","surface-container-lowest":"#ffffff","surface-container":"#eceeeb","primary-fixed-dim":"#a5d0ba","on-tertiary-fixed":"#2b1700","dark-background":"#18231E","tertiary":"#442700","secondary-fixed-dim":"#adceb8","surface-variant":"#e1e3e0","outline-variant":"#c1c8c2","on-primary":"#ffffff","primary-fixed":"#c0ecd5","outline":"#717974","surface-container-highest":"#e1e3e0","on-error":"#ffffff","secondary":"#476553","on-primary-container":"#8fbaa4","on-secondary-fixed-variant":"#304d3c","on-tertiary-container":"#daa770","dark-surface-secondary":"#202E27","background":"#f8faf7","on-background":"#191c1b","surface-bright":"#f8faf7","on-surface-variant":"#414844","tertiary-fixed":"#ffddbb","dark-text-primary":"#F1F4F0","secondary-fixed":"#c9ebd4","pale-green":"#DDEDE2","on-tertiary-fixed-variant":"#633f11","dark-surface-elevated":"#304338","on-primary-fixed":"#002115","surface-tint":"#3e6654","on-secondary-fixed":"#032113","soft-green":"#E7EFE8","dark-sidebar":"#1D2A23","on-tertiary":"#ffffff","text-primary":"#202B25","dark-secondary":"#A9C5AF","tertiary-container":"#5f3c0e","tertiary-fixed-dim":"#f2bc84","secondary-container":"#c9ebd4","surface-container-low":"#f2f4f1","on-surface":"#191c1b","primary":"#093425","inverse-surface":"#2e312f","dark-surface":"#26372E","on-primary-fixed-variant":"#264e3d","dark-text-secondary":"#B1BDB4","primary-container":"#234b3a","surface-dim":"#d8dbd8","surface-secondary":"#ECEFEC","error":"#ba1a1a","border-subtle":"#E3EAE4","error-container":"#ffdad6","inverse-on-surface":"#eff1ee"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","margin":"1rem","gutter-desktop":"1.5rem","margin-tablet":"1.5rem","gutter":"1.25rem","space-lg":"1rem","space-xl":"1.5rem","margin-desktop":"2rem","space-xs":"0.25rem","space-md":"0.75rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"caption-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-medium":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"caption-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"label-md":["14px",{"lineHeight":"18px","fontWeight":"500"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["17px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">cottage</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Nestora Living</span><span class="font-caption-sm text-caption-sm text-text-secondary">Co-Living Household</span></div></div><div class="px-space-lg pb-space-md"><div class="p-space-sm rounded-xl bg-surface-container-lowest flex items-center justify-between shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-soft-green flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[18px]">apartment</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-text-primary truncate font-semibold">Oakwood Co-Living #4B</span><span class="font-caption-sm text-caption-sm text-text-secondary truncate">Household Workspace</span></div></div><span class="material-symbols-outlined text-outline text-[20px]">unfold_more</span></div></div><nav class="flex-1 px-space-md flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors bg-primary-container font-semibold" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="roommates-and-members" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-md text-label-md">Roommates &amp; Members</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="expenses-and-splits" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-label-md text-label-md">Expenses &amp; Splits</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="chores-and-tasks" href="#"><span class="material-symbols-outlined text-[20px]">checklist</span><span class="font-label-md text-label-md">Chores &amp; Tasks</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="shopping-lists" href="#"><span class="material-symbols-outlined text-[20px]">shopping_cart</span><span class="font-label-md text-label-md">Shopping Lists</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bills-and-calendar" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span class="font-label-md text-label-md">Bills &amp; Calendar</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="household-rules-and-settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-md text-label-md">Household Rules &amp; Settings</span></a></nav></div><div class="p-space-lg flex flex-col gap-space-md"><div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] flex flex-col gap-space-xs"><div class="flex items-center justify-between text-caption-sm font-caption-sm"><span class="text-text-secondary flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">cloud</span>Cloud Vault</span><span class="text-primary font-semibold">14.2 / 20 GB</span></div><div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden"><div class="bg-primary h-full rounded-full" style="width: 71%;"></div></div></div><div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-text-primary truncate font-semibold">Sarah Ben Ali</span><span class="font-caption-sm text-caption-sm text-text-secondary truncate">Lead Roommate</span></div></div><button class="text-outline hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><span class="font-label-md text-label-md text-text-secondary">Oakwood Co-Living #4B</span><span class="text-outline-variant font-body-md">/</span><span class="font-headline-sm text-headline-sm text-text-primary">Household Overview &amp; Shared Activities</span></div><div class="flex items-center gap-space-lg"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-80 h-10 pl-9 pr-14 rounded-xl bg-surface-container-lowest text-text-primary placeholder:text-text-secondary font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]" placeholder="Search chores, expenses, groceries..." readonly="" type="text"><span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container text-caption-sm font-caption-sm text-text-secondary">Ctrl+K</span></div><div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-pale-green text-primary font-caption-sm text-caption-sm font-semibold"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="">4 Roommates Synced</span></div><div class="flex items-center gap-space-xs"><button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><button class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-error text-on-error font-caption-sm text-[10px] flex items-center justify-center font-bold">2</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 px-space-xl bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full"><!-- Top Context Header & Actions -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg mb-space-xl">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="">Nestora Living</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="">Oakwood Co-Living #4B</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Household Overview</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md mt-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Oakwood #4B Household Hub</h1>
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-primary-container text-primary font-label-md text-label-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="">Private Workspace • 4 Roommates</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">Dedicated internal household dashboard for Oakwood #4B. Synchronize chore rotations, collective grocery runs, shared utility splits, and internal notes.</p>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-space-md py-space-sm rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-space-xs transition-colors shadow-sm" onclick="document.getElementById('household-announcement-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+<span class="">Post Note</span>
+</button>
+<button class="px-space-md py-space-sm rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-space-xs transition-colors shadow-sm" onclick="document.getElementById('add-expense-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span class="">Split Expense</span>
+</button>
+<button class="px-space-lg py-space-sm rounded-xl bg-primary hover:opacity-95 text-on-primary font-label-lg text-label-lg flex items-center gap-space-xs shadow-md transition-all" onclick="document.getElementById('add-chore-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span class="">Add Chore / Item</span>
+</button>
+</div>
+</div>
+
+<!-- Household KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
+<!-- KPI 1: Active Chores -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Chores This Week</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-space-xs">6 / 8 Done</h2>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">checklist</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
+<span class="">75% completed for current rotation</span>
+</div>
+</div>
+
+<!-- KPI 2: Shared Expenses -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Shared Expenses</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<h2 class="font-headline-lg text-headline-lg text-primary">$428.50</h2>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">November Balance</span>
+<span class="text-primary font-semibold">All Settled</span>
+</div>
+</div>
+
+<!-- KPI 3: Grocery Needs -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Shopping Basket</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-space-xs flex items-center gap-space-xs">
+<span class="">5 Needed</span>
+<span class="text-on-surface-variant font-normal text-body-sm">•</span>
+<span class="">2 High Priority</span>
+</h2>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">shopping_cart</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+Last run by Chloe (Yesterday)
+</span>
+</div>
+</div>
+
+<!-- KPI 4: Upcoming Utilities -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Upcoming Bill</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Fiber Wifi</h2>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[22px]">wifi</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+<span class="">$84.00 due Nov 22</span>
+<span class="text-primary font-semibold">$21 / person</span>
+</div>
+</div>
+</div>
+
+<!-- Main Grid: Household Operations (8 cols) & Members + Notices (4 cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left Column: Chores, Groceries & Bills -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+
+<!-- Section 1: Household Chore Tracker -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Weekly Household Chores</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Rotation schedule for Oakwood #4B common areas.</p>
+</div>
+<span class="px-space-md py-space-xs rounded-full bg-primary-container text-primary font-label-md text-label-md font-semibold">Cycle: Nov 11 - Nov 17</span>
+</div>
+
+<div class="flex flex-col gap-space-sm">
+<!-- Chore Item 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface line-through opacity-70">Kitchen Deep Clean &amp; Compost</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Assigned to Sarah Ben Ali • Completed yesterday</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded text-[11px] font-label-sm font-bold bg-primary-container text-primary uppercase">Done</span>
+</div>
+
+<!-- Chore Item 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-xl bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">cleaning_services</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Living Room Vacuum &amp; Surface Dusting</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Assigned to Chloe Zhao • Due Today, 20:00</span>
+</div>
+</div>
+<button class="px-space-md py-1 rounded-lg bg-primary hover:opacity-95 text-on-primary font-label-sm text-label-sm shadow-xs transition-colors">Mark Done</button>
+</div>
+
+<!-- Chore Item 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-xl bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Trash &amp; Recycling Sort to Chute</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Assigned to Mateo Ruiz • Due Thursday</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-on-surface-variant uppercase">Upcoming</span>
+</div>
+
+<!-- Chore Item 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-xl bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">sanitizer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Shared Bathroom Towels &amp; Sanitization</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Assigned to Arjun Patel • Due Saturday</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-on-surface-variant uppercase">Upcoming</span>
+</div>
+</div>
+</div>
+
+<!-- Section 2: Shared Shopping & Supplies List -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Shopping &amp; Household Restock</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Consolidated items needed for suite #4B.</p>
+</div>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline" onclick="document.getElementById('add-chore-modal').classList.remove('hidden')">+ Add Item</button>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-primary uppercase">Urgent</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Added by Chloe</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Oat Milk &amp; Espresso Beans</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Barista edition, 2 cartons &amp; medium roast bag</span>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Est. ~$16</span>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary text-label-sm font-label-sm transition-all">I'll Pick Up</button>
+</div>
+</div>
+
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-primary uppercase">Household</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Added by Sarah</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Dishwasher Pods &amp; Sponges</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Running low, pack of 40 pods</span>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Est. ~$14</span>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary text-label-sm font-label-sm transition-all">I'll Pick Up</button>
+</div>
+</div>
+
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-on-surface-variant uppercase">Pantry</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Added by Arjun</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Extra Virgin Olive Oil &amp; Sea Salt</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Large cooking bottle for kitchen spice rack</span>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Est. ~$18</span>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary text-label-sm font-label-sm transition-all">I'll Pick Up</button>
+</div>
+</div>
+
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-on-surface-variant uppercase">Paper Goods</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Added by Mateo</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Recycled Paper Towels (6-pack)</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Storage in bottom pantry cabinet</span>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Est. ~$12</span>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary text-label-sm font-label-sm transition-all">I'll Pick Up</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Section 3: Upcoming Household Bills & Expense Splits -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Shared Bills &amp; Active Splits</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automated 4-way splits for Oakwood #4B utility accounts.</p>
+</div>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors" onclick="document.getElementById('add-expense-modal').classList.remove('hidden')">New Split</button>
+</div>
+
+<div class="overflow-x-auto">
+<div class="min-w-[600px] flex flex-col gap-space-xs">
+<div class="grid grid-cols-12 text-left font-label-sm text-label-sm text-on-surface-variant border-b border-surface-container-high pb-space-xs">
+<div class="col-span-4 font-semibold text-on-surface">Expense Name</div>
+<div class="col-span-2 font-semibold text-on-surface">Total Amount</div>
+<div class="col-span-3 font-semibold text-on-surface">Per Roommate</div>
+<div class="col-span-3 font-semibold text-on-surface text-right">Due / Status</div>
+</div>
+
+<div class="grid grid-cols-12 items-center text-body-sm font-body-sm py-space-sm border-b border-surface-container-high">
+<div class="col-span-4 flex items-center gap-space-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">wifi</span>
+<span class="">High-Speed Gigabit Fiber</span>
+</div>
+<div class="col-span-2 font-semibold text-on-surface">$84.00</div>
+<div class="col-span-3 text-on-surface-variant">$21.00 / 4 members</div>
+<div class="col-span-3 text-right">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-primary-container text-primary">Due in 8 days</span>
+</div>
+</div>
+
+<div class="grid grid-cols-12 items-center text-body-sm font-body-sm py-space-sm border-b border-surface-container-high">
+<div class="col-span-4 flex items-center gap-space-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">electric_bolt</span>
+<span class="">Electricity &amp; Municipal Power</span>
+</div>
+<div class="col-span-2 font-semibold text-on-surface">$148.20</div>
+<div class="col-span-3 text-on-surface-variant">$37.05 / 4 members</div>
+<div class="col-span-3 text-right">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-on-surface">Paid (Sarah B.)</span>
+</div>
+</div>
+
+<div class="grid grid-cols-12 items-center text-body-sm font-body-sm py-space-sm">
+<div class="col-span-4 flex items-center gap-space-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">local_grocery_store</span>
+<span class="">Trader Joe's Shared Pantry Run</span>
+</div>
+<div class="col-span-2 font-semibold text-on-surface">$92.40</div>
+<div class="col-span-3 text-on-surface-variant">$23.10 / 4 members</div>
+<div class="col-span-3 text-right">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-on-surface">Settled</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Right Column: Roommates List & Household Board -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+
+<!-- Suite Roommates List -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">group</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Roommates (4/4)</h3>
+</div>
+<span class="px-space-sm py-space-xs rounded-full bg-primary-container text-primary font-label-sm text-label-sm font-bold">Synced</span>
+</div>
+
+<div class="flex flex-col gap-space-sm">
+<!-- Roommate 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold text-body-sm">SB</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Sarah Ben Ali</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant truncate">Lead Roommate • Room #1</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">Home</span>
+</div>
+
+<!-- Roommate 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-semibold text-body-sm">CZ</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Chloe Zhao</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant truncate">Room #2 • Work From Home</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">Home</span>
+</div>
+
+<!-- Roommate 3 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-semibold text-body-sm">MR</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Mateo Ruiz</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant truncate">Room #3 • In Office</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Out</span>
+</div>
+
+<!-- Roommate 4 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-semibold text-body-sm">AP</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Arjun Patel</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant truncate">Room #4 • Traveling</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Away</span>
+</div>
+</div>
+</div>
+
+<!-- Household Announcements / Internal Board -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">campaign</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Household Board</h3>
+</div>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline" onclick="document.getElementById('household-announcement-modal').classList.remove('hidden')">+ Post</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Private notices, guest visits, and updates inside Suite 4B.</p>
+
+<div class="flex flex-col gap-space-sm">
+<!-- Note 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-primary-container text-primary uppercase">Guest Notice</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chloe • Friday</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Sister visiting for weekend</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">My sister Lily is staying in my room Fri night to Sun afternoon. We'll be out sightseeing most of Saturday!</p>
+</div>
+
+<!-- Note 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-label-sm font-bold bg-surface-container-high text-on-surface uppercase">Maintenance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sarah • Today</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">AC Filter cleaned</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Replaced the central intake filter in hallway ceiling this morning. Airflow should be quieter now.</p>
+</div>
+</div>
+</div>
+
+<!-- Household Agreements Quick Reference -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Suite 4B Guidelines</h3>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm text-body-sm font-body-sm text-on-surface">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span class="">Quiet hours in suite: 22:30 - 07:30 Sunday through Thursday.</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span class="">Run dishwasher once full, empty in mornings before leaving.</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span class="">Log all shared purchases over $10 immediately in Splits.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Household Announcement Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-space-md hidden" id="household-announcement-modal">
+<div class="w-full max-w-lg rounded-xl bg-surface-container p-space-xl shadow-xl flex flex-col gap-space-lg animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Post Household Note</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Shared with Sarah, Chloe, Mateo, and Arjun in Suite #4B.</p>
+</div>
+<button class="p-1 rounded-lg hover:bg-surface-container-high text-on-surface" onclick="document.getElementById('household-announcement-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Note Category</label>
+<select class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs">
+<option>Guest Notice</option>
+<option>General Note</option>
+<option>Pantry / Supplies</option>
+<option>Quiet Hours Request</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Title</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="e.g. Parents stopping by Saturday noon" type="text">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Details</label>
+<textarea class="w-full p-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="Add any specifics for roommates..." rows="3"></textarea>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-lg text-label-lg transition-colors" onclick="document.getElementById('household-announcement-modal').classList.add('hidden')">
+Cancel
+</button>
+<button class="px-space-xl py-space-sm rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity" onclick="alert('Note posted to Suite 4B Household board.'); document.getElementById('household-announcement-modal').classList.add('hidden')">
+Post Note
+</button>
+</div>
+</div>
+</div>
+
+<!-- Add Chore / Item Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-space-md hidden" id="add-chore-modal">
+<div class="w-full max-w-lg rounded-xl bg-surface-container p-space-xl shadow-xl flex flex-col gap-space-lg animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Add Chore or Shopping Item</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Assign to a roommate or add to Suite 4B shopping list.</p>
+</div>
+<button class="p-1 rounded-lg hover:bg-surface-container-high text-on-surface" onclick="document.getElementById('add-chore-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Type</label>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-2 rounded-lg bg-primary-container text-primary font-label-md text-label-md font-semibold text-center">Household Chore</button>
+<button class="py-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-md text-label-md text-center">Shopping Item</button>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Item / Task Title</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="e.g. Olive Oil or Clean Microwave" type="text">
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Assignee</label>
+<select class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs">
+<option>Sarah Ben Ali</option>
+<option>Chloe Zhao</option>
+<option>Mateo Ruiz</option>
+<option>Arjun Patel</option>
+<option>Unassigned (Anyone)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Due Date</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" type="date" value="2023-11-17">
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-lg text-label-lg transition-colors" onclick="document.getElementById('add-chore-modal').classList.add('hidden')">
+Cancel
+</button>
+<button class="px-space-xl py-space-sm rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity" onclick="alert('Item added successfully.'); document.getElementById('add-chore-modal').classList.add('hidden')">
+Save
+</button>
+</div>
+</div>
+</div>
+
+<!-- Add Expense Split Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-space-md hidden" id="add-expense-modal">
+<div class="w-full max-w-lg rounded-xl bg-surface-container p-space-xl shadow-xl flex flex-col gap-space-lg animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Split New Expense</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calculate and split evenly among Oakwood #4B roommates.</p>
+</div>
+<button class="p-1 rounded-lg hover:bg-surface-container-high text-on-surface" onclick="document.getElementById('add-expense-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Expense Description</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="e.g. WiFi Bill or Grocery Restock" type="text">
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Total Amount ($)</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="0.00" type="number" step="0.01">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Paid By</label>
+<select class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xs">
+<option>Sarah Ben Ali</option>
+<option>Chloe Zhao</option>
+<option>Mateo Ruiz</option>
+<option>Arjun Patel</option>
+</select>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low text-caption-sm text-on-surface-variant">
+Split evenly 4-ways across Sarah, Chloe, Mateo, and Arjun.
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-lg text-label-lg transition-colors" onclick="document.getElementById('add-expense-modal').classList.add('hidden')">
+Cancel
+</button>
+<button class="px-space-xl py-space-sm rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity" onclick="alert('Expense split recorded in Suite 4B.'); document.getElementById('add-expense-modal').classList.add('hidden')">
+Record Split
+</button>
+</div>
+</div>
+</div></div></main></div>
+
+</body></html>

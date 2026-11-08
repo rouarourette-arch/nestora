@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#3e6654","dark-surface-elevated":"#304338","dark-secondary":"#A9C5AF","on-surface-variant":"#414844","dark-sidebar":"#1D2A23","text-primary":"#202B25","secondary":"#476553","surface":"#f8faf7","warm-ivory":"#F7F6F0","surface-container-lowest":"#ffffff","on-tertiary-fixed-variant":"#633f11","background":"#f8faf7","surface-container-low":"#f2f4f1","on-primary-fixed":"#002115","error-container":"#ffdad6","primary-container":"#234b3a","surface-secondary":"#ECEFEC","dark-border":"#3B4B41","secondary-fixed-dim":"#adceb8","on-primary":"#ffffff","on-error-container":"#93000a","border-subtle":"#E3EAE4","outline":"#717974","on-secondary-fixed-variant":"#304d3c","dark-surface":"#26372E","inverse-surface":"#2e312f","error":"#ba1a1a","surface-variant":"#e1e3e0","dark-text-secondary":"#B1BDB4","outline-variant":"#c1c8c2","secondary-container":"#c9ebd4","dark-background":"#18231E","soft-green":"#E7EFE8","inverse-on-surface":"#eff1ee","surface-container-highest":"#e1e3e0","on-primary-container":"#8fbaa4","surface-container":"#eceeeb","on-tertiary-fixed":"#2b1700","primary-fixed-dim":"#a5d0ba","surface-dim":"#d8dbd8","pale-green":"#DDEDE2","on-secondary":"#ffffff","inverse-primary":"#a5d0ba","dark-soft-green":"#354A3D","dark-primary":"#8FAF9A","text-secondary":"#78847C","tertiary":"#442700","dark-surface-secondary":"#202E27","on-secondary-container":"#4d6b59","surface-bright":"#f8faf7","primary-fixed":"#c0ecd5","tertiary-container":"#5f3c0e","on-primary-fixed-variant":"#264e3d","tertiary-fixed-dim":"#f2bc84","on-error":"#ffffff","secondary-fixed":"#c9ebd4","tertiary-fixed":"#ffddbb","on-tertiary":"#ffffff","surface-container-high":"#e7e9e6","on-secondary-fixed":"#032113","on-background":"#191c1b","on-tertiary-container":"#daa770","primary":"#093425","on-surface":"#191c1b","dark-text-primary":"#F1F4F0"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"1.25rem","space-md":"0.75rem","margin-desktop":"2rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","margin-tablet":"1.5rem","gutter-desktop":"1.5rem","space-lg":"1rem","space-xl":"1.5rem"},fontFamily:{"label-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"caption-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"body-medium":["Plus Jakarta Sans"]},fontSize:{"label-md":["14px",{"lineHeight":"18px","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"caption-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-sm":["17px",{"lineHeight":"24px","fontWeight":"600"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}]}}}};</script></head><body class="bg-surface text-on-surface font-body-md text-body-md flex items-center justify-center min-h-screen" style="background-color: rgb(243, 245, 242);"><main class="w-full max-w-md mx-auto p-space-lg"><div class="flex flex-col w-full">
+<div class="w-full min-h-[calc(100vh-2rem)] flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-8 max-w-7xl mx-auto py-2">
+<!-- LEFT PANEL: Authentication & Workspace Access -->
+<div class="w-full lg:w-1/2 flex flex-col justify-between bg-surface-container-lowest rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
+<!-- Ambient Decorative Backdrop Glow -->
+<div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-soft-green/60 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-secondary-container/40 blur-3xl pointer-events-none"></div>
+<!-- Top Header & Brand -->
+<div class="relative z-10 flex flex-col">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">cottage</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md tracking-tight text-primary flex items-center gap-1.5">
+                Nestora
+                <span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
+</span>
+<p class="font-caption-sm text-caption-sm text-text-secondary tracking-wider uppercase font-semibold">Shared Living OS</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-secondary"><span class="w-2 h-2 rounded-full bg-surface-tint animate-pulse"></span><span class="font-caption-sm text-caption-sm font-semibold">Sanctuary Auth</span></div>
+</div>
+<div class="space-y-1 mb-8">
+<h1 class="font-display-lg text-display-lg text-text-primary tracking-tight">
+            One platform.<br>
+<span class="text-surface-tint">Better shared living.</span>
+</h1>
+<p class="font-body-md text-body-md text-text-secondary pt-2">
+            Welcome back to your residential portal. Access buildings, shared spaces, and community finance in one spot.
+          </p>
+</div>
+<!-- Form Area -->
+<form class="space-y-5" onsubmit="event.preventDefault();">
+<!-- Work Email -->
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-text-primary" for="email">
+              Work or Personal Email
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-text-secondary pointer-events-none">mail</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-low text-text-primary placeholder:text-outline rounded-xl font-body-md text-body-md transition-all duration-200 outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" id="email" placeholder="name@nestora.community" required="" type="email" value="sarah.benali@nestora-spaces.io">
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-text-primary" for="password">
+                Password
+              </label>
+<a class="font-caption-sm text-caption-sm text-surface-tint hover:underline transition-all" href="#forgot">
+                Forgot password?
+              </a>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-text-secondary pointer-events-none">lock</span>
+<input class="w-full h-12 pl-12 pr-12 bg-surface-container-low text-text-primary placeholder:text-outline rounded-xl font-body-md text-body-md transition-all duration-200 outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" id="password" required="" type="password" value="••••••••••••••••">
+<button class="absolute right-3.5 p-1 rounded-lg text-text-secondary hover:text-text-primary transition-colors" id="togglePassBtn" onclick="const p = document.getElementById('password'); const icon = this.querySelector('span'); if(p.type==='password'){p.type='text';icon.textContent='visibility_off';}else{p.type='password';icon.textContent='visibility';}" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</div>
+<!-- Quick Prefs Row -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary-container accent-primary-container bg-surface-container-low cursor-pointer" type="checkbox">
+<span class="font-body-md text-body-md text-text-secondary">Remember my email</span>
+</label>
+
+</div>
+<!-- Main CTA -->
+<button class="w-full h-12 bg-primary-container text-on-primary hover:bg-primary font-headline-sm text-headline-sm rounded-xl transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 active:scale-[0.99] group" type="submit">
+<span class="">Sign In to Nestora</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+
+<!-- SSO Identity Providers -->
+
+</div>
+<!-- Bottom Card Meta -->
+<div class="relative z-10 pt-8 mt-6">
+<div class="p-3.5 rounded-2xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-pale-green text-surface-tint flex items-center justify-center">
+<span class="material-symbols-outlined text-base">domain_add</span>
+</div>
+<div>
+<p class="font-caption-sm text-caption-sm text-text-primary font-semibold">New to Nestora Living?</p>
+<p class="font-caption-sm text-caption-sm text-text-secondary">Create or link your residential workspace</p>
+</div>
+</div>
+<a class="px-3.5 py-1.5 rounded-xl bg-surface-container-lowest text-surface-tint font-label-md text-label-md hover:bg-soft-green transition-colors shadow-sm flex items-center gap-1" href="#register">
+<span class="">Explore</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Visual Community Showcase & Module Preview -->
+<div class="w-full lg:w-1/2 flex flex-col justify-between rounded-3xl p-6 sm:p-10 relative overflow-hidden bg-primary-container text-on-primary shadow-lg">
+<!-- Atmospheric Backdrop Artwork Elements -->
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-surface-tint/40 blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-dark-background/60 via-transparent to-transparent pointer-events-none"></div>
+<!-- Top Row Badges -->
+<div class="relative z-10 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2 bg-dark-surface/70 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed"></span>
+<span class="font-caption-sm text-caption-sm tracking-wide text-primary-fixed uppercase font-semibold">Community Hub v2.4</span>
+</div>
+
+</div>
+<!-- Main Visual Showcase Content -->
+<div class="relative z-10 my-8 space-y-6">
+<!-- Live Workspace Overview Card (Interactive Simulation) -->
+<div class="bg-surface-container-lowest text-text-primary rounded-2xl p-5 shadow-xl transition-all duration-300 hover:shadow-2xl">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-secondary">
+<img class="w-full h-full object-cover" data-alt="Editorial portrait of Sarah Ben Ali, a serene residential community coordinator with gentle smile against a soft warm green architectural interior setting, studio natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxG4S2RBC_QeCAz_uIgjwmlUU8swpAqFbw0wYMwIemr8trVijhRg02W3S8XC8QMmWz4uasIrZAPt29oEQZCYWnidxjIeVeYr2LJU9xU5RYbqJovl0KVATTLdQsUazVSDcl66KJnihK_rAhVCT5fPRdpUyRkGqodeVMtsZHixkG6yrRhBGpj7TqQ7fzJ05oeLdYSiFFe4jVsTgNe201DMg2loRQdTS55KAlnt4SVdM">
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm">Sarah Ben Ali</span>
+<span class="font-caption-sm text-caption-sm px-2 py-0.5 rounded-full bg-pale-green text-surface-tint font-semibold">Community Lead</span>
+</div>
+<p class="font-caption-sm text-caption-sm text-text-secondary">Building A &amp; B • 24 Active Residents</p>
+</div>
+</div>
+<span class="font-caption-sm text-caption-sm px-2.5 py-1 rounded-full bg-surface-container-low text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-surface-tint">sync</span>
+              Synced
+            </span>
+</div>
+<!-- Mini Metrics Bar -->
+
+<!-- Visual Activity Sparkline Graphic -->
+<div class="pt-3">
+<div class="flex items-center justify-between text-caption-sm font-caption-sm text-text-secondary pb-1.5">
+<span class="">Community Engagement Pulse</span>
+<span class="font-semibold text-text-primary">Peak: Friday BBQ RSVP (92%)</span>
+</div>
+<div class="w-full h-8 flex items-end gap-1.5 px-1 py-1 rounded-lg bg-surface-container-low">
+<div class="w-full bg-soft-green h-2.5 rounded-sm"></div>
+<div class="w-full bg-pale-green h-4 rounded-sm"></div>
+<div class="w-full bg-pale-green h-3.5 rounded-sm"></div>
+<div class="w-full bg-surface-tint/40 h-5 rounded-sm"></div>
+<div class="w-full bg-surface-tint h-7 rounded-sm"></div>
+<div class="w-full bg-primary-container h-6 rounded-sm"></div>
+<div class="w-full bg-pale-green h-4.5 rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- Co-living Experience Highlight Card -->
+<div class="p-4 rounded-2xl bg-dark-surface/60 backdrop-blur-md flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-dark-surface-elevated flex-shrink-0 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-2xl">apartment</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-dark-text-primary">
+              Multi-property synchronization
+            </h2>
+<p class="font-body-md text-body-md text-dark-text-secondary">
+              Harmonize leases, split expenses, maintenance requests, and shared amenities across all living zones.
+            </p>
+</div>
+</div>
+</div>
+<!-- Testimonial Footer Snippet -->
+<div class="relative z-10 pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2 overflow-hidden">
+<div class="inline-block h-7 w-7 rounded-full bg-dark-surface-elevated text-dark-text-primary flex items-center justify-center text-xs font-bold">
+              AK
+            </div>
+<div class="inline-block h-7 w-7 rounded-full bg-surface-tint text-on-primary flex items-center justify-center text-xs font-bold">
+              MR
+            </div>
+<div class="inline-block h-7 w-7 rounded-full bg-secondary-fixed text-on-primary-fixed flex items-center justify-center text-xs font-bold">
+              +8
+            </div>
+</div>
+<p class="font-caption-sm text-caption-sm text-dark-text-secondary">
+            Trusted by 450+ co-living clusters globally
+          </p>
+</div>
+<div class="flex items-center gap-4 text-dark-text-secondary font-caption-sm text-caption-sm">
+<a class="hover:text-dark-text-primary transition-colors" href="#privacy">Privacy</a>
+<span class="">•</span>
+<a class="hover:text-dark-text-primary transition-colors" href="#terms">Terms</a>
+<span class="">•</span>
+<a class="hover:text-dark-text-primary transition-colors" href="#support">Help</a>
+</div>
+</div>
+</div>
+</div>
+</div></main>
+
+</body></html>

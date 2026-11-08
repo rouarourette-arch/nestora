@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@layer base{
+  html,body{margin:0;padding:0;}
+  body{overscroll-behavior:none;}
+  main>:first-child{margin-top:0!important;}
+  main>:last-child{margin-bottom:0!important;}
+}
+::-webkit-scrollbar{display:none;}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-dim": "#ECEFEC",
+        "on-surface-variant": "#78847C",
+        "on-tertiary-fixed-variant": "#633f11",
+        "dark-surface-dim": "#202E27",
+        "error": "#BA1A1A",
+        "secondary-container": "#DDEDE2",
+        "on-tertiary-container": "#daa770",
+        "on-surface": "#202B25",
+        "surface-container-highest": "#d9e6dc",
+        "surface-container-lowest": "#ffffff",
+        "inverse-surface": "#28332d",
+        "error-container": "#FFDAD6",
+        "on-primary-fixed": "#002115",
+        "surface-container": "#e4f1e7",
+        "tertiary": "#442700",
+        "on-secondary": "#ffffff",
+        "inverse-on-surface": "#e7f4ea",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffddbb",
+        "dark-surface": "#18231E",
+        "primary-container": "#E7EFE8",
+        "on-error": "#ffffff",
+        "primary-fixed": "#c0ecd5",
+        "inverse-primary": "#a5d0ba",
+        "on-error-container": "#410002",
+        "surface-variant": "#d9e6dc",
+        "dark-on-surface": "#F1F4F0",
+        "dark-outline": "#3B4B41",
+        "primary": "#093425",
+        "secondary-fixed": "#c9ebd4",
+        "surface-container-low": "#eaf7ed",
+        "tertiary-fixed-dim": "#f2bc84",
+        "surface-bright": "#f0fdf3",
+        "tertiary-container": "#FDF6EE",
+        "outline-variant": "#c1c8c2",
+        "dark-secondary": "#A9C5AF",
+        "outline": "#E3EAE4",
+        "surface": "#F3F5F2",
+        "dark-on-surface-variant": "#B1BDB4",
+        "on-secondary-fixed": "#032113",
+        "on-secondary-container": "#4d6b59",
+        "surface-container-high": "#E7EFE8",
+        "dark-soft-green": "#354A3D",
+        "on-secondary-fixed-variant": "#304d3c",
+        "on-primary": "#FFFFFF",
+        "on-primary-container": "#202B25",
+        "on-background": "#131e18",
+        "secondary": "#476553",
+        "secondary-fixed-dim": "#adceb8",
+        "on-primary-fixed-variant": "#264e3d",
+        "dark-surface-container-high": "#304338",
+        "dark-primary": "#8FAF9A",
+        "primary-fixed-dim": "#a5d0ba",
+        "on-tertiary-fixed": "#2b1700",
+        "dark-surface-container": "#26372E",
+        "background": "#f0fdf3",
+        "surface-tint": "#3e6654",
+        "dark-sidebar": "#1D2A23"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-2xl": "3rem",
+        "space-xs": "0.25rem",
+        "space-md": "1rem",
+        "gutter-mobile": "1rem",
+        "space-xl": "2rem",
+        "margin-mobile": "1rem",
+        "space-lg": "1.5rem",
+        "margin": "2rem",
+        "gutter": "1.5rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "headline-sm": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"],
+        "headline-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"],
+        "label-md": ["Plus Jakarta Sans"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "label-lg": ["Plus Jakarta Sans"]
+      },
+      "fontSize": {
+        "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col flex-1 overflow-y-auto">
+<div class="p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">cottage</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Nestora</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Living OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm">v2.4</span>
+</div>
+<div class="px-space-md pb-space-sm">
+<div class="relative">
+<label class="sr-only" for="workspace-select">Select Workspace</label>
+<div class="relative flex items-center bg-surface-container-lowest rounded-xl p-space-sm shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline">
+<div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-primary flex-shrink-0 mr-space-sm">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<select class="w-full bg-transparent font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer pr-6 font-semibold" id="workspace-select">
+<option value="green-park">Green Park Towers (Portfolio)</option>
+<option selected="" value="oakwood-4b">Oakwood Co-Living #4B (Household)</option>
+<option value="system-admin">System Admin (Platform Console)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-space-md py-space-xs flex flex-col gap-space-md" data-active-classes="bg-primary-container text-primary font-semibold shadow-sm">
+<div>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#">
+<span class="font-label-lg text-label-lg">Overview &amp; Executive Summary</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Buildings Portfolio</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="buildings" href="#">
+<span class="font-label-lg text-label-lg">Buildings &amp; Units</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="residents" href="#">
+<span class="font-label-lg text-label-lg">Residents, Owners &amp; Leases</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="financials" href="#">
+<span class="font-label-lg text-label-lg">Financials &amp; Contributions</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="maintenance" href="#">
+<span class="font-label-lg text-label-lg">Maintenance &amp; Dispatch</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="documents" href="#">
+<span class="font-label-lg text-label-lg">Documents &amp; Legal</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="meetings" href="#">
+<span class="font-label-lg text-label-lg">Meetings &amp; Assembly Voting</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Living (Co-Household)</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-roommates" href="#">
+<span class="font-label-lg text-label-lg">Roommates &amp; Roster</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-expenses" href="#">
+<span class="font-label-lg text-label-lg">Expenses &amp; Splits Ledger</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-chores" href="#">
+<span class="font-label-lg text-label-lg">Chores &amp; Rotation</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-pantry" href="#">
+<span class="font-label-lg text-label-lg">Shopping &amp; Pantry</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-bills" href="#">
+<span class="font-label-lg text-label-lg">Bills &amp; Shared Calendar</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-rules" href="#">
+<span class="font-label-lg text-label-lg">House Rules &amp; Governance</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Nestora Intelligence</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="intelligence" href="#">
+<span class="font-label-lg text-label-lg">AI Assistant &amp; Action Hub</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Administration &amp; System</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin" href="#">
+<span class="font-label-lg text-label-lg">Platform Admin Console</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-audit" href="#">
+<span class="font-label-lg text-label-lg">Global Audit &amp; Logs</span>
+</a>
+</div>
+</nav>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm border-t border-outline">
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">cloud_done</span>Vault Storage</span>
+<span class="text-primary font-semibold">14.2 / 20 GB</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 71%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold font-label-md text-label-md flex-shrink-0">
+          SB
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Sarah Ben Ali</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Admin &amp; Lead Tenant</span>
+</div>
+</div>
+<a class="w-7 h-7 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</a>
+</div>
+</div>
+</aside>
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-outline">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Oakwood Co-Living #4B</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-80 h-9 pl-9 pr-14 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline" placeholder="Search units, expenses, logs..." readonly="" type="text"/>
+<span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant">Ctrl+K</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative group">
+<button class="flex items-center gap-space-xs h-9 px-space-sm bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Quick Action</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" onclick="document.documentElement.classList.toggle('dark')" title="Toggle Theme">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+</button>
+<button class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" title="Notifications">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<a class="flex items-center gap-space-xs pl-space-xs pr-space-sm py-1 rounded-xl bg-surface-container-lowest border border-outline hover:bg-surface-container transition-colors" data-path="settings" href="#">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-semibold">
+          SB
+        </div>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">keyboard_arrow_down</span>
+</a>
+</div>
+</header>
+<main class="w-full pt-16 px-space-lg bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full gap-space-xl">
+<!-- Top Bar / Page Header -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pt-2">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">Green Park Towers</span>
+<span class="text-on-surface-variant/40">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Governance &amp; Ownership</span>
+<span class="text-on-surface-variant/40">/</span>
+<span class="text-primary font-semibold">Meetings &amp; Assembly Voting</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm mt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+          Assembly Governance &amp; Digital Ballots
+        </h1>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>RCW 64.90 &amp; WUCIOA Supermajority Quorum Certified • 48 Units / 68 Electors • Next AGM in 18 Days</span>
+</div>
+</div>
+</div>
+<!-- Top Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-space-xs px-space-md h-10 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">description</span>
+<span>Download Voting Minutes &amp; Certified Ledger</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md h-10 rounded-xl bg-primary text-on-primary hover:opacity-95 transition-opacity font-label-lg text-label-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span>+ Convene Extraordinary Assembly / Create Ballot</span>
+</button>
+</div>
+</div>
+<!-- KPI Metric Cards Grid (4 Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-secondary-container/40 pointer-events-none group-hover:scale-110 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">how_to_vote</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+          Quorum Met
+        </span>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-[40px] leading-tight font-bold text-on-surface">81.4%</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Active Turnout</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+          39 of 48 unit voting weights recorded • Required statutory quorum: 67.0% (Passed).
+        </p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 81.4%;"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary-fixed/30 pointer-events-none group-hover:scale-110 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">event_available</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-medium">
+          Hybrid Sync
+        </span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface truncate">
+          1 Active • 1 Scheduled
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+          2024 Annual General Assembly (Dec 5, 2024 • 7:00 PM PST) with live Zoom bridge.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">videocam</span>
+<span>Resident Lounge &amp; Zoom #894 2201</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-tertiary-fixed/30 pointer-events-none group-hover:scale-110 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+          100% Ratified
+        </span>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-[40px] leading-tight font-bold text-on-surface">4 Enacted</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">• 2 Voting</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+          YTD 100% legal ratification • Zero disputed or contested measures across both towers.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>SHA-256 Notarized Ledger</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-secondary-container/40 pointer-events-none group-hover:scale-110 transition-transform"></div>
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">pie_chart</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">
+          RCW 64.90 Proportional
+        </span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">
+          42,600 sq ft / 100%
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+          Unit square-footage weighted voting model • 6 Statutory Proxy Delegations registered.
+        </p>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Unit A-402 Allocation:</span>
+<span class="font-bold text-primary">980 sq ft (2.30%)</span>
+</div>
+</div>
+</div>
+<!-- Main Content Layout (65% / 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Master Assembly Sessions & Live Voting Ballots (approx 65% / 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Filter Navigation & Search Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0">
+<button class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold whitespace-nowrap shadow-sm">
+            All Assemblies (12)
+          </button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md font-semibold whitespace-nowrap flex items-center gap-1">
+            Active &amp; Open Ballots
+            <span class="w-5 h-5 rounded-full bg-secondary-container text-primary text-[11px] font-bold flex items-center justify-center">2</span>
+</button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md font-semibold whitespace-nowrap">
+            Upcoming Meetings (1)
+          </button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md font-semibold whitespace-nowrap">
+            Ratified Archives (9)
+          </button>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[16px]">filter_list</span>
+<select class="pl-8 pr-6 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm appearance-none focus:outline-none cursor-pointer font-medium">
+<option>Type: All Sessions</option>
+<option>Annual General Meeting (AGM)</option>
+<option>Special Board Session</option>
+<option>Emergency Capital Measure</option>
+</select>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[16px]">task_alt</span>
+<select class="pl-8 pr-6 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm appearance-none focus:outline-none cursor-pointer font-medium">
+<option>Status: All Statuses</option>
+<option>Voting Open</option>
+<option>Quorum Pending</option>
+<option>Certified Passed</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Live Ballot #1 (High Stakes - Featured Card) -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md relative overflow-hidden border-l-4 border-primary">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold tracking-wide uppercase">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              Live Ballot • Closes in 48h 12m
+            </span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+              Supermajority 67.0% Req
+            </span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">history</span>
+<span>Created Nov 18, 2024</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary transition-colors cursor-pointer leading-tight">
+            Resolution #2024-B08: Capital Reserve Allocation for Tower A Riser Replacement &amp; Heat Pump Overhaul
+          </h2>
+<div class="flex flex-wrap items-center gap-space-md mt-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">engineering</span>
+              Sponsor: Property Board &amp; Engineering Committee
+            </span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">person</span>
+              Introduced by Marcus Vance (Board President)
+            </span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Authorizes a certified expenditure of <strong class="text-on-surface">$185,000</strong> from the Fidelity Capital Reserve Escrow to replace 24 hydronic vertical distribution risers and commission twin multi-stage heat pump units for Tower A. Verified fully funded by reserve surplus with zero supplemental assessment levies on unit owners.
+        </p>
+<!-- Vote Quorum & Visual Distribution -->
+<div class="p-space-md rounded-xl bg-surface flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-xs font-label-md text-label-md">
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface font-semibold">Statutory Quorum Status:</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-primary font-bold">79.2% Recorded</span>
+<span class="text-on-surface-variant text-label-sm">(Supermajority threshold: 67.0% - Met)</span>
+</div>
+<span class="text-primary font-bold">40 of 48 Units Voted</span>
+</div>
+<!-- Multi-segment Progress Bar -->
+<div class="w-full bg-surface-container-high h-3.5 rounded-full overflow-hidden flex shadow-inner">
+<div class="bg-primary h-full transition-all duration-300" style="width: 74.5%;" title="In Favor: 74.5%"></div>
+<div class="bg-error h-full transition-all duration-300 opacity-80" style="width: 18.2%;" title="Opposed: 18.2%"></div>
+<div class="bg-on-surface-variant/40 h-full transition-all duration-300" style="width: 7.3%;" title="Abstained: 7.3%"></div>
+</div>
+<!-- Legend & Sub-Metrics -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded bg-primary flex-shrink-0"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">74.5% In Favor</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">32 units • 31,740 sq ft</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded bg-error opacity-80 flex-shrink-0"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">18.2% Opposed</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">6 units • 7,750 sq ft</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded bg-on-surface-variant/40 flex-shrink-0"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">7.3% Abstained</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">2 units • 3,110 sq ft</span>
+</div>
+</div>
+</div>
+<!-- Turnout by Building Segment -->
+<div class="pt-space-xs mt-space-xs flex flex-wrap items-center justify-between text-[12px] font-label-sm text-on-surface-variant border-t border-outline/60">
+<span>Building Participation Rates:</span>
+<div class="flex items-center gap-space-md">
+<span>Tower A: <strong class="text-primary font-bold">92%</strong></span>
+<span>Tower B: <strong class="text-primary font-bold">78%</strong></span>
+<span>East Mews: <strong class="text-primary font-bold">88%</strong></span>
+</div>
+</div>
+</div>
+<!-- User Vote State Banner & Micro-actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm p-space-md rounded-xl bg-secondary-container/50">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 font-label-lg text-label-lg font-bold text-primary">
+<span>Vote Recorded: In Favor</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+                Sarah Ben Ali (Unit A-402 • 980 sq ft / 2.30% weight) • Verified SHA-256 Signature #c7e9f42
+              </span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-sm text-label-sm font-semibold transition-colors shadow-sm">
+              Change Vote
+            </button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container text-primary hover:bg-secondary-container font-label-sm text-label-sm font-semibold transition-colors">
+              View Legal Brief
+            </button>
+</div>
+</div>
+</div>
+<!-- Live Ballot #2 (Active Board Referendum) -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wide">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Voting Open • Closes in 5 Days
+            </span>
+<span class="px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+              Quorum Awaiting +6 Units
+            </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Referendum #2024-R04</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface hover:text-primary transition-colors cursor-pointer leading-tight">
+            Bylaw Amendment #14: EV Charging Bay Allocation &amp; Sub-metered Billing Tariff Adjustment
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+            Transitioning guest parking bays P14-P18 to Level 2 ChargePoint dual-port pedestals with an automated resident cost recovery tariff set to $0.16/kWh, offsetting electrical utility expenses with neutral common dues impact.
+          </p>
+</div>
+<!-- Quorum Progress -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Participation Quorum: <strong class="text-on-surface">54.2%</strong> of 67.0% required</span>
+<span class="text-on-surface-variant font-medium">26 of 48 unit votes counted</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 84%;" title="In Favor: 84%"></div>
+<div class="bg-error h-full opacity-80" style="width: 16%;" title="Opposed: 16%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-[12px] text-on-surface-variant">
+<span class="text-primary font-semibold">84% In Favor (22 Units)</span>
+<span class="text-error font-semibold">16% Opposed (4 Units)</span>
+</div>
+</div>
+<!-- Interactive Voting Action Button Bar -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-secondary">pending_actions</span>
+<span>Action Required: Cast ballot for <strong>Unit A-402</strong></span>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary hover:opacity-95 font-label-sm text-label-sm font-semibold transition-opacity shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+              Vote In Favor
+            </button>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-error-container hover:text-error font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">thumb_down</span>
+              Vote Against
+            </button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-colors">
+              Abstain
+            </button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container font-label-sm text-label-sm font-semibold transition-colors shadow-sm">
+              Assign Proxy
+            </button>
+</div>
+</div>
+</div>
+<!-- Scheduled Assembly Card (AGM 2024) -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+              Statutory Annual Assembly
+            </span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+              Formal Notice Dispatched Nov 14
+            </span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>18 Days Remaining</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">
+              Green Park Towers 2024 Annual General Meeting (AGM)
+            </h3>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+                Thursday, December 5, 2024 • 7:00 PM – 9:30 PM PST
+              </span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-primary">meeting_room</span>
+                Resident Lounge &amp; Zoom Synchronized (#894 2201 9482)
+              </span>
+</div>
+</div>
+</div>
+<!-- Agenda Modules -->
+<div class="flex flex-col gap-space-xs p-space-md rounded-xl bg-surface">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold">
+            Formal Assembly Agenda (Binding Orders)
+          </span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mt-1">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Item 1 • Financials</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">2025 Operating Budget Ratification ($1.42M)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Simple majority required under RCW 64.90 §324</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Item 2 • Elections</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Election of 2 Board Trustees (3-Yr Terms)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">4 Certified candidates on ballot slate</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Item 3 • Structural</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Seismic Podium Inspection Findings</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">GeoTech report presentation &amp; discussion</span>
+</div>
+</div>
+</div>
+<!-- Assembly Quick Actions -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-1">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">mark_email_read</span>
+<span>Electronic Delivery Acknowledged by 48 of 48 Owners</span>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary hover:opacity-95 font-label-md text-label-md font-semibold transition-opacity shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">event</span>
+              RSVP &amp; Add to Calendar
+            </button>
+<button class="px-space-sm py-2 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+              Submit Question / Motion
+            </button>
+<button class="px-space-sm py-2 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+              Download Dossier Pack (44 pgs)
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Rail: Active Resolution Deep Inspector & Proxy Registry (approx 35% / 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Dossier Inspector Panel -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-outline">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">folder_special</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">Ballot Dossier</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Resolution #2024-B08 Details</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold">
+            Live Audit
+          </span>
+</div>
+<!-- Meta Specification Table -->
+<div class="flex flex-col gap-space-xs text-body-sm font-body-sm">
+<div class="flex items-start justify-between py-1.5 border-b border-outline/50">
+<span class="text-on-surface-variant">Statutory Authority</span>
+<span class="font-semibold text-on-surface text-right">RCW 64.90 §315 &amp; CC&amp;R §9.2</span>
+</div>
+<div class="flex items-start justify-between py-1.5 border-b border-outline/50">
+<span class="text-on-surface-variant">Capital Draw</span>
+<span class="font-bold text-primary text-right">$185,000 Escrow Release</span>
+</div>
+<div class="flex items-start justify-between py-1.5 border-b border-outline/50">
+<span class="text-on-surface-variant">Assessment Impact</span>
+<span class="font-semibold text-secondary text-right">$0.00 Special Levy (Funded)</span>
+</div>
+<div class="flex items-start justify-between py-1.5 border-b border-outline/50">
+<span class="text-on-surface-variant">Quorum Required</span>
+<span class="font-semibold text-on-surface text-right">Supermajority (67.0%)</span>
+</div>
+<div class="flex items-start justify-between py-1.5">
+<span class="text-on-surface-variant">Voting Window</span>
+<span class="font-semibold text-on-surface text-right">Nov 18 – Dec 2, 2024</span>
+</div>
+</div>
+<!-- Real-Time Voter Roster Preview -->
+<div class="flex flex-col gap-space-xs pt-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant uppercase tracking-wider font-semibold">Live Elector Audit Log</span>
+<span class="text-primary font-bold hover:underline cursor-pointer">View All 40</span>
+</div>
+<div class="flex flex-col gap-1.5 mt-1">
+<!-- Row 1 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface text-body-sm">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[10px] font-bold flex items-center justify-center">
+                  JC
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate text-label-md">Dr. Julian Croft</span>
+<span class="text-[11px] text-on-surface-variant">Unit B-201 • 1,150 sq ft</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary flex items-center gap-0.5">
+                In Favor <span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface text-body-sm">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[10px] font-bold flex items-center justify-center">
+                  ER
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate text-label-md">Elena Rostova</span>
+<span class="text-[11px] text-on-surface-variant">Unit A-101 • 1,250 sq ft</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary flex items-center gap-0.5">
+                In Favor <span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface text-body-sm">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[10px] font-bold flex items-center justify-center">
+                  DS
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate text-label-md">David Sterling</span>
+<span class="text-[11px] text-on-surface-variant">Unit B-302 • 885 sq ft</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-error flex items-center gap-0.5">
+                Opposed <span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+</div>
+<!-- Row 4 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface text-body-sm">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[10px] font-bold flex items-center justify-center">
+                  CP
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate text-label-md">Claire Prescott</span>
+<span class="text-[11px] text-on-surface-variant">Unit EM-02 • 1,580 sq ft</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary flex items-center gap-0.5">
+                In Favor <span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Inspector Direct Document Actions -->
+<div class="flex flex-col gap-space-xs pt-1">
+<button class="w-full py-2.5 px-space-md rounded-xl bg-surface-container-high hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Download Notarized Certificate</span>
+</button>
+<button class="w-full py-2 px-space-md rounded-xl bg-transparent hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">build</span>
+<span>View Full Engineering Audit (Stantec 2024)</span>
+</button>
+</div>
+</div>
+<!-- Statutory Proxy Authorizations Hub -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-outline">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">assignment_ind</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">Proxy Registry</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6 Filed Authorizations</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+            RCW 64.90 §318
+          </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Proxy Item 1 -->
+<div class="p-space-sm rounded-xl bg-surface flex flex-col gap-1 border-l-2 border-primary">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="font-bold text-on-surface">Liam O'Connor (Unit A-202)</span>
+<span class="text-secondary font-semibold">Active Delegation</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-[12px] text-on-surface-variant">
+<span>Delegated to:</span>
+<strong class="text-on-surface font-semibold">Sarah Ben Ali (Unit A-402)</strong>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-1 border-t border-outline/50 mt-1">
+<span>Valid thru Dec 31, 2024</span>
+<span class="text-primary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">verified</span> DocuSign #9982
+              </span>
+</div>
+</div>
+<!-- Proxy Item 2 -->
+<div class="p-space-sm rounded-xl bg-surface flex flex-col gap-1 border-l-2 border-on-surface-variant/40">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="font-bold text-on-surface">Chloe Zhao (Unit B-105)</span>
+<span class="text-on-surface-variant font-medium">Single-Issue Proxy</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-[12px] text-on-surface-variant">
+<span>Delegated to:</span>
+<strong class="text-on-surface font-semibold">Marcus Vance (President)</strong>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-1 border-t border-outline/50 mt-1">
+<span>Resolution #2024-B08 Only</span>
+<span class="text-primary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">verified</span> DocuSign #9974
+              </span>
+</div>
+</div>
+</div>
+<button class="w-full py-2 rounded-xl bg-surface-container-high hover:bg-surface-container text-primary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>+ File Digital Proxy Form (DocuSign)</span>
+</button>
+</div>
+<!-- Parliamentary Governance Rules & Standards Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-lg text-label-lg font-bold text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-secondary">balance</span>
+<span>Parliamentary &amp; Quorum Rules</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Assembly proceedings governed by <strong>Robert's Rules of Order (12th Ed.)</strong> harmonized with Washington Uniform Common Interest Ownership Act (WUCIOA).
+        </p>
+<div class="flex flex-col gap-2 pt-1 font-label-sm text-label-sm">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+<span><strong>Simple Majority (50% + 1):</strong> Routine business &amp; minutes.</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+<span><strong>Supermajority (67.0%):</strong> Capital reserve draws &gt; $100,000.</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+<span><strong>High Supermajority (75.0%):</strong> Master CC&amp;R Declaration changes.</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">mark_email_read</span>
+<span>14-day statutory formal notice certified for all listed sessions.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Persistent Compliance & Audit Footer -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md mt-2">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">
+          Green Park Towers Parliamentary Assembly Engine
+        </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+          RCW 64.90 Compliant Architecture • Tamper-Evident SHA-256 Ledger Sealed • King County HOA Synced
+        </span>
+</div>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+        Ledger Block #849,219
+      </span>
+<span class="hidden md:inline">•</span>
+<span class="hover:text-primary transition-colors cursor-pointer font-semibold text-primary">
+        Verify Cryptographic Merkle Root
+      </span>
+</div>
+</div>
+</div></main>
+</div>
+</body></html>

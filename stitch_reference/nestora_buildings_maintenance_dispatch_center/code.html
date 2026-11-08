@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@layer base{
+  html,body{margin:0;padding:0;}
+  body{overscroll-behavior:none;}
+  main>:first-child{margin-top:0!important;}
+  main>:last-child{margin-bottom:0!important;}
+}
+::-webkit-scrollbar{display:none;}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-dim": "#ECEFEC",
+        "on-surface-variant": "#78847C",
+        "on-tertiary-fixed-variant": "#633f11",
+        "dark-surface-dim": "#202E27",
+        "error": "#BA1A1A",
+        "secondary-container": "#DDEDE2",
+        "on-tertiary-container": "#daa770",
+        "on-surface": "#202B25",
+        "surface-container-highest": "#d9e6dc",
+        "surface-container-lowest": "#ffffff",
+        "inverse-surface": "#28332d",
+        "error-container": "#FFDAD6",
+        "on-primary-fixed": "#002115",
+        "surface-container": "#e4f1e7",
+        "tertiary": "#442700",
+        "on-secondary": "#ffffff",
+        "inverse-on-surface": "#e7f4ea",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffddbb",
+        "dark-surface": "#18231E",
+        "primary-container": "#E7EFE8",
+        "on-error": "#ffffff",
+        "primary-fixed": "#c0ecd5",
+        "inverse-primary": "#a5d0ba",
+        "on-error-container": "#410002",
+        "surface-variant": "#d9e6dc",
+        "dark-on-surface": "#F1F4F0",
+        "dark-outline": "#3B4B41",
+        "primary": "#093425",
+        "secondary-fixed": "#c9ebd4",
+        "surface-container-low": "#eaf7ed",
+        "tertiary-fixed-dim": "#f2bc84",
+        "surface-bright": "#f0fdf3",
+        "tertiary-container": "#FDF6EE",
+        "outline-variant": "#c1c8c2",
+        "dark-secondary": "#A9C5AF",
+        "outline": "#E3EAE4",
+        "surface": "#F3F5F2",
+        "dark-on-surface-variant": "#B1BDB4",
+        "on-secondary-fixed": "#032113",
+        "on-secondary-container": "#4d6b59",
+        "surface-container-high": "#E7EFE8",
+        "dark-soft-green": "#354A3D",
+        "on-secondary-fixed-variant": "#304d3c",
+        "on-primary": "#FFFFFF",
+        "on-primary-container": "#202B25",
+        "on-background": "#131e18",
+        "secondary": "#476553",
+        "secondary-fixed-dim": "#adceb8",
+        "on-primary-fixed-variant": "#264e3d",
+        "dark-surface-container-high": "#304338",
+        "dark-primary": "#8FAF9A",
+        "primary-fixed-dim": "#a5d0ba",
+        "on-tertiary-fixed": "#2b1700",
+        "dark-surface-container": "#26372E",
+        "background": "#f0fdf3",
+        "surface-tint": "#3e6654",
+        "dark-sidebar": "#1D2A23"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-2xl": "3rem",
+        "space-xs": "0.25rem",
+        "space-md": "1rem",
+        "gutter-mobile": "1rem",
+        "space-xl": "2rem",
+        "margin-mobile": "1rem",
+        "space-lg": "1.5rem",
+        "margin": "2rem",
+        "gutter": "1.5rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "headline-sm": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"],
+        "headline-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"],
+        "label-md": ["Plus Jakarta Sans"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "label-lg": ["Plus Jakarta Sans"]
+      },
+      "fontSize": {
+        "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col flex-1 overflow-y-auto">
+<div class="p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">cottage</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Nestora</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Living OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm">v2.4</span>
+</div>
+<div class="px-space-md pb-space-sm">
+<div class="relative">
+<label class="sr-only" for="workspace-select">Select Workspace</label>
+<div class="relative flex items-center bg-surface-container-lowest rounded-xl p-space-sm shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline">
+<div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-primary flex-shrink-0 mr-space-sm">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<select class="w-full bg-transparent font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer pr-6 font-semibold" id="workspace-select">
+<option value="green-park">Green Park Towers (Portfolio)</option>
+<option selected="" value="oakwood-4b">Oakwood Co-Living #4B (Household)</option>
+<option value="system-admin">System Admin (Platform Console)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-space-md py-space-xs flex flex-col gap-space-md" data-active-classes="bg-primary-container text-primary font-semibold shadow-sm">
+<div>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#">
+<span class="font-label-lg text-label-lg">Overview &amp; Executive Summary</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Buildings Portfolio</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="buildings" href="#">
+<span class="font-label-lg text-label-lg">Buildings &amp; Units</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="residents" href="#">
+<span class="font-label-lg text-label-lg">Residents, Owners &amp; Leases</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="financials" href="#">
+<span class="font-label-lg text-label-lg">Financials &amp; Contributions</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="maintenance" href="#">
+<span class="font-label-lg text-label-lg">Maintenance &amp; Dispatch</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="documents" href="#">
+<span class="font-label-lg text-label-lg">Documents &amp; Legal</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="meetings" href="#">
+<span class="font-label-lg text-label-lg">Meetings &amp; Assembly Voting</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Living (Co-Household)</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-roommates" href="#">
+<span class="font-label-lg text-label-lg">Roommates &amp; Roster</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-expenses" href="#">
+<span class="font-label-lg text-label-lg">Expenses &amp; Splits Ledger</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-chores" href="#">
+<span class="font-label-lg text-label-lg">Chores &amp; Rotation</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-pantry" href="#">
+<span class="font-label-lg text-label-lg">Shopping &amp; Pantry</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-bills" href="#">
+<span class="font-label-lg text-label-lg">Bills &amp; Shared Calendar</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-rules" href="#">
+<span class="font-label-lg text-label-lg">House Rules &amp; Governance</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Nestora Intelligence</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="intelligence" href="#">
+<span class="font-label-lg text-label-lg">AI Assistant &amp; Action Hub</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Administration &amp; System</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin" href="#">
+<span class="font-label-lg text-label-lg">Platform Admin Console</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-audit" href="#">
+<span class="font-label-lg text-label-lg">Global Audit &amp; Logs</span>
+</a>
+</div>
+</nav>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm border-t border-outline">
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">cloud_done</span>Vault Storage</span>
+<span class="text-primary font-semibold">14.2 / 20 GB</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 71%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold font-label-md text-label-md flex-shrink-0">
+          SB
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Sarah Ben Ali</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Admin &amp; Lead Tenant</span>
+</div>
+</div>
+<a class="w-7 h-7 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</a>
+</div>
+</div>
+</aside>
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-outline">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Oakwood Co-Living #4B</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-80 h-9 pl-9 pr-14 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline" placeholder="Search units, expenses, logs..." readonly="" type="text"/>
+<span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant">Ctrl+K</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative group">
+<button class="flex items-center gap-space-xs h-9 px-space-sm bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Quick Action</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" onclick="document.documentElement.classList.toggle('dark')" title="Toggle Theme">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+</button>
+<button class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" title="Notifications">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<a class="flex items-center gap-space-xs pl-space-xs pr-space-sm py-1 rounded-xl bg-surface-container-lowest border border-outline hover:bg-surface-container transition-colors" data-path="settings" href="#">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-semibold">
+          SB
+        </div>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">keyboard_arrow_down</span>
+</a>
+</div>
+</header>
+<main class="w-full pt-16 px-space-lg bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full">
+<!-- Top Context Header & Actions Bar -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="hover:text-on-surface cursor-pointer transition-colors">Green Park Towers</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-on-surface cursor-pointer transition-colors">Operations &amp; Facilities</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Maintenance &amp; Dispatch Center</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-0.5">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Facility Maintenance &amp; Rapid Dispatch</h1>
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-semibold">BMS Telemetry Connected</span>
+<span class="text-on-surface-variant">•</span>
+<span>3 Buildings Online</span>
+<span class="text-on-surface-variant">•</span>
+<span>Active SLA: 97.4%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
+<span>Export Work Logs (CSV/PDF)</span>
+</button>
+<button class="flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Create Commercial Work Order</span>
+</button>
+</div>
+</div>
+<!-- Operational KPIs Matrix (4-Card Row) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md pb-space-xl">
+<!-- KPI 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-3 -top-3 w-20 h-20 bg-primary/5 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Commercial Orders</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface">14</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Open Tickets</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-primary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-error font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>4 Statutory Emergencies</span>
+</div>
+<span class="text-on-surface-variant">+2 vs last wk</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-3 -top-3 w-20 h-20 bg-secondary-container/40 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">24h Statutory SLA Adherence</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-primary">97.4%</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Optimal</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">mobile_friendly</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface font-semibold">Avg Dispatch: 38m</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-semibold">0 SLA Breaches</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-3 -top-3 w-20 h-20 bg-tertiary-container/60 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Monthly Maintenance Run-Rate</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface">$18,450</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ $24.0k</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-tertiary-container text-on-tertiary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex flex-col gap-1.5">
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 76.8%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">76.8% allocated</span>
+<span class="text-primary font-semibold">$5,550 reserves left</span>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-3 -top-3 w-20 h-20 bg-primary/5 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Equipment Health &amp; Compliance</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface">94.8%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Fleet Score</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px] text-tertiary">notification_important</span>
+          City Boiler Insp. in 6d
+        </span>
+<span class="text-on-surface-variant">12 Heavy Assets</span>
+</div>
+</div>
+</div>
+<!-- Main Dispatch Split Layout: Orders Matrix (Left 7 Cols) + Incident Telemetry Inspector (Right 5 Cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg pb-space-xl items-start">
+<!-- LEFT PANE: Central Work Order Dispatch Matrix (7 Columns) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Filter Chips & Search Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<!-- Tabs -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-label-sm font-label-sm scrollbar-none">
+<button class="px-space-sm py-1.5 rounded-lg bg-primary text-on-primary font-semibold flex items-center gap-1 flex-shrink-0">
+<span>All Work Orders</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-bright/20 text-on-primary">14</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-semibold flex items-center gap-1 flex-shrink-0 transition-colors">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>Emergency / High SLA</span>
+<span class="text-error font-bold">4</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-semibold flex items-center gap-1 flex-shrink-0 transition-colors">
+<span>Scheduled Preventative</span>
+<span class="text-on-surface-variant">5</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-semibold flex items-center gap-1 flex-shrink-0 transition-colors">
+<span>Vendor In-Progress</span>
+<span class="text-on-surface-variant">4</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-semibold flex items-center gap-1 flex-shrink-0 transition-colors">
+<span>Completed &amp; Invoiced</span>
+<span class="text-on-surface-variant">28</span>
+</button>
+</div>
+<!-- Filter Dropdowns Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-xs pt-space-xs">
+<div class="md:col-span-5 relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Filter by Ticket, Asset, Contractor..." type="text"/>
+</div>
+<div class="md:col-span-3">
+<select class="w-full h-9 px-2.5 rounded-lg bg-surface font-label-sm text-label-sm text-on-surface focus:outline-none cursor-pointer">
+<option>All Buildings</option>
+<option selected="">Tower A (Residential)</option>
+<option>Tower B (Penthouses)</option>
+<option>East Mews Retail</option>
+</select>
+</div>
+<div class="md:col-span-4">
+<select class="w-full h-9 px-2.5 rounded-lg bg-surface font-label-sm text-label-sm text-on-surface focus:outline-none cursor-pointer">
+<option selected="">All Trades &amp; Categories</option>
+<option>HVAC &amp; Mechanical</option>
+<option>Elevators &amp; Conveyance</option>
+<option>Plumbing &amp; Risers</option>
+<option>Fire, Life &amp; Safety</option>
+<option>Access &amp; Low Voltage</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Ticket Cards List -->
+<div class="flex flex-col gap-space-sm">
+<!-- CARD 1: Selected / Urgent Emergency Incident -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm ring-2 ring-primary relative overflow-hidden transition-all cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<div class="flex flex-col gap-space-xs pl-2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-error/10 text-error font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                  Level 1 Statutory
+                </span>
+<span class="font-label-md text-label-md font-bold text-on-surface">#BO-2024-912</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">• Tower A (Basement Sub-Level 2)</span>
+</div>
+<div class="flex items-center gap-1 text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+<span>1h 42m SLA</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Central Chiller Plant #2 Vibration &amp; Temperature Anomaly</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">Automated BMS trigger from Sensor #CH-02: Bearing heat at 178°F exceeding 165°F standard. Compressor rotor vibration surge.</p>
+</div>
+<div class="mt-space-xs pt-space-xs flex flex-wrap items-center justify-between gap-space-sm border-t border-outline/40">
+<div class="flex items-center gap-space-md text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-primary-container text-primary flex items-center justify-center font-bold text-[11px]">TR</div>
+<span class="text-on-surface font-semibold">Trane Commercial</span>
+<span class="text-on-surface-variant">(Tech: Robert Diaz)</span>
+</div>
+<div class="flex items-center gap-1 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">route</span>
+<span>En Route (ETA 25m)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">PO Pre-Approved $1.5k</span>
+<button class="px-2.5 py-1 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-xs">Inspect Incident</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 2: Otis Gen2 Elevator Door Sensor Fault -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-tertiary-container text-tertiary font-label-sm text-label-sm font-bold">High Priority</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">#BO-2024-908</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">• Tower B (Passenger Car #1)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">SLA Compliant (3h Rem)</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Otis Gen2 Passenger Elevator Car #1 Door Sensor Interlock Fault</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">Infrared light curtain misaligned at 8th floor landing; cab parked safely at ground floor lobby.</p>
+</div>
+<div class="mt-space-xs pt-space-xs flex flex-wrap items-center justify-between gap-space-sm border-t border-outline/40">
+<div class="flex items-center gap-space-md text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-secondary flex items-center justify-center font-bold text-[11px]">OT</div>
+<span class="text-on-surface font-semibold">Otis Elevator Co.</span>
+<span class="text-on-surface-variant">(Tech: Marcus Lind)</span>
+</div>
+<div class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">engineering</span>
+<span>On-Site Diagnostic</span>
+</div>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Updated 14 mins ago</span>
+</div>
+</div>
+</div>
+<!-- CARD 3: Sump Pump Backflow Preventer Recertification -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Statutory Preventative</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">#BO-2024-901</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">• East Mews Commercial Bay</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Inspection Passed</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Semi-Annual Dual Sump Pump Backflow Preventer Hydrostatic Recertification</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">Municipal water board compliance tag renewed for next 180 days. Pressure test 120 PSI held.</p>
+</div>
+<div class="mt-space-xs pt-space-xs flex flex-wrap items-center justify-between gap-space-sm border-t border-outline/40">
+<div class="flex items-center gap-space-md text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px]">CP</div>
+<span class="text-on-surface font-semibold">Cascade Plumbing Pros</span>
+<span class="text-on-surface-variant">(Dave Simmons)</span>
+</div>
+<span class="text-on-surface-variant font-semibold">PO #4412 • $680.00</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Invoice In-Review</span>
+</div>
+</div>
+</div>
+<!-- CARD 4: Common Riser Pressure Fluctuation -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Normal Priority</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">#BO-2024-895</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">• Tower A (Stack 400-600)</span>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Scheduled Tomorrow</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Potable Water Booster Pump #3 Secondary Riser Balancing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">Unit 402 resident notice: slight morning pressure drop. Pressure regulating valve (PRV) calibration.</p>
+</div>
+<div class="mt-space-xs pt-space-xs flex flex-wrap items-center justify-between gap-space-sm border-t border-outline/40">
+<div class="flex items-center gap-space-md text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">handyman</span>
+<span class="text-on-surface font-semibold">In-House Facilities Staff</span>
+<span class="text-on-surface-variant">(Lead: Eleanor Hayes)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Tomorrow 9:00 AM PST</span>
+</div>
+</div>
+</div>
+<!-- CARD 5: Schlage Commercial Access Gate Z-Wave Sync -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm opacity-80 hover:opacity-100 transition-all cursor-pointer">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">Access &amp; Low Voltage</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">#BO-2024-889</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">• Tower B Main Vehicle Portico</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                Auto-Resolved
+              </span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Main Commercial Vehicle Gate Controller Gateway Sync</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">Sub-mesh latency cleared via remote reboot and automatic firmware roll v4.2.1.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANE: Active Incident / Deep-Dive Telemetry Inspector (5 Columns) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Incident Detail Container -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md relative">
+<!-- Header with Live Pulse -->
+<div class="flex items-start justify-between pb-space-sm border-b border-outline/50">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span class="font-label-sm text-label-sm text-error uppercase font-bold tracking-wider">Active Incident Focus</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Ticket #BO-2024-912</h2>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Tower A • Sub-Level 2 Mechanical Room #M-04</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-error/10 text-error font-label-sm text-label-sm font-bold">
+            SLA: 1h 42m Rem.
+          </span>
+</div>
+<!-- Real-Time Telemetry & SVG Sensor Chart -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">sensors</span>
+              IoT Telemetry Stream (Sensor #CH-02)
+            </span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">Live 10s Poll</span>
+</div>
+<!-- Telemetry Numerical Gauges -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col shadow-xs">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Bearing Temperature</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md text-error font-bold">178°F</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">/ Safe &lt;165°</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col shadow-xs">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Vibration RMS</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md text-tertiary font-bold">4.8</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">mm/s (High)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+</div>
+<!-- Inline SVG Sparkline Chart for Chiller Telemetry -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>6-Hour Temperature Drift Curve</span>
+<span class="text-error font-semibold">+18.4°F Spike</span>
+</div>
+<div class="w-full h-16 pt-1">
+<svg class="w-full h-full text-error" fill="none" preserveaspectratio="none" viewbox="0 0 300 60">
+<defs>
+<lineargradient id="chillerGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="currentColor" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,45 Q40,43 70,44 T140,40 T200,32 T240,18 L300,8 L300,60 L0,60 Z" fill="url(#chillerGrad)"></path>
+<path d="M0,45 Q40,43 70,44 T140,40 T200,32 T240,18 L300,8" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="300" cy="8" fill="currentColor" r="3.5"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant pt-0.5">
+<span>08:00 AM (159°F)</span>
+<span>10:30 AM (BMS Alert Trigger)</span>
+<span class="font-bold text-error">Current: 178°F</span>
+</div>
+</div>
+</div>
+<!-- Vendor Dispatch & Building Security Clearance Credentials -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Dispatched Certified Contractor</span>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-xs flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-xl bg-primary text-on-primary font-bold flex items-center justify-center font-label-lg text-label-lg">
+                  TR
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Trane Commercial Services</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">License #TRANE-WA-4402B • MSA Active</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Tier 1 Partner</span>
+</div>
+<!-- Technician Card -->
+<div class="p-space-sm rounded-lg bg-surface flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-label-sm font-label-sm">
+                  RD
+                </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Robert Diaz (Senior Master HVAC)</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">+1 (206) 555-8831</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" title="Call Technician">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</button>
+</div>
+<!-- Smart Access Security Clearance -->
+<div class="p-space-sm rounded-lg bg-secondary-container/40 flex flex-col gap-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">key</span>
+                  Smart Clearance Issued: Schlage Z-Wave
+                </span>
+<span class="font-bold text-primary">PIN #9024</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Active: Loading Bay B &amp; Sub-Level 2 Utility Room (1:30 PM - 5:30 PM PST)</span>
+</div>
+</div>
+</div>
+<!-- 5-Step Resolution Stepper -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Statutory Resolution Stepper</span>
+<div class="relative pl-6 flex flex-col gap-space-sm pt-1">
+<!-- Continuous line -->
+<div class="absolute left-2.5 top-2.5 bottom-2.5 w-0.5 bg-outline"></div>
+<!-- Step 1 -->
+<div class="relative flex items-start gap-space-sm">
+<div class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px] font-bold">
+                ✓
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">1. BMS Telemetry Alarm Tripped</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">10:14 AM • Sensor #CH-02 alert confirmed by AI Dispatch hub.</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-start gap-space-sm">
+<div class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px] font-bold">
+                ✓
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">2. Emergency PO Pre-Cleared</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">10:28 AM • $1,500 standard emergency authorization released.</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-space-sm">
+<div class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px] font-bold">
+                ✓
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">3. Vendor Dispatched &amp; Accepted</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">11:05 AM • Trane Commercial confirmed dispatch of Robert Diaz.</span>
+</div>
+</div>
+<!-- Step 4 (Current) -->
+<div class="relative flex items-start gap-space-sm">
+<div class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[10px] font-bold ring-4 ring-secondary-container">
+                4
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-secondary">4. Technician En Route (ETA 1:45 PM)</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Service van GPS within 4.2 miles. Security clearance activated.</span>
+</div>
+</div>
+<!-- Step 5 (Pending) -->
+<div class="relative flex items-start gap-space-sm opacity-50">
+<div class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center text-[10px] font-bold">
+                5
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">5. Recalibration, Sign-off &amp; BMS Reset</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Inspection log filing &amp; tenant cooling comfort clearance.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action CTAs for Dispatch Controller -->
+<div class="pt-space-sm flex flex-col gap-space-xs">
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">monitoring</span>
+<span>Live BMS Raw Feed</span>
+</button>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">campaign</span>
+<span>Tenant Notice</span>
+</button>
+</div>
+<button class="h-10 px-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Authorize PO Expansion (&gt; $1,500)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Grid: Preventative Maintenance Schedule & Statutory Roster (Two Balanced Panels) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg pb-space-xl">
+<!-- Left: Upcoming Statutory Inspections & Preventative Maintenance Calendar (7 Columns) -->
+<div class="lg:col-span-7 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Statutory Inspections &amp; Preventative Roadmap</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Upcoming mandatory municipal compliance tests and seasonal facility servicing.</span>
+</div>
+<button class="text-primary font-label-sm text-label-sm font-semibold hover:underline flex items-center gap-0.5">
+<span>View Master Schedule</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Item 1: Fire Sprinkler -->
+<div class="p-space-md rounded-xl bg-surface flex items-center justify-between gap-space-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container text-on-tertiary-fixed-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Annual Fire Sprinkler &amp; Backflow Certification</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">City of Seattle Fire Marshal • Towers A &amp; B common risers</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">Nov 24, 2024</span>
+<span class="text-[11px] text-tertiary font-semibold">Due in 6 Days</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Inspector Booked</span>
+</div>
+</div>
+<!-- Item 2: Elevator Drop Test -->
+<div class="p-space-md rounded-xl bg-surface flex items-center justify-between gap-space-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">elevator</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Otis Gen2 Q4 Cable &amp; Governor Drop Test</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">State L&amp;I Division • Otis Elevator Co. certified technician required</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">Dec 05, 2024</span>
+<span class="text-[11px] text-on-surface-variant">In 17 Days</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Documentation Ready</span>
+</div>
+</div>
+<!-- Item 3: Roof Storm Drains -->
+<div class="p-space-md rounded-xl bg-surface flex items-center justify-between gap-space-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">roofing</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Roof Storm Drains &amp; High-Pressure Gutter Jetting</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Cascade Exterior Maintenance • Pre-winter storm prep</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">Nov 28, 2024</span>
+<span class="text-[11px] text-on-surface-variant">In 10 Days</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Confirmed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Approved Commercial Vendor Roster & SLA Tiers (5 Columns) -->
+<div class="lg:col-span-5 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Approved Vendor Roster</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">5 Active MSAs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pre-cleared contractors with automated insurance &amp; COI tracking.</p>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Vendor 1 -->
+<div class="p-space-sm rounded-lg bg-surface flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-primary flex items-center justify-center font-bold text-[11px]">TR</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Trane Commercial HVAC</span>
+<span class="text-[11px] text-on-surface-variant">2h SLA Emergency • Contracted Rate $165/hr</span>
+</div>
+</div>
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest text-on-surface-variant hover:text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">call</span>
+</button>
+</div>
+<!-- Vendor 2 -->
+<div class="p-space-sm rounded-lg bg-surface flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-secondary flex items-center justify-center font-bold text-[11px]">OT</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Otis Elevator Worldwide</span>
+<span class="text-[11px] text-on-surface-variant">24/7 Trapped Passenger SLA 30m • Monthly Retainer</span>
+</div>
+</div>
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest text-on-surface-variant hover:text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">call</span>
+</button>
+</div>
+<!-- Vendor 3 -->
+<div class="p-space-sm rounded-lg bg-surface flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px]">CP</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Cascade Plumbing Pros</span>
+<span class="text-[11px] text-on-surface-variant">Risers, Boilers &amp; Pumps • $140/hr</span>
+</div>
+</div>
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest text-on-surface-variant hover:text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">call</span>
+</button>
+</div>
+<!-- Vendor 4 -->
+<div class="p-space-sm rounded-lg bg-surface flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container text-on-tertiary-fixed-variant flex items-center justify-center font-bold text-[11px]">AE</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Apex Commercial Electrical</span>
+<span class="text-[11px] text-on-surface-variant">Switchgear, High Voltage &amp; Transformers</span>
+</div>
+</div>
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest text-on-surface-variant hover:text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">call</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs border-t border-outline/50 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+          All 5 Vendor COIs Current through 2025
+        </span>
+<button class="text-primary font-semibold hover:underline">Manage Directory</button>
+</div>
+</div>
+</div>
+<!-- Architectural & Commercial Facilities Footer Banner -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-1.5 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[18px] text-primary">domain</span>
+<span>Green Park Towers Commercial Facility Hub</span>
+</div>
+<span>•</span>
+<span>3 Buildings (Towers A &amp; B, East Mews)</span>
+<span>•</span>
+<span>48 Units</span>
+<span>•</span>
+<span>12 Heavy Commercial Assets Synced</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+<span>24/7 Facility Emergency Line: +1 (206) 555-0199</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Interactive micro-interaction for Work Order Selection
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.lg\\:col-span-7 .flex.flex-col.gap-space-sm > div');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('ring-2', 'ring-primary'));
+        card.classList.add('ring-2', 'ring-primary');
+      });
+    });
+  });
+</script></main>
+</div>
+</body></html>

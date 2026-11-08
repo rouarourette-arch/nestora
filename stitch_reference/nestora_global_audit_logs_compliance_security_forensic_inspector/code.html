@@ -1,0 +1,815 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nestora - Buildings Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#234B3A",
+            "primary-container": "#234B3A",
+            "primary-dark": "#8FAF9A",
+            "secondary": "#476553",
+            "secondary-container": "#c9ebd4",
+            "warm-ivory": "#F7F6F0",
+            "warm-accent": "#D9A66F",
+            "tertiary-fixed": "#ffddbb",
+            "tertiary-container": "#5f3c0e",
+            "surface": "#F3F5F2",
+            "surface-card": "#FFFFFF",
+            "surface-container-low": "#ECEFEC",
+            "surface-container-high": "#e1e3e0",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#414844",
+            "text-muted": "#78847C",
+            "dark-bg": "#18231E",
+            "dark-surface": "#26372E",
+            "dark-sidebar": "#1D2A23",
+            "dark-border": "#354A3D",
+            "dark-text": "#F1F4F0",
+            "dark-text-muted": "#B1BDB4"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<meta content="web_dashboard" name="shell-type"></head>
+<body class="bg-[#F3F5F2] dark:bg-[#18231E] font-sans text-on-surface dark:text-[#F1F4F0] antialiased transition-colors duration-300">
+<!-- Persistent Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#1D2A23] border-r border-[#E3EAE4] dark:border-[#354A3D] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-colors duration-300" id="main-sidebar">
+<div class="flex flex-col">
+<!-- Logo + Brand name + Tagline Pill -->
+<div class="h-16 px-5 flex items-center justify-between border-b border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[18px] tracking-tight text-[#234B3A] dark:text-[#F1F4F0] leading-none">Nestora</span>
+<span class="text-[10px] font-semibold text-[#78847C] dark:text-[#B1BDB4] tracking-wide mt-0.5">Buildings OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#c9ebd4]/60 text-[#234B3A] dark:bg-[#354A3D] dark:text-[#8FAF9A]">PRO</span>
+</div>
+<!-- Workspace Dropdown with Quick Switch -->
+<div class="px-4 py-3">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-2.5 flex items-center justify-between border border-[#E3EAE4]/60 dark:border-[#354A3D]/70 hover:border-[#234B3A]/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-7 h-7 rounded-lg bg-[#234B3A]/10 dark:bg-[#8FAF9A]/20 flex items-center justify-center text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[17px]">apartment</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#78847C] dark:text-[#B1BDB4]">Workspace</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Nestora Buildings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[18px] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">swap_horiz</span>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-5 pt-1 pb-1.5 flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Main Management</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 px-3">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Buildings & Units -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="">Buildings &amp; Units</span>
+</a>
+<!-- Residents & Owners -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="">Residents &amp; Owners</span>
+</a>
+<!-- Shared Expenses -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="">Shared Expenses</span>
+</a>
+<!-- Maintenance (Badge 4) -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="">Maintenance</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[11px] font-bold">4</span>
+</a>
+<!-- Documents -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="">Documents</span>
+</a>
+<!-- Meetings & Voting -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">how_to_vote</span>
+<span class="">Meetings &amp; Voting</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="">Calendar</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="">Reports</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Community Care / Profile -->
+<div class="flex flex-col gap-2.5 p-3.5 border-t border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-3 flex flex-col gap-1 border border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2 text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[19px]">support_agent</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0]">Community Care</span>
+</div>
+<p class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4] leading-snug">Need operational guidance or 24/7 hotline?</p>
+<a class="text-[12px] font-semibold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-1 mt-1" href="#">
+<span class="">Support Desk</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-[#354A3D]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-[#1D2A23]"></span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[12.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Sarah Ben Ali</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Admin</span>
+</div>
+</div>
+<button class="text-[#78847C] dark:text-[#B1BDB4] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] p-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="pl-64">
+<!-- Top Header -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#F3F5F2]/80 dark:bg-[#18231E]/80 backdrop-blur-xl border-b border-[#E3EAE4] dark:border-[#354A3D] z-40 flex items-center justify-between px-6 transition-colors duration-300">
+<!-- Breadcrumb + Page Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-[13px] font-medium text-[#78847C] dark:text-[#B1BDB4]">
+<span class="hover:text-[#234B3A] dark:hover:text-[#8FAF9A] cursor-pointer">Nestora Buildings</span>
+<span class="text-[#78847C]/60">/</span>
+<span class="text-[#191c1b] dark:text-[#F1F4F0] font-semibold">Dashboard</span>
+</div>
+<!-- Search Bar with Ctrl+K -->
+<div class="relative flex items-center ml-2">
+<span class="material-symbols-outlined absolute left-3.5 text-[#78847C] dark:text-[#B1BDB4] text-[19px]">search</span>
+<input class="w-72 lg:w-80 h-10 pl-10 pr-12 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#191c1b] dark:text-[#F1F4F0] placeholder:text-[#78847C] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#234B3A] dark:focus:ring-[#8FAF9A] transition-all shadow-xs" placeholder="Search units, residents, tickets..." type="text">
+<kbd class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#ECEFEC] dark:bg-[#1D2A23] text-[#78847C] dark:text-[#B1BDB4]">Ctrl K</kbd>
+</div>
+<!-- Portfolio Status Tag -->
+<div class="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c9ebd4]/70 dark:bg-[#354A3D] border border-[#c9ebd4] dark:border-[#354A3D]">
+<span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#8FAF9A] animate-pulse"></span>
+<span class="text-[11px] font-bold text-[#234B3A] dark:text-[#8FAF9A] uppercase tracking-wider">12 Units Live</span>
+</div>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Interactive Theme Switcher Button -->
+<button class="relative flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#234B3A] dark:text-[#D9A66F] hover:scale-105 active:scale-95 shadow-xs transition-all" id="theme-toggle-btn" title="Toggle Light / Dark Theme" type="button">
+<!-- Sun Icon (for Dark mode) -->
+<span class="material-symbols-outlined text-[20px] hidden" id="theme-icon-light">light_mode</span>
+<!-- Moon Icon (for Light mode) -->
+<span class="material-symbols-outlined text-[20px]" id="theme-icon-dark">dark_mode</span>
+</button>
+<!-- Notifications with Badge -->
+<button class="relative w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] flex items-center justify-center text-[#414844] dark:text-[#F1F4F0] hover:bg-[#ECEFEC] dark:hover:bg-[#354A3D] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</span>
+</button>
+<div class="h-6 w-px bg-[#E3EAE4] dark:bg-[#354A3D] mx-1"></div>
+<!-- Profile Avatar & Details -->
+<div class="flex items-center gap-2.5 pl-1 py-1 pr-2 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] hover:shadow-xs transition-all cursor-pointer">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<div class="hidden md:flex flex-col text-left pr-1">
+<span class="text-[12px] font-bold text-[#191c1b] dark:text-[#F1F4F0] leading-none">Sarah Ben Ali</span>
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] mt-0.5 font-medium">(Admin)</span>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="relative pt-20 w-full px-6 py-6 min-h-screen"><div class="flex flex-col w-full">
+<!-- Operational Telemetry & System Status Banner -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-4 rounded-xl bg-surface-container-high text-on-surface shadow-sm mb-6">
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Breadcrumb indicator -->
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="">Security &amp; Compliance</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Global Audit &amp; Logs</span>
+</div>
+<span class="h-4 w-px bg-outline-variant mx-1 hidden sm:inline-block"></span>
+<!-- Telemetry Pills -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="">Kafka / Vector Ingestion: Nominal • 12,480 eps</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-xs">
+<span class="material-symbols-outlined text-primary text-[15px]">verified_user</span>
+<span class="">WORM Storage • 7-Year Statutory (SOC2 / RCW 64.90)</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface font-label-sm text-label-sm shadow-xs">
+<span class="material-symbols-outlined text-secondary text-[15px]">lock</span>
+<span class="">Merkle Root: Block #1,849,294 (Verified)</span>
+</div>
+</div>
+<!-- Top Primary Actions -->
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px]">download</span>
+<span class="">Export Package</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px]">sync_alt</span>
+<span class="">Configure SIEM Sink</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-error text-on-error hover:opacity-90 font-label-md text-label-md transition-opacity shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px]">lock_clock</span>
+<span class="">Legal Hold</span>
+</button>
+</div>
+</div>
+<!-- KPI Overview 4-Card Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+<!-- Card 1: Ingestion Volume -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-on-surface-variant font-label-md text-label-md">Ingested Events (24h)</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">1.42M</span>
+<span class="text-secondary font-label-sm text-label-sm font-semibold">+4.2%</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">dataset</span>
+</div>
+</div>
+<!-- Volume Histogram Chart -->
+<div class="mt-4 pt-3 border-t-0 flex items-end gap-1 h-8">
+<div class="flex-1 bg-surface-container-high rounded-t-xs h-3"></div>
+<div class="flex-1 bg-surface-container-high rounded-t-xs h-4"></div>
+<div class="flex-1 bg-surface-container-high rounded-t-xs h-5"></div>
+<div class="flex-1 bg-surface-container-high rounded-t-xs h-3"></div>
+<div class="flex-1 bg-surface-container-high rounded-t-xs h-6"></div>
+<div class="flex-1 bg-surface-container-high rounded-t-xs h-7"></div>
+<div class="flex-1 bg-secondary rounded-t-xs h-5"></div>
+<div class="flex-1 bg-primary rounded-t-xs h-8"></div>
+<div class="flex-1 bg-secondary rounded-t-xs h-7"></div>
+<div class="flex-1 bg-primary rounded-t-xs h-8"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Zero drop frame rate • 99.999% SLA</p>
+</div>
+<!-- Card 2: Security & Auth Anomalies -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-on-surface-variant font-label-md text-label-md">Security &amp; Auth Anomalies</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-error tracking-tight">3 Flagged</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">Action Needed</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">fitbit_push_ups</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<span class="font-body-sm text-body-sm text-on-surface">1 Suspicious IP Geolocation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 Rapid MFA Retry Loops</span>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-error hover:underline mt-2 font-semibold" href="#">
+<span class="">Inspect 3 anomalies</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3: Financial Mutex Logs -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-on-surface-variant font-label-md text-label-md">Governance &amp; Ledger Writes</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">842</span>
+<span class="text-secondary font-label-sm text-label-sm">Mutations</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2 bg-surface-container-low p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface">100% SHA-256 Merkle verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Journal writes, bylaws voting, PO expansions</p>
+</div>
+<!-- Card 4: Administrative Privilege Escalations -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-on-surface-variant font-label-md text-label-md">Privileged Sudo Executions</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">18</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Ops (24h)</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px] font-bold">SB</div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Sarah Ben Ali (Admin)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Latest escalation: 14m ago (PO Expansion)</p>
+</div>
+</div>
+<!-- Query & Forensic Filter Bar -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface-container-lowest shadow-sm mb-6">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
+<!-- Search input with syntax support -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[19px]">terminal</span>
+<input class="w-full h-11 pl-11 pr-24 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-hidden focus:bg-surface-container-lowest transition-colors font-mono" type="text" value="service:financial OR actor:sarah.benali@nestora.io action:po_expansion status:success">
+<div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface bg-surface-container-high font-label-sm text-label-sm" type="button">Syntax</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface bg-surface-container-high font-label-sm text-label-sm" type="button">Saved</button>
+</div>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Time Range Selector -->
+<button class="inline-flex items-center gap-2 h-11 px-3.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="">Last 24 Hours</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+<!-- Subsystem Selector -->
+<button class="inline-flex items-center gap-2 h-11 px-3.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+<span class="">All Subsystems (7)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+<!-- Severity Selector -->
+<button class="inline-flex items-center gap-2 h-11 px-3.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span class="">Severity: All</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Active Filter Tags & Quick Mutex Filter -->
+<div class="flex flex-wrap items-center justify-between gap-2 pt-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Active Scopes:</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="">Scope: Tower A Central</span>
+<button class="material-symbols-outlined text-[14px] hover:text-error" type="button">close</button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="">Type: Mutation &amp; Journal</span>
+<button class="material-symbols-outlined text-[14px] hover:text-error" type="button">close</button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="">Signer: Ed25519 Verified</span>
+<button class="material-symbols-outlined text-[14px] hover:text-error" type="button">close</button>
+</span>
+<button class="font-label-sm text-label-sm text-secondary hover:underline font-semibold ml-1" type="button">Clear Filters</button>
+</div>
+<!-- Immutable Only Toggle -->
+<label class="inline-flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="rounded text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface font-medium">Show Only Tamper-Proof Mutations</span>
+</label>
+</div>
+</div>
+<!-- Main Content Split Layout: Log Stream (65%) & Forensic Deep Inspector (35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Panel: Live Interactive Stream Table (8 Cols = ~66%) -->
+<div class="lg:col-span-8 flex flex-col rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<!-- Tabs & Live Stream Status -->
+<div class="flex flex-wrap items-center justify-between px-4 py-3 bg-surface-container-high">
+<div class="flex items-center gap-2 overflow-x-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-xs flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="">Live Streaming Feed</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg hover:bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-colors" type="button">
+            Historical Query Replay
+          </button>
+<button class="px-3 py-1.5 rounded-lg hover:bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-colors" type="button">
+            SIEM Forwarding Queues
+          </button>
+<button class="px-3 py-1.5 rounded-lg hover:bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-colors" type="button">
+            Merkle Proof Tree
+          </button>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stream: <strong class="text-on-surface">Auto-Scroll ON</strong></span>
+<button class="p-1 rounded hover:bg-surface-container-low text-on-surface-variant" title="Pause Stream" type="button">
+<span class="material-symbols-outlined text-[18px]">pause</span>
+</button>
+</div>
+</div>
+<!-- Audit Stream Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<th class="py-3 px-4">Timestamp (UTC)</th>
+<th class="py-3 px-3">Severity</th>
+<th class="py-3 px-3">Subsystem</th>
+<th class="py-3 px-3">Principal / Actor</th>
+<th class="py-3 px-4">Action Summary</th>
+<th class="py-3 px-3">Hash Check</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Row 1: CRITICAL MFA Failure -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-3 px-4 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+                14:49:02.118
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">CRITICAL</span>
+</td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface whitespace-nowrap">
+                iam.oauth2
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="font-semibold text-on-surface">unknown_user</span>
+<span class="block text-label-sm text-on-surface-variant">Tor Exit NL (185.220.101.4)</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+                Failed MFA challenge retry loop &gt; 5 attempts on privileged tenant gateway
+              </td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+<span class="inline-flex items-center gap-1">
+<span class="text-secondary font-semibold">#7a21</span>
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+</span>
+</td>
+</tr>
+<!-- Row 2: Selected Row (Financial PO Expansion) -->
+<tr class="bg-secondary-container/60 hover:bg-secondary-container transition-colors cursor-pointer">
+<td class="py-3 px-4 font-mono text-label-sm text-primary font-bold whitespace-nowrap flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">14:48:12.402</span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold">MUTATION</span>
+</td>
+<td class="py-3 px-3 font-mono text-label-sm text-primary font-semibold whitespace-nowrap">ledger.journal</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="font-bold text-primary">sarah.benali@nestora.io</span>
+<span class="block text-label-sm text-on-surface-variant">Admin • 198.51.100.42</span>
+</td>
+<td class="py-3 px-4 text-primary font-medium">
+                Authorized PO Expansion for Trane Chiller (#BO-2024-912) from $1,500 to $2,450
+              </td>
+<td class="py-3 px-3 font-mono text-label-sm text-primary whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-bold">
+<span class="">#9f8a</span>
+<span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+</span>
+</td>
+</tr>
+<!-- Row 3: Ballot Submission -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-3 px-4 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+                14:46:58.910
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold">AUDIT</span>
+</td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface whitespace-nowrap">
+                governance.ballot
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="font-semibold text-on-surface">marcus.vance@board.org</span>
+<span class="block text-label-sm text-on-surface-variant">Unit A-402 • Token Pass</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+                Recorded Supermajority Ballot Vote for Unit A-402 (Resolution #2024-B08)
+              </td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+<span class="inline-flex items-center gap-1">
+<span class="">#3c18</span>
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+</span>
+</td>
+</tr>
+<!-- Row 4: API Key Rotation -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-3 px-4 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+                14:41:04.225
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-bold">WARN</span>
+</td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface whitespace-nowrap">
+                vault.kms
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="font-semibold text-on-surface">svc-billing-engine</span>
+<span class="block text-label-sm text-on-surface-variant">Service Worker • k8s-pod</span>
+</td>
+<td class="py-3 px-4 text-on-surface">Triggered scheduled HMAC secret &amp; API key rotation for billing notification gateway</td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+<span class="inline-flex items-center gap-1">
+<span class="">#44b2</span>
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+</span>
+</td>
+</tr>
+<!-- Row 5: BMS Telemetry Alert -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-3 px-4 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+                14:38:50.004
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold">INFO</span>
+</td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface whitespace-nowrap">
+                bms.chiller
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="font-semibold text-on-surface">bms-iot-gateway-04</span>
+<span class="block text-label-sm text-on-surface-variant">Modbus RTU Controller</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+                Chilled water flow telemetry calibrated (Sensor ΔP: 18.4 PSI nominal)
+              </td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+<span class="inline-flex items-center gap-1">
+<span class="">#01fa</span>
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+</span>
+</td>
+</tr>
+<!-- Row 6: Document Vault Access -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-3 px-4 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+                14:35:12.871
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold">AUDIT</span>
+</td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface whitespace-nowrap">
+                doc.vault
+              </td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="font-semibold text-on-surface">elena.rostova@legal.io</span>
+<span class="block text-label-sm text-on-surface-variant">External Auditor</span>
+</td>
+<td class="py-3 px-4 text-on-surface">Exported FY2024 Building Maintenance Compliance Report Signed PDF for Tower A Oversight</td>
+<td class="py-3 px-3 font-mono text-label-sm text-on-surface-variant whitespace-nowrap">
+<span class="inline-flex items-center gap-1">
+<span class="">#bb93</span>
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Streaming Telemetry Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between px-4 py-3 bg-surface-container-low gap-3">
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+            Showing <strong class="text-on-surface">1–25</strong> of <strong class="text-on-surface">1,428,910</strong> immutable events
+          </span>
+<span class="h-3 w-px bg-outline-variant hidden sm:inline-block"></span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Ingestion buffer: 0 ms delay</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high disabled:opacity-40" disabled="" type="button">Previous</button>
+<span class="px-2 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">1</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high" type="button">2</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high" type="button">3</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high" type="button">Next</button>
+</div>
+</div>
+</div>
+<!-- Right Panel: Active Event Forensic Deep Inspector (4 Cols = ~34%) -->
+<div class="lg:col-span-4 flex flex-col gap-4">
+<!-- Main Inspector Card -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col">
+<!-- Inspector Card Header -->
+<div class="flex items-start justify-between pb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Forensic Deep Inspector</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">SEALED</span>
+</div>
+<p class="font-mono text-label-sm text-on-surface-variant mt-0.5">evt_01JDF83KA9281Z4M920X</p>
+</div>
+<button class="p-1 rounded hover:bg-surface-container-low text-on-surface-variant" title="Close Inspector" type="button">
+<span class="material-symbols-outlined text-[19px]">close</span>
+</button>
+</div>
+<!-- Mode Toggle -->
+<div class="flex items-center rounded-lg bg-surface-container-high p-1 mb-4">
+<button class="flex-1 py-1 rounded-md bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-xs text-center" type="button">Formatted View</button>
+<button class="flex-1 py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium text-center" type="button">{ } Raw JSON</button>
+</div>
+<!-- Structured Key-Value Metadata -->
+<div class="flex flex-col gap-3 font-body-sm text-body-sm">
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase font-bold tracking-wider">Event Name</span>
+<span class="font-mono text-primary font-bold mt-0.5">financial.po.expansion_authorized</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2.5 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Block Sequence</span>
+<span class="block font-mono text-on-surface font-bold mt-0.5">#1,849,294</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Correlation ID</span>
+<span class="block font-mono text-on-surface font-semibold truncate mt-0.5" title="req_corr_9921_bms_trane">req_corr_9921</span>
+</div>
+</div>
+<!-- Cryptographic Leaf & Parent Hashes -->
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-low gap-1.5">
+<div>
+<span class="text-on-surface-variant font-label-sm text-label-sm font-semibold">Merkle Leaf Hash (SHA-256)</span>
+<div class="flex items-center justify-between gap-1 mt-0.5">
+<span class="font-mono text-label-sm text-on-surface truncate">e3b0c44298fc1c149afbf4c8996fb92427ae41e4</span>
+<button class="material-symbols-outlined text-[16px] text-secondary hover:text-primary" title="Copy Full Hash" type="button">content_copy</button>
+</div>
+</div>
+<div class="pt-1.5">
+<span class="text-on-surface-variant font-label-sm text-label-sm font-semibold">Previous Block Hash</span>
+<div class="flex items-center justify-between gap-1 mt-0.5">
+<span class="font-mono text-label-sm text-on-surface-variant truncate">8f434346648f6b96df89dda901c5176b10a6d839</span>
+<button class="material-symbols-outlined text-[16px] text-secondary hover:text-primary" title="Copy Full Hash" type="button">content_copy</button>
+</div>
+</div>
+</div>
+<!-- Principal & Client Fingerprint Details -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="text-on-surface-variant font-label-sm text-label-sm font-semibold">Principal &amp; Client Signature</span>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px] font-bold">SB</div>
+<span class="font-bold text-on-surface">sarah.benali@nestora.io</span>
+</div>
+<span class="text-label-sm text-on-surface-variant">Role: Platform SuperAdmin / Tenant Admin</span>
+<span class="text-label-sm text-on-surface-variant">IP: 198.51.100.42 (Seattle, WA) • FIDO2 WebAuthn</span>
+<span class="text-label-sm text-on-surface-variant truncate" title="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)">Client: MacOS 10.15.7 • Chrome 130</span>
+</div>
+<!-- Delta Payload Box -->
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-high">
+<span class="text-on-surface-variant font-label-sm text-label-sm font-bold uppercase tracking-wider mb-1">State Mutation Delta</span>
+<div class="font-mono text-label-sm bg-surface-container-lowest p-2.5 rounded-md text-on-surface overflow-x-auto leading-relaxed">
+<span class="text-secondary font-bold">{</span><br>
+              &nbsp;&nbsp;<span class="text-primary font-semibold">"previous_limit"</span>: 1500.00,<br>
+              &nbsp;&nbsp;<span class="text-primary font-semibold">"new_limit"</span>: 2450.00,<br>
+              &nbsp;&nbsp;<span class="text-primary font-semibold">"delta"</span>: +950.00,<br>
+              &nbsp;&nbsp;<span class="text-primary font-semibold">"gl_code"</span>: "6200-HVAC-REPAIR",<br>
+              &nbsp;&nbsp;<span class="text-primary font-semibold">"target"</span>: "Trane Chiller #BO-2024-912",<br>
+              &nbsp;&nbsp;<span class="text-primary font-semibold">"sig"</span>: "SIG_ED25519_99A04B..."<br>
+<span class="text-secondary font-bold">}</span>
+</div>
+</div>
+</div>
+<!-- Merkle Proof Validation Strip -->
+<div class="mt-4 p-3 rounded-lg bg-secondary-container flex items-start gap-2.5 text-on-secondary-container">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">enhanced_encryption</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">Polygon / L2 Merkle Anchor Confirmed</span>
+<span class="font-label-sm text-label-sm leading-tight mt-0.5">
+              Root inclusion stamped into Ethereum L2 Block #62,910,214. Mathematically impossible to forge or rewrite.
+            </span>
+</div>
+</div>
+<!-- Inspector Action Buttons -->
+<div class="flex flex-col gap-2 mt-4 pt-3">
+<button class="w-full py-2 px-3 rounded-lg bg-primary hover:opacity-95 text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px]">download_for_offline</span>
+<span class="">Download Signed Proof Certificate</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-medium text-center" type="button">
+              View Actor Timeline
+            </button>
+<button class="py-2 px-3 rounded-lg bg-error-container hover:bg-error-container/80 text-on-error-container font-label-md text-label-md font-medium text-center" type="button">
+              Flag Security Risk
+            </button>
+</div>
+</div>
+</div>
+<!-- Quick Compliance Certificate Box -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">fact_check</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Subpoena &amp; Audit Bundle</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Generate legal discovery archive</p>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface" title="Export Legal Archive" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Statutory Governance & Compliance Footer -->
+<footer class="mt-8 pt-4 pb-2 flex flex-col md:flex-row items-center justify-between gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">security</span>
+<span class="">Nestora Immutable Audit Ledger v2.4 • SOC2 Type II Certified (CC6.1, CC6.8, CC7.2)</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="">HIPAA Security Rule §164.312(b) Compliant</span>
+<span class="">•</span>
+<span class="">WORM Storage Active</span>
+<span class="">•</span>
+<span class="">SHA-256 Merkle Provenance</span>
+</div>
+</footer>
+</div></main>
+</div>
+<!-- Interactive Scripts: Theme Switcher & Checklist -->
+<script>
+    // Theme Switcher Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const iconLight = document.getElementById('theme-icon-light');
+    const iconDark = document.getElementById('theme-icon-dark');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+      }
+    }
+
+    // Default to Light mode or read preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentDark = false;
+    updateThemeUI(currentDark);
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        currentDark = !currentDark;
+        updateThemeUI(currentDark);
+      });
+    }
+
+    // Checklist interactive counters
+    document.querySelectorAll('.task-checkbox').forEach(box => {
+      box.addEventListener('change', () => {
+        const all = document.querySelectorAll('.task-checkbox');
+        const unchecked = Array.from(all).filter(b => !b.checked).length;
+        const badge = document.getElementById('tasks-remaining-badge');
+        if (badge) {
+          badge.textContent = `${unchecked} of ${all.length} tasks incomplete`;
+        }
+      });
+    });
+  </script>
+
+
+</body></html>

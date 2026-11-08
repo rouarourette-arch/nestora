@@ -1,0 +1,880 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-error-container": "#93000a",
+          "surface-container-high": "#E7EFE8",
+          "on-secondary": "#ffffff",
+          "primary-container": "#E7EFE8",
+          "dark-surface-dim": "#202E27",
+          "on-secondary-container": "#202B25",
+          "dark-primary": "#8FAF9A",
+          "tertiary": "#442700",
+          "secondary": "#476553",
+          "surface-dim": "#ECEFEC",
+          "secondary-container": "#DDEDE2",
+          "primary": "#093425",
+          "on-tertiary": "#ffffff",
+          "on-surface-variant": "#78847C",
+          "surface-container-lowest": "#ffffff",
+          "on-error": "#ffffff",
+          "inverse-surface": "#28332d",
+          "dark-secondary": "#A9C5AF",
+          "primary-fixed": "#c0ecd5",
+          "dark-on-surface-variant": "#B1BDB4",
+          "surface-container-low": "#eaf7ed",
+          "on-tertiary-fixed-variant": "#633f11",
+          "background": "#f0fdf3",
+          "on-tertiary-container": "#543615",
+          "surface-bright": "#f0fdf3",
+          "on-background": "#131e18",
+          "on-primary": "#FFFFFF",
+          "error-container": "#FFDAD6",
+          "inverse-primary": "#a5d0ba",
+          "tertiary-container": "#FDF6EE",
+          "surface-container-highest": "#DDEDE2",
+          "tertiary-fixed-dim": "#f2bc84",
+          "on-secondary-fixed": "#032113",
+          "on-primary-container": "#8fbaa4",
+          "tertiary-fixed": "#ffddbb",
+          "dark-soft-green": "#354A3D",
+          "on-primary-fixed-variant": "#264e3d",
+          "outline-variant": "#E3EAE4",
+          "surface-variant": "#d9e6dc",
+          "surface-tint": "#3e6654",
+          "outline": "#E3EAE4",
+          "dark-sidebar": "#1D2A23",
+          "dark-outline": "#3B4B41",
+          "secondary-fixed-dim": "#adceb8",
+          "dark-surface-container": "#26372E",
+          "inverse-on-surface": "#e7f4ea",
+          "error": "#BA1A1A",
+          "on-primary-fixed": "#002115",
+          "dark-surface": "#18231E",
+          "secondary-fixed": "#c9ebd4",
+          "on-secondary-fixed-variant": "#304d3c",
+          "surface-container": "#FFFFFF",
+          "dark-surface-container-high": "#304338",
+          "dark-on-surface": "#F1F4F0",
+          "primary-fixed-dim": "#a5d0ba",
+          "on-tertiary-fixed": "#2b1700",
+          "on-surface": "#202B25",
+          "surface": "#F3F5F2"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "margin": "2rem",
+          "gutter-mobile": "1rem",
+          "gutter": "1.5rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2rem",
+          "space-xs": "0.25rem",
+          "margin-mobile": "1rem",
+          "space-2xl": "3rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "headline-md": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "display-lg": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container shadow-[0_1px_8px_rgba(32,43,37,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="p-space-lg"><div class="flex items-center gap-space-sm mb-space-lg"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[22px]">domain</span></div><div><span class="font-headline-sm text-headline-sm text-primary tracking-tight block">Nestora</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Real Estate Cloud</span></div></div><div class="bg-surface-container-high p-space-xs rounded-xl flex items-center mb-space-lg"><button class="flex-1 py-1.5 px-space-sm rounded-lg font-label-md text-label-md bg-surface-container text-on-surface shadow-[0_1px_4px_rgba(32,43,37,0.06)] flex items-center justify-center gap-1.5 transition-all" type="button"><span class="material-symbols-outlined text-[16px] text-primary">apartment</span>Buildings</button><button class="flex-1 py-1.5 px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5 transition-all" type="button"><span class="material-symbols-outlined text-[16px]">cottage</span>Living</button></div><nav class="space-y-space-md" data-active-classes="bg-primary-container text-on-surface font-semibold"><div class="space-y-1"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="overview-and-executive-summary" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="">Overview &amp; Summary</span></a></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Buildings Portfolio</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="buildings-and-units" href="#"><span class="material-symbols-outlined text-[18px]">holiday_village</span><span class="">Buildings &amp; Units</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="residents-and-leases" href="#"><span class="material-symbols-outlined text-[18px]">badge</span><span class="">Residents &amp; Leases</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="financials-and-contributions" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span class="">Financials &amp; Dues</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="maintenance-and-dispatch" href="#"><span class="material-symbols-outlined text-[18px]">handyman</span><span class="">Maintenance &amp; Dispatch</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="documents-and-legal" href="#"><span class="material-symbols-outlined text-[18px]">contract</span><span class="">Documents &amp; Legal</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="meetings-and-assembly-voting" href="#"><span class="material-symbols-outlined text-[18px]">how_to_vote</span><span class="">Assembly &amp; Voting</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="reserve-studies-and-reports" href="#"><span class="material-symbols-outlined text-[18px]">assessment</span><span class="">Reserve Studies</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="master-calendar-and-amenities" href="#"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span class="">Amenities &amp; Calendar</span></a></div></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Nestora Living</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="roommates-and-roster" href="#"><span class="material-symbols-outlined text-[18px]">group</span><span class="">Roommates &amp; Roster</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="expenses-and-splits" href="#"><span class="material-symbols-outlined text-[18px]">call_split</span><span class="">Expenses &amp; Splits</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="debts-and-settlement-hub" href="#"><span class="material-symbols-outlined text-[18px]">payments</span><span class="">Settlement Hub</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="chores-and-rotation" href="#"><span class="material-symbols-outlined text-[18px]">checklist</span><span class="">Chores &amp; Rotation</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="shopping-and-pantry" href="#"><span class="material-symbols-outlined text-[18px]">shopping_basket</span><span class="">Shopping &amp; Pantry</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="bills-and-calendar" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span class="">Bills &amp; Calendar</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="house-rules" href="#"><span class="material-symbols-outlined text-[18px]">gavel</span><span class="">House Rules</span></a></div></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Nestora Intelligence</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="ai-assistant-and-action-hub" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span class="">AI Assistant</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="proposed-actions" href="#"><span class="material-symbols-outlined text-[18px]">auto_awesome</span><span class="">Proposed Actions</span></a></div></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Administration</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="platform-admin" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span><span class="">Platform Admin</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="global-audit-and-logs" href="#"><span class="material-symbols-outlined text-[18px]">policy</span><span class="">Audit &amp; Logs</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="workspace-settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="">Workspace Settings</span></a></div></div></nav></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-high/60"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface">Cluster EU-Central</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">v4.18</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(32,43,37,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-full max-w-lg"><div class="relative flex-1"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant">search</span><input class="w-full h-10 pl-9 pr-14 rounded-xl bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none ring-1 ring-outline focus:ring-2 focus:ring-primary transition-all" placeholder="Search units, residents, ledgers, maintenance..." type="text"><kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Ctrl+K</kbd></div><div class="relative"><button class="h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm hover:opacity-95 transition-opacity" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span class="">Quick Action</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-2 py-1 px-space-sm rounded-full bg-secondary-container/70 text-on-secondary-container font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="">Live Node Synced (14ms)</span></div><div class="flex items-center gap-1"><button aria-label="Notifications" class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-[10px] flex items-center justify-center font-bold">3</span></button></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm"><div class="text-right"><span class="block font-label-md text-label-md text-on-surface leading-tight">Sarah Ben Ali</span><span class="block font-label-sm text-label-sm text-on-surface-variant leading-tight">Admin &amp; Lead Tenant</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow Decorator -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-24 right-1/4 w-96 h-96 rounded-full bg-secondary-container/40 blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute -top-12 right-12 w-64 h-64 rounded-full bg-tertiary-container/30 blur-2xl pointer-events-none -z-10"></div>
+<!-- Header & Action Bar -->
+<div class="px-space-xl pt-space-lg pb-space-md">
+<!-- Breadcrumb Bar & Live Status -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1.5 hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">cottage</span>
+<span class="">Nestora Living</span>
+</span>
+<span class="text-on-surface-variant/40">/</span>
+<span class="hover:text-on-surface transition-colors cursor-pointer">Finances &amp; Kitty</span>
+<span class="text-on-surface-variant/40">/</span>
+<span class="text-primary font-semibold">Debts &amp; Instant Settlement Hub</span>
+</div>
+<div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Suite #4B: Oakwood Co-Living</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(4 Active Roommates)</span>
+</div>
+</div>
+<!-- Title Area & Quick Actions -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md mt-2">
+<div>
+<div class="flex items-center gap-2">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Debts, Balances &amp; Settlement</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">auto_graph</span>
+              Graph Optimizing
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mt-1">Algorithmic debt simplification, peer-to-peer balance graph, and internal settlement confirmation ledger.</p>
+</div>
+<!-- Quick Actions Cluster -->
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-all shadow-sm flex items-center gap-1.5" id="btn-export-ledger" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span class="">Export CSV</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-all shadow-sm flex items-center gap-1.5" id="btn-offline-repay" type="button">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span class="">Log Offline Repayment</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary-fixed text-on-tertiary-container font-label-lg text-label-lg transition-all shadow-sm flex items-center gap-1.5" id="btn-topup-kitty" type="button">
+<span class="material-symbols-outlined text-[18px]">savings</span>
+<span class="">Kitty Top-Up</span>
+</button>
+<button class="px-space-lg py-2 rounded-xl bg-primary hover:opacity-95 text-on-primary font-label-lg text-label-lg transition-all shadow-md flex items-center gap-2 group" id="btn-settle-all" type="button"><span class="material-symbols-outlined text-[18px] group-hover:rotate-12 transition-transform">fact_check</span><span class="">Record Settlement</span></button>
+</div>
+</div>
+</div>
+<!-- 4 KPI SNAPSHOT METRIC CARDS -->
+<div class="px-space-xl py-space-sm"><div class="mb-space-md p-space-md rounded-xl bg-tertiary-container/50 border border-outline-variant flex items-start gap-space-sm"><span class="material-symbols-outlined text-[20px] text-tertiary shrink-0 mt-0.5">info</span><div class="flex-1 font-body-sm text-body-sm text-on-surface"><span class="font-semibold text-primary block mb-0.5">Important Settlement Notice:</span>Nestora records mutual shared debts and internal settlement confirmations. Funds must be settled directly between members; Nestora does not process or transfer funds.</div></div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Metric 1: Net Balance -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-secondary-container/40 pointer-events-none group-hover:scale-125 transition-transform"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Your Net Balance</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">arrow_downward_alt</span>
+              You Are Owed
+            </span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">+$142.50</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">from 2 roommates</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+            Overall household ledger in calm equilibrium
+          </p>
+</div>
+<!-- Metric 2: Total Debt Volume -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-surface-container-high/60 pointer-events-none group-hover:scale-125 transition-transform"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Household Circulating Volume</span>
+<span class="p-1 rounded-lg bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">$485.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">14 pending splits</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">receipt_long</span>
+            Groceries, gigabit fiber &amp; joint supplies
+          </p>
+</div>
+<!-- Metric 3: Algorithmic Debt Minimizer -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"><div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary-container/40 pointer-events-none group-hover:scale-125 transition-transform"></div><div class="flex items-center justify-between mb-2"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Graph Simplification</span><span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">reduce_capacity</span>-72% Transaction Steps</span></div><div class="flex items-baseline gap-2 mb-1"><span class="font-headline-lg text-headline-lg text-primary tracking-tight">3 Transfers</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">11 payments</span></div><p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">hub</span>Internal Balance Simplification</p></div>
+<!-- Metric 4: Shared Kitty Reserve -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-tertiary-container/50 pointer-events-none group-hover:scale-125 transition-transform"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Shared Kitty Buffer</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+              Target: $350
+            </span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-headline-lg text-headline-lg text-on-tertiary-container tracking-tight">$320.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">91.4% funded</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden mt-1.5">
+<div class="bg-secondary h-full rounded-full transition-all duration-700" style="width: 91.4%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN INTERACTIVE WORKSPACE (Split 8 Col Graph + 4 Col Controls) -->
+<div class="px-space-xl py-space-md grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT 8 COLUMNS: Balance Graph & Optimization Engine -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- P2P Graph & Interactive Path Optimizer Card -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm">
+<!-- Card Header & View Switcher Tabs -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Algorithmic Balance Minimizer</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Directed acyclic debt simplification engine active for Suite #4B.
+              </p>
+</div>
+<!-- Tab Switcher Navigation -->
+<div class="flex items-center p-1 rounded-xl bg-surface-container-high font-label-md text-label-md">
+<button class="tab-trigger px-space-md py-1.5 rounded-lg bg-surface-container text-primary font-semibold shadow-sm transition-all flex items-center gap-1.5" id="tab-btn-paths" type="button">
+<span class="material-symbols-outlined text-[16px]">route</span>
+<span class="">Optimized Paths (3)</span>
+</button>
+<button class="tab-trigger px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" id="tab-btn-matrix" type="button">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+<span class="">4x4 Matrix</span>
+</button>
+<button class="tab-trigger px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" id="tab-btn-history" type="button">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+<span class="">Settled (Nov)</span>
+</button>
+</div>
+</div>
+<!-- TAB CONTENT 1: VISUAL DIRECTED GRAPH & 3-STEP INSTANT CARDS -->
+<div class="space-y-space-md" id="tab-content-paths">
+<!-- Visual P2P Roommate Node Flow Canvas -->
+<div class="p-space-lg rounded-xl bg-surface-container-low/50 relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Live Roommate Directed Node Graph</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">insights</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-surface-container px-2 py-0.5 rounded-full shadow-sm">
+                  Eulerian Path Solved
+                </span>
+</div>
+<!-- Directed Visual SVG Graph Overlaid on Avatars -->
+<div class="relative py-4">
+<!-- SVG Canvas for Connecting Directed Vectors -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none hidden md:block" fill="none" viewBox="0 0 760 160">
+<!-- Flow Line 1: Marcus -> Sarah -->
+<path class="text-secondary" d="M 120 70 C 230 20, 480 20, 620 70" stroke="currentColor" stroke-dasharray="6 4" stroke-linecap="round" stroke-width="2.5"></path>
+<circle class="fill-surface-container shadow-md" cx="370" cy="35" r="14"></circle>
+<text class="fill-primary font-bold text-[11px]" text-anchor="middle" x="370" y="39">$95.00</text>
+<!-- Flow Line 2: Liam -> Sarah -->
+<path class="text-secondary" d="M 280 120 C 390 150, 520 150, 620 90" stroke="currentColor" stroke-dasharray="6 4" stroke-linecap="round" stroke-width="2.5"></path>
+<circle class="fill-surface-container shadow-md" cx="450" cy="142" r="14"></circle>
+<text class="fill-primary font-bold text-[11px]" text-anchor="middle" x="450" y="146">$47.50</text>
+<!-- Settlement Checkmark Loop for Chloe -->
+<circle class="fill-surface-container-highest" cx="450" cy="70" r="12"></circle>
+<path d="M 445 70 L 449 74 L 456 66" stroke="#476553" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<!-- Roommate Node Cards in Horizontal Flow -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md relative z-10">
+<!-- Node 1: Marcus Vance (Debtor) -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-sm flex flex-col items-center text-center">
+<div class="relative mb-2">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container-high shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of Marcus, a young professional tenant with modern styling in a sunny minimalist apartment, natural ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpr4vc95l4TNi9hCeInwXzBRRU6BC9PH9fO-tmpdgxy_CIPedsPq8ZW3fjEMb5npA0hys8GtLIkakmI0QcGaP2ynAKJqsW6fhp1oGTUsjRpDEjTbznyImHIByzmFL_aN9l3i_SgwWELTHCV8Cwjsg-aKuPUyK6JqOZD0CEAXsfGt0XWegPKLBBMgWCHobM5Stly7j1wvJPF3FVhTlLywNaeOaF_zq4szB50SEEhMI">
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-error text-on-error flex items-center justify-center font-label-sm text-[10px] font-bold">
+                        -$
+                      </span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Marcus Vance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Room #4B-01</span>
+<div class="mt-2 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+                      Owes -$95.00
+                    </div>
+</div>
+<!-- Node 2: Liam O'Connor (Debtor) -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-sm flex flex-col items-center text-center">
+<div class="relative mb-2">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container-high shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Portrait of Liam, a friendly roommate in a green casual linen shirt, bright warm interior background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSqWW7QpqeGTfb2mm7OO4ONEq0RX5cv3OHawzQTC9Wp_lD5ZXoFGOw_inmLTqtjJiGGbYLSBxf1pvgA0BZGJuragspwg1iXYH4zFImPKH1MFMpkx2PGCmFfa-3hcYtATNPqVPHkOk-77SahEqV2-bMH5HEq56-GiYNx_A5wQnPd3NnP2B0-0KHEhLOTpJvNaRpX56tbknE1u6f-w9UliAzaXHwH30E146-iRJ1dSA">
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-error text-on-error flex items-center justify-center font-label-sm text-[10px] font-bold">
+                        -$
+                      </span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Liam O'Connor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Room #4B-02</span>
+<div class="mt-2 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+                      Owes -$47.50
+                    </div>
+</div>
+<!-- Node 3: Chloe Zhao (Settled) -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-sm flex flex-col items-center text-center">
+<div class="relative mb-2">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container-high shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Portrait of Chloe, an architectural designer tenant with confident serene expression in front of house plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2pP_bhNu2X8YDVUJA1FystXiILUz_aM2gYahZaxbuU0CEgly0G-69x62XXt1BgCqWLe5et1JRuGyg74hncTP_9WibZxHjhn6WFTmdQNX2-2d1ACVMqKFiV0nzSWRfgC7Jh1acZXOnEY8sfsHgLOlwEwL2QeraQoziQ2AlloHClTowFkNdMMUhrbMwwVnfHg6JQUcQvm_XS1uWuJZhmLlzEfvsEHdqAFjsFxHM0S8">
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[10px] font-bold">
+                        ✓
+                      </span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Chloe Zhao</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Room #4B-03</span>
+<div class="mt-2 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                      Settled $0.00
+                    </div>
+</div>
+<!-- Node 4: Sarah Ben Ali (Lead / Receiver) -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-sm flex flex-col items-center text-center">
+<div class="relative mb-2">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container-high shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Portrait of Sarah, lead tenant and financial administrator with warm smile, ambient warm architectural studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBglHLeOS6WAWouR_nY2G0gRlDK4IjDblrsKm1Plx29komVdJW5EwE93Bx-dFKdu3F8-7FmE8SOlJvhmfWz_1OvTsdzfocqNKWlnkgqJM5QDyJB0qlEjYEaIR8nWEhN7UjFvY9qypv87P9HnAwUGa1417YlwVZb-Me_fikBKABbUgUIYkUQHixWYkTogU3MEGHeOYyLARhcKVDUi6s87gRBx6nQzfNZgSTLye_iQc8">
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[10px] font-bold">
+                        +$
+                      </span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Sarah (You)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Room #4B-04</span>
+<div class="mt-2 px-2.5 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+                      Receives +$142.50
+                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- The 3 Step Minimal Instant Settlement Cards -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between px-1"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">3 Optimal Internal Settlement Transfers to Full Zero-Balance</span><span class="font-label-sm text-label-sm text-secondary font-medium">Expense Allocation &amp; Direct Off-Platform Settlement</span></div>
+<!-- Card 1: Marcus -> Sarah -->
+<div class="p-space-md rounded-xl bg-surface-container-high/40 hover:bg-surface-container-high transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-label-lg font-bold shrink-0">1</div><div><div class="flex items-center gap-2"><span class="font-label-lg text-label-lg text-on-surface font-semibold">Marcus Vance</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_forward</span><span class="font-label-lg text-label-lg text-primary font-semibold">Sarah Ben Ali</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Fiber + HVAC Allocation</span></div><div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5"><span class="">Member Direct Settlement</span><span class="text-on-surface-variant/40">•</span><span class="text-secondary font-semibold">Expense Allocation</span></div></div></div><div class="flex items-center gap-space-md shrink-0 justify-between sm:justify-end"><span class="font-headline-sm text-headline-sm text-primary font-semibold">$95.00</span><div class="flex items-center gap-2"><button class="btn-ping-reminder px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">notifications_active</span><span class="">Remind</span></button><button class="btn-execute-pay px-3.5 py-1.5 rounded-lg bg-primary hover:opacity-95 text-on-primary font-label-sm text-label-sm transition-all shadow-sm flex items-center gap-1.5" type="button"><span class="material-symbols-outlined text-[14px]">check_circle</span><span class="">Mark Settled (Internal Record)</span></button></div></div></div>
+<!-- Card 2: Liam -> Sarah -->
+<div class="p-space-md rounded-xl bg-surface-container-high/40 hover:bg-surface-container-high transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-label-lg font-bold shrink-0">2</div><div><div class="flex items-center gap-2"><span class="font-label-lg text-label-lg text-on-surface font-semibold">Liam O'Connor</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_forward</span><span class="font-label-lg text-label-lg text-primary font-semibold">Sarah Ben Ali</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Costco Bulk Allocation</span></div><div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5"><span class="">Member Direct Settlement</span><span class="text-on-surface-variant/40">•</span><span class="text-secondary font-semibold">Expense Allocation</span></div></div></div><div class="flex items-center gap-space-md shrink-0 justify-between sm:justify-end"><span class="font-headline-sm text-headline-sm text-primary font-semibold">$47.50</span><div class="flex items-center gap-2"><button class="btn-ping-reminder px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">notifications_active</span><span class="">Remind</span></button><button class="btn-execute-pay px-3.5 py-1.5 rounded-lg bg-primary hover:opacity-95 text-on-primary font-label-sm text-label-sm transition-all shadow-sm flex items-center gap-1.5" type="button"><span class="material-symbols-outlined text-[14px]">check_circle</span><span class="">Mark Settled (Internal Record)</span></button></div></div></div>
+<!-- Card 3: Chloe -> Shared Kitty Rebalance -->
+<div class="p-space-md rounded-xl bg-tertiary-container/40 hover:bg-tertiary-container/70 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-xl bg-tertiary text-on-tertiary flex items-center justify-center font-label-lg font-bold shrink-0">3</div><div><div class="flex items-center gap-2"><span class="font-label-lg text-label-lg text-on-surface font-semibold">Chloe Zhao</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_forward</span><span class="font-label-lg text-label-lg text-on-tertiary-container font-semibold">Shared Kitty Vault</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Monthly Refill</span></div><div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5"><span class="">Restores household kitty balance back to 100% ($350 target)</span></div></div></div><div class="flex items-center gap-space-md shrink-0 justify-between sm:justify-end"><span class="font-headline-sm text-headline-sm text-on-tertiary-container font-semibold">$30.00</span><button class="px-3.5 py-1.5 rounded-lg bg-tertiary hover:opacity-90 text-on-tertiary font-label-sm text-label-sm transition-all shadow-sm flex items-center gap-1.5" type="button"><span class="material-symbols-outlined text-[14px]">savings</span><span class="">Record Kitty Contribution</span></button></div></div>
+</div>
+</div>
+<!-- TAB CONTENT 2: 4X4 DEBT INTERACTION MATRIX (Hidden initially) -->
+<div class="hidden overflow-x-auto" id="tab-content-matrix">
+<div class="p-space-md rounded-xl bg-surface-container-low/40">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                Full peer-to-peer matrix before graph algorithm reduction. Rows represent the payer; columns represent the owed recipient.
+              </p>
+<table class="w-full text-left font-body-sm text-body-sm border-collapse">
+<thead>
+<tr class="font-label-md text-label-md text-on-surface-variant">
+<th class="p-3 bg-surface-container-high rounded-l-lg">From \ To</th>
+<th class="p-3 bg-surface-container-high">Sarah (You)</th>
+<th class="p-3 bg-surface-container-high">Marcus V.</th>
+<th class="p-3 bg-surface-container-high">Chloe Z.</th>
+<th class="p-3 bg-surface-container-high rounded-r-lg">Liam O.</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="hover:bg-surface-container-high/30">
+<td class="p-3 font-label-lg font-semibold text-primary">Sarah Ben Ali</td>
+<td class="p-3 text-on-surface-variant/40">—</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+</tr>
+<tr class="hover:bg-surface-container-high/30">
+<td class="p-3 font-label-lg font-semibold text-on-surface">Marcus Vance</td>
+<td class="p-3 font-semibold text-error">Owes $95.00</td>
+<td class="p-3 text-on-surface-variant/40">—</td>
+<td class="p-3 text-on-surface-variant">$0.00 (Offset)</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+</tr>
+<tr class="hover:bg-surface-container-high/30">
+<td class="p-3 font-label-lg font-semibold text-on-surface">Chloe Zhao</td>
+<td class="p-3 text-secondary font-semibold">Settled ($0.00)</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+<td class="p-3 text-on-surface-variant/40">—</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+</tr>
+<tr class="hover:bg-surface-container-high/30">
+<td class="p-3 font-label-lg font-semibold text-on-surface">Liam O'Connor</td>
+<td class="p-3 font-semibold text-error">Owes $47.50</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+<td class="p-3 text-on-surface-variant">$0.00</td>
+<td class="p-3 text-on-surface-variant/40">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- TAB CONTENT 3: HISTORICAL SETTLED RECEIPTS (Hidden initially) -->
+<div class="hidden space-y-3" id="tab-content-history">
+<div class="p-space-md rounded-xl bg-surface-container-high/30 flex items-center justify-between"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-secondary text-on-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">verified</span></span><div><span class="font-label-lg text-label-lg font-semibold text-on-surface block">Oct Electric &amp; Gas True-Up</span><span class="font-body-sm text-body-sm text-on-surface-variant">Settled across all 4 flatmates via Internal Settlement Record</span></div></div><div class="text-right"><span class="font-label-lg text-label-lg font-semibold text-primary block">$188.40 Settled</span><span class="font-label-sm text-label-sm text-secondary">Verified Oct 31, 2024</span></div></div>
+<div class="p-space-md rounded-xl bg-surface-container-high/30 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</span>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface block">Whole Foods Harvest Dinner</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Liam O'Connor reimbursed Sarah Ben Ali</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-lg text-label-lg font-semibold text-primary block">$54.20 Settled</span>
+<span class="font-label-sm text-label-sm text-secondary">Verified Oct 27, 2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT 4 COLUMNS: Smart Assistant & Punctuality Leaderboard -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- 1-Click Instant Settlement Assistant -->
+<div class="p-space-lg rounded-xl bg-primary text-on-primary shadow-md relative overflow-hidden"><div class="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-secondary/30 blur-2xl pointer-events-none"></div><div class="flex items-center gap-2 mb-3"><span class="w-7 h-7 rounded-lg bg-on-primary/10 flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[18px]">verified_user</span></span><span class="font-label-lg text-label-lg font-bold tracking-tight">Internal Settlement Assistant</span></div><p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed mb-4">Nestora records and simplifies mutual balances. Funds are settled directly between members; Nestora maintains the verified accounting ledger.</p><div class="p-space-md rounded-xl bg-on-primary/10 backdrop-blur mb-4 space-y-2"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-primary-container">Ledger Method</span><span class="font-semibold text-on-primary">Direct Peer Settlement</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-primary-container">Processing Fee</span><span class="font-semibold text-on-primary">$0.00 (No Funds Handled)</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-primary-container">Settlement Type</span><span class="font-semibold text-on-primary">Internal Record</span></div></div><button class="w-full py-2.5 rounded-xl bg-surface-container text-primary font-label-lg text-label-lg font-semibold hover:bg-surface-container-high transition-all flex items-center justify-center gap-2 shadow-sm" id="btn-plaid-bridge" type="button"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span class="">Record Payment / Settlement</span></button></div>
+<!-- Mutual Debt Offset & Forgiveness Tool -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm"><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px] text-primary">sync_saved_locally</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Internal Balance Simplification</h3></div><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">Mutual obligations cancel out internally on the ledger without real money movement. Marcus owes you $30 for internet while you owed Marcus $30 for heating maintenance — simplified internally to $0.</p><div class="p-space-sm rounded-xl bg-surface-container-high flex items-center justify-between font-label-sm text-label-sm mb-3"><span class="text-on-surface font-medium">Internal Settlement Simplification</span><div class="flex items-center gap-1.5 text-secondary font-semibold"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="">Enabled for Suite #4B</span></div></div><button class="w-full py-2 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-1.5" type="button"><span class="material-symbols-outlined text-[16px]">tune</span><span class="">Simplification Rules &amp; Thresholds</span></button></div>
+<!-- House Karma & Punctuality Leaderboard -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">military_tech</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Karma Leaderboard</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Repayment Speed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            Speed metrics based on time-to-reimburse upon shared expense log.
+          </p>
+<!-- Leaderboard Rows -->
+<div class="space-y-3">
+<!-- Rank 1: Sarah -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md font-bold text-primary w-4 text-center">1</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-primary text-label-sm">
+                  SB
+                </div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Sarah Ben Ali (You)</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Avg &lt; 2 hrs</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-primary">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Flawless</span>
+</div>
+</div>
+<!-- Rank 2: Chloe -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md font-bold text-on-surface-variant w-4 text-center">2</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface text-label-sm">
+                  CZ
+                </div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Chloe Zhao</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Avg &lt; 4 hrs</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">98%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Super Punctual</span>
+</div>
+</div>
+<!-- Rank 3: Marcus -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md font-bold text-on-surface-variant w-4 text-center">3</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface text-label-sm">
+                  MV
+                </div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Marcus Vance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Avg &lt; 1 day</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">92%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Reliable</span>
+</div>
+</div>
+<!-- Rank 4: Liam -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md font-bold text-on-surface-variant w-4 text-center">4</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface text-label-sm">
+                  LO
+                </div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Liam O'Connor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Avg &lt; 3 days</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">85%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Occasional Ping</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FULL-WIDTH BOTTOM TRANSACTION & SETTLEMENT AUDIT LEDGER -->
+<div class="px-space-xl pb-space-2xl pt-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm">
+<!-- Table Header and Filter Chips -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">account_balance_wallet</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Transaction &amp; Settlement Audit Ledger</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Immutable log of split expenses, receipt attachments, and clearing verification.
+            </p>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Filter:</span>
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-sm" type="button">
+              All Splits (14)
+            </button>
+<button class="px-3 py-1 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+              Pending Only (2)
+            </button>
+<button class="px-3 py-1 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+              Fully Cleared (12)
+            </button>
+</div>
+</div>
+<!-- Ledger Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider bg-surface-container-high/60">
+<th class="p-space-sm rounded-l-lg">Date</th>
+<th class="p-space-sm">Description</th>
+<th class="p-space-sm">Paid By</th>
+<th class="p-space-sm">Split Between</th>
+<th class="p-space-sm text-right">Total Amount</th>
+<th class="p-space-sm text-right">Your Share</th>
+<th class="p-space-sm text-center">Settlement Status</th>
+<th class="p-space-sm rounded-r-lg text-right">Receipt / Proof</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1: Trader Joe's Shared Restock -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="p-space-sm font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                  Nov 14, 2024
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface block">Trader Joe's Shared Restock</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pantry basics, olive oil, cleaning spray</span>
+</div>
+</div>
+</td>
+<td class="p-space-sm font-label-md text-label-md text-primary font-semibold whitespace-nowrap">
+                  Sarah Ben Ali (You)
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high">4-Way Equal ($40 each)</span>
+</div>
+</td>
+<td class="p-space-sm font-label-lg text-label-lg text-on-surface font-semibold text-right whitespace-nowrap">
+                  $160.00
+                </td>
+<td class="p-space-sm font-label-lg text-label-lg text-secondary font-bold text-right whitespace-nowrap">
+                  +$120.00 <span class="font-label-sm text-label-sm font-normal text-on-surface-variant">(Owed)</span>
+</td>
+<td class="p-space-sm text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    Partial (Settled by Chloe, Pending M &amp; L)
+                  </span>
+</td>
+<td class="p-space-sm text-right whitespace-nowrap">
+<button class="btn-view-receipt inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">receipt</span>
+<span class="">#8841 (JPG)</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: High-Speed Gigabit Fiber Internet -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="p-space-sm font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                  Nov 12, 2024
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface block">High-Speed Gigabit Fiber Internet</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Monthly Comcast business line allocation</span>
+</div>
+</div>
+</td>
+<td class="p-space-sm font-label-md text-label-md text-on-surface font-semibold whitespace-nowrap">
+                  Marcus Vance
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high">4-Way Equal ($30 each)</span>
+</div>
+</td>
+<td class="p-space-sm font-label-lg text-label-lg text-on-surface font-semibold text-right whitespace-nowrap">
+                  $120.00
+                </td>
+<td class="p-space-sm font-label-lg text-label-lg text-on-surface-variant font-medium text-right whitespace-nowrap">
+                  -$30.00 <span class="font-label-sm text-label-sm font-normal text-secondary">(Auto-Offset)</span>
+</td>
+<td class="p-space-sm text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Auto-Deducted from Sarah's Balance
+                  </span>
+</td>
+<td class="p-space-sm text-right whitespace-nowrap">
+<button class="btn-view-receipt inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>
+<span class="">Comcast E-Bill</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Deep Clean Professional Janitorial -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="p-space-sm font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                  Nov 10, 2024
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">cleaning_services</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface block">Deep Clean Professional Janitorial</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bi-weekly kitchen, common areas &amp; 2 baths</span>
+</div>
+</div>
+</td>
+<td class="p-space-sm font-label-md text-label-md text-on-surface font-semibold whitespace-nowrap">
+                  Chloe Zhao
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high">4-Way Equal ($50 each)</span>
+</div>
+</td>
+<td class="p-space-sm font-label-lg text-label-lg text-on-surface font-semibold text-right whitespace-nowrap">
+                  $200.00
+                </td>
+<td class="p-space-sm font-label-lg text-label-lg text-on-surface-variant font-medium text-right whitespace-nowrap">
+                  $0.00 <span class="font-label-sm text-label-sm font-normal text-secondary">(Settled)</span>
+</td>
+<td class="p-space-sm text-center"><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>100% Settled (Internal Settlement Record)</span></td>
+<td class="p-space-sm text-right whitespace-nowrap">
+<button class="btn-view-receipt inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="">Verified Inv #409</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Living Room Projector Screen & HDMI Splitter -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="p-space-sm font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                  Nov 06, 2024
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">tv</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface block">Living Room Projector Screen &amp; Splitter</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Requested by Marcus &amp; Liam for gaming/movie night</span>
+</div>
+</div>
+</td>
+<td class="p-space-sm font-label-md text-label-md text-primary font-semibold whitespace-nowrap">
+                  Sarah Ben Ali (You)
+                </td>
+<td class="p-space-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high">Custom (Marcus 50%, Liam 50%)</span>
+</div>
+</td>
+<td class="p-space-sm font-label-lg text-label-lg text-on-surface font-semibold text-right whitespace-nowrap">
+                  $95.00
+                </td>
+<td class="p-space-sm font-label-lg text-label-lg text-secondary font-bold text-right whitespace-nowrap">
+                  +$95.00 <span class="font-label-sm text-label-sm font-normal text-on-surface-variant">(Owed)</span>
+</td>
+<td class="p-space-sm text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                    Pending Reimbursement
+                  </span>
+</td>
+<td class="p-space-sm text-right whitespace-nowrap">
+<button class="btn-view-receipt inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+<span class="">Amazon Proof</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Summary Footer -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-md mt-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Showing 4 most recent household transactions • 10 archived transactions in ledger
+          </span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors" type="button">
+              Previous
+            </button>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold px-2">Page 1 of 3</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors" type="button">
+              Next
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FLOATING NOTIFICATION TOAST CONTAINER (Interactive client feedback) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="settlement-toast">
+<div class="px-space-md py-3 rounded-xl bg-primary text-on-primary shadow-xl flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-on-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-on-primary">check_circle</span>
+</span>
+<div>
+<span class="font-label-md text-label-md font-bold block" id="toast-title">Action Dispatched</span>
+<span class="font-body-sm text-body-sm text-on-primary-container block" id="toast-body">Instant settlement ping sent.</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    // Tab switcher logic
+    const tabBtns = {
+      paths: document.getElementById('tab-btn-paths'),
+      matrix: document.getElementById('tab-btn-matrix'),
+      history: document.getElementById('tab-btn-history'),
+    };
+
+    const tabContents = {
+      paths: document.getElementById('tab-content-paths'),
+      matrix: document.getElementById('tab-content-matrix'),
+      history: document.getElementById('tab-content-history'),
+    };
+
+    function activateTab(tabKey) {
+      Object.keys(tabBtns).forEach((k) => {
+        const btn = tabBtns[k];
+        const content = tabContents[k];
+        if (k === tabKey) {
+          btn.classList.add('bg-surface-container', 'text-primary', 'font-semibold', 'shadow-sm');
+          btn.classList.remove('text-on-surface-variant');
+          content.classList.remove('hidden');
+        } else {
+          btn.classList.remove('bg-surface-container', 'text-primary', 'font-semibold', 'shadow-sm');
+          btn.classList.add('text-on-surface-variant');
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    if (tabBtns.paths && tabBtns.matrix && tabBtns.history) {
+      tabBtns.paths.addEventListener('click', () => activateTab('paths'));
+      tabBtns.matrix.addEventListener('click', () => activateTab('matrix'));
+      tabBtns.history.addEventListener('click', () => activateTab('history'));
+    }
+
+    // Toast helper
+    const toast = document.getElementById('settlement-toast');
+    const toastTitle = document.getElementById('toast-title');
+    const toastBody = document.getElementById('toast-body');
+    let toastTimeout = null;
+
+    function triggerToast(title, msg) {
+      if (!toast) return;
+      if (toastTimeout) clearTimeout(toastTimeout);
+
+      toastTitle.textContent = title;
+      toastBody.textContent = msg;
+
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 3400);
+    }
+
+    // Interactive action triggers
+    document.getElementById('btn-settle-all')?.addEventListener('click', () => {
+      triggerToast('Algorithmic Settlement Queued', 'Dispatching Stripe instant settlement requests for +$142.50 across flatmates.');
+    });
+
+    document.getElementById('btn-export-ledger')?.addEventListener('click', () => {
+      triggerToast('Export Generated', 'Oakwood_4B_Settlement_Ledger_Nov2024.csv downloaded to your device.');
+    });
+
+    document.getElementById('btn-offline-repay')?.addEventListener('click', () => {
+      triggerToast('Cash Repayment Logger', 'Modal opened: Roommate offline balance adjustments sync instantly.');
+    });
+
+    document.getElementById('btn-topup-kitty')?.addEventListener('click', () => {
+      triggerToast('Kitty Top-Up Selected', 'Shared Buffer Vault ready: Add funds to hit the $350 monthly goal.');
+    });
+
+    document.getElementById('btn-plaid-bridge')?.addEventListener('click', () => {
+      triggerToast('Plaid Transfer Gateway', 'Active bridge: Instant zero-fee ACH linked with Chase (...4902).');
+    });
+
+    // Reminder & Collect Buttons
+    document.querySelectorAll('.btn-ping-reminder').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerToast('Gentle Reminder Dispatched', 'A gentle SMS & Nestora push ping was sent to your roommate.');
+      });
+    });
+
+    document.querySelectorAll('.btn-execute-pay').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerToast('Instant Wire Requested', 'Stripe instant payout triggered directly to your linked ledger.');
+      });
+    });
+
+    document.querySelectorAll('.btn-view-receipt').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerToast('Verified Receipt Vault', 'Opening cryptographically signed digital proof & OCR itemization.');
+      });
+    });
+  })();
+</script></main></div>
+
+</body></html>

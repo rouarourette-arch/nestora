@@ -1,0 +1,6 @@
+{
+  "name": "Nestora — Shared Living & Building Management",
+  "description": "One platform. Better shared living. Complete platform uniting Shared Core, Nestora Living, Nestora Buildings, Platform Administration, and Nestora Intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#3e6654","dark-surface-elevated":"#304338","dark-secondary":"#A9C5AF","on-surface-variant":"#414844","dark-sidebar":"#1D2A23","text-primary":"#202B25","secondary":"#476553","surface":"#f8faf7","warm-ivory":"#F7F6F0","surface-container-lowest":"#ffffff","on-tertiary-fixed-variant":"#633f11","background":"#f8faf7","surface-container-low":"#f2f4f1","on-primary-fixed":"#002115","error-container":"#ffdad6","primary-container":"#234b3a","surface-secondary":"#ECEFEC","dark-border":"#3B4B41","secondary-fixed-dim":"#adceb8","on-primary":"#ffffff","on-error-container":"#93000a","border-subtle":"#E3EAE4","outline":"#717974","on-secondary-fixed-variant":"#304d3c","dark-surface":"#26372E","inverse-surface":"#2e312f","error":"#ba1a1a","surface-variant":"#e1e3e0","dark-text-secondary":"#B1BDB4","outline-variant":"#c1c8c2","secondary-container":"#c9ebd4","dark-background":"#18231E","soft-green":"#E7EFE8","inverse-on-surface":"#eff1ee","surface-container-highest":"#e1e3e0","on-primary-container":"#8fbaa4","surface-container":"#eceeeb","on-tertiary-fixed":"#2b1700","primary-fixed-dim":"#a5d0ba","surface-dim":"#d8dbd8","pale-green":"#DDEDE2","on-secondary":"#ffffff","inverse-primary":"#a5d0ba","dark-soft-green":"#354A3D","dark-primary":"#8FAF9A","text-secondary":"#78847C","tertiary":"#442700","dark-surface-secondary":"#202E27","on-secondary-container":"#4d6b59","surface-bright":"#f8faf7","primary-fixed":"#c0ecd5","tertiary-container":"#5f3c0e","on-primary-fixed-variant":"#264e3d","tertiary-fixed-dim":"#f2bc84","on-error":"#ffffff","secondary-fixed":"#c9ebd4","tertiary-fixed":"#ffddbb","on-tertiary":"#ffffff","surface-container-high":"#e7e9e6","on-secondary-fixed":"#032113","on-background":"#191c1b","on-tertiary-container":"#daa770","primary":"#093425","on-surface":"#191c1b","dark-text-primary":"#F1F4F0"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"1.25rem","space-md":"0.75rem","margin-desktop":"2rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","margin-tablet":"1.5rem","gutter-desktop":"1.5rem","space-lg":"1rem","space-xl":"1.5rem"},fontFamily:{"label-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"caption-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"body-medium":["Plus Jakarta Sans"]},fontSize:{"label-md":["14px",{"lineHeight":"18px","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"caption-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-sm":["17px",{"lineHeight":"24px","fontWeight":"600"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}]}}}};</script></head><body class="bg-surface text-on-surface font-body-md text-body-md"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between py-space-xl shadow-[0_1px_8px_rgba(35,75,58,0.04)]"><div class="flex flex-col gap-space-lg px-space-lg"><div class="flex items-center gap-space-md px-space-xs"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">cottage</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Nestora</span><span class="font-caption-sm text-caption-sm text-text-secondary">Living Hub</span></div></div><div class="bg-surface-container-lowest rounded-xl p-space-sm flex items-center justify-between shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]"><div class="flex items-center gap-space-sm overflow-hidden"><div class="w-7 h-7 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[16px]">domain</span></div><div class="flex flex-col truncate"><span class="font-caption-sm text-caption-sm text-text-secondary leading-none">Workspace</span><span class="font-label-md text-label-md text-on-surface truncate mt-space-xs">Oakridge Commons</span></div></div><button class="text-on-surface-variant hover:text-on-surface transition-colors p-space-xs" type="button"><span class="material-symbols-outlined text-[18px]">unfold_more</span></button></div><nav class="flex flex-col gap-space-xs mt-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-xl"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span class="font-body-medium text-body-medium">Overview</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-all bg-primary-container text-on-primary-container font-semibold rounded-xl" data-path="workspace-selection" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-medium text-body-medium">All Workspaces</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="workspace-management" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-body-medium text-body-medium">Workspace Settings</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="residents-and-members" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-body-medium text-body-medium">Residents &amp; Team</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="shared-expenses" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-body-medium text-body-medium">Shared Expenses</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="amenities-and-rules" href="#"><span class="material-symbols-outlined text-[20px]">event_available</span><span class="font-body-medium text-body-medium">Amenities &amp; Rules</span></a></nav></div><div class="flex flex-col gap-space-xs px-space-lg"><div class="bg-soft-green/60 rounded-xl p-space-md flex flex-col gap-space-xs mb-space-sm"><div class="flex items-center justify-between text-primary"><span class="font-caption-sm text-caption-sm font-semibold">Storage Quota</span><span class="font-caption-sm text-caption-sm">68%</span></div><div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full w-[68%] rounded-full"></div></div><span class="font-caption-sm text-caption-sm text-text-secondary mt-space-xs">14.2 GB of 20 GB used</span></div><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="support" href="#"><span class="material-symbols-outlined text-[20px]">help_outline</span><span class="font-body-medium text-body-medium">Help &amp; Docs</span></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(35,75,58,0.04)]"><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-space-sm text-caption-sm font-caption-sm text-text-secondary"><a class="hover:text-on-surface transition-colors" href="#">Oakridge Commons</a><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-on-surface font-medium">Management</span></nav><div class="hidden md:flex items-center bg-surface-container-low px-space-md py-space-xs rounded-xl gap-space-sm w-72 text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">search</span><input class="bg-transparent border-0 outline-none text-body-md font-body-md text-on-surface placeholder:text-text-secondary w-full" placeholder="Search spaces, members, tags..." type="text"/></div></div><div class="flex items-center gap-space-md"><button aria-label="Theme Switcher" class="p-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><button aria-label="Notifications" class="relative p-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="h-6 w-px bg-surface-variant mx-space-xs"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Sarah Ben Ali</span><span class="font-caption-sm text-caption-sm text-text-secondary leading-tight">Workspace Admin</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrA_hVY3e9cNczcrX_ku5akpb0kzFN0ho81TRDDWNl6YC_SUEMGIArvigzXGTa4t5Qp5CMRGWkW8VVqf5wKAUN9sEhuaeTm9Mfuf_tCTCkK-aRKvy9ip8zEq8XHotFOdx-wUs6GSNciRmvbUruRQ0nEItCD8YEN9qE8dQxiPxZC49but96Hqarer4bvHAqpN0-1ibl5w7O8fLmuBgX_0ZQMPnfupSHi7r-wyMm1sNjNp28PRJo3Om_MhFt0"/></div></div></header><main class="relative pt-16 bg-surface w-full min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-lg md:p-margin-desktop flex flex-col gap-space-xl max-w-7xl mx-auto w-full">
+<!-- Top Hub Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg bg-surface-container-lowest p-space-xl rounded-2xl shadow-sm relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-soft-green/50 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-xs z-10 max-w-2xl">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-md py-space-xs rounded-full bg-pale-green text-primary font-caption-sm text-caption-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Workspace Switcher &amp; Portfolio Hub
+          </span>
+<span class="font-caption-sm text-caption-sm text-text-secondary">Connected: 5 Active</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Your Workspaces</h1>
+<p class="font-body-md text-body-md text-text-secondary">
+          Manage building portfolios, shared residential communities, and household co-living units across your Nestora network.
+        </p>
+</div>
+<div class="flex items-center gap-space-md z-10 shrink-0">
+<button class="flex items-center gap-space-sm px-space-lg py-space-md rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-variant font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+          Transfer Ownership
+        </button>
+<button class="flex items-center gap-space-sm px-space-lg py-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm" id="create-workspace-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+          Create New Workspace
+        </button>
+</div>
+</div>
+<!-- Quick Stats Bento / Switcher Insight Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Portfolio Buildings</span>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">4 Blocks</span>
+<span class="font-caption-sm text-caption-sm text-secondary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">apartment</span> 72 Total Units
+          </span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-soft-green flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Co-Living Households</span>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">2 Homes</span>
+<span class="font-caption-sm text-caption-sm text-secondary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">group</span> 7 Roommates
+          </span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-pale-green flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">diversity_3</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Shared Expenses Ledger</span>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">$5,250</span>
+<span class="font-caption-sm text-caption-sm text-secondary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 100% Reconciled
+          </span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Action Items</span>
+<span class="font-headline-md text-headline-md text-primary mt-space-xs">1 Pending</span>
+<span class="font-caption-sm text-caption-sm text-on-tertiary-fixed-variant flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">mail</span> 1 Direct Invitation
+          </span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">mark_email_unread</span>
+</div>
+</div>
+</div>
+<!-- Category Filter Tabs & Search Bar -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md">
+<div class="flex items-center bg-surface-container-low p-1 rounded-xl w-full sm:w-auto overflow-x-auto">
+<button class="filter-tab px-space-lg py-space-xs rounded-lg font-label-md text-label-md bg-surface-container-lowest text-primary shadow-sm font-semibold transition-all shrink-0" data-filter="all" type="button">
+          All Workspaces <span class="ml-1 px-1.5 py-0.5 rounded-full bg-soft-green text-primary text-[11px]">5</span>
+</button>
+<button class="filter-tab px-space-lg py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all shrink-0" data-filter="buildings" type="button">
+          Nestora Buildings <span class="ml-1 px-1.5 py-0.5 rounded-full bg-surface-container-high text-text-secondary text-[11px]">3</span>
+</button>
+<button class="filter-tab px-space-lg py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all shrink-0" data-filter="living" type="button">
+          Nestora Living <span class="ml-1 px-1.5 py-0.5 rounded-full bg-surface-container-high text-text-secondary text-[11px]">2</span>
+</button>
+<button class="filter-tab px-space-lg py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all shrink-0" data-filter="archived" type="button">
+          Archived <span class="ml-1 px-1.5 py-0.5 rounded-full bg-surface-container-high text-text-secondary text-[11px]">0</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-text-secondary">search</span>
+<input class="w-full pl-9 pr-space-md py-space-xs rounded-xl bg-surface-container-lowest font-body-md text-body-md text-on-surface placeholder:text-text-secondary focus:outline-none shadow-sm" id="workspace-search" placeholder="Search by name, role, address..." type="text"/>
+</div>
+<button class="p-space-xs h-9 w-9 flex items-center justify-center rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-primary shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Workspace Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg" id="workspace-container">
+<!-- Workspace 1: Active Super Admin Building -->
+<div class="workspace-card flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all relative overflow-hidden group" data-category="buildings">
+<div class="absolute top-0 right-0 h-16 w-16 bg-soft-green rounded-bl-3xl flex items-start justify-end p-2 text-primary opacity-60">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-md py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-caption-sm text-caption-sm font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  Active Workspace
+                </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-caption-sm text-caption-sm">
+                  Buildings Portfolio
+                </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mt-1 group-hover:text-primary-container transition-colors">
+                Green Park Towers
+              </h2>
+<span class="font-caption-sm text-caption-sm text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> 450 Evergreen Way, Portland, OR
+              </span>
+</div>
+<div class="flex items-center gap-space-xs pr-8">
+<span class="px-space-sm py-0.5 rounded-lg bg-soft-green font-caption-sm text-caption-sm text-primary font-semibold">
+                Super Admin
+              </span>
+</div>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Structure</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">3 Buildings</span>
+<span class="font-caption-sm text-caption-sm text-secondary">48 Units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Residents &amp; Staff</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">24 Members</span>
+<span class="font-caption-sm text-caption-sm text-secondary">4 Staff</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Audits &amp; Log</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">Clean</span>
+<span class="font-caption-sm text-caption-sm text-secondary">2m ago active</span>
+</div>
+</div>
+<!-- Members & Engagement -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center">
+<div class="flex -space-x-2 overflow-hidden">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Close up photographic portrait of a smiling property manager woman with warm daylight and biophilic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPTnHL_CqOk3T2DmcBU9ne2teAqCR55tmgGUq1Gfu1XLqJhp-2_UmfD4VkcQIiaa-W9BA3NDAS1eCXC3OMjbw3J6yFtKI82usZSLHU26IyiqLvShERiG4PIwyeFFWNMlDQEnd98od6ga_RSLg1zRAhA1PFibeIgLu37gKl9Wfxbm7STSBcPl200v45K_tTTwe7czo9LV1kcpxWP-RoUmkKxNUxTxKKwfHBZ9r5eeI"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photograph of young architect resident man in casual green linen shirt in modern apartment corridor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsYe3lgmZrpb7tKIUFRApOnUZZbUexzwOAWubqxsB6WFsDoEZtQdenWoEgXTG2qQjQ-lsiGeC2djiD3MxYMThHkShtH68vsMar1UH-C8NzTcJBJb9CZk7QlWgMtZ3-cVsuMBMuqN6n6RIixfZJbWrROH-Es9AniPF16CFnKOAHbK4xH6ioJR9o03cyXyWc_iw728h4BY1shfpjSZexggyBGe1SRmxlEK96oAuDsn4"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photograph of a mature building coordinator woman wearing glasses with gentle natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7yFOBxvdP0GB_IWb3xDzNayVRBPowP-qrVxUFPRSf8H9obOmnId7Omj8bXlT4TK3O2zaJduUD3R_uD2KGF44-SAWtA6jPXhpN3VCH6xn9IiZl7DDhhINJkDjQvZjezYaTSGNC0RnonXHiVEc3t9rqmaMT_dNaiUSBhHZDQfXbOV7bYr4z74Q-o7A_uguKw0B30MOraRPvobcN1a3jwhe4YP70sFd9m7vuDlj8-4M"/>
+<div class="flex items-center justify-center h-7 w-7 rounded-full ring-2 ring-surface-container-lowest bg-surface-container-high text-text-secondary font-caption-sm text-[11px] font-semibold">
+                  +21
+                </div>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary ml-space-sm hidden sm:inline">24 members onboarded</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-secondary flex items-center gap-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Current active session
+            </span>
+</div>
+</div>
+<!-- Action Strip -->
+<div class="flex items-center justify-between pt-space-lg mt-space-md border-t-0 bg-surface-container-low/50 -mx-space-xl -mb-space-xl px-space-xl py-space-md rounded-b-2xl">
+<div class="flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Workspace Settings" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="View Members Roster" type="button">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Maintenance Overview" type="button">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</button>
+</div>
+<button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm" type="button">
+<span>Enter Workspace</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Workspace 2: HOA Board Member -->
+<div class="workspace-card flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all relative overflow-hidden group" data-category="buildings">
+<div class="absolute top-0 right-0 h-16 w-16 bg-surface-container-high rounded-bl-3xl flex items-start justify-end p-2 text-text-secondary opacity-60">
+<span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-md py-0.5 rounded-full bg-surface-container-high text-on-surface font-caption-sm text-caption-sm">
+                  Building HOA
+                </span>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-caption-sm text-caption-sm font-semibold">
+                  2 Pending Audits
+                </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mt-1 group-hover:text-primary-container transition-colors">
+                Horizon Heights HOA
+              </h2>
+<span class="font-caption-sm text-caption-sm text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> 812 Summit Ridge Blvd, Denver, CO
+              </span>
+</div>
+<div class="flex items-center gap-space-xs pr-8">
+<span class="px-space-sm py-0.5 rounded-lg bg-soft-green font-caption-sm text-caption-sm text-primary font-semibold">
+                Board &amp; Treasurer
+              </span>
+</div>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Properties</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">1 Building</span>
+<span class="font-caption-sm text-caption-sm text-secondary">24 Units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Residents</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">18 Owners</span>
+<span class="font-caption-sm text-caption-sm text-secondary">3 Committee</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Financials</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">Q3 In Review</span>
+<span class="font-caption-sm text-caption-sm text-on-tertiary-fixed-variant">Audit due Nov 20</span>
+</div>
+</div>
+<!-- Members & Engagement -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center">
+<div class="flex -space-x-2 overflow-hidden">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Photographic headshot of senior condominium treasurer man with silver hair and warm professional smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE3_6HUqdBMNFd0sSG4vbxuS5nvCnfJPy6Q7F6Dn0LXUqExCNs8BK5YDzSr6DJYd-ODh4014v5FUXUnTk1OywKfM3qqqp5mUrE8Z9ImvsIR21RtYpi1qoG-07jMPwmUf0zlteL28mrdYf7KTWC2Cbt38Jky2bpL2acJgpaiarozD4LzenyionVj4HV_x10Iaves1-v359sI32Z1hvXCDhybKMMXnTPQQhiMKLARzA"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photograph of young woman board secretary with ponytail smiling in bright residential community lobby" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoPSV9F2g2LdN_ZPubJMS8ZfvHN0tjUQPivdWLuGORJCfV_y_Zktyqq1hfCyHbQZq6bfID7qX3MOa6aYv_gIzcORJSDECYfKJ9Y3XFKI191ZkKfxy5O-OIL_KiUYCIR0y2XbL0fPy4vnIdlBQSdF0xUZHukp8Kx2MMO_UkXFZYNejoTWzcRh3BZRS7UNb46f2yrxnz0mWrTRPioR6ym2GZvgS_JjzFkNLXSTolTP4"/>
+<div class="flex items-center justify-center h-7 w-7 rounded-full ring-2 ring-surface-container-lowest bg-surface-container-high text-text-secondary font-caption-sm text-[11px] font-semibold">
+                  +16
+                </div>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary ml-space-sm hidden sm:inline">18 members active</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary flex items-center gap-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Active yesterday
+            </span>
+</div>
+</div>
+<!-- Action Strip -->
+<div class="flex items-center justify-between pt-space-lg mt-space-md bg-surface-container-low/50 -mx-space-xl -mb-space-xl px-space-xl py-space-md rounded-b-2xl">
+<div class="flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Workspace Settings" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Financials &amp; Ledger" type="button">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</button>
+</div>
+<button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-surface-container-highest text-primary font-label-md text-label-md hover:bg-soft-green transition-all" type="button">
+<span>Enter Workspace</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Workspace 3: Co-Living Household -->
+<div class="workspace-card flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all relative overflow-hidden group" data-category="living">
+<div class="absolute top-0 right-0 h-16 w-16 bg-pale-green/60 rounded-bl-3xl flex items-start justify-end p-2 text-primary opacity-60">
+<span class="material-symbols-outlined text-[20px]">cottage</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-md py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-caption-sm text-caption-sm font-semibold">
+                  Nestora Living
+                </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-caption-sm text-caption-sm">
+                  Household
+                </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mt-1 group-hover:text-primary-container transition-colors">
+                Oakwood Co-Living #4B
+              </h2>
+<span class="font-caption-sm text-caption-sm text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">home</span> Apt 4B, 114 Maple Ave, Seattle, WA
+              </span>
+</div>
+<div class="flex items-center gap-space-xs pr-8">
+<span class="px-space-sm py-0.5 rounded-lg bg-soft-green font-caption-sm text-caption-sm text-primary font-semibold">
+                Lead Leaseholder
+              </span>
+</div>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Type</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">4 Bed Flat</span>
+<span class="font-caption-sm text-caption-sm text-secondary">Lease ends Aug '25</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Roommates</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">4 Total</span>
+<span class="font-caption-sm text-caption-sm text-secondary">All settled</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Monthly Split</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">$2,800</span>
+<span class="font-caption-sm text-caption-sm text-secondary">Next: Dec 01</span>
+</div>
+</div>
+<!-- Members & Engagement -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center">
+<div class="flex -space-x-2 overflow-hidden">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photo of a young man smiling in cozy modern scandinavian apartment kitchen interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqcp28OozHKa-Ia5K6S-mmA6sJ9DsgB4s0oEaGGAchyF6F43agzXQN7m4g7unGgso14TvB9yvEBlZ6fVATJh0vKkNf15DEH9u0lmNMeKSLScNzK04sZ0eCCgb9UXwM0LWbGLoiLN92LL7H91plsA0rTyqrkrbVc_FxtpZkVVRvcoa79AVuvYt_m2GHLUYQoXFaJichc1JdWaeMlIPY40NXcVBmfOlk8qiE4KhFTk0"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photo of a young creative woman roommate with headphones around neck in bright living room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUySVilvSQQtNRil7v-C7wlBS36ThY8kn_s9xAUz5iRL0ic57UKdkxYLTad5cp6uQgFeQa-be3C-4wsGKbl01W7tVAn7rsbFDTacCuNdDF-hKvhcB_sIjMAauq_FvH0yTG1AgWlcSSXRbImWPM6y58pLXK0dHu57lXRoF0EgXpuXlrWSVvi86vtF88gSnEmA8v5xPv74-osiVeTMhO4cLRpw9Lic-ayOWg49s07w"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photo of a friendly young male student roommate sitting near houseplants in warm morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjTRL6qbb0UskG-fNt39-QGsqu4JJ0q2_Xw6D54lWEamYi4oaJanK6FGQBmu7uUSncyLUv7P1KVV0ju4MqYoxh1314aCpv8rM0OUA9aUFTRcC6fjTlxRbBMYy3t9AcZlXKXOVfb8dzB6IpDuRRk1fmGMc2AOe1ewlI2gWG59dpbBXVEmMvUg0LwNfbLBnohK7UvcBf3TT1r7HT9NynvktfypfPoVRQNIVnbCfv6es"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photo of Sarah Ben Ali with soft lighting and natural warm expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc9vaw4FyO2W2ZeLYiluq0Bs50fSwBnAVKrnQCh2yugZ36ruog0_OL2BioiHJx5jwR5R09oHgrN54JKkyuzNSoInQivTVGYFeCJMGIIer1R01OGLqrKh087-KaSIbzkGyumCakmJZmBOaUTxXfbOQWHOOf4Xq0Z6wXenQAs4kjilhQO0caYkGX7whPEQmPNHz5ajtU3Uyd5bdHx1o4w_q1UF9DH1iHfQIwJw_emrs"/>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary ml-space-sm hidden sm:inline">4 roommates synced</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-secondary flex items-center gap-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Chores up to date
+            </span>
+</div>
+</div>
+<!-- Action Strip -->
+<div class="flex items-center justify-between pt-space-lg mt-space-md bg-surface-container-low/50 -mx-space-xl -mb-space-xl px-space-xl py-space-md rounded-b-2xl">
+<div class="flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Household Rules &amp; Calendar" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Expenses Split Tab" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+<button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-surface-container-highest text-primary font-label-md text-label-md hover:bg-soft-green transition-all" type="button">
+<span>Enter Workspace</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Workspace 4: Shared Flat (Riverside Loft) -->
+<div class="workspace-card flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all relative overflow-hidden group" data-category="living">
+<div class="absolute top-0 right-0 h-16 w-16 bg-warm-ivory rounded-bl-3xl flex items-start justify-end p-2 text-text-secondary opacity-60">
+<span class="material-symbols-outlined text-[20px]">holiday_village</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-md py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-caption-sm text-caption-sm font-semibold">
+                  Nestora Living
+                </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-caption-sm text-caption-sm">
+                  Shared Flat
+                </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mt-1 group-hover:text-primary-container transition-colors">
+                Riverside Loft 12
+              </h2>
+<span class="font-caption-sm text-caption-sm text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">home</span> Unit 12, Pier 9 Walk, Austin, TX
+              </span>
+</div>
+<div class="flex items-center gap-space-xs pr-8">
+<span class="px-space-sm py-0.5 rounded-lg bg-surface-container-high font-caption-sm text-caption-sm text-on-surface-variant font-medium">
+                Member
+              </span>
+</div>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Layout</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">3 Roommates</span>
+<span class="font-caption-sm text-caption-sm text-secondary">Co-living Loft</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Balance</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">$0.00</span>
+<span class="font-caption-sm text-caption-sm text-secondary">All settled</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-sm text-caption-sm text-text-secondary">Next Utility</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">Wifi &amp; Power</span>
+<span class="font-caption-sm text-caption-sm text-secondary">In 8 days</span>
+</div>
+</div>
+<!-- Members & Engagement -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center">
+<div class="flex -space-x-2 overflow-hidden">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photograph of young artist roommate man with beard in bright loft room with plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuB0mKOZpZtNmZBE_s1fjR2uSTlEUTpHeuTTAs8Ek6AQ2O9cp3gp-JyUwxNdfTyLGBmk_wcUUXbXQdKeDoI9riO_TIU2o5LIDQY4YZMDW-9pFAQXC25p0vtB0_jyMoadeTildCz2pj0tI3ZDW4V2xCu7ZlTQx2d1rh6eGaTub1Ddklpc-ZXiFfQ6GHWbcTFLko0T_vQ4JYQYnHQ5CbRokNOu-9M4diQZMFb9Cp-68"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photograph of young professional woman smiling in airy loft with brick walls and warm wood aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqA3yjxTIbB-pYJsBnzIQ6U1BGNlGG5l_d3U0jPUvVU3j68LCuASE1rNIKT-xqDLX8JiFjv3S3lGM3fuKn2cKbxYvJdB-qIPtJcCkThy3DKEfMOZxgkJJH-Ef1B1Jg9dRxHe61FvUfioP_9DX1P0G5jA2DQUm1SrdVvlEy--0NF8B9zsE_cYLbgFhsEmMDFlajHFIHs5sHC2EWwz-qrFsTZj38-a4UfkhiYWyV_ig"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait photo of Sarah Ben Ali with clean studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3qe4cO-NswCRABowjK970MhPc-emXW_gMyHSCm22bNCLqjg_JQ2bLkc4WgaOJJ2AKSzjJv_Poq0i4fiEznltMlqXPcnyg8Gl-DKd13_8snrGb-tJu7Th0iVt_jYAJdK1Hd_We4UyH5GftaW2h26IW1Knl6MkRig2_N7kkvNSEwIHvCOFyYXy7Pe4Wet_HyujaZxj1ZVAwEDuKj-o1S6T9IoNbHQicaVYhKaUX1dU"/>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary ml-space-sm hidden sm:inline">3 roommates synced</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary flex items-center gap-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Active 4h ago
+            </span>
+</div>
+</div>
+<!-- Action Strip -->
+<div class="flex items-center justify-between pt-space-lg mt-space-md bg-surface-container-low/50 -mx-space-xl -mb-space-xl px-space-xl py-space-md rounded-b-2xl">
+<div class="flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Expenses Split Tab" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" title="Shared Shopping" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</button>
+</div>
+<button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-surface-container-highest text-primary font-label-md text-label-md hover:bg-soft-green transition-all" type="button">
+<span>Enter Workspace</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Bento Section: Pending Invitations & Security & Team Roles Overview -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg pt-space-sm">
+<!-- Pending Invitations Card (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-xl rounded-2xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">outgoing_mail</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary">Pending Invitations &amp; Join Requests</h3>
+<span class="font-caption-sm text-caption-sm text-text-secondary">Community workspaces waiting for your confirmation</span>
+</div>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-soft-green text-primary font-caption-sm text-caption-sm font-semibold">1 New</span>
+</div>
+<!-- Pending Invite Item -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-low transition-all">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_city</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary font-semibold">Cedar Point Condominiums</span>
+<span class="px-1.5 py-0.5 rounded bg-pale-green text-primary font-caption-sm text-[11px]">Resident</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary mt-0.5">Invited by Marcus Vance (Property Manager) • Unit 302</span>
+<span class="font-caption-sm text-caption-sm text-outline mt-0.5">Received 2 days ago</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end sm:self-center" id="invite-actions">
+<button class="px-space-md py-space-xs rounded-xl bg-surface-container-lowest text-text-secondary hover:text-error hover:bg-error-container/20 font-label-md text-label-md transition-all" id="decline-invite-btn" type="button">
+                Decline
+              </button>
+<button class="px-space-lg py-space-xs rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm" id="accept-invite-btn" type="button">
+                Accept &amp; Join
+              </button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-lg mt-space-md border-t-0 text-caption-sm font-caption-sm text-text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+            Invitations are protected with Nestora encrypted tokens
+          </span>
+<a class="text-primary hover:underline font-medium" href="#">Invitation History</a>
+</div>
+</div>
+<!-- Security & Roles Overview Card (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-xl rounded-2xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-xl bg-soft-green text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary">Workspace Security &amp; Roles</h3>
+<span class="font-caption-sm text-caption-sm text-text-secondary">Access tier across your active profiles</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-on-surface">Super Admin</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary font-medium">1 Workspace (Green Park)</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface">Board Member &amp; Treasurer</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary font-medium">1 Workspace (Horizon HOA)</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-on-surface">Lead / Member Resident</span>
+</div>
+<span class="font-caption-sm text-caption-sm text-text-secondary font-medium">2 Co-living Flats</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-caption-sm text-caption-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lock</span> 2FA Enforced on all Admin nodes
+          </span>
+<button class="text-primary font-label-md text-label-md hover:underline font-semibold flex items-center gap-0.5" type="button">
+            Role Matrix <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Create Workspace Modal Dialog (Hidden by Default) -->
+<div class="fixed inset-0 bg-dark-background/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md transition-all duration-200" id="create-modal-scrim">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl max-w-lg w-full p-space-xl flex flex-col gap-space-lg relative animate-in fade-in zoom-in-95">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary">New Nestora Workspace</h3>
+<p class="font-caption-sm text-caption-sm text-text-secondary mt-0.5">Choose your shared community format to get started.</p>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:bg-surface-container hover:text-on-surface transition-all" id="close-modal-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<label class="flex flex-col gap-space-xs p-space-md rounded-xl bg-surface-container-low hover:bg-soft-green/50 cursor-pointer transition-all border-none">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[24px]">apartment</span>
+<input checked="" class="accent-primary h-4 w-4" name="ws_type" type="radio"/>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary mt-1">Nestora Buildings</span>
+<span class="font-caption-sm text-caption-sm text-text-secondary">HOA, condos, residential blocks &amp; complexes.</span>
+</label>
+<label class="flex flex-col gap-space-xs p-space-md rounded-xl bg-surface-container-low hover:bg-soft-green/50 cursor-pointer transition-all border-none">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[24px]">holiday_village</span>
+<input class="accent-primary h-4 w-4" name="ws_type" type="radio"/>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary mt-1">Nestora Living</span>
+<span class="font-caption-sm text-caption-sm text-text-secondary">Co-living flats, shared suites, family homes.</span>
+</label>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Workspace Name</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none" placeholder="e.g. Magnolia Residences or Flat 4C" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Physical Address / City</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none" placeholder="e.g. 742 Evergreen Terrace, Springfield" type="text"/>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-all" id="cancel-modal-btn" type="button">
+            Cancel
+          </button>
+<button class="px-space-xl py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm" id="confirm-create-btn" type="button">
+            Create Workspace
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive filter and modal script -->
+<script>
+    (function() {
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const cards = document.querySelectorAll('.workspace-card');
+      const searchInput = document.getElementById('workspace-search');
+      const modal = document.getElementById('create-modal-scrim');
+      const openModalBtn = document.getElementById('create-workspace-btn');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const cancelModalBtn = document.getElementById('cancel-modal-btn');
+      const confirmCreateBtn = document.getElementById('confirm-create-btn');
+      const acceptInviteBtn = document.getElementById('accept-invite-btn');
+      const declineInviteBtn = document.getElementById('decline-invite-btn');
+      const inviteActions = document.getElementById('invite-actions');
+
+      // Filter handling
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => {
+            t.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+            t.classList.add('text-on-surface-variant');
+          });
+          tab.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+          tab.classList.remove('text-on-surface-variant');
+
+          const filter = tab.getAttribute('data-filter');
+          cards.forEach(card => {
+            if (filter === 'all') {
+              card.style.display = 'flex';
+            } else if (filter === 'archived') {
+              card.style.display = 'none';
+            } else {
+              const cat = card.getAttribute('data-category');
+              card.style.display = (cat === filter) ? 'flex' : 'none';
+            }
+          });
+        });
+      });
+
+      // Search filtering
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+          cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(query)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      }
+
+      // Modal handling
+      const toggleModal = (show) => {
+        if (!modal) return;
+        if (show) {
+          modal.classList.remove('hidden');
+        } else {
+          modal.classList.add('hidden');
+        }
+      };
+
+      if (openModalBtn) openModalBtn.addEventListener('click', () => toggleModal(true));
+      if (closeModalBtn) closeModalBtn.addEventListener('click', () => toggleModal(false));
+      if (cancelModalBtn) cancelModalBtn.addEventListener('click', () => toggleModal(false));
+      if (confirmCreateBtn) {
+        confirmCreateBtn.addEventListener('click', () => {
+          confirmCreateBtn.textContent = 'Creating...';
+          setTimeout(() => {
+            confirmCreateBtn.textContent = 'Create Workspace';
+            toggleModal(false);
+          }, 600);
+        });
+      }
+
+      // Invite Action Handlers
+      if (acceptInviteBtn && inviteActions) {
+        acceptInviteBtn.addEventListener('click', () => {
+          inviteActions.innerHTML = '<span class="text-secondary font-caption-sm text-caption-sm font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">check_circle</span> Joined Cedar Point</span>';
+        });
+      }
+      if (declineInviteBtn && inviteActions) {
+        declineInviteBtn.addEventListener('click', () => {
+          inviteActions.innerHTML = '<span class="text-text-secondary font-caption-sm text-caption-sm">Invitation dismissed</span>';
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>

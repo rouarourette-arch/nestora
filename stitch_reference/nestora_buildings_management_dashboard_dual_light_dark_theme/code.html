@@ -1,0 +1,711 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nestora - Buildings Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#234B3A",
+            "primary-container": "#234B3A",
+            "primary-dark": "#8FAF9A",
+            "secondary": "#476553",
+            "secondary-container": "#c9ebd4",
+            "warm-ivory": "#F7F6F0",
+            "warm-accent": "#D9A66F",
+            "tertiary-fixed": "#ffddbb",
+            "tertiary-container": "#5f3c0e",
+            "surface": "#F3F5F2",
+            "surface-card": "#FFFFFF",
+            "surface-container-low": "#ECEFEC",
+            "surface-container-high": "#e1e3e0",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#414844",
+            "text-muted": "#78847C",
+            "dark-bg": "#18231E",
+            "dark-surface": "#26372E",
+            "dark-sidebar": "#1D2A23",
+            "dark-border": "#354A3D",
+            "dark-text": "#F1F4F0",
+            "dark-text-muted": "#B1BDB4"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#F3F5F2] dark:bg-[#18231E] font-sans text-on-surface dark:text-[#F1F4F0] antialiased transition-colors duration-300">
+<!-- Persistent Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#1D2A23] border-r border-[#E3EAE4] dark:border-[#354A3D] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-colors duration-300" id="main-sidebar">
+<div class="flex flex-col">
+<!-- Logo + Brand name + Tagline Pill -->
+<div class="h-16 px-5 flex items-center justify-between border-b border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[18px] tracking-tight text-[#234B3A] dark:text-[#F1F4F0] leading-none">Nestora</span>
+<span class="text-[10px] font-semibold text-[#78847C] dark:text-[#B1BDB4] tracking-wide mt-0.5">Buildings OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#c9ebd4]/60 text-[#234B3A] dark:bg-[#354A3D] dark:text-[#8FAF9A]">PRO</span>
+</div>
+<!-- Workspace Dropdown with Quick Switch -->
+<div class="px-4 py-3">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-2.5 flex items-center justify-between border border-[#E3EAE4]/60 dark:border-[#354A3D]/70 hover:border-[#234B3A]/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-7 h-7 rounded-lg bg-[#234B3A]/10 dark:bg-[#8FAF9A]/20 flex items-center justify-center text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[17px]">apartment</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#78847C] dark:text-[#B1BDB4]">Workspace</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Nestora Buildings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[18px] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">swap_horiz</span>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-5 pt-1 pb-1.5 flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Main Management</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 px-3">
+<!-- Dashboard (Active) -->
+<a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] font-semibold text-[13.5px] shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Buildings & Units -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="">Buildings &amp; Units</span>
+</a>
+<!-- Residents & Owners -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="">Residents &amp; Owners</span>
+</a>
+<!-- Shared Expenses -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="">Shared Expenses</span>
+</a>
+<!-- Maintenance (Badge 4) -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="">Maintenance</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[11px] font-bold">4</span>
+</a>
+<!-- Documents -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="">Documents</span>
+</a>
+<!-- Meetings & Voting -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">how_to_vote</span>
+<span class="">Meetings &amp; Voting</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="">Calendar</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="">Reports</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Community Care / Profile -->
+<div class="flex flex-col gap-2.5 p-3.5 border-t border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-3 flex flex-col gap-1 border border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2 text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[19px]">support_agent</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0]">Community Care</span>
+</div>
+<p class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4] leading-snug">Need operational guidance or 24/7 hotline?</p>
+<a class="text-[12px] font-semibold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-1 mt-1" href="#">
+<span class="">Support Desk</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-[#354A3D]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-[#1D2A23]"></span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[12.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Sarah Ben Ali</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Admin</span>
+</div>
+</div>
+<button class="text-[#78847C] dark:text-[#B1BDB4] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] p-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="pl-64">
+<!-- Top Header -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#F3F5F2]/80 dark:bg-[#18231E]/80 backdrop-blur-xl border-b border-[#E3EAE4] dark:border-[#354A3D] z-40 flex items-center justify-between px-6 transition-colors duration-300">
+<!-- Breadcrumb + Page Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-[13px] font-medium text-[#78847C] dark:text-[#B1BDB4]">
+<span class="hover:text-[#234B3A] dark:hover:text-[#8FAF9A] cursor-pointer">Nestora Buildings</span>
+<span class="text-[#78847C]/60">/</span>
+<span class="text-[#191c1b] dark:text-[#F1F4F0] font-semibold">Dashboard</span>
+</div>
+<!-- Search Bar with Ctrl+K -->
+<div class="relative flex items-center ml-2">
+<span class="material-symbols-outlined absolute left-3.5 text-[#78847C] dark:text-[#B1BDB4] text-[19px]">search</span>
+<input class="w-72 lg:w-80 h-10 pl-10 pr-12 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#191c1b] dark:text-[#F1F4F0] placeholder:text-[#78847C] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#234B3A] dark:focus:ring-[#8FAF9A] transition-all shadow-xs" placeholder="Search units, residents, tickets..." type="text">
+<kbd class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#ECEFEC] dark:bg-[#1D2A23] text-[#78847C] dark:text-[#B1BDB4]">Ctrl K</kbd>
+</div>
+<!-- Portfolio Status Tag -->
+<div class="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c9ebd4]/70 dark:bg-[#354A3D] border border-[#c9ebd4] dark:border-[#354A3D]">
+<span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#8FAF9A] animate-pulse"></span>
+<span class="text-[11px] font-bold text-[#234B3A] dark:text-[#8FAF9A] uppercase tracking-wider">12 Units Live</span>
+</div>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Interactive Theme Switcher Button -->
+
+<!-- Notifications with Badge -->
+<button class="relative w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] flex items-center justify-center text-[#414844] dark:text-[#F1F4F0] hover:bg-[#ECEFEC] dark:hover:bg-[#354A3D] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</span>
+</button>
+<div class="h-6 w-px bg-[#E3EAE4] dark:bg-[#354A3D] mx-1"></div>
+<!-- Profile Avatar & Details -->
+<div class="flex items-center gap-2.5 pl-1 py-1 pr-2 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] hover:shadow-xs transition-all cursor-pointer">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<div class="hidden md:flex flex-col text-left pr-1">
+<span class="text-[12px] font-bold text-[#191c1b] dark:text-[#F1F4F0] leading-none">Sarah Ben Ali</span>
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] mt-0.5 font-medium">(Admin)</span>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="relative pt-20 w-full px-6 py-6 min-h-screen">
+<div class="flex flex-col w-full max-w-[1560px] mx-auto gap-6 pb-16">
+<!-- 1. Personalized Welcome Hero Card -->
+<section class="relative overflow-hidden rounded-[24px] bg-gradient-to-r from-[#F7F6F0] via-[#F7F6F0]/90 to-[#E7EFE8]/70 dark:from-[#26372E] dark:via-[#202E27] dark:to-[#1D2A23] border border-[#E3EAE4] dark:border-[#354A3D] p-6 lg:p-8 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6 transition-colors duration-300">
+<div class="z-10 flex flex-col items-start max-w-xl">
+<!-- Live Pulse Tag -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-[#1D2A23]/80 border border-[#E3EAE4] dark:border-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] mb-3 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#234B3A] dark:text-[#8FAF9A]">Live Community Pulse</span>
+</div>
+<h1 class="text-[30px] lg:text-[34px] font-bold text-[#234B3A] dark:text-[#F1F4F0] tracking-tight mb-2">
+              Good morning, Sarah! <span class="inline-block transform hover:rotate-12 transition-transform cursor-pointer">👋</span>
+</h1>
+<p class="text-[15px] text-[#414844] dark:text-[#B1BDB4] leading-relaxed mb-6">
+              Here's what's happening in your Nestora community today. 4 maintenance tasks and 1 financial statement need review.
+            </p>
+<!-- Actions -->
+<div class="flex flex-wrap items-center gap-3">
+<button class="h-11 px-6 rounded-full bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] font-semibold text-[13.5px] flex items-center gap-2 hover:bg-[#1b3b2d] dark:hover:bg-[#a5d0ba] shadow-sm hover:shadow-md transition-all active:scale-95" type="button">
+<span class="">View Details</span>
+<span class="material-symbols-outlined text-[17px]">arrow_forward</span>
+</button>
+<button class="h-11 px-5 rounded-full bg-white dark:bg-[#18231E] text-[#234B3A] dark:text-[#F1F4F0] border border-[#E3EAE4] dark:border-[#354A3D] font-semibold text-[13.5px] flex items-center gap-2 hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px]">calendar_today</span>
+<span class="">Open Schedule</span>
+</button>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="relative w-full lg:w-[460px] h-52 lg:h-60 flex-shrink-0 flex items-center justify-end overflow-hidden rounded-2xl border border-white/60 dark:border-[#354A3D]/40 shadow-sm">
+<img alt="Nestora Architectural Community" class="w-full h-full object-cover object-center filter saturate-[0.98] transition-transform duration-500 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ7VUeGhwR0lV_e04cwNBxT7i2pqGkSZ1mmzKoB-3qZguLASKG6OyDwg72XYl4X6Tn7iUuhwUBvefScIEfyFdeN7hMRVWNQOztqGekMtGHlFt9k29HKJfQgrXBHS-q0HMx3EOO6YRrdEmveChhUB8HaYSce7NXU_rvtmT2wv_-ThkfUgHAkjC0JKshoUBIReFq-t8YeVTIRLqQ8zhHNjnw_i2zd1BHdm70x3OzLZc">
+<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#F7F6F0]/60 dark:from-[#26372E]/80 via-transparent to-transparent pointer-events-none"></div>
+</div>
+</section>
+<!-- 2. Metric Summary Cards (4 Cards) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Card 1: Total Buildings -->
+<div class="bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl bg-[#c9ebd4]/70 dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-[26px]">apartment</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-[#78847C] dark:text-[#B1BDB4]">Total Buildings</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="text-[26px] font-bold text-[#234B3A] dark:text-[#F1F4F0] leading-none">3</span>
+<span class="inline-flex items-center text-emerald-700 dark:text-[#8FAF9A] text-[11px] font-bold bg-[#c9ebd4]/50 dark:bg-[#354A3D] px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px] mr-0.5">arrow_upward</span>+1 new
+                  </span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#234B3A]/10 dark:text-[#8FAF9A]/15 text-[48px] select-none">domain</span>
+</div>
+<!-- Card 2: Apartments & Units -->
+<div class="bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl bg-[#c0ecd5]/50 dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-[26px]">meeting_room</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-[#78847C] dark:text-[#B1BDB4]">Apartments &amp; Units</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="text-[26px] font-bold text-[#234B3A] dark:text-[#F1F4F0] leading-none">48 Units</span>
+<span class="inline-flex items-center text-emerald-700 dark:text-[#8FAF9A] text-[11px] font-bold bg-[#c9ebd4]/50 dark:bg-[#354A3D] px-2 py-0.5 rounded-full">
+                    94% Occupancy
+                  </span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#234B3A]/10 dark:text-[#8FAF9A]/15 text-[48px] select-none">door_front</span>
+</div>
+<!-- Card 3: Total Shared Expenses (Warm Accent) -->
+<div class="bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl bg-[#ffddbb] dark:bg-[#5f3c0e]/60 text-[#D9A66F] flex items-center justify-center transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-[26px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-[#78847C] dark:text-[#B1BDB4]">Total Shared Expenses</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="text-[26px] font-bold text-[#234B3A] dark:text-[#F1F4F0] leading-none">$2,450</span>
+<span class="inline-flex items-center text-[#5f3c0e] dark:text-[#D9A66F] text-[11px] font-bold bg-[#ffddbb]/70 dark:bg-[#5f3c0e] px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px] mr-0.5">arrow_upward</span>+8% vs last mo
+                  </span>
+</div>
+</div>
+</div>
+<div class="w-12 h-7 flex items-end gap-1 opacity-80">
+<div class="w-2 bg-[#D9A66F]/60 rounded-t h-3"></div>
+<div class="w-2 bg-[#D9A66F]/70 rounded-t h-4.5"></div>
+<div class="w-2 bg-[#D9A66F]/60 rounded-t h-3.5"></div>
+<div class="w-2 bg-[#D9A66F] rounded-t h-7"></div>
+</div>
+</div>
+<!-- Card 4: Pending Maintenance -->
+<div class="bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-[26px]">build_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-[#78847C] dark:text-[#B1BDB4]">Pending Maintenance</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="text-[26px] font-bold text-[#234B3A] dark:text-[#F1F4F0] leading-none">7</span>
+<span class="inline-flex items-center text-emerald-700 dark:text-[#8FAF9A] text-[11px] font-bold bg-[#c9ebd4]/50 dark:bg-[#354A3D] px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px] mr-0.5">arrow_downward</span>-2 today
+                  </span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#234B3A]/10 dark:text-[#8FAF9A]/15 text-[48px] select-none">assignment</span>
+</div>
+</section>
+<!-- 3. Middle Analytics & Operations Row (3 Columns) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+<!-- Col 1: Expenses & Trajectory Line Graph (5 cols) -->
+<div class="lg:col-span-5 bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[22px] p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h2 class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0]">Expenses &amp; Financial Trajectory</h2>
+<p class="text-[12.5px] text-[#78847C] dark:text-[#B1BDB4]">6-month monthly spending trend</p>
+</div>
+<button class="h-8 px-3 rounded-full bg-[#ECEFEC] dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] text-[#414844] dark:text-[#F1F4F0] text-[12px] font-semibold flex items-center gap-1.5 transition-colors" type="button">
+<span class="">Last 6 Months</span>
+<span class="material-symbols-outlined text-[15px]">expand_more</span>
+</button>
+</div>
+<!-- SVG Graph with interactive tooltip -->
+<div class="relative w-full pt-4">
+<!-- Peak Badge & Tooltip -->
+<div class="absolute left-[62%] top-[6px] -translate-x-1/2 bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] px-2.5 py-1 rounded-lg shadow-md text-[12px] font-bold flex items-center gap-1 z-10 pointer-events-none">
+<span class="">Peak: $2,450</span>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#234B3A] dark:bg-[#8FAF9A] rotate-45"></div>
+</div>
+<svg class="w-full h-48 overflow-visible" fill="none" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="expenseGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#234B3A" stop-opacity="0.28"></stop>
+<stop offset="100%" stop-color="#234B3A" stop-opacity="0.0"></stop>
+</linearGradient>
+</defs>
+<!-- Soft Gridlines -->
+<line class="stroke-[#E1E3E0] dark:stroke-[#354A3D]" stroke="#E1E3E0" stroke-dasharray="3 3" x1="40" x2="480" y1="30" y2="30"></line>
+<line class="stroke-[#E1E3E0] dark:stroke-[#354A3D]" stroke="#E1E3E0" stroke-dasharray="3 3" x1="40" x2="480" y1="80" y2="80"></line>
+<line class="stroke-[#E1E3E0] dark:stroke-[#354A3D]" stroke="#E1E3E0" stroke-dasharray="3 3" x1="40" x2="480" y1="130" y2="130"></line>
+<line class="stroke-[#E1E3E0] dark:stroke-[#354A3D]" stroke="#E1E3E0" stroke-width="1.5" x1="40" x2="480" y1="180" y2="180"></line>
+<!-- Y-Labels -->
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" fill="#717974" font-size="11" x="15" y="34">3k</text>
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" fill="#717974" font-size="11" x="15" y="84">2k</text>
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" fill="#717974" font-size="11" x="15" y="134">1k</text>
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" fill="#717974" font-size="11" x="20" y="184">0</text>
+<!-- Area Fill -->
+<path d="M 60 145 C 100 135, 120 100, 150 100 C 180 100, 200 125, 230 125 C 260 125, 280 45, 320 45 C 360 45, 380 95, 410 95 C 440 95, 450 60, 470 60 L 470 180 L 60 180 Z" fill="url(#expenseGradient)"></path>
+<!-- Smooth Curve -->
+<path class="stroke-[#234B3A] dark:stroke-[#8FAF9A]" d="M 60 145 C 100 135, 120 100, 150 100 C 180 100, 200 125, 230 125 C 260 125, 280 45, 320 45 C 360 45, 380 95, 410 95 C 440 95, 450 60, 470 60" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Points -->
+<circle class="hover:scale-150 cursor-pointer fill-white dark:fill-[#26372E] stroke-[#234B3A] dark:stroke-[#8FAF9A]" cx="60" cy="145" r="4.5" stroke-width="2.5"></circle>
+<circle class="hover:scale-150 cursor-pointer fill-white dark:fill-[#26372E] stroke-[#234B3A] dark:stroke-[#8FAF9A]" cx="150" cy="100" r="4.5" stroke-width="2.5"></circle>
+<circle class="hover:scale-150 cursor-pointer fill-white dark:fill-[#26372E] stroke-[#234B3A] dark:stroke-[#8FAF9A]" cx="230" cy="125" r="4.5" stroke-width="2.5"></circle>
+<circle class="cursor-pointer fill-[#234B3A] dark:fill-[#8FAF9A] stroke-white dark:stroke-[#18231E]" cx="320" cy="45" r="6.5" stroke-width="3"></circle>
+<circle class="hover:scale-150 cursor-pointer fill-white dark:fill-[#26372E] stroke-[#234B3A] dark:stroke-[#8FAF9A]" cx="410" cy="95" r="4.5" stroke-width="2.5"></circle>
+<circle class="hover:scale-150 cursor-pointer fill-white dark:fill-[#26372E] stroke-[#234B3A] dark:stroke-[#8FAF9A]" cx="470" cy="60" r="4.5" stroke-width="2.5"></circle>
+<!-- X-Labels -->
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" font-size="11" x="50" y="204">May</text>
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" font-size="11" x="140" y="204">Jun</text>
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" font-size="11" x="222" y="204">Jul</text>
+<text class="fill-[#234B3A] dark:fill-[#8FAF9A] font-bold" font-size="11" x="308" y="204">Aug</text>
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" font-size="11" x="400" y="204">Sep</text>
+<text class="fill-[#78847C] dark:fill-[#B1BDB4]" font-size="11" x="460" y="204">Oct</text>
+</svg>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-[12.5px] border-t border-[#E3EAE4] dark:border-[#354A3D]">
+<span class="flex items-center gap-2 text-[#78847C] dark:text-[#B1BDB4]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#234B3A] dark:bg-[#8FAF9A]"></span>
+<span class="">Actual Disbursed</span>
+</span>
+<span class="font-bold text-[#234B3A] dark:text-[#F1F4F0]">Avg: $1,890 / month</span>
+</div>
+</div>
+<!-- Col 2: Expense Allocation Donut (3 cols) -->
+<div class="lg:col-span-3 bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[22px] p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
+<div>
+<h2 class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0]">Expense Allocation</h2>
+<p class="text-[12.5px] text-[#78847C] dark:text-[#B1BDB4]">Breakdown by categories</p>
+</div>
+<!-- Donut Graphic & Center Total -->
+<div class="relative w-44 h-44 mx-auto my-3 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewBox="0 0 160 160">
+<circle class="stroke-[#ECEEEB] dark:stroke-[#354A3D]" cx="80" cy="80" fill="transparent" r="62" stroke="#ECEEEB" stroke-width="20"></circle>
+<!-- Utilities: 35% -->
+<circle class="stroke-[#234B3A] dark:stroke-[#8FAF9A]" cx="80" cy="80" fill="transparent" r="62" stroke="#234B3A" stroke-dasharray="136.3 253.2" stroke-dashoffset="0" stroke-width="20"></circle>
+<!-- Maintenance: 28% -->
+<circle cx="80" cy="80" fill="transparent" r="62" stroke="#D9A66F" stroke-dasharray="109 280.5" stroke-dashoffset="-136.3" stroke-width="20"></circle>
+<!-- Cleaning: 20% -->
+<circle cx="80" cy="80" fill="transparent" r="62" stroke="#8FBAA4" stroke-dasharray="77.9 311.6" stroke-dashoffset="-245.3" stroke-width="20"></circle>
+<!-- Other: 17% -->
+<circle class="stroke-[#C1C8C2] dark:stroke-[#78847C]" cx="80" cy="80" fill="transparent" r="62" stroke="#C1C8C2" stroke-dasharray="66.2 323.3" stroke-dashoffset="-323.2" stroke-width="20"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+<span class="text-[20px] font-bold text-[#234B3A] dark:text-[#F1F4F0]">$2,450</span>
+<span class="text-[10px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Total</span>
+</div>
+</div>
+<!-- Segment Legend -->
+<div class="grid grid-cols-2 gap-y-2 gap-x-3 pt-2">
+<div class="flex items-center justify-between text-[12px]">
+<span class="flex items-center gap-1.5 font-medium text-[#191c1b] dark:text-[#F1F4F0]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#234B3A] dark:bg-[#8FAF9A]"></span>Utilities
+                </span>
+<span class="font-bold text-[#78847C] dark:text-[#B1BDB4]">35%</span>
+</div>
+<div class="flex items-center justify-between text-[12px]">
+<span class="flex items-center gap-1.5 font-medium text-[#191c1b] dark:text-[#F1F4F0]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#D9A66F]"></span>Maint.
+                </span>
+<span class="font-bold text-[#78847C] dark:text-[#B1BDB4]">28%</span>
+</div>
+<div class="flex items-center justify-between text-[12px]">
+<span class="flex items-center gap-1.5 font-medium text-[#191c1b] dark:text-[#F1F4F0]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#8FBAA4]"></span>Cleaning
+                </span>
+<span class="font-bold text-[#78847C] dark:text-[#B1BDB4]">20%</span>
+</div>
+<div class="flex items-center justify-between text-[12px]">
+<span class="flex items-center gap-1.5 font-medium text-[#191c1b] dark:text-[#F1F4F0]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#C1C8C2]"></span>Other
+                </span>
+<span class="font-bold text-[#78847C] dark:text-[#B1BDB4]">17%</span>
+</div>
+</div>
+</div>
+<!-- Col 3: Upcoming Meetings & Events (4 cols) -->
+<div class="lg:col-span-4 bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[22px] p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h2 class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0]">Upcoming Meetings &amp; Events</h2>
+<p class="text-[12.5px] text-[#78847C] dark:text-[#B1BDB4]">3 schedule items this week</p>
+</div>
+<a class="text-[12.5px] font-bold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-0.5" href="#">
+<span class="">View All</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+<!-- List -->
+<div class="flex flex-col gap-3 my-auto">
+<!-- Item 1: Nov 10 -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] transition-colors group">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-white dark:bg-[#26372E] text-center flex flex-col justify-center shadow-xs border border-[#E3EAE4]/60 dark:border-[#354A3D]">
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] uppercase font-bold">Nov</span>
+<span class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0] leading-none">10</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">General Assembly &amp; Budget Voting</span>
+<span class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4]">Building A • 7:00 PM (Hybrid)</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">how_to_vote</span>
+</div>
+</div>
+<!-- Item 2: Nov 12 -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] transition-colors group">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-white dark:bg-[#26372E] text-center flex flex-col justify-center shadow-xs border border-[#E3EAE4]/60 dark:border-[#354A3D]">
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] uppercase font-bold">Nov</span>
+<span class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0] leading-none">12</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">Elevator Maintenance Inspection</span>
+<span class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4]">Otis Technical Team • 10:00 AM</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#ffddbb] dark:bg-[#5f3c0e] text-[#D9A66F] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">engineering</span>
+</div>
+</div>
+<!-- Item 3: Nov 15 -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] transition-colors group">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-white dark:bg-[#26372E] text-center flex flex-col justify-center shadow-xs border border-[#E3EAE4]/60 dark:border-[#354A3D]">
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] uppercase font-bold">Nov</span>
+<span class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0] leading-none">15</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">Monthly Utilities Settlement</span>
+<span class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4]">Internal Community Allocation &amp; Log</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="mt-2 text-center">
+<button class="w-full py-2.5 rounded-xl bg-[#ECEFEC] dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] font-semibold text-[13px] text-[#234B3A] dark:text-[#F1F4F0] transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[17px]">add_circle</span>
+<span class="">Schedule New Meeting</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4. Bottom Operational Row (3 Sections) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+<!-- Priority Checklist / Pending Tasks (4 cols) -->
+<div class="lg:col-span-4 bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[22px] p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h2 class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0]">Priority Checklist</h2>
+<p class="text-[12.5px] text-[#78847C] dark:text-[#B1BDB4]">Daily property checklist</p>
+</div>
+<a class="text-[12.5px] font-bold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-0.5" href="#">
+<span class="">View All</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex flex-col gap-3 my-auto">
+<!-- Task 1 -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] transition-all cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="task-checkbox peer w-5 h-5 rounded-full accent-[#234B3A] dark:accent-[#8FAF9A] cursor-pointer" id="task-1" type="checkbox">
+<label class="text-[13.5px] font-semibold text-[#191c1b] dark:text-[#F1F4F0] cursor-pointer select-none peer-checked:line-through peer-checked:text-[#78847C]" for="task-1">
+                    Review building expenses
+                  </label>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 text-[10px] font-bold uppercase">High</span>
+<span class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4]">Today</span>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] transition-all cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="task-checkbox peer w-5 h-5 rounded-full accent-[#234B3A] dark:accent-[#8FAF9A] cursor-pointer" id="task-2" type="checkbox">
+<label class="text-[13.5px] font-semibold text-[#191c1b] dark:text-[#F1F4F0] cursor-pointer select-none peer-checked:line-through peer-checked:text-[#78847C]" for="task-2">
+                    Approve new resident pass
+                  </label>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[10px] font-bold uppercase">Medium</span>
+<span class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4]">Tomorrow</span>
+</div>
+</div>
+<!-- Task 3 -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#E3EAE4] dark:hover:bg-[#354A3D] transition-all cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="task-checkbox peer w-5 h-5 rounded-full accent-[#234B3A] dark:accent-[#8FAF9A] cursor-pointer" id="task-3" type="checkbox">
+<label class="text-[13.5px] font-semibold text-[#191c1b] dark:text-[#F1F4F0] cursor-pointer select-none peer-checked:line-through peer-checked:text-[#78847C]" for="task-3">
+                    Check maintenance request
+                  </label>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-[10px] font-bold uppercase">Low</span>
+<span class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4]">Internal Community Allocation &amp; Log</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-[#E3EAE4] dark:border-[#354A3D]">
+<span class="text-[12px] text-[#78847C] dark:text-[#B1BDB4]" id="tasks-remaining-badge">3 of 3 tasks incomplete</span>
+<button class="text-[#234B3A] dark:text-[#8FAF9A] font-bold text-[12.5px] hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Add Item
+              </button>
+</div>
+</div>
+<!-- Center: Nestora Intelligence AI Assistant Banner (4 cols) -->
+<div class="lg:col-span-4 relative rounded-[22px] bg-gradient-to-br from-[#c9ebd4]/80 via-[#F7F6F0] to-[#E7EFE8] dark:from-[#26372E] dark:via-[#1D2A23] dark:to-[#18231E] border border-[#E3EAE4] dark:border-[#354A3D] p-6 shadow-sm flex flex-col justify-between overflow-hidden group transition-colors duration-300">
+<!-- Architectural Background Motif -->
+<div class="absolute right-0 bottom-0 w-44 h-44 opacity-40 pointer-events-none transition-transform duration-300 group-hover:scale-105">
+<span class="material-symbols-outlined text-[180px] text-[#234B3A] dark:text-[#8FAF9A] -mr-6 -mb-6 select-none">auto_awesome</span>
+</div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-[#26372E] text-[#234B3A] dark:text-[#8FAF9A] mb-3 shadow-xs border border-[#E3EAE4] dark:border-[#354A3D]">
+<span class="material-symbols-outlined text-[17px] text-[#D9A66F]">psychology</span>
+<span class="text-[11px] font-bold uppercase tracking-wider">Nestora Intelligence</span>
+</div>
+<h2 class="text-[19px] font-bold text-[#234B3A] dark:text-[#F1F4F0] max-w-xs mb-2">
+                AI Property Assistant
+              </h2>
+<p class="text-[13.5px] text-[#414844] dark:text-[#B1BDB4] max-w-xs leading-relaxed mb-6">
+                2 lease renewals and 1 vendor quote pending automated review against historical costs.
+              </p>
+</div>
+<div class="relative z-10 pt-2 flex items-center gap-3">
+<button class="h-10 px-5 rounded-full bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] font-semibold text-[13px] flex items-center gap-2 hover:bg-[#1b3b2d] dark:hover:bg-[#a5d0ba] transition-all shadow-xs" type="button">
+<span class="">Review with AI</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<span class="text-[11px] font-medium text-[#78847C] dark:text-[#B1BDB4]">98% accuracy</span>
+</div>
+</div>
+<!-- Right: Quick Actions Panel (4 cols) -->
+<div class="lg:col-span-4 bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] rounded-[22px] p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
+<div class="mb-3">
+<h2 class="text-[17px] font-bold text-[#234B3A] dark:text-[#F1F4F0]">Quick Actions</h2>
+<p class="text-[12.5px] text-[#78847C] dark:text-[#B1BDB4]">Frequently used workflows</p>
+</div>
+<div class="grid grid-cols-2 gap-3 my-auto">
+<!-- Action 1: Add Expense -->
+<button class="p-3.5 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#c9ebd4]/50 dark:hover:bg-[#354A3D] transition-all flex flex-col items-center justify-center text-center group cursor-pointer border border-transparent hover:border-[#234B3A]/20" type="button">
+<div class="w-11 h-11 rounded-full bg-white dark:bg-[#26372E] group-hover:bg-[#234B3A] group-hover:text-white dark:group-hover:bg-[#8FAF9A] dark:group-hover:text-[#18231E] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center mb-2 transition-all shadow-xs">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A]">Add Expense</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Upload receipt</span>
+</button>
+<!-- Action 2: Create Maintenance Ticket -->
+<button class="p-3.5 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#c9ebd4]/50 dark:hover:bg-[#354A3D] transition-all flex flex-col items-center justify-center text-center group cursor-pointer border border-transparent hover:border-[#234B3A]/20" type="button">
+<div class="w-11 h-11 rounded-full bg-white dark:bg-[#26372E] group-hover:bg-[#234B3A] group-hover:text-white dark:group-hover:bg-[#8FAF9A] dark:group-hover:text-[#18231E] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center mb-2 transition-all shadow-xs">
+<span class="material-symbols-outlined text-[20px]">build</span>
+</div>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A]">Create Ticket</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Maintenance</span>
+</button>
+<!-- Action 3: Broadcast Notice -->
+<button class="p-3.5 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#c9ebd4]/50 dark:hover:bg-[#354A3D] transition-all flex flex-col items-center justify-center text-center group cursor-pointer border border-transparent hover:border-[#234B3A]/20" type="button">
+<div class="w-11 h-11 rounded-full bg-white dark:bg-[#26372E] group-hover:bg-[#234B3A] group-hover:text-white dark:group-hover:bg-[#8FAF9A] dark:group-hover:text-[#18231E] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center mb-2 transition-all shadow-xs">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+</div>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A]">Broadcast Notice</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Alert residents</span>
+</button>
+<!-- Action 4: Export Building Report -->
+<button class="p-3.5 rounded-2xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] hover:bg-[#c9ebd4]/50 dark:hover:bg-[#354A3D] transition-all flex flex-col items-center justify-center text-center group cursor-pointer border border-transparent hover:border-[#234B3A]/20" type="button">
+<div class="w-11 h-11 rounded-full bg-white dark:bg-[#26372E] group-hover:bg-[#234B3A] group-hover:text-white dark:group-hover:bg-[#8FAF9A] dark:group-hover:text-[#18231E] text-[#234B3A] dark:text-[#8FAF9A] flex items-center justify-center mb-2 transition-all shadow-xs">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+</div>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A]">Export Report</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">PDF &amp; Excel</span>
+</button>
+</div>
+<div class="pt-2">
+<div class="p-2.5 rounded-xl bg-[#ECEFEC]/70 dark:bg-[#1D2A23] flex items-center justify-between text-[#78847C] dark:text-[#B1BDB4] text-[11.5px]">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-[#8FAF9A]">verified_user</span>
+<span class="">Phase A Protocol verified</span>
+</span>
+<span class="font-bold text-[#234B3A] dark:text-[#8FAF9A]">v2.4 Active</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Interactive Scripts: Theme Switcher & Checklist -->
+<script>
+    // Theme Switcher Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const iconLight = document.getElementById('theme-icon-light');
+    const iconDark = document.getElementById('theme-icon-dark');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+      }
+    }
+
+    // Default to Light mode or read preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentDark = false;
+    updateThemeUI(currentDark);
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        currentDark = !currentDark;
+        updateThemeUI(currentDark);
+      });
+    }
+
+    // Checklist interactive counters
+    document.querySelectorAll('.task-checkbox').forEach(box => {
+      box.addEventListener('change', () => {
+        const all = document.querySelectorAll('.task-checkbox');
+        const unchecked = Array.from(all).filter(b => !b.checked).length;
+        const badge = document.getElementById('tasks-remaining-badge');
+        if (badge) {
+          badge.textContent = `${unchecked} of ${all.length} tasks incomplete`;
+        }
+      });
+    });
+  </script>
+
+
+</body></html>

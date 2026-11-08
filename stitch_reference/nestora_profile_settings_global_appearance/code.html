@@ -1,0 +1,934 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nestora - Buildings Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#234B3A",
+            "primary-container": "#234B3A",
+            "primary-dark": "#8FAF9A",
+            "secondary": "#476553",
+            "secondary-container": "#c9ebd4",
+            "warm-ivory": "#F7F6F0",
+            "warm-accent": "#D9A66F",
+            "tertiary-fixed": "#ffddbb",
+            "tertiary-container": "#5f3c0e",
+            "surface": "#F3F5F2",
+            "surface-card": "#FFFFFF",
+            "surface-container-low": "#ECEFEC",
+            "surface-container-high": "#e1e3e0",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#414844",
+            "text-muted": "#78847C",
+            "dark-bg": "#18231E",
+            "dark-surface": "#26372E",
+            "dark-sidebar": "#1D2A23",
+            "dark-border": "#354A3D",
+            "dark-text": "#F1F4F0",
+            "dark-text-muted": "#B1BDB4"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<meta content="web_dashboard" name="shell-type"></head>
+<body class="bg-[#F3F5F2] dark:bg-[#18231E] font-sans text-on-surface dark:text-[#F1F4F0] antialiased transition-colors duration-300">
+<!-- Persistent Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#1D2A23] border-r border-[#E3EAE4] dark:border-[#354A3D] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-colors duration-300" id="main-sidebar">
+<div class="flex flex-col">
+<!-- Logo + Brand name + Tagline Pill -->
+<div class="h-16 px-5 flex items-center justify-between border-b border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[18px] tracking-tight text-[#234B3A] dark:text-[#F1F4F0] leading-none">Nestora</span>
+<span class="text-[10px] font-semibold text-[#78847C] dark:text-[#B1BDB4] tracking-wide mt-0.5">Buildings OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#c9ebd4]/60 text-[#234B3A] dark:bg-[#354A3D] dark:text-[#8FAF9A]">PRO</span>
+</div>
+<!-- Workspace Dropdown with Quick Switch -->
+<div class="px-4 py-3">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-2.5 flex items-center justify-between border border-[#E3EAE4]/60 dark:border-[#354A3D]/70 hover:border-[#234B3A]/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-7 h-7 rounded-lg bg-[#234B3A]/10 dark:bg-[#8FAF9A]/20 flex items-center justify-center text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[17px]">apartment</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#78847C] dark:text-[#B1BDB4]">Workspace</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Nestora Buildings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[18px] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">swap_horiz</span>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-5 pt-1 pb-1.5 flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Main Management</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 px-3">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Buildings & Units -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="">Buildings &amp; Units</span>
+</a>
+<!-- Residents & Owners -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="">Residents &amp; Owners</span>
+</a>
+<!-- Shared Expenses -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="">Shared Expenses</span>
+</a>
+<!-- Maintenance (Badge 4) -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="">Maintenance</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[11px] font-bold">4</span>
+</a>
+<!-- Documents -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="">Documents</span>
+</a>
+<!-- Meetings & Voting -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">how_to_vote</span>
+<span class="">Meetings &amp; Voting</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="">Calendar</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="">Reports</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Community Care / Profile -->
+<div class="flex flex-col gap-2.5 p-3.5 border-t border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-3 flex flex-col gap-1 border border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2 text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[19px]">support_agent</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0]">Community Care</span>
+</div>
+<p class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4] leading-snug">Need operational guidance or 24/7 hotline?</p>
+<a class="text-[12px] font-semibold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-1 mt-1" href="#">
+<span class="">Support Desk</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-[#354A3D]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-[#1D2A23]"></span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[12.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Sarah Ben Ali</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Admin</span>
+</div>
+</div>
+<button class="text-[#78847C] dark:text-[#B1BDB4] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] p-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="pl-64">
+<!-- Top Header -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#F3F5F2]/80 dark:bg-[#18231E]/80 backdrop-blur-xl border-b border-[#E3EAE4] dark:border-[#354A3D] z-40 flex items-center justify-between px-6 transition-colors duration-300">
+<!-- Breadcrumb + Page Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-[13px] font-medium text-[#78847C] dark:text-[#B1BDB4]">
+<span class="hover:text-[#234B3A] dark:hover:text-[#8FAF9A] cursor-pointer">Nestora Buildings</span>
+<span class="text-[#78847C]/60">/</span>
+<span class="text-[#191c1b] dark:text-[#F1F4F0] font-semibold">Dashboard</span>
+</div>
+<!-- Search Bar with Ctrl+K -->
+<div class="relative flex items-center ml-2">
+<span class="material-symbols-outlined absolute left-3.5 text-[#78847C] dark:text-[#B1BDB4] text-[19px]">search</span>
+<input class="w-72 lg:w-80 h-10 pl-10 pr-12 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#191c1b] dark:text-[#F1F4F0] placeholder:text-[#78847C] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#234B3A] dark:focus:ring-[#8FAF9A] transition-all shadow-xs" placeholder="Search units, residents, tickets..." type="text">
+<kbd class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#ECEFEC] dark:bg-[#1D2A23] text-[#78847C] dark:text-[#B1BDB4]">Ctrl K</kbd>
+</div>
+<!-- Portfolio Status Tag -->
+<div class="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c9ebd4]/70 dark:bg-[#354A3D] border border-[#c9ebd4] dark:border-[#354A3D]">
+<span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#8FAF9A] animate-pulse"></span>
+<span class="text-[11px] font-bold text-[#234B3A] dark:text-[#8FAF9A] uppercase tracking-wider">12 Units Live</span>
+</div>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Interactive Theme Switcher Button -->
+
+<!-- Notifications with Badge -->
+<button class="relative w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] flex items-center justify-center text-[#414844] dark:text-[#F1F4F0] hover:bg-[#ECEFEC] dark:hover:bg-[#354A3D] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</span>
+</button>
+<div class="h-6 w-px bg-[#E3EAE4] dark:bg-[#354A3D] mx-1"></div>
+<!-- Profile Avatar & Details -->
+<div class="flex items-center gap-2.5 pl-1 py-1 pr-2 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] hover:shadow-xs transition-all cursor-pointer">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<div class="hidden md:flex flex-col text-left pr-1">
+<span class="text-[12px] font-bold text-[#191c1b] dark:text-[#F1F4F0] leading-none">Sarah Ben Ali</span>
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] mt-0.5 font-medium">(Admin)</span>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="relative pt-20 w-full px-6 py-6 min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow -->
+<div class="relative w-full">
+<div class="absolute -top-12 right-12 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-80 -left-12 w-80 h-80 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header & Auto-Save Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-8">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Account &amp; Preferences</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Profile &amp; Settings</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">System &amp; Personal Preferences</h1>
+<span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+            Sync Active
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Orchestrate global interface aesthetics, administrative authentication credentials, and resident record profiles.
+        </p>
+</div>
+<!-- Live Auto-Saved Indicator -->
+<div class="flex items-center gap-3 self-start lg:self-center">
+<div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high shadow-xs">
+<span class="material-symbols-outlined text-[17px] text-secondary">cloud_done</span>
+<span class="font-label-md text-label-md text-on-surface">All changes saved automatically</span>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-highest text-primary flex items-center justify-center transition-transform active:rotate-180" id="quick-refresh-btn" title="Refresh local preferences" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+</div>
+<!-- Main Grid: Asymmetric Bento Architecture -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+<!-- LEFT 8 COLUMNS: Theme Engine & Core Security -->
+<div class="xl:col-span-8 flex flex-col gap-8">
+<!-- SECTION 1: GLOBAL APPEARANCE & THEME ENGINE (CANONICAL HOME) -->
+<section class="bg-surface-container-lowest rounded-xl p-6 lg:p-8 shadow-sm relative overflow-hidden">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">palette</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Global Appearance Engine</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Configure tactile luminance, palette accents, and desktop layout density.</span>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm self-start sm:self-auto font-medium">
+              Client Token: v3.4.1
+            </span>
+</div>
+<!-- Visual Theme Mode Pickers -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Base Luminance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stored locally in Nestora Cloud Profile</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="theme-cards-container">
+<!-- LIGHT THEME CARD -->
+<button class="theme-mode-card group text-left p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-3 relative shadow-xs" data-theme-mode="light" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">light_mode</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Light</span>
+</div>
+<span class="mode-check w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[12px]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<!-- Mini Preview Mock Light -->
+<div class="w-full h-20 rounded-lg bg-surface-container-lowest p-2.5 flex flex-col justify-between shadow-xs">
+<div class="flex items-center justify-between">
+<div class="w-12 h-2 rounded bg-primary"></div>
+<div class="w-4 h-2 rounded-full bg-secondary-container"></div>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded-md bg-surface-container-high"></div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="w-14 h-1.5 rounded bg-on-surface-variant/40"></div>
+<div class="w-8 h-1 rounded bg-on-surface-variant/20"></div>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  Warm ivory &amp; off-white canvas with grounded deep forest botanical contrast for high ambient light.
+                </p>
+</button>
+<!-- DARK THEME CARD -->
+<button class="theme-mode-card group text-left p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-3 relative shadow-xs" data-theme-mode="dark" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-surface">dark_mode</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Dark</span>
+</div>
+<span class="mode-check hidden w-5 h-5 rounded-full bg-primary text-on-primary items-center justify-center text-[12px]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<!-- Mini Preview Mock Dark -->
+<div class="w-full h-20 rounded-lg bg-dark-surface p-2.5 flex flex-col justify-between shadow-xs">
+<div class="flex items-center justify-between">
+<div class="w-12 h-2 rounded bg-dark-primary"></div>
+<div class="w-4 h-2 rounded-full bg-dark-soft-green"></div>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded-md bg-dark-surface-container-high"></div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="w-14 h-1.5 rounded bg-dark-on-surface-variant/40"></div>
+<div class="w-8 h-1 rounded bg-dark-on-surface-variant/20"></div>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  Deep slate canvas with muted emerald highlights. Reduced eyestrain for nocturnal operations.
+                </p>
+</button>
+<!-- SYSTEM DEFAULT CARD -->
+<button class="theme-mode-card group text-left p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-3 relative shadow-xs" data-theme-mode="system" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-surface">devices</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">System Default</span>
+</div>
+<span class="mode-check hidden w-5 h-5 rounded-full bg-primary text-on-primary items-center justify-center text-[12px]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<!-- Mini Preview Mock System Split -->
+<div class="w-full h-20 rounded-lg overflow-hidden flex shadow-xs">
+<div class="w-1/2 h-full bg-surface-container-lowest p-2 flex flex-col justify-between">
+<div class="w-8 h-2 rounded bg-primary"></div>
+<div class="w-10 h-1.5 rounded bg-on-surface-variant/30"></div>
+</div>
+<div class="w-1/2 h-full bg-dark-surface p-2 flex flex-col justify-between">
+<div class="w-8 h-2 rounded bg-dark-primary self-end"></div>
+<div class="w-10 h-1.5 rounded bg-dark-on-surface-variant/30 self-end"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  Automatically shifts with your operating system day/night triggers.
+                </p>
+</button>
+</div>
+</div>
+<!-- Accent Color Customization Tokens -->
+<div class="pt-6 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Accent Color Signature</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="selected-accent-label">Forest Emerald (Selected)</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="accent-selector-grid">
+<!-- Accent 1: Forest Emerald -->
+<button class="accent-btn flex items-center gap-3 p-3 rounded-xl bg-surface-container-high transition-all text-left" data-accent="Forest Emerald" data-tint="#234B3A" type="button">
+<span class="w-5 h-5 rounded-full bg-[#234B3A] shadow-xs flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px] text-white">check</span>
+</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Forest Emerald</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Default Brand</span>
+</div>
+</button>
+<!-- Accent 2: Nordic Teal -->
+<button class="accent-btn flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all text-left" data-accent="Nordic Teal" data-tint="#2A6B70" type="button">
+<span class="w-5 h-5 rounded-full bg-[#2A6B70] shadow-xs flex items-center justify-center"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Nordic Teal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cool Coastal</span>
+</div>
+</button>
+<!-- Accent 3: Warm Terracotta -->
+<button class="accent-btn flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all text-left" data-accent="Warm Terracotta" data-tint="#B8623B" type="button">
+<span class="w-5 h-5 rounded-full bg-[#B8623B] shadow-xs flex items-center justify-center"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Terracotta</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ochre Clay</span>
+</div>
+</button>
+<!-- Accent 4: Midnight Slate -->
+<button class="accent-btn flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all text-left" data-accent="Midnight Slate" data-tint="#2C3E50" type="button">
+<span class="w-5 h-5 rounded-full bg-[#2C3E50] shadow-xs flex items-center justify-center"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Midnight Slate</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Deep Neutral</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Density & UI Scale -->
+<div class="pt-6 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Information Density &amp; Spatial Scale</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Affects table rows, margins, and typography spacing</span>
+</div>
+<div class="grid grid-cols-3 gap-3 p-1.5 rounded-xl bg-surface-container-low">
+<button class="density-btn py-2 px-3 rounded-lg text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center gap-1.5" data-density="compact" type="button">
+<span class="material-symbols-outlined text-[16px]">density_small</span>
+<span class="">Compact</span>
+</button>
+<button class="density-btn py-2 px-3 rounded-lg text-center font-label-md text-label-md bg-surface-container-lowest text-primary shadow-xs font-semibold flex items-center justify-center gap-1.5" data-density="default" type="button">
+<span class="material-symbols-outlined text-[16px]">density_medium</span>
+<span class="">Default (1.5rem)</span>
+</button>
+<button class="density-btn py-2 px-3 rounded-lg text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center gap-1.5" data-density="relaxed" type="button">
+<span class="material-symbols-outlined text-[16px]">density_large</span>
+<span class="">Relaxed</span>
+</button>
+</div>
+</div>
+<!-- Interactive Live Theme Preview Mini-Card -->
+<div class="mt-8 p-5 rounded-xl bg-surface-container-high flex flex-col gap-3.5 shadow-inner">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">preview</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Live Component Adaptation Preview</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Realtime Render</span>
+</div>
+<!-- Mini Specimen Card -->
+<div class="p-4 rounded-xl bg-surface-container-lowest transition-colors shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4" id="live-theme-preview-card">
+<div class="flex items-center gap-3.5">
+<div class="w-11 h-11 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">The Cascades Atrium</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">Optimal</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Building Cluster #04 • 99.2% Operational Health</span>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-auto">
+<div class="text-right">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Allocated Reserve</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$142,850.00</div>
+</div>
+<button class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:opacity-95 shadow-xs" type="button">
+                  Review Statement
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: SECURITY & MULTI-FACTOR AUTHENTICATION -->
+<section class="bg-surface-container-lowest rounded-xl p-6 lg:p-8 shadow-sm flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Security &amp; Multi-Factor Verification</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Enforce cryptographic verification protocols for administrative access.</span>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold self-start sm:self-auto">
+              Hardware Grade
+            </span>
+</div>
+<!-- Credential Tiers -->
+<div class="flex flex-col gap-3.5">
+<!-- FIDO2 WebAuthn Passkeys -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest text-primary flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[22px]">fingerprint</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">FIDO2 WebAuthn Passkeys</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">Primary</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">MacBook Pro TouchID (Secured 14 days ago)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors" type="button">
+                  Manage Keys
+                </button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Key Details" type="button">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</div>
+</div>
+<!-- TOTP Authenticator -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest text-secondary flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[22px]">lock_clock</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Authenticator Application (TOTP)</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1Password / Google Authenticator synchronized</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors" type="button">
+                  Rotate Secret
+                </button>
+</div>
+</div>
+<!-- SMS Backup -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest text-on-surface-variant flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[22px]">sms</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">SMS Fallback Channel</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">Secondary</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Linked to +1 (206) •••-0192 for critical recovery</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors" type="button">
+                  Update Number
+                </button>
+</div>
+</div>
+</div>
+<!-- Active Sessions Roster -->
+<div class="pt-2 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Active Device Sessions</span>
+<button class="font-label-sm text-label-sm text-error hover:underline font-semibold" type="button">
+                Revoke All Others
+              </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+<!-- Session 1: Current -->
+<div class="p-4 rounded-xl bg-surface-container-high flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary font-semibold">
+<span class="material-symbols-outlined text-[19px]">laptop_mac</span>
+<span class="font-label-md text-label-md">Chrome on macOS Sonoma</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-xs">This Session</span>
+</div>
+<div class="flex flex-col font-body-sm text-body-sm text-on-surface-variant">
+<span class="">IP: 198.51.100.44 • Seattle, WA, USA</span>
+<span class="text-[12px] opacity-80">Last heartbeat: 42 seconds ago</span>
+</div>
+</div>
+<!-- Session 2: Mobile -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[19px]">smartphone</span>
+<span class="font-label-md text-label-md">Nestora iOS Client v2.9</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">iPhone 15 Pro</span>
+</div>
+<div class="flex flex-col font-body-sm text-body-sm text-on-surface-variant">
+<span class="">IP: 172.56.21.90 • Seattle, WA, USA</span>
+<span class="text-[12px] opacity-80">Active 3 hours ago via FaceID</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: CONNECTED ACCOUNTS & ECOSYSTEM INTEGRATIONS -->
+<section class="bg-surface-container-lowest rounded-xl p-6 lg:p-8 shadow-sm flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Integrations &amp; Linked Providers</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SSO federations and financial clearing pipes.</span>
+</div>
+</div>
+<button class="px-3.5 py-1.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">Connect Tool</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Google Workspace (Synced) -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">mail</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Google Workspace</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">sarah.benali@nestora.io</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">Synced</span>
+</div>
+<!-- Apple ID -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px] text-on-surface">branding_watermark</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Apple ID</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">TouchID &amp; Keychain</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">Linked</span>
+</div>
+<!-- Microsoft 365 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">grid_view</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Microsoft 365 Azure</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Tenant Disconnected</span>
+</div>
+</div>
+<button class="px-3 py-1 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors" type="button">
+                Connect
+              </button>
+</div>
+<!-- Stripe Payout Account -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">account_balance_wallet</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Internal Accounting Export</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Automated Ledger Sync</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT 4 COLUMNS: Resident Profile Card, GDPR & Danger Zone -->
+<div class="xl:col-span-4 flex flex-col gap-8">
+<!-- PERSONAL PROFILE & RESIDENT DOSSIER -->
+<section class="bg-surface-container-lowest rounded-xl p-6 lg:p-7 shadow-sm flex flex-col gap-6 relative">
+<div class="flex items-center justify-between border-b pb-4 border-outline/40">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Resident &amp; Admin Dossier</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold">Unit A-402</span>
+</div>
+<!-- Avatar Section with Upload Overlay -->
+<div class="flex flex-col items-center text-center gap-3">
+<div class="relative group cursor-pointer">
+<img class="w-24 h-24 rounded-full object-cover shadow-md" data-alt="Portrait photo of Sarah Ben Ali, a confident and approachable Mediterranean woman in her early thirties, wearing professional modern attire with natural morning light reflecting soft organic green accents, professional corporate headshot style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRSeSAKyx7LxHb0E5qGyx7iR1bKnwf-bMeoOIWvJazDO1uSWF1-RfctX8g_EyhtJzzh9XNFb2pK_p1DLmIwUHyO8os-YrXAhydRwYdhZovtFq2ae6UKsp9G55g8IDFxyPq14kJbZIU4M7cTyV8UGKztiYp_MQ3fT8m-SHerdrVJ_tcao546OGPpgFPl-TPrlxIVHkqdRoASowWPtq_f6cAoG90iS2-nKO_K2Qx3s8">
+<div class="absolute inset-0 rounded-full bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+<span class="">Change</span>
+</div>
+<span class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-secondary ring-2 ring-white flex items-center justify-center text-white" title="Identity Verified">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Sarah Ben Ali</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Lead Administrator &amp; Resident Owner</span>
+</div>
+<!-- Unit Ownership Badge -->
+<div class="w-full p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">key</span>
+<span class="font-label-md text-label-md text-on-surface">The Cascades • A-402</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Penthouse Tier</span>
+</div>
+</div>
+<!-- Profile Fields (Editable in-line) -->
+<div class="flex flex-col gap-4">
+<!-- Email -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Verified Email</label>
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">mail</span>
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface w-full focus:outline-none" type="email" value="sarah.benali@nestora.io">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+</div>
+</div>
+<!-- Phone -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Mobile Contact</label>
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">phone</span>
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface w-full focus:outline-none" type="text" value="+1 (206) 555-0192">
+</div>
+</div>
+<!-- Emergency Contact -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Emergency Contact</label>
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">emergency</span>
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface w-full focus:outline-none" type="text" value="Dr. Tariq Ben Ali (+1 206-555-0144)">
+</div>
+</div>
+<!-- Language & Locale -->
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Language</label>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">English (US)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Timezone</label>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface truncate">America/LA</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">schedule</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold hover:opacity-95 shadow-xs transition-opacity flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span class="">Update Personal Record</span>
+</button>
+</section>
+<!-- PRIVACY, GDPR COMPLIANCE & EXPORT ARCHIVES -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">download_for_offline</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Data Sovereignty &amp; Export</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">GDPR Art. 20 &amp; CCPA compliant archives</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Generate an immutable JSON &amp; PDF bundle containing your voting audits, ledger statements, and maintenance tickets.
+          </p>
+<button class="w-full py-2 px-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-2" id="export-archive-btn" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">archive</span>
+<span class="">Request Personal Archive (.ZIP)</span>
+</button>
+</section>
+<!-- DANGER ZONE: ACCOUNT DELETION & OFFBOARDING -->
+<section class="p-6 rounded-xl bg-error-container/40 flex flex-col gap-3.5">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+<span class="font-label-lg text-label-lg font-bold">Danger Zone</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-error-container">
+            Deactivating your profile will revoke building board administrative authorizations, release smart-lock credentials, and notify community trustees.
+          </p>
+<div class="flex flex-col sm:flex-row gap-2 pt-1">
+<button class="py-2 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md font-medium transition-colors" type="button">
+              Transfer Admin Role
+            </button>
+<button class="py-2 px-3.5 rounded-lg bg-error text-on-error hover:opacity-90 font-label-md text-label-md font-semibold transition-opacity" type="button">
+              Deactivate Account
+            </button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Interactive Theme Mode Switcher
+  const themeCards = document.querySelectorAll('.theme-mode-card');
+  const globalHtml = document.documentElement;
+  const previewCard = document.getElementById('live-theme-preview-card');
+
+  themeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const mode = card.getAttribute('data-theme-mode');
+
+      // Update Card Visual Selection
+      themeCards.forEach(c => {
+        const check = c.querySelector('.mode-check');
+        if (c === card) {
+          check.classList.remove('hidden');
+          check.classList.add('flex');
+          c.classList.add('ring-2', 'ring-primary');
+        } else {
+          check.classList.add('hidden');
+          check.classList.remove('flex');
+          c.classList.remove('ring-2', 'ring-primary');
+        }
+      });
+
+      // Synchronize Shell and Preview
+      if (mode === 'dark') {
+        globalHtml.classList.add('dark');
+        if (previewCard) {
+          previewCard.classList.remove('bg-surface-container-lowest');
+          previewCard.classList.add('bg-dark-surface-container');
+        }
+      } else if (mode === 'light') {
+        globalHtml.classList.remove('dark');
+        if (previewCard) {
+          previewCard.classList.add('bg-surface-container-lowest');
+          previewCard.classList.remove('bg-dark-surface-container');
+        }
+      } else if (mode === 'system') {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+          globalHtml.classList.add('dark');
+        } else {
+          globalHtml.classList.remove('dark');
+        }
+      }
+    });
+  });
+
+  // Accent Switcher Micro-Interactions
+  const accentButtons = document.querySelectorAll('.accent-btn');
+  const accentLabel = document.getElementById('selected-accent-label');
+
+  accentButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.getAttribute('data-accent');
+      if (accentLabel) accentLabel.textContent = `${name} (Selected)`;
+
+      accentButtons.forEach(b => {
+        const dot = b.querySelector('span');
+        if (b === btn) {
+          b.classList.add('bg-surface-container-high');
+          b.classList.remove('bg-surface-container-low');
+          dot.innerHTML = `<span class="material-symbols-outlined text-[13px] text-white">check</span>`;
+        } else {
+          b.classList.remove('bg-surface-container-high');
+          b.classList.add('bg-surface-container-low');
+          dot.innerHTML = ``;
+        }
+      });
+    });
+  });
+
+  // Density Switcher
+  const densityButtons = document.querySelectorAll('.density-btn');
+  densityButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      densityButtons.forEach(b => {
+        b.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs', 'font-semibold');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-xs', 'font-semibold');
+      btn.classList.remove('text-on-surface-variant');
+    });
+  });
+
+  // Export Trigger Feedback
+  const exportBtn = document.getElementById('export-archive-btn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const originalText = exportBtn.innerHTML;
+      exportBtn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Packaging GDPR Archive...</span>`;
+      setTimeout(() => {
+        exportBtn.innerHTML = `<span class="material-symbols-outlined text-[18px] text-secondary">check</span><span>Download Ready (14.2 MB)</span>`;
+      }, 1400);
+    });
+  }
+</script></main>
+</div>
+<!-- Interactive Scripts: Theme Switcher & Checklist -->
+<script>
+    // Theme Switcher Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const iconLight = document.getElementById('theme-icon-light');
+    const iconDark = document.getElementById('theme-icon-dark');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+      }
+    }
+
+    // Default to Light mode or read preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentDark = false;
+    updateThemeUI(currentDark);
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        currentDark = !currentDark;
+        updateThemeUI(currentDark);
+      });
+    }
+
+    // Checklist interactive counters
+    document.querySelectorAll('.task-checkbox').forEach(box => {
+      box.addEventListener('change', () => {
+        const all = document.querySelectorAll('.task-checkbox');
+        const unchecked = Array.from(all).filter(b => !b.checked).length;
+        const badge = document.getElementById('tasks-remaining-badge');
+        if (badge) {
+          badge.textContent = `${unchecked} of ${all.length} tasks incomplete`;
+        }
+      });
+    });
+  </script>
+
+
+</body></html>

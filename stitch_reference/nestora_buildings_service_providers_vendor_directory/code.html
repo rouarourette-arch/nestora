@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@layer base{
+  html,body{margin:0;padding:0;}
+  body{overscroll-behavior:none;}
+  main>:first-child{margin-top:0!important;}
+  main>:last-child{margin-bottom:0!important;}
+}
+::-webkit-scrollbar{display:none;}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-dim": "#ECEFEC",
+        "on-surface-variant": "#78847C",
+        "on-tertiary-fixed-variant": "#633f11",
+        "dark-surface-dim": "#202E27",
+        "error": "#BA1A1A",
+        "secondary-container": "#DDEDE2",
+        "on-tertiary-container": "#daa770",
+        "on-surface": "#202B25",
+        "surface-container-highest": "#d9e6dc",
+        "surface-container-lowest": "#ffffff",
+        "inverse-surface": "#28332d",
+        "error-container": "#FFDAD6",
+        "on-primary-fixed": "#002115",
+        "surface-container": "#e4f1e7",
+        "tertiary": "#442700",
+        "on-secondary": "#ffffff",
+        "inverse-on-surface": "#e7f4ea",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffddbb",
+        "dark-surface": "#18231E",
+        "primary-container": "#E7EFE8",
+        "on-error": "#ffffff",
+        "primary-fixed": "#c0ecd5",
+        "inverse-primary": "#a5d0ba",
+        "on-error-container": "#410002",
+        "surface-variant": "#d9e6dc",
+        "dark-on-surface": "#F1F4F0",
+        "dark-outline": "#3B4B41",
+        "primary": "#093425",
+        "secondary-fixed": "#c9ebd4",
+        "surface-container-low": "#eaf7ed",
+        "tertiary-fixed-dim": "#f2bc84",
+        "surface-bright": "#f0fdf3",
+        "tertiary-container": "#FDF6EE",
+        "outline-variant": "#c1c8c2",
+        "dark-secondary": "#A9C5AF",
+        "outline": "#E3EAE4",
+        "surface": "#F3F5F2",
+        "dark-on-surface-variant": "#B1BDB4",
+        "on-secondary-fixed": "#032113",
+        "on-secondary-container": "#4d6b59",
+        "surface-container-high": "#E7EFE8",
+        "dark-soft-green": "#354A3D",
+        "on-secondary-fixed-variant": "#304d3c",
+        "on-primary": "#FFFFFF",
+        "on-primary-container": "#202B25",
+        "on-background": "#131e18",
+        "secondary": "#476553",
+        "secondary-fixed-dim": "#adceb8",
+        "on-primary-fixed-variant": "#264e3d",
+        "dark-surface-container-high": "#304338",
+        "dark-primary": "#8FAF9A",
+        "primary-fixed-dim": "#a5d0ba",
+        "on-tertiary-fixed": "#2b1700",
+        "dark-surface-container": "#26372E",
+        "background": "#f0fdf3",
+        "surface-tint": "#3e6654",
+        "dark-sidebar": "#1D2A23"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-2xl": "3rem",
+        "space-xs": "0.25rem",
+        "space-md": "1rem",
+        "gutter-mobile": "1rem",
+        "space-xl": "2rem",
+        "margin-mobile": "1rem",
+        "space-lg": "1.5rem",
+        "margin": "2rem",
+        "gutter": "1.5rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "headline-sm": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"],
+        "headline-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"],
+        "label-md": ["Plus Jakarta Sans"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "label-lg": ["Plus Jakarta Sans"]
+      },
+      "fontSize": {
+        "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col flex-1 overflow-y-auto">
+<div class="p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">cottage</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Nestora</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Living OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm">v2.4</span>
+</div>
+<div class="px-space-md pb-space-sm">
+<div class="relative">
+<label class="sr-only" for="workspace-select">Select Workspace</label>
+<div class="relative flex items-center bg-surface-container-lowest rounded-xl p-space-sm shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline">
+<div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-primary flex-shrink-0 mr-space-sm">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<select class="w-full bg-transparent font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer pr-6 font-semibold" id="workspace-select">
+<option value="green-park">Green Park Towers (Portfolio)</option>
+<option selected="" value="oakwood-4b">Oakwood Co-Living #4B (Household)</option>
+<option value="system-admin">System Admin (Platform Console)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-space-md py-space-xs flex flex-col gap-space-md" data-active-classes="bg-primary-container text-primary font-semibold shadow-sm">
+<div>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#">
+<span class="font-label-lg text-label-lg">Overview &amp; Executive Summary</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Buildings Portfolio</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="buildings" href="#">
+<span class="font-label-lg text-label-lg">Buildings &amp; Units</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="residents" href="#">
+<span class="font-label-lg text-label-lg">Residents, Owners &amp; Leases</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="financials" href="#">
+<span class="font-label-lg text-label-lg">Financials &amp; Contributions</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="maintenance" href="#">
+<span class="font-label-lg text-label-lg">Maintenance &amp; Dispatch</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="documents" href="#">
+<span class="font-label-lg text-label-lg">Documents &amp; Legal</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="meetings" href="#">
+<span class="font-label-lg text-label-lg">Meetings &amp; Assembly Voting</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Living (Co-Household)</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-roommates" href="#">
+<span class="font-label-lg text-label-lg">Roommates &amp; Roster</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-expenses" href="#">
+<span class="font-label-lg text-label-lg">Expenses &amp; Splits Ledger</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-chores" href="#">
+<span class="font-label-lg text-label-lg">Chores &amp; Rotation</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-pantry" href="#">
+<span class="font-label-lg text-label-lg">Shopping &amp; Pantry</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-bills" href="#">
+<span class="font-label-lg text-label-lg">Bills &amp; Shared Calendar</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-rules" href="#">
+<span class="font-label-lg text-label-lg">House Rules &amp; Governance</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Nestora Intelligence</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="intelligence" href="#">
+<span class="font-label-lg text-label-lg">AI Assistant &amp; Action Hub</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Administration &amp; System</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin" href="#">
+<span class="font-label-lg text-label-lg">Platform Admin Console</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-audit" href="#">
+<span class="font-label-lg text-label-lg">Global Audit &amp; Logs</span>
+</a>
+</div>
+</nav>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm border-t border-outline">
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">cloud_done</span>Vault Storage</span>
+<span class="text-primary font-semibold">14.2 / 20 GB</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 71%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold font-label-md text-label-md flex-shrink-0">
+          SB
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Sarah Ben Ali</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Admin &amp; Lead Tenant</span>
+</div>
+</div>
+<a class="w-7 h-7 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</a>
+</div>
+</div>
+</aside>
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-outline">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Oakwood Co-Living #4B</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-80 h-9 pl-9 pr-14 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline" placeholder="Search units, expenses, logs..." readonly="" type="text"/>
+<span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant">Ctrl+K</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative group">
+<button class="flex items-center gap-space-xs h-9 px-space-sm bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Quick Action</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" onclick="document.documentElement.classList.toggle('dark')" title="Toggle Theme">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+</button>
+<button class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" title="Notifications">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<a class="flex items-center gap-space-xs pl-space-xs pr-space-sm py-1 rounded-xl bg-surface-container-lowest border border-outline hover:bg-surface-container transition-colors" data-path="settings" href="#">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-semibold">
+          SB
+        </div>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">keyboard_arrow_down</span>
+</a>
+</div>
+</header>
+<main class="w-full pt-16 px-space-lg bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full">
+<!-- Sub-Header & Breadcrumb Bar -->
+<div class="flex flex-col gap-space-sm mb-space-lg">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="hover:text-primary transition-colors cursor-pointer">Nestora Buildings</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Maintenance Operations</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Service Providers &amp; Vendor Directory</span>
+</nav>
+<div class="flex items-center gap-space-xs text-label-sm font-label-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          King County Master Registry #KC-8921-V
+        </span>
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+          RCW 64.90 Automated Lien Protection Active
+        </span>
+</div>
+</div>
+<!-- Title & Executive Action Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-space-xs">
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight font-semibold flex items-center gap-space-sm">
+<span>Service Providers &amp; Vendor Directory</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold tracking-normal">
+            42 Certified Contractors
+          </span>
+</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Centralized trade master roster, active Certificate of Insurance (COI) telemetry, SLA benchmarks, and 24/7 direct dispatch pipelines.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-space-xs px-space-sm py-2 rounded-xl bg-surface-container text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_download</span>
+<span>Export Compliance Roster</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-sm py-2 rounded-xl bg-surface-container text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-high transition-colors" onclick="document.getElementById('coi-audit-modal').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">policy</span>
+<span>Audit Insurance COIs</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity" onclick="document.getElementById('onboard-vendor-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">add_business</span>
+<span>Onboard New Vendor</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Executive Vendor Metrics Bar (4 KPI Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Card 1: Active Service Contracts -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Active Service Contracts</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold leading-none">42</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Vendors</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">engineering</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<strong class="text-on-surface font-semibold">18</strong> Tier-1 SLA (&lt;2h)
+        </span>
+<span class="text-on-surface-variant/60">•</span>
+<span><strong class="text-on-surface font-semibold">24</strong> On-Demand</span>
+</div>
+</div>
+<!-- Card 2: Insurance & COI Health -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Insurance &amp; COI Health</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold leading-none">98.6%</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Compliant</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">41 active with $2M+ coverage</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-on-tertiary-container">schedule</span>
+          1 Renewal Due
+        </span>
+</div>
+</div>
+<!-- Card 3: Average Emergency Dispatch SLA -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Emergency Dispatch SLA</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold leading-none">38</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">Mins Mean</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">bolt</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+          -14m vs Seattle avg
+        </span>
+<span>Ticket-to-wheels roll</span>
+</div>
+</div>
+<!-- Card 4: YTD Commercial Invoicing -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">YTD Commercial Invoicing</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold leading-none">$184,250</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">.00</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">account_balance</span>
+          100% Treasury Auto-Disbursed
+        </span>
+<span class="text-on-surface-variant">0 Lien Disputes</span>
+</div>
+</div>
+</div>
+<!-- Filter & Trade Category Ribbon -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-sm mb-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Search -->
+<div class="relative flex-1 max-w-xl">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-10 pl-10 pr-4 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="vendor-search-input" placeholder="Search by trade, company name, license #, or contact..." type="text"/>
+</div>
+<!-- Quick Status Badges and View Toggle -->
+<div class="flex items-center gap-space-sm flex-wrap justify-between lg:justify-end">
+<div class="flex items-center gap-space-xs bg-surface-container-high p-1 rounded-xl">
+<button class="px-3 py-1 rounded-lg text-on-surface font-label-md text-label-md bg-surface-container shadow-sm font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+            Compliant COI
+          </button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">percent</span>
+            Preferred Rate
+          </button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-error">emergency</span>
+            Emergency 24/7
+          </button>
+</div>
+<div class="flex items-center bg-surface-container-high p-1 rounded-xl">
+<button class="w-8 h-8 rounded-lg bg-surface-container text-primary flex items-center justify-center shadow-sm" id="view-grid-btn" title="Grid View">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" id="view-list-btn" title="Table View">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Trade Categories Scrollable Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1">
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm">
+        All Trades (42)
+      </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">hvac</span>
+        HVAC &amp; Mechanical (6)
+      </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">elevator</span>
+        Elevators &amp; Access (4)
+      </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">plumbing</span>
+        Plumbing &amp; Hydronics (8)
+      </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">electrical_services</span>
+        Electrical &amp; Fire Safety (7)
+      </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">cleaning_services</span>
+        Janitorial &amp; Cleaning (9)
+      </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">yard</span>
+        Landscaping &amp; Grounds (8)
+      </button>
+</div>
+</div>
+<!-- Main Dual-Column Workspace: Vendor Directory Cards + Fast Dispatch Compliance Side-Bar -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-2xl">
+<!-- Left Column: Featured In-Depth Vendor Profile Cards (8 Cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Vendor Card 1: Trane Commercial Services (Tier 1 Preferred HVAC) -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between flex-wrap gap-space-sm mb-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[32px]">hvac</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Trane Commercial Services</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Tier-1 Preferred</span>
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">support_agent</span>
+                  24/7 Hotline Synced
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Central Plant Chillers, Heat Pumps, VAV Systems &amp; Building Automation Control
+              </p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container fill-current">star</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">4.9</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(48 jobs)</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold mt-1">Avg Response: 28 mins</span>
+</div>
+</div>
+<!-- Key Specs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest mb-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Lead Master Tech</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1 mt-0.5">
+              David Kowalski
+              <span class="material-symbols-outlined text-[14px] text-secondary" title="State Certified">verified</span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lic #MECH-84920</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Contract Terms</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">$145/hr (15% HOA Disc.)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Net-30 Auto-Pay (Treasury)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">COI Coverage</span>
+<span class="font-label-lg text-label-lg text-secondary font-semibold mt-0.5 flex items-center gap-1">
+              $5,000,000 Verified
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expires: Nov 15, 2025</span>
+</div>
+</div>
+<!-- Live Operations Banner -->
+<div class="p-space-sm rounded-xl bg-secondary-container/40 flex items-center justify-between flex-wrap gap-space-xs mb-space-md">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span><strong class="font-semibold">Active Dispatch #BO-912:</strong> Tower A Riser 3 Secondary Loop Balancing in progress.</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Tech On-Site</span>
+</div>
+<!-- Card Footprint Actions -->
+<div class="flex items-center justify-between flex-wrap gap-space-xs pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity flex items-center gap-1.5" onclick="triggerDispatch('Trane Commercial Services', 'HVAC &amp; Mechanical', 'Tower A Riser Issue')">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Dispatch Emergency Work Order</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">description</span>
+<span>View Contract &amp; COI</span>
+</button>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Message Vendor">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+</div>
+</div>
+<!-- Vendor Card 2: Otis Elevator Company (COI Warning State) -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between flex-wrap gap-space-sm mb-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[32px]">elevator</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Otis Elevator Company</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Tier-1 Statutory</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-on-tertiary-container">warning</span>
+                  COI Due in 7 Days (Dec 1, 2024)
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Vertical Transportation, Traction High-Rise Cabs &amp; Freight Maintenance
+              </p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container fill-current">star</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">4.8</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(32 checks)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold mt-1">State Cert #ELEV-9941</span>
+</div>
+</div>
+<!-- Key Specs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest mb-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Account Exec / Lead</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Marcus Sterling</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">24/7 Trapped Pax Line Synced</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Equipment Monitored</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">4 Passenger / 2 Freight</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">IoT Vibration Sensors Active</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary font-semibold uppercase">Compliance Alert</span>
+<span class="font-label-lg text-label-lg text-tertiary font-semibold mt-0.5 flex items-center gap-1">
+              $10M Carrier Policy
+            </span>
+<span class="font-label-sm text-label-sm text-error font-medium">Renewal Pending Carrier Sign</span>
+</div>
+</div>
+<!-- Card Footprint Actions -->
+<div class="flex items-center justify-between flex-wrap gap-space-xs pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-xl bg-tertiary-container text-tertiary font-label-md text-label-md shadow-sm hover:opacity-90 transition-opacity flex items-center gap-1.5 font-bold" onclick="requestCoiRenewal('Otis Elevator Company')">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container">mark_email_read</span>
+<span>Request Updated COI ($10M)</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">event_repeat</span>
+<span>Schedule Monthly Drop Test</span>
+</button>
+</div>
+<button class="px-space-sm py-1.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">
+            View Ledger
+          </button>
+</div>
+</div>
+<!-- Vendor Card 3: Pacific Hydro & Fire Sprinkler Systems -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between flex-wrap gap-space-sm mb-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[32px]">plumbing</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Pacific Hydro &amp; Fire Sprinkler Systems</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">100% Compliant</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Backflow RCW 64.90</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Main Domestic Supply, Hydro-pneumatic Boosters, Wet Risers &amp; Fire Pumps
+              </p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container fill-current">star</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">4.95</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(64 orders)</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold mt-1">Master Lic #WA-PLUM-3301</span>
+</div>
+</div>
+<!-- Key Specs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest mb-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Supervising Contact</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Elena Gomez</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">24/7 Flood Rapid Dispatch</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Billable Rate</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">$95 std / $130 emerg.</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">No truck roll charge</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Liability &amp; Surety</span>
+<span class="font-label-lg text-label-lg text-secondary font-semibold mt-0.5 flex items-center gap-1">
+              $3,000,000 Bonded
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Valid thru Aug 2025</span>
+</div>
+</div>
+<div class="flex items-center justify-between flex-wrap gap-space-xs pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity flex items-center gap-1.5" onclick="triggerDispatch('Pacific Hydro', 'Plumbing &amp; Hydronics', 'Leak or Booster Pressure Drop')">
+<span class="material-symbols-outlined text-[16px]">water_drop</span>
+<span>Issue Plumbing Work Order</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Review Backflow Cert</span>
+</button>
+</div>
+<button class="px-space-sm py-1.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">
+            View Invoices ($24.8k YTD)
+          </button>
+</div>
+</div>
+<!-- Vendor Card 4: Cascade Exterior Maintenance & Abseiling -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between flex-wrap gap-space-sm mb-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[32px]">roller_shades</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Cascade Exterior Maintenance &amp; Abseiling</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">OSHA / ANSI Z359</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Façade Glass Washing, Davit Load Testing, Balcony Flashing &amp; High-Angle Rigging
+              </p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container fill-current">star</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">4.7</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(19 jobs)</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold mt-1">High-Risk $10M Rider</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest mb-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Next Mobilization</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Nov 27, 2024</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Biannual Exterior Wash</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Safety Certification</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">SPRAT Level 3 Tech</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rooftop Anchor Load Valid</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Pricing Model</span>
+<span class="font-label-lg text-label-lg text-secondary font-semibold mt-0.5">Contract Fixed ($14,200)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bi-annual portfolio turnover</span>
+</div>
+</div>
+<div class="flex items-center justify-between flex-wrap gap-space-xs pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-1.5 font-semibold">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span>View Logistics &amp; Rigging Plan</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+              Confirm Davit Permit
+            </button>
+</div>
+<button class="text-secondary font-label-sm text-label-sm font-semibold hover:underline">
+            Contact Dispatch Lead →
+          </button>
+</div>
+</div>
+<!-- 2-Card Row for APEX + ECOCLEAN -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Vendor Card 5: Apex Security & Smart Access -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold text-[18px]">Apex Smart Access</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Brivo &amp; Schlage Encode Certified</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm">4.9 ★</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+              12 turnstiles, 48 smart perimeter locks, intercom cloud gateway.
+            </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest text-label-sm font-label-sm text-on-surface-variant mb-space-md">
+              Hardware SLA: Same-day swap on controller outages.
+            </div>
+</div>
+<div class="flex items-center justify-between">
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px]">key</span>
+              Sync Cloud Keys
+            </button>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">COI: Valid 2025</span>
+</div>
+</div>
+<!-- Vendor Card 6: EcoClean Janitorial -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">cleaning_services</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold text-[18px]">EcoClean Janitorial</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Green Seal GS-37 Compliant</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm">4.85 ★</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+              Daily common clubhouse turnover, lobby marble polishing, chute sanitation.
+            </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest text-label-sm font-label-sm text-on-surface-variant mb-space-md">
+              Daily 7:00 AM Roster: 4 Staff on-premise rotation.
+            </div>
+</div>
+<div class="flex items-center justify-between">
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px]">inventory_2</span>
+              View Supply Stock
+            </button>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">Bonded $1.5M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Fast Dispatch Gateway + COI Health Timeline (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- 24/7 Fast Emergency Dispatch Gateway -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">sensors</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold text-[18px]">Urgent Dispatch Gateway</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+            Live Link
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Direct API trigger sends urgent notification to on-call supervisor and routes digital gate pass to driver phone.
+        </p>
+<form class="flex flex-col gap-space-sm" onsubmit="handleQuickDispatch(event)">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase block mb-1">Building &amp; Unit / Common Zone</label>
+<select class="w-full h-10 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option>Tower A — Central Plant / Mechanical Room (B2)</option>
+<option>Tower A — Riser 3 Plumbing Stack</option>
+<option>Tower B — Elevator Bank (Cabs 1-3)</option>
+<option>Main Lobby — Smart Turnstile &amp; Intercom Port</option>
+<option>Oakwood Co-Living #4B — Shared Facility</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase block mb-1">Trade &amp; Incident Priority</label>
+<select class="w-full h-10 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option>P1 — Elevator Stoppage (Occupied/Trapped)</option>
+<option>P1 — Active Main Water Ingress / Burst Pipe</option>
+<option>P2 — Chiller Secondary Loop Fault</option>
+<option>P3 — Access Control Cloud Sync Dropout</option>
+<option>P4 — Routine Janitorial Spill Remediation</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase block mb-1">Incident Snapshot / Note</label>
+<textarea class="w-full p-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm resize-none" placeholder="Brief issue summary for dispatch technicians..." rows="2"></textarea>
+</div>
+<button class="w-full h-11 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity flex items-center justify-center gap-space-xs font-semibold mt-1" type="submit">
+<span class="material-symbols-outlined text-[18px]">podium</span>
+<span>Broadcast Immediate Dispatch</span>
+</button>
+</form>
+<div class="hidden mt-space-sm p-space-sm rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md flex items-center gap-2" id="dispatch-feedback">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>Dispatch #DS-4912 sent to Trane Lead Tech.</span>
+</div>
+</div>
+<!-- Insurance & COI Expiration Tracker (90-Day Outlook) -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold text-[18px]">COI Expiration Radar</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">90-Day View</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Item 1: Otis Elevator (Immediate Warning) -->
+<div class="p-space-sm rounded-xl bg-tertiary-container/80 flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-tertiary text-[20px]">warning</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-tertiary font-bold truncate">Otis Elevator Co.</span>
+<span class="font-label-sm text-label-sm text-tertiary">Expires Dec 1, 2024 (7 days)</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-tertiary font-label-sm text-label-sm font-semibold shadow-sm hover:bg-surface-container transition-colors flex-shrink-0" onclick="requestCoiRenewal('Otis Elevator')">
+              Nudge
+            </button>
+</div>
+<!-- Item 2: Puget Sound Fire & Safety -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Puget Sound Fire Alarm</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expires Jan 14, 2025</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">51 days</span>
+</div>
+<!-- Item 3: Sound Landscape Architecture -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Sound Landscape Group</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expires Feb 02, 2025</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">70 days</span>
+</div>
+<!-- Item 4: Emerald City Pest Defense -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Emerald Pest Defense</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expires Feb 24, 2025</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">92 days</span>
+</div>
+</div>
+<!-- Compliance Health Micro Graph (SVG Sparkline) -->
+<div class="mt-space-md p-space-sm rounded-xl bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Annual Renewal Trend</span>
+<span class="font-semibold text-secondary">98.6% On-Time Carrier Delivery</span>
+</div>
+<svg class="w-full h-8 text-secondary mt-1" fill="none" stroke="currentColor" viewbox="0 0 200 40">
+<path d="M0 32 L30 30 L60 25 L90 28 L120 18 L150 12 L180 14 L200 8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M0 32 L30 30 L60 25 L90 28 L120 18 L150 12 L180 14 L200 8 L200 40 L0 40 Z" fill="currentColor" opacity="0.1"></path>
+</svg>
+</div>
+</div>
+<!-- Quick Facility Document Stacks -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold text-[18px] mb-space-sm">Master Statutory Repository</h4>
+<div class="flex flex-col gap-space-xs text-body-sm font-body-sm">
+<a class="p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex items-center justify-between" href="#">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">gavel</span>
+              2024 HOA Master Vendor Charter
+            </span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">open_in_new</span>
+</a>
+<a class="p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex items-center justify-between" href="#">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">currency_exchange</span>
+              Treasury Auto-Disbursement Schedule
+            </span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">open_in_new</span>
+</a>
+<a class="p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex items-center justify-between" href="#">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">health_and_safety</span>
+              Contractor Site Safety Manual (OSHA)
+            </span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Statutory Compliance & Lien Protection Footer Banner -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<span>
+<strong class="text-on-surface font-semibold">Green Park Towers Vendor Governance Framework:</strong>
+        Synchronized with King County Contractor Registry, automated W-9 / IRS 1099-NEC indexing, and RCW 64.90 Condominium Lien Immunity protocol.
+      </span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="text-secondary font-semibold">Audit Check: Passed 04:00 AM Today</span>
+<span class="text-on-surface-variant/40">|</span>
+<button class="text-primary font-semibold hover:underline">Download Audit Cert</button>
+</div>
+</div>
+<!-- Modal: Onboard New Vendor (Hidden by Default) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" id="onboard-vendor-modal">
+<div class="bg-surface-container rounded-2xl max-w-lg w-full p-space-lg shadow-xl flex flex-col">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-9 h-9 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_business</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Onboard Certified Contractor</h3>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('onboard-vendor-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase block mb-1">Company Legal Entity</label>
+<input class="w-full h-10 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="e.g. Northwest Fire &amp; Suppression LLC" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase block mb-1">Trade Category</label>
+<select class="w-full h-10 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option>HVAC &amp; Mechanical</option>
+<option>Elevators &amp; Access</option>
+<option>Plumbing &amp; Hydronics</option>
+<option>Electrical &amp; Fire Safety</option>
+<option>Janitorial &amp; Turnover</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase block mb-1">State License #</label>
+<input class="w-full h-10 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="WA-ELECT-..." type="text"/>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase block mb-1">Upload Certificate of Insurance (COI ACORD 25)</label>
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container-high transition-colors text-center">
+<span class="material-symbols-outlined text-[28px] text-primary mb-1">upload_file</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Drop ACORD 25 PDF or Click to Browse</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Automated OCR verifies $2M+ min liability &amp; additional insured</span>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg" onclick="document.getElementById('onboard-vendor-modal').classList.add('hidden')">
+            Cancel
+          </button>
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm" onclick="document.getElementById('onboard-vendor-modal').classList.add('hidden')">
+            Initiate Onboarding &amp; Treasury Link
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript logic for Directory interactions -->
+<script>
+    function triggerDispatch(vendorName, trade, issue) {
+      const feedback = document.getElementById('dispatch-feedback');
+      if (feedback) {
+        feedback.innerHTML = `<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> <span>Emergency dispatch broadcast to <strong>${vendorName}</strong> (${trade}) initiated. ETA telemetry active.</span>`;
+        feedback.classList.remove('hidden');
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function handleQuickDispatch(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('dispatch-feedback');
+      if (feedback) {
+        feedback.innerHTML = `<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> <span>Instant broadcast sent to on-call supervisor. Driver notification delivered.</span>`;
+        feedback.classList.remove('hidden');
+      }
+    }
+
+    function requestCoiRenewal(vendorName) {
+      alert(`Automated compliance request with digital ACORD upload link dispatched to ${vendorName} risk management office.`);
+    }
+
+    // Client-side quick filter on directory cards
+    const searchInput = document.getElementById('vendor-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+        const cards = document.querySelectorAll('.xl\\:col-span-8 > div');
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</div></main>
+</div>
+</body></html>

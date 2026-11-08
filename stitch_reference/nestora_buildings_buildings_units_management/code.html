@@ -1,0 +1,1331 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+@layer base{
+  html,body{margin:0;padding:0;}
+  body{overscroll-behavior:none;}
+  main>:first-child{margin-top:0!important;}
+  main>:last-child{margin-bottom:0!important;}
+}
+::-webkit-scrollbar{display:none;}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-dim": "#ECEFEC",
+        "on-surface-variant": "#78847C",
+        "on-tertiary-fixed-variant": "#633f11",
+        "dark-surface-dim": "#202E27",
+        "error": "#BA1A1A",
+        "secondary-container": "#DDEDE2",
+        "on-tertiary-container": "#daa770",
+        "on-surface": "#202B25",
+        "surface-container-highest": "#d9e6dc",
+        "surface-container-lowest": "#ffffff",
+        "inverse-surface": "#28332d",
+        "error-container": "#FFDAD6",
+        "on-primary-fixed": "#002115",
+        "surface-container": "#e4f1e7",
+        "tertiary": "#442700",
+        "on-secondary": "#ffffff",
+        "inverse-on-surface": "#e7f4ea",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffddbb",
+        "dark-surface": "#18231E",
+        "primary-container": "#E7EFE8",
+        "on-error": "#ffffff",
+        "primary-fixed": "#c0ecd5",
+        "inverse-primary": "#a5d0ba",
+        "on-error-container": "#410002",
+        "surface-variant": "#d9e6dc",
+        "dark-on-surface": "#F1F4F0",
+        "dark-outline": "#3B4B41",
+        "primary": "#093425",
+        "secondary-fixed": "#c9ebd4",
+        "surface-container-low": "#eaf7ed",
+        "tertiary-fixed-dim": "#f2bc84",
+        "surface-bright": "#f0fdf3",
+        "tertiary-container": "#FDF6EE",
+        "outline-variant": "#c1c8c2",
+        "dark-secondary": "#A9C5AF",
+        "outline": "#E3EAE4",
+        "surface": "#F3F5F2",
+        "dark-on-surface-variant": "#B1BDB4",
+        "on-secondary-fixed": "#032113",
+        "on-secondary-container": "#4d6b59",
+        "surface-container-high": "#E7EFE8",
+        "dark-soft-green": "#354A3D",
+        "on-secondary-fixed-variant": "#304d3c",
+        "on-primary": "#FFFFFF",
+        "on-primary-container": "#202B25",
+        "on-background": "#131e18",
+        "secondary": "#476553",
+        "secondary-fixed-dim": "#adceb8",
+        "on-primary-fixed-variant": "#264e3d",
+        "dark-surface-container-high": "#304338",
+        "dark-primary": "#8FAF9A",
+        "primary-fixed-dim": "#a5d0ba",
+        "on-tertiary-fixed": "#2b1700",
+        "dark-surface-container": "#26372E",
+        "background": "#f0fdf3",
+        "surface-tint": "#3e6654",
+        "dark-sidebar": "#1D2A23"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-2xl": "3rem",
+        "space-xs": "0.25rem",
+        "space-md": "1rem",
+        "gutter-mobile": "1rem",
+        "space-xl": "2rem",
+        "margin-mobile": "1rem",
+        "space-lg": "1.5rem",
+        "margin": "2rem",
+        "gutter": "1.5rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "headline-sm": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"],
+        "headline-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"],
+        "label-md": ["Plus Jakarta Sans"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "label-lg": ["Plus Jakarta Sans"]
+      },
+      "fontSize": {
+        "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col flex-1 overflow-y-auto">
+<div class="p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">cottage</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Nestora</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Living OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm">v2.4</span>
+</div>
+<div class="px-space-md pb-space-sm">
+<div class="relative">
+<label class="sr-only" for="workspace-select">Select Workspace</label>
+<div class="relative flex items-center bg-surface-container-lowest rounded-xl p-space-sm shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline">
+<div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-primary flex-shrink-0 mr-space-sm">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<select class="w-full bg-transparent font-label-md text-label-md text-on-surface appearance-none focus:outline-none cursor-pointer pr-6 font-semibold" id="workspace-select">
+<option value="green-park">Green Park Towers (Portfolio)</option>
+<option selected="" value="oakwood-4b">Oakwood Co-Living #4B (Household)</option>
+<option value="system-admin">System Admin (Platform Console)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-space-md py-space-xs flex flex-col gap-space-md" data-active-classes="bg-primary-container text-primary font-semibold shadow-sm">
+<div>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#">
+<span class="font-label-lg text-label-lg">Overview &amp; Executive Summary</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Buildings Portfolio</span>
+<a aria-current="page" class="flex items-center px-space-md py-space-sm rounded-xl transition-colors bg-primary-container text-primary font-semibold shadow-sm" data-path="buildings" href="#">
+<span class="font-label-lg text-label-lg">Buildings &amp; Units</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="residents" href="#">
+<span class="font-label-lg text-label-lg">Residents, Owners &amp; Leases</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="financials" href="#">
+<span class="font-label-lg text-label-lg">Financials &amp; Contributions</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="maintenance" href="#">
+<span class="font-label-lg text-label-lg">Maintenance &amp; Dispatch</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="documents" href="#">
+<span class="font-label-lg text-label-lg">Documents &amp; Legal</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="meetings" href="#">
+<span class="font-label-lg text-label-lg">Meetings &amp; Assembly Voting</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Living (Co-Household)</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-roommates" href="#">
+<span class="font-label-lg text-label-lg">Roommates &amp; Roster</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-expenses" href="#">
+<span class="font-label-lg text-label-lg">Expenses &amp; Splits Ledger</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-chores" href="#">
+<span class="font-label-lg text-label-lg">Chores &amp; Rotation</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-pantry" href="#">
+<span class="font-label-lg text-label-lg">Shopping &amp; Pantry</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-bills" href="#">
+<span class="font-label-lg text-label-lg">Bills &amp; Shared Calendar</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="living-rules" href="#">
+<span class="font-label-lg text-label-lg">House Rules &amp; Governance</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Nestora Intelligence</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="intelligence" href="#">
+<span class="font-label-lg text-label-lg">AI Assistant &amp; Action Hub</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="px-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Administration &amp; System</span>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin" href="#">
+<span class="font-label-lg text-label-lg">Platform Admin Console</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-audit" href="#">
+<span class="font-label-lg text-label-lg">Global Audit &amp; Logs</span>
+</a>
+</div>
+</nav>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm border-t border-outline">
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">cloud_done</span>Vault Storage</span>
+<span class="text-primary font-semibold">14.2 / 20 GB</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 71%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(35,75,58,0.04)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold font-label-md text-label-md flex-shrink-0">
+          SB
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Sarah Ben Ali</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Admin &amp; Lead Tenant</span>
+</div>
+</div>
+<a class="w-7 h-7 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="settings" href="#" title="Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</a>
+</div>
+</div>
+</aside>
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-outline">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="">Oakwood Co-Living #4B</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-80 h-9 pl-9 pr-14 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(35,75,58,0.04)] border border-outline" placeholder="Search units, expenses, logs..." readonly="" type="text">
+<span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant">Ctrl+K</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative group">
+<button class="flex items-center gap-space-xs h-9 px-space-sm bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-sm hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="">Quick Action</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+
+<button class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border border-outline bg-surface-container-lowest" title="Notifications">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<a class="flex items-center gap-space-xs pl-space-xs pr-space-sm py-1 rounded-xl bg-surface-container-lowest border border-outline hover:bg-surface-container transition-colors" data-path="settings" href="#">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-semibold">
+          SB
+        </div>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">keyboard_arrow_down</span>
+</a>
+</div>
+</header>
+<main class="w-full pt-16 px-space-lg bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full">
+<div class="flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-sm">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary transition-colors cursor-pointer">Green Park Towers</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Portfolio Management</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Buildings &amp; Units</span>
+</nav>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Buildings &amp; Units Portfolio</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Synchronized Live
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Managing <strong class="text-on-surface font-semibold">3 Buildings</strong>, <strong class="text-on-surface font-semibold">48 Total Units</strong> — 94% Occupancy • 2 Under Renovation • 1 Vacant Turn-Key
+          </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="relative inline-block text-left">
+<button class="inline-flex items-center gap-space-xs h-10 px-4 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors shadow-sm" id="exportDropdownBtn" onclick="toggleDropdown('exportDropdownMenu')">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+<span class="">Export Rent Roll</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-surface-container-lowest shadow-xl z-50 p-1 flex flex-col gap-0.5" id="exportDropdownMenu">
+<button class="flex items-center gap-2 px-3 py-2 text-left font-label-md text-label-md text-on-surface rounded-lg hover:bg-surface-container transition-colors" onclick="simulateExport('CSV')">
+<span class="material-symbols-outlined text-[18px] text-primary">table_view</span>
+<span class="">Export as CSV (Full)</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 text-left font-label-md text-label-md text-on-surface rounded-lg hover:bg-surface-container transition-colors" onclick="simulateExport('PDF')">
+<span class="material-symbols-outlined text-[18px] text-error">picture_as_pdf</span>
+<span class="">Audit PDF Ledger</span>
+</button>
+</div>
+</div>
+<button class="inline-flex items-center gap-space-xs h-10 px-space-md bg-primary text-on-primary rounded-xl font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-all" onclick="openNewUnitModal()">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="">+ Add Building / Unit</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 transition-transform group-hover:scale-125"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Total Buildings</span>
+<span class="w-8 h-8 rounded-xl bg-secondary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+</span>
+</div>
+<div class="mt-4 flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-headline-lg font-bold text-on-surface">3</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Active Blocks</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Tower A, Tower B, East Mews</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="text-on-surface-variant">Gross Footprint</span>
+<span class="text-on-surface font-semibold">42,600 sq ft</span>
+</div>
+</div>
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 transition-transform group-hover:scale-125"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Units &amp; Rental Rate</span>
+<span class="w-8 h-8 rounded-xl bg-primary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">pie_chart</span>
+</span>
+</div>
+<div class="mt-4 flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-headline-lg font-bold text-on-surface">48</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Total Portfolios</span>
+</div>
+<div class="flex items-center gap-1 mt-2 text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">$2,450 / unit avg mo</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="text-on-surface-variant">Scheduled Monthly</span>
+<span class="text-on-surface font-semibold">$117,600 / mo</span>
+</div>
+</div>
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 transition-transform group-hover:scale-125"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Occupancy Health</span>
+<span class="w-8 h-8 rounded-xl bg-secondary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</span>
+</div>
+<div class="mt-4 flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-headline-lg font-bold text-on-surface">94.2%</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">+1.8% vs Q3</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden mt-3">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 94.2%;"></div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="text-on-surface-variant">Pipeline Vacancies</span>
+<span class="text-on-tertiary-fixed-variant font-semibold">3 Available or Turning</span>
+</div>
+</div>
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 transition-transform group-hover:scale-125"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Maintenance Dispatch</span>
+<span class="w-8 h-8 rounded-xl bg-tertiary-container text-on-tertiary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">engineering</span>
+</span>
+</div>
+<div class="mt-4 flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-headline-lg font-bold text-on-surface">4</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Active Tickets</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="">2 HVAC Overhauls • 1 Plumbing</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="text-on-surface-variant">SLA Resolution</span>
+<span class="text-primary font-semibold">98.1% on track</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Building Complexes Overview</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">Portfolio Matrix</span>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Updated 14 mins ago via BMS Sync</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Tower A (Main Highrise)</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">802 Greenview Blvd • Built 2021</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">eco</span>
+                LEED Gold
+              </span>
+</div>
+<div class="h-40 rounded-xl overflow-hidden relative shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Architectural photograph of a modern sustainable residential glass tower with cedar wood accents, lush vertical balcony gardens, and crisp daylighting reflecting warm natural tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE1WHoeh-M3KILEOQER_V5vidZ3GOnNLHGbbUtK65qWm6fOnCTu-zqnfRMNnbwXdhd4tFlYNqExAwU_FSX3j43-fUlbyIooAu-XG_2z-CmauWWKT1gN4yW_laaR7vFPB_MujTKSQkC600KhAJ7EK4fBk0MWhttpYbvbe__jLOxawCGpMOOZDc2ZAYuLAMzZokl6wT1IAm9cviSvn6pZ6S6VwFIggLc3c12KlUsh1M">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">stairs</span> 8 Floors • 24 Units</span>
+<span class="bg-primary/80 px-2 py-0.5 rounded backdrop-blur font-semibold">96% Occupied</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Occupied</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">23</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Vacant</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">0</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Renovating</span>
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary-fixed-dim">1</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Monthly Asset Yield</span>
+<span class="text-on-surface font-semibold">$68,400 / $71,250</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 96%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">ev_station</span> EV Hub • Concierge
+            </span>
+<button class="font-label-md text-label-md text-primary hover:underline font-semibold flex items-center gap-0.5" onclick="filterTableByBuilding('Tower A')">
+<span class="">Inspect Units</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Tower B (Park View)</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">808 Greenview Blvd • Built 2022</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">nest_heat_link_gen_3</span>
+                Smart Lofts
+              </span>
+</div>
+<div class="h-40 rounded-xl overflow-hidden relative shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Contemporary low-rise apartment building with expansive floor-to-ceiling blackened bronze windows, warm wooden louvers, and landscaped courtyard garden in natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAng1UF6i9u2e1yLTzsH4wS0BM6N0nNGXemvFUl2s1Q7OriI5BtYm64wEgM4RBHtTaKW-G2slw8oy_kXlBbvMFVHS7JzTUxR82a-TFuMWi9q01rrAGB2zScwpgTjW4XzfbB9b1Ax8RbdESQqIM4PFP9O6Z3I1econYlDRHVi1Q-25OyiuEYPEhIlpYqKJVnR0b26VRmoWsbHmKF6FUnAfSwQACBDeWPSxf2D3yfejw">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">stairs</span> 4 Floors • 16 Units</span>
+<span class="bg-primary/80 px-2 py-0.5 rounded backdrop-blur font-semibold">92% Occupied</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Occupied</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">14</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Vacant</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">1</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Renovating</span>
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary-fixed-dim">1</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Monthly Asset Yield</span>
+<span class="text-on-surface font-semibold">$33,600 / $36,800</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 92%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pool</span> Rooftop Spa • Solar
+            </span>
+<button class="font-label-md text-label-md text-primary hover:underline font-semibold flex items-center gap-0.5" onclick="filterTableByBuilding('Tower B')">
+<span class="">Inspect Units</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">East Mews (Townhomes)</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">812 Park Mews Lane • Built 2023</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span>
+                Premier Townhomes
+              </span>
+</div>
+<div class="h-40 rounded-xl overflow-hidden relative shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Elegant row of brownstone and modern timber townhouses with private landscaped front entrances, slate pathways, and architectural exterior downlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKmZK123kvK-XfBNYbm1DQqXr3khL5cc46kr--9Yw8v_gWy7tIy4AG4Br0xaqZSaDIwKBkOQ0hFqmnu9ABzsn5VDKKM00FQLp26YQfGT8zyFuaNE1riebcve13ykgrifQNlQhbqhjyETRdpYvekDUN0nJyA2nIveEWUViChgU4Qfp_zcpIYQPPQ1M5lrG31x4N9ueRqaXDIygh0YVBZoJABUNizzmntCTqTcXWr8Y">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">cottage</span> 3 Levels • 8 Units</span>
+<span class="bg-primary/80 px-2 py-0.5 rounded backdrop-blur font-semibold">100% Occupied</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Occupied</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">8</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Vacant</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">0</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Renovating</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">0</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Monthly Asset Yield</span>
+<span class="text-on-surface font-semibold">$29,600 / $29,600</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">garage_home</span> Private Garages • Yards
+            </span>
+<button class="font-label-md text-label-md text-primary hover:underline font-semibold flex items-center gap-0.5" onclick="filterTableByBuilding('East Mews')">
+<span class="">Inspect Units</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-space-lg items-start">
+<div class="flex-1 w-full rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col overflow-hidden">
+<div class="p-space-lg pb-0 flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-xl">
+<button class="tab-pill px-4 py-2 rounded-lg font-label-md text-label-md font-semibold bg-primary text-on-primary shadow-sm transition-all" onclick="switchTab(this, 'all')">
+                All Properties (3)
+              </button>
+<button class="tab-pill px-4 py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab(this, 'units')">
+                Units Inventory (48)
+              </button>
+<button class="tab-pill px-4 py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab(this, 'floorplans')">
+                Floorplans &amp; Specs
+              </button>
+<button class="tab-pill px-4 py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab(this, 'amenities')">
+                Amenities &amp; Assets
+              </button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span class="">Showing <strong class="text-on-surface" id="visible-count">48</strong> units</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs pb-space-md">
+<div class="relative flex-1 min-w-[220px]">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-4 rounded-xl bg-surface-container text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-none" id="unitSearchInput" onkeyup="handleFilter()" placeholder="Search unit, resident, lease..." type="text">
+</div>
+<select class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="buildingFilter" onchange="handleFilter()">
+<option value="all">All Buildings</option>
+<option value="Tower A">Tower A</option>
+<option value="Tower B">Tower B</option>
+<option value="East Mews">East Mews</option>
+</select>
+<select class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="statusFilter" onchange="handleFilter()">
+<option value="all">All Statuses</option>
+<option value="Occupied">Occupied</option>
+<option value="Available">Vacant / Staged</option>
+<option value="Renovation">Under Renovation</option>
+</select>
+<select class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="floorFilter" onchange="handleFilter()">
+<option value="all">All Floors</option>
+<option value="Floor 1">Floor 1</option>
+<option value="Floor 2">Floor 2</option>
+<option value="Floor 3">Floor 3</option>
+<option value="Floor 4+">Floor 4 &amp; Above</option>
+</select>
+<button class="h-10 px-3 rounded-xl bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors" onclick="resetFilters()" title="Reset Filters">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left" id="unitsMasterTable">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="py-3 px-space-md font-semibold" scope="col">Unit #</th>
+<th class="py-3 px-space-md font-semibold" scope="col">Building &amp; Floor</th>
+<th class="py-3 px-space-md font-semibold" scope="col">Layout &amp; Size</th>
+<th class="py-3 px-space-md font-semibold" scope="col">Primary Resident / Owner</th>
+<th class="py-3 px-space-md font-semibold" scope="col">Tenure / Expiration</th>
+<th class="py-3 px-space-md font-semibold text-right" scope="col">Rate / Dues</th>
+<th class="py-3 px-space-md font-semibold text-center" scope="col">Status</th>
+<th class="py-3 px-space-md font-semibold text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm font-body-sm text-on-surface" id="unitsTableBody">
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectUnitRow('A-302', 'Tower A', 'Sarah Jenkins', '2BD / 2BA', '980 sq ft', 'Active Lease', 'Oct 31, 2025', '$2,850/mo', 'Occupied', 'High', '74.2 kWh', 'Unlocked via PIN')">
+<td class="py-3.5 px-space-md font-semibold text-on-surface flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-headline-sm text-label-lg text-primary">A-302</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Tower A</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">3rd Floor (East)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium">2BD / 2BA Deluxe</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">980 sq ft</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-container text-primary font-label-sm text-label-sm font-semibold flex items-center justify-center">
+                      SJ
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold truncate">Sarah Jenkins</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate">sarah.j@outlook.com</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Lease • 12 Months</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Ends Oct 2025</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-bold text-on-surface">$2,850.00</span>
+
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+                    Occupied
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="inspectUnitFromBtn('A-302')" title="View Inspector">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulateEditLease('A-302')" title="Edit Lease Terms">
+<span class="material-symbols-outlined text-[18px]">edit_document</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="simulateCreateTicket('A-302')" title="File Work Order">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group bg-surface-container-low/30" onclick="selectUnitRow('B-104', 'Tower B', 'Turn-Key Ready', '1BD / 1BA', '680 sq ft', 'Available Staged', 'Available Now', '$2,100/mo', 'Available', 'Full', '12.4 kWh', 'Digital Lockbox active')">
+<td class="py-3.5 px-space-md font-semibold text-on-surface flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-headline-sm text-label-lg text-on-surface">B-104</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Tower B</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">1st Floor (Courtyard)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium">1BD / 1BA Modern</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">680 sq ft</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">apartment</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface-variant italic">Unoccupied (Staged)</span>
+<span class="text-primary font-label-sm text-label-sm font-semibold">2 Virtual Tours Booked</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-on-tertiary-fixed-variant">Ready For Immediate Move-In</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Cleaned Nov 12</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-bold text-on-surface">$2,100.00</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Market Target</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-tertiary-container text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">
+                    Available
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="inspectUnitFromBtn('B-104')" title="View Inspector">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulateEditLease('B-104')" title="Publish Listing">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="simulateCreateTicket('B-104')" title="File Work Order">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectUnitRow('A-101', 'Tower A', 'Marcus &amp; Elena Vance', '3BD / 2.5BA', '1,250 sq ft', 'Owner-Occupied', 'Deed Conveyed 2021', '$420/mo HOA', 'Occupied', 'Good', '108.5 kWh', 'Smart Lock Connected')">
+<td class="py-3.5 px-space-md font-semibold text-on-surface flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-headline-sm text-label-lg text-primary">A-101</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Tower A</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">1st Floor (Garden Access)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium">3BD / 2.5BA Penthouse</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">1,250 sq ft</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold flex items-center justify-center">
+                      MV
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold truncate">Marcus &amp; Elena Vance</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate">HOA Board Members</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Owner-Occupied</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Perpetual Title</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-bold text-on-surface">$420.00</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">HOA Assessment</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+                    Occupied
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="inspectUnitFromBtn('A-101')" title="View Inspector">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulateEditLease('A-101')" title="Ownership Ledger">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="simulateCreateTicket('A-101')" title="File Work Order">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group bg-error-container/10" onclick="selectUnitRow('B-205', 'Tower B', 'Contractor: Apex HVAC', '2BD / 1.5BA', '890 sq ft', 'Renovation Hold', 'Est. Nov 28, 2024', '$2,400/mo (Projected)', 'Renovation', 'Offline', '0.0 kWh (Safety cut)', 'Lockout / Tagout')">
+<td class="py-3.5 px-space-md font-semibold text-on-surface flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-headline-sm text-label-lg text-error">B-205</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Tower B</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">2nd Floor (South Wing)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium">2BD / 1.5BA Loft</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">890 sq ft</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-error-container text-error font-label-sm text-label-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">construction</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-error truncate">Apex Mechanical HVAC</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate">Duct replacement in progress</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-error">Under Renovation</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Est Completion: Nov 28</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-bold text-on-surface-variant line-through">$2,400.00</span>
+<span class="text-error font-label-sm text-label-sm font-semibold">Capex: $3,450 allocated</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-error-container text-error font-label-sm text-label-sm font-semibold">
+                    Renovation
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="inspectUnitFromBtn('B-205')" title="View Inspector">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulateEditLease('B-205')" title="Renovation Scope">
+<span class="material-symbols-outlined text-[18px]">assignment</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-error hover:bg-error-container transition-colors" onclick="simulateCreateTicket('B-205')" title="Active Work Order #4081">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectUnitRow('EM-03', 'East Mews', 'Julian Thorne', 'Townhouse 3BD', '1,640 sq ft', 'Active Lease', 'Aug 31, 2026', '$3,700/mo', 'Occupied', 'Optimal', '142.1 kWh', 'Smart Doorbell Online')">
+<td class="py-3.5 px-space-md font-semibold text-on-surface flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-headline-sm text-label-lg text-primary">EM-03</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">East Mews</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Mews Level 1-3</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium">3BD / 3.5BA Triplex</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">1,640 sq ft</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold flex items-center justify-center">
+                      JT
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold truncate">Julian Thorne</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate">julian.t@ventures.io</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Lease • 24 Months</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Ends Aug 2026</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-bold text-on-surface">$3,700.00</span>
+<span class="text-secondary font-label-sm text-label-sm font-semibold">Pre-Paid 6 Months</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">
+                    Occupied
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="inspectUnitFromBtn('EM-03')" title="View Inspector">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulateEditLease('EM-03')" title="Edit Lease Terms">
+<span class="material-symbols-outlined text-[18px]">edit_document</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="simulateCreateTicket('EM-03')" title="File Work Order">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm bg-surface-container-low/40">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Showing 1 to 5 of 48 total units across 3 complexes</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center hover:text-on-surface cursor-not-allowed opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface flex items-center justify-center">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface flex items-center justify-center">3</button>
+<span class="px-1 text-on-surface-variant text-label-sm">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface flex items-center justify-center">10</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-96 flex-shrink-0 flex flex-col gap-space-md">
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md relative overflow-hidden" id="quickInspectorCard">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Inspector • Live Telemetry</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-primary font-label-sm text-label-sm font-semibold" id="inspector-badge">Unit A-302</span>
+</div>
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold text-headline-sm flex-shrink-0">
+<span id="inspector-unit-badge" class="">302</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate" id="inspector-unit-title">Tower A • A-302</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm truncate" id="inspector-specs">2BD / 2BA • 980 sq ft</p>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Primary Resident</span>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-secondary font-label-md text-label-md font-semibold flex items-center justify-center flex-shrink-0" id="inspector-resident-avatar">
+                  SJ
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate" id="inspector-resident-name">Sarah Jenkins</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate" id="inspector-lease-status">Active Lease • Oct 2025</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="contactResident()" title="Message Resident">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Smart Hardware &amp; Security</span>
+<div class="grid grid-cols-2 gap-2">
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-1"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm">Physical Lock</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">key</span></div><span class="font-label-md text-label-md font-semibold text-on-surface" id="inspector-lock-status">Master Keyed</span><span class="text-on-surface-variant font-label-sm text-label-sm">Physical Lock / Master Fob</span></div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">HVAC State</span>
+<span class="material-symbols-outlined text-[16px] text-primary">thermostat</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface" id="inspector-hvac-status">Eco 71°F Set</span>
+<span class="text-secondary font-label-sm text-label-sm">Optimal run</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Sub-Meter Telemetry</span>
+<span class="text-primary font-label-sm text-label-sm font-semibold">Live AMI Sync</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">electric_meter</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Power Usage (MTD)</span>
+<span class="font-label-md text-label-md font-bold text-on-surface" id="inspector-power-meter">74.2 kWh</span>
+</div>
+</div>
+<div class="h-6 w-16 flex items-end gap-1">
+<div class="w-2.5 bg-primary/40 rounded-t h-3"></div>
+<div class="w-2.5 bg-primary/60 rounded-t h-4"></div>
+<div class="w-2.5 bg-primary rounded-t h-5"></div>
+<div class="w-2.5 bg-primary rounded-t h-6"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Inspection &amp; Work Orders</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Pass</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface p-2 rounded-lg bg-surface-container-high/50">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+                Annual Safety Audit
+              </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Sept 14, 2024</span>
+</div>
+</div>
+<div class="pt-space-sm flex items-center gap-2">
+<button class="flex-1 h-10 px-3 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors font-semibold flex items-center justify-center gap-1.5" onclick="dispatchUnitMaintenance()">
+<span class="material-symbols-outlined text-[18px]">build</span>
+<span class="">Create Ticket</span>
+</button>
+<button class="flex-1 h-10 px-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:opacity-95 transition-opacity font-semibold flex items-center justify-center gap-1.5 shadow-sm" onclick="openFullUnitModal()">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+<span class="">Full Dossier</span>
+</button>
+</div>
+</div>
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Upcoming Turnover Alerts</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">notifications_active</span>
+</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm">
+            Unit <strong>B-104</strong> is scheduled for an on-site physical tour tomorrow at 2:30 PM by prospective tenant.
+          </p>
+<div class="flex items-center gap-2 pt-1">
+<button class="font-label-sm text-label-sm text-primary font-semibold hover:underline flex items-center gap-1" onclick="alert('Digital key pre-authorized for prospective resident tour.')">
+<span class="">Pre-authorize Access Pass</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" id="newUnitModal">
+<div class="w-full max-w-xl rounded-2xl bg-surface-container-lowest shadow-2xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_business</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Add New Building or Unit</h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="closeNewUnitModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Target Complex</label>
+<select class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary">
+<option>Tower A (Main Highrise)</option>
+<option>Tower B (Park View)</option>
+<option>East Mews (Townhomes)</option>
+<option>+ Create New Building Block...</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Unit Number / Tag</label>
+<input class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. A-405 or Penthouse 2" type="text">
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Layout Tier</label>
+<select class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary">
+<option>Studio / 1BA</option>
+<option>1BD / 1BA</option>
+<option selected="">2BD / 2BA</option>
+<option>3BD / 2.5BA</option>
+<option>Penthouse Duplex</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Floor Surface (sq ft)</label>
+<input class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="950" type="number">
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Scheduled Rent ($)</label>
+<input class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="2800" type="number">
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Smart Sub-Meter Hardware Serial</label>
+<input class="h-10 px-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. AMI-NEST-89210-TX" type="text">
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-sm">
+<button class="h-10 px-4 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors" onclick="closeNewUnitModal()">
+          Cancel
+        </button>
+<button class="h-10 px-5 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:opacity-95 transition-opacity font-semibold shadow-sm" onclick="saveNewUnit()">
+          Register Unit &amp; Sync
+        </button>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-inverse-surface text-inverse-on-surface shadow-xl font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed" id="toastIcon">check_circle</span>
+<span id="toastMessage" class="">Unit record updated successfully.</span>
+</div>
+</div>
+<script>
+    function toggleDropdown(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.toggle('hidden');
+      }
+    }
+
+    function simulateExport(format) {
+      toggleDropdown('exportDropdownMenu');
+      showToast('Compiling ' + format + ' rent roll archive for Green Park Towers...');
+      setTimeout(function() {
+        showToast('Rent Roll (' + format + ') successfully exported to downloads.');
+      }, 1200);
+    }
+
+    function switchTab(btn, tabKey) {
+      var allTabs = document.querySelectorAll('.tab-pill');
+      allTabs.forEach(function(pill) {
+        pill.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm', 'font-semibold');
+        pill.classList.add('text-on-surface-variant', 'font-medium');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm', 'font-semibold');
+      btn.classList.remove('text-on-surface-variant', 'font-medium');
+
+      if (tabKey === 'all' || tabKey === 'units') {
+        showToast('Showing ' + (tabKey === 'all' ? 'All Buildings & Units inventory' : 'Individual 48 Units Directory'));
+      } else if (tabKey === 'floorplans') {
+        showToast('Switched to Architectural Floorplans & CAD Specs mode');
+      } else {
+        showToast('Switched to Building Amenities & Common Area Assets');
+      }
+    }
+
+    function filterTableByBuilding(buildingName) {
+      var select = document.getElementById('buildingFilter');
+      if (select) {
+        select.value = buildingName;
+        handleFilter();
+        showToast('Filtered unit list to ' + buildingName);
+      }
+    }
+
+    function handleFilter() {
+      var searchVal = (document.getElementById('unitSearchInput').value || '').toLowerCase();
+      var bldgVal = document.getElementById('buildingFilter').value;
+      var statusVal = document.getElementById('statusFilter').value;
+      
+      var rows = document.querySelectorAll('#unitsTableBody tr');
+      var visible = 0;
+
+      rows.forEach(function(row) {
+        var text = row.innerText.toLowerCase();
+        var matchesSearch = text.includes(searchVal);
+        var matchesBldg = (bldgVal === 'all') || text.includes(bldgVal.toLowerCase());
+        var matchesStatus = (statusVal === 'all') || text.includes(statusVal.toLowerCase());
+
+        if (matchesSearch && matchesBldg && matchesStatus) {
+          row.style.display = '';
+          visible++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      var counter = document.getElementById('visible-count');
+      if (counter) counter.innerText = visible;
+    }
+
+    function resetFilters() {
+      document.getElementById('unitSearchInput').value = '';
+      document.getElementById('buildingFilter').value = 'all';
+      document.getElementById('statusFilter').value = 'all';
+      document.getElementById('floorFilter').value = 'all';
+      handleFilter();
+      showToast('Filters cleared');
+    }
+
+    function selectUnitRow(unit, bldg, res, layout, sqft, tenure, tenureEnd, rent, status, lock, power, lockDetail) {
+      document.getElementById('inspector-badge').innerText = 'Unit ' + unit;
+      document.getElementById('inspector-unit-badge').innerText = unit.replace(/[^\d]/g, '') || unit;
+      document.getElementById('inspector-unit-title').innerText = bldg + ' • ' + unit;
+      document.getElementById('inspector-specs').innerText = layout + ' • ' + sqft;
+      document.getElementById('inspector-resident-name').innerText = res;
+      document.getElementById('inspector-lease-status').innerText = tenure + ' • ' + tenureEnd;
+      document.getElementById('inspector-lock-status').innerText = lockDetail;
+      document.getElementById('inspector-power-meter').innerText = power;
+
+      var initials = res.split(' ').map(function(n) { return n[0]; }).join('').slice(0, 2);
+      document.getElementById('inspector-resident-avatar').innerText = initials || 'NA';
+
+      showToast('Inspector updated: Unit ' + unit);
+    }
+
+    function inspectUnitFromBtn(unit) {
+      showToast('Loaded telemetry dossier for Unit ' + unit);
+    }
+
+    function simulateEditLease(unit) {
+      showToast('Opening Lease Agreement editor for Unit ' + unit);
+    }
+
+    function simulateCreateTicket(unit) {
+      showToast('Opening New Maintenance Dispatch for Unit ' + unit);
+    }
+
+    function openNewUnitModal() {
+      var modal = document.getElementById('newUnitModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeNewUnitModal() {
+      var modal = document.getElementById('newUnitModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function saveNewUnit() {
+      closeNewUnitModal();
+      showToast('Unit enrolled successfully & registered with Nestora OS.');
+    }
+
+    function contactResident() {
+      showToast('Encrypted message session initiated with tenant.');
+    }
+
+    function dispatchUnitMaintenance() {
+      showToast('Dispatched priority HVAC/facility maintenance ticket.');
+    }
+
+    function openFullUnitModal() {
+      showToast('Navigating to full asset breakdown & legal documents vault.');
+    }
+
+    function showToast(msg) {
+      var toast = document.getElementById('toastNotification');
+      var label = document.getElementById('toastMessage');
+      if (toast && label) {
+        label.innerText = msg;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        setTimeout(function() {
+          toast.classList.add('translate-y-24', 'opacity-0');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3200);
+      }
+    }
+
+    window.addEventListener('click', function(e) {
+      var exportMenu = document.getElementById('exportDropdownMenu');
+      var exportBtn = document.getElementById('exportDropdownBtn');
+      if (exportMenu && exportBtn && !exportBtn.contains(e.target) && !exportMenu.contains(e.target)) {
+        exportMenu.classList.add('hidden');
+      }
+    });
+  </script>
+</div></main>
+</div>
+
+
+</body></html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-error-container": "#93000a",
+          "surface-container-high": "#E7EFE8",
+          "on-secondary": "#ffffff",
+          "primary-container": "#E7EFE8",
+          "dark-surface-dim": "#202E27",
+          "on-secondary-container": "#202B25",
+          "dark-primary": "#8FAF9A",
+          "tertiary": "#442700",
+          "secondary": "#476553",
+          "surface-dim": "#ECEFEC",
+          "secondary-container": "#DDEDE2",
+          "primary": "#093425",
+          "on-tertiary": "#ffffff",
+          "on-surface-variant": "#78847C",
+          "surface-container-lowest": "#ffffff",
+          "on-error": "#ffffff",
+          "inverse-surface": "#28332d",
+          "dark-secondary": "#A9C5AF",
+          "primary-fixed": "#c0ecd5",
+          "dark-on-surface-variant": "#B1BDB4",
+          "surface-container-low": "#eaf7ed",
+          "on-tertiary-fixed-variant": "#633f11",
+          "background": "#f0fdf3",
+          "on-tertiary-container": "#543615",
+          "surface-bright": "#f0fdf3",
+          "on-background": "#131e18",
+          "on-primary": "#FFFFFF",
+          "error-container": "#FFDAD6",
+          "inverse-primary": "#a5d0ba",
+          "tertiary-container": "#FDF6EE",
+          "surface-container-highest": "#DDEDE2",
+          "tertiary-fixed-dim": "#f2bc84",
+          "on-secondary-fixed": "#032113",
+          "on-primary-container": "#8fbaa4",
+          "tertiary-fixed": "#ffddbb",
+          "dark-soft-green": "#354A3D",
+          "on-primary-fixed-variant": "#264e3d",
+          "outline-variant": "#E3EAE4",
+          "surface-variant": "#d9e6dc",
+          "surface-tint": "#3e6654",
+          "outline": "#E3EAE4",
+          "dark-sidebar": "#1D2A23",
+          "dark-outline": "#3B4B41",
+          "secondary-fixed-dim": "#adceb8",
+          "dark-surface-container": "#26372E",
+          "inverse-on-surface": "#e7f4ea",
+          "error": "#BA1A1A",
+          "on-primary-fixed": "#002115",
+          "dark-surface": "#18231E",
+          "secondary-fixed": "#c9ebd4",
+          "on-secondary-fixed-variant": "#304d3c",
+          "surface-container": "#FFFFFF",
+          "dark-surface-container-high": "#304338",
+          "dark-on-surface": "#F1F4F0",
+          "primary-fixed-dim": "#a5d0ba",
+          "on-tertiary-fixed": "#2b1700",
+          "on-surface": "#202B25",
+          "surface": "#F3F5F2"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "margin": "2rem",
+          "gutter-mobile": "1rem",
+          "gutter": "1.5rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2rem",
+          "space-xs": "0.25rem",
+          "margin-mobile": "1rem",
+          "space-2xl": "3rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "headline-md": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "display-lg": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container shadow-[0_1px_8px_rgba(32,43,37,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="p-space-lg"><div class="flex items-center gap-space-sm mb-space-lg"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[22px]">domain</span></div><div><span class="font-headline-sm text-headline-sm text-primary tracking-tight block">Nestora</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Real Estate Cloud</span></div></div><div class="bg-surface-container-high p-space-xs rounded-xl flex items-center mb-space-lg"><button class="flex-1 py-1.5 px-space-sm rounded-lg font-label-md text-label-md bg-surface-container text-on-surface shadow-[0_1px_4px_rgba(32,43,37,0.06)] flex items-center justify-center gap-1.5 transition-all" type="button"><span class="material-symbols-outlined text-[16px] text-primary">apartment</span>Buildings</button><button class="flex-1 py-1.5 px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5 transition-all" type="button"><span class="material-symbols-outlined text-[16px]">cottage</span>Living</button></div><nav class="space-y-space-md" data-active-classes="bg-primary-container text-on-surface font-semibold"><div class="space-y-1"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="overview-and-executive-summary" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="">Overview &amp; Summary</span></a></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Buildings Portfolio</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="buildings-and-units" href="#"><span class="material-symbols-outlined text-[18px]">holiday_village</span><span class="">Buildings &amp; Units</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="residents-and-leases" href="#"><span class="material-symbols-outlined text-[18px]">badge</span><span class="">Residents &amp; Leases</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="financials-and-contributions" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span class="">Financials &amp; Dues</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="maintenance-and-dispatch" href="#"><span class="material-symbols-outlined text-[18px]">handyman</span><span class="">Maintenance &amp; Dispatch</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="documents-and-legal" href="#"><span class="material-symbols-outlined text-[18px]">contract</span><span class="">Documents &amp; Legal</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="meetings-and-assembly-voting" href="#"><span class="material-symbols-outlined text-[18px]">how_to_vote</span><span class="">Assembly &amp; Voting</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="reserve-studies-and-reports" href="#"><span class="material-symbols-outlined text-[18px]">assessment</span><span class="">Reserve Studies</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="master-calendar-and-amenities" href="#"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span class="">Amenities &amp; Calendar</span></a></div></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Nestora Living</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="roommates-and-roster" href="#"><span class="material-symbols-outlined text-[18px]">group</span><span class="">Roommates &amp; Roster</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="expenses-and-splits" href="#"><span class="material-symbols-outlined text-[18px]">call_split</span><span class="">Expenses &amp; Splits</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="debts-and-settlement-hub" href="#"><span class="material-symbols-outlined text-[18px]">payments</span><span class="">Settlement Hub</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="chores-and-rotation" href="#"><span class="material-symbols-outlined text-[18px]">checklist</span><span class="">Chores &amp; Rotation</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="shopping-and-pantry" href="#"><span class="material-symbols-outlined text-[18px]">shopping_basket</span><span class="">Shopping &amp; Pantry</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="bills-and-calendar" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span class="">Bills &amp; Calendar</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="house-rules" href="#"><span class="material-symbols-outlined text-[18px]">gavel</span><span class="">House Rules</span></a></div></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Nestora Intelligence</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="ai-assistant-and-action-hub" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span class="">AI Assistant</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="proposed-actions" href="#"><span class="material-symbols-outlined text-[18px]">auto_awesome</span><span class="">Proposed Actions</span></a></div></div><div><div class="px-space-md py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Administration</div><div class="space-y-0.5 mt-1"><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="platform-admin" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span><span class="">Platform Admin</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="global-audit-and-logs" href="#"><span class="material-symbols-outlined text-[18px]">policy</span><span class="">Audit &amp; Logs</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="workspace-settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="">Workspace Settings</span></a></div></div></nav></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-high/60"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface">Cluster EU-Central</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">v4.18</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(32,43,37,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-full max-w-lg"><div class="relative flex-1"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant">search</span><input class="w-full h-10 pl-9 pr-14 rounded-xl bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none ring-1 ring-outline focus:ring-2 focus:ring-primary transition-all" placeholder="Search units, residents, ledgers, maintenance..." type="text"><kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Ctrl+K</kbd></div><div class="relative"><button class="h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm hover:opacity-95 transition-opacity" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span class="">Quick Action</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-2 py-1 px-space-sm rounded-full bg-secondary-container/70 text-on-secondary-container font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="">Live Node Synced (14ms)</span></div><div class="flex items-center gap-1"><button aria-label="Theme toggle" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><button aria-label="Notifications" class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-[10px] flex items-center justify-center font-bold">3</span></button></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm"><div class="text-right"><span class="block font-label-md text-label-md text-on-surface leading-tight">Sarah Ben Ali</span><span class="block font-label-sm text-label-sm text-on-surface-variant leading-tight">Admin &amp; Lead Tenant</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<div class="px-space-margin py-space-xl max-w-[1720px] mx-auto w-full space-y-space-xl">
+<!-- Breadcrumbs & Document Authority Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div>
+<nav class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant mb-1">
+<span class="hover:text-primary transition-colors cursor-pointer">Nestora Buildings</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Financials &amp; Accounting</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Budget Tracking &amp; Financial Reports</span>
+</nav>
+<div class="flex items-center gap-3"><span class="text-headline-md font-headline-md text-primary tracking-tight">Financial Reports &amp; Budget Tracking</span><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Active FY 2024 Records</span></div>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="h-10 px-4 rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-2 hover:bg-surface-variant transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+<span class="">Simulate Special Assessment</span>
+</button>
+<button class="h-10 px-4 rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-2 hover:bg-surface-variant transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="">2025 Operating Budget</span>
+</button>
+<button class="h-10 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center gap-2 hover:opacity-95 transition-all shadow-sm" type="button"><span class="material-symbols-outlined text-[18px]">description</span><span class="">Export Financial Report</span><span class="px-1.5 py-0.2 bg-white/20 rounded font-label-sm text-[10px]">PDF</span></button>
+</div>
+</div>
+<!-- Compliance & Statutory Credentials Ribbon -->
+
+<!-- Executive Summary KPI Quad Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1 -->
+<div class="rounded-2xl bg-surface-container p-space-lg shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-secondary-container/40 pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Reserve Fund Balance</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Grade A (94.2%)</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-primary tracking-tight">$1,428,500<span class="text-headline-sm font-headline-sm text-on-surface-variant">.00</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Fully Funded Status (FFS). Threshold minimum target is 70.0% statutory.</p>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> +$118,400 net YoY growth
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Target: $1.51M</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="rounded-2xl bg-surface-container p-space-lg shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">30-Yr Projected Outlay</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-surface font-label-sm text-label-sm">18 Assets</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-primary tracking-tight">$3,840,000<span class="text-headline-sm font-headline-sm text-on-surface-variant">.00</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Includes compounded 2.85% annual construction inflation adjustments.</p>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Next peak: 2026 (Roofing)</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">$280,000 allocated</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="rounded-2xl bg-surface-container p-space-lg shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Annual Contribution Rate</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">0% Special Risk</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-primary tracking-tight">$142,800<span class="text-headline-sm font-headline-sm text-on-surface-variant">/yr</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Structured at $11,900.00/month across 48 residential units ($247.91/unit avg).</p>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">In regular HOA dues</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Full statutory reserve</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="rounded-2xl bg-surface-container p-space-lg shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Treasury Ladder Yield</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">4.85% APY</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-primary tracking-tight">$68,240<span class="text-headline-sm font-headline-sm text-on-surface-variant">/yr</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Short-duration US Gov Bills &amp; FDIC-backed cash custody accounts.</p>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Auto-reinvestment: ON</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Maturity: Rolling 90d</span>
+</div>
+</div>
+</div>
+<!-- Central Trajectory Visualization & Dynamic Scenario Deck -->
+<div class="rounded-2xl bg-surface-container p-space-lg shadow-sm space-y-space-md"><div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4"><div><div class="flex items-center gap-2"><h2 class="text-headline-sm font-headline-sm text-primary">12-Month Operating Expenditure &amp; Budget Comparison</h2><span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">FY 2024 Actual vs. Allocated</span></div><p class="text-body-sm font-body-sm text-on-surface-variant">Tracking monthly operating maintenance, utility, and administrative disbursements against planned operating budgets.</p></div><div class="flex items-center gap-6"><div class="flex items-center gap-2"><span class="w-3.5 h-3 rounded bg-primary"></span><span class="font-label-sm text-label-sm text-on-surface">Actual Operating Expenses</span></div><div class="flex items-center gap-2"><span class="w-3.5 h-3 rounded bg-secondary-container"></span><span class="font-label-sm text-label-sm text-on-surface">Approved Budget Allocation</span></div></div></div><div class="relative w-full h-[320px] bg-surface-container-low/40 rounded-xl p-6 flex flex-col justify-between"><div class="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none opacity-40"><div class="w-full flex justify-between border-b border-surface-container-highest/60 text-label-sm font-mono text-[10px] text-on-surface-variant"><span class="">$25k</span><span class="w-full border-t border-dashed border-outline-variant/60 mx-4"></span></div><div class="w-full flex justify-between border-b border-surface-container-highest/60 text-label-sm font-mono text-[10px] text-on-surface-variant"><span class="">$20k</span><span class="w-full border-t border-dashed border-outline-variant/60 mx-4"></span></div><div class="w-full flex justify-between border-b border-surface-container-highest/60 text-label-sm font-mono text-[10px] text-on-surface-variant"><span class="">$15k</span><span class="w-full border-t border-dashed border-outline-variant/60 mx-4"></span></div><div class="w-full flex justify-between border-b border-surface-container-highest/60 text-label-sm font-mono text-[10px] text-on-surface-variant"><span class="">$10k</span><span class="w-full border-t border-dashed border-outline-variant/60 mx-4"></span></div><div class="w-full flex justify-between text-label-sm font-mono text-[10px] text-on-surface-variant"><span class="">$0</span><span class="w-full border-t border-outline-variant mx-4"></span></div></div><div class="relative z-10 h-[230px] flex items-end justify-between gap-2 pt-6"><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 72%;" title="Budget: $18,000"></div><div class="w-3 bg-primary rounded-t" style="height: 68%;" title="Actual: $17,000"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Jan</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 72%;" title="Budget: $18,000"></div><div class="w-3 bg-primary rounded-t" style="height: 70%;" title="Actual: $17,500"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Feb</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 72%;" title="Budget: $18,000"></div><div class="w-3 bg-primary rounded-t" style="height: 80%;" title="Actual: $20,000"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Mar</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 72%;" title="Budget: $18,000"></div><div class="w-3 bg-primary rounded-t" style="height: 65%;" title="Actual: $16,200"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Apr</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 75%;" title="Budget: $18,800"></div><div class="w-3 bg-primary rounded-t" style="height: 74%;" title="Actual: $18,500"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">May</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 75%;" title="Budget: $18,800"></div><div class="w-3 bg-primary rounded-t" style="height: 85%;" title="Actual: $21,200"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Jun</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 80%;" title="Budget: $20,000"></div><div class="w-3 bg-primary rounded-t" style="height: 78%;" title="Actual: $19,400"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Jul</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 80%;" title="Budget: $20,000"></div><div class="w-3 bg-primary rounded-t" style="height: 82%;" title="Actual: $20,600"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Aug</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 75%;" title="Budget: $18,800"></div><div class="w-3 bg-primary rounded-t" style="height: 71%;" title="Actual: $17,800"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Sep</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 75%;" title="Budget: $18,800"></div><div class="w-3 bg-primary rounded-t" style="height: 73%;" title="Actual: $18,200"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Oct</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 72%;" title="Budget: $18,000"></div><div class="w-3 bg-primary rounded-t" style="height: 69%;" title="Actual: $17,300"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Nov</span></div><div class="flex-1 flex flex-col items-center gap-2 h-full justify-end"><div class="w-full flex items-end justify-center gap-1.5 h-[180px]"><div class="w-3 bg-secondary-container rounded-t" style="height: 85%;" title="Budget: $21,250"></div><div class="w-3 bg-primary rounded-t" style="height: 88%;" title="Actual: $22,000"></div></div><span class="text-[11px] font-label-sm text-on-surface-variant">Dec</span></div></div></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm pt-2"><div class="p-space-sm rounded-xl bg-surface-container-high/60 flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div><div class="font-label-md text-label-md text-on-surface">YTD Operating Budget</div><div class="font-label-sm text-label-sm text-on-surface-variant">$227,600 Allocated</div></div></div><span class="font-label-sm text-label-sm font-semibold text-secondary">On Track</span></div><div class="p-space-sm rounded-xl bg-surface-container-high/60 flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div><div class="font-label-md text-label-md text-on-surface">YTD Actual Incurred</div><div class="font-label-sm text-label-sm text-on-surface-variant">$225,700 Disbursed</div></div></div><span class="font-label-sm text-label-sm font-semibold text-secondary">99.2%</span></div><div class="p-space-sm rounded-xl bg-surface-container-high/60 flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div><div class="font-label-md text-label-md text-on-surface">Net Budget Variance</div><div class="font-label-sm text-label-sm text-on-surface-variant">+$1,900 Favorable</div></div></div><span class="font-label-sm text-label-sm font-semibold text-secondary">Under</span></div><div class="p-space-sm rounded-xl bg-surface-container-high/60 flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div><div class="font-label-md text-label-md text-on-surface">Projected Year-End</div><div class="font-label-sm text-label-sm text-on-surface-variant">Balanced closeout</div></div></div><span class="font-label-sm text-label-sm font-semibold text-secondary">Verified</span></div></div></div>
+<!-- Main Workspace Split: Life-Cycle Asset Ledger + Treasury & Specialist Rail -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Component Replacement Life-Cycle Ledger & Depreciation (8 cols) -->
+<div class="lg:col-span-8 space-y-space-md">
+<div class="rounded-2xl bg-surface-container p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-space-md">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Component Life-Cycle Inventory &amp; Funding Status</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Capital and subsystem lifecycle inventory with replacement cycles and planned allocations.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Filter Category:</span>
+<select class="h-9 px-3 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md outline-none cursor-pointer">
+<option>All Systems (18 Assets)</option>
+<option>Envelope &amp; Roof</option>
+<option>Conveyance (Elevators)</option>
+<option>Mechanical &amp; HVAC</option>
+<option>Life Safety</option>
+</select>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto -mx-space-lg">
+<table class="w-full min-w-[760px] text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/60 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-lg">Component / Subsystem</th>
+<th class="py-3 px-3">Useful Life (UL)</th>
+<th class="py-3 px-3">Rem. Life (RUL)</th>
+<th class="py-3 px-3">Current Cost</th>
+<th class="py-3 px-3">Future Cost (Esc.)</th>
+<th class="py-3 px-3">Funded %</th>
+<th class="py-3 px-space-lg text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm font-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">roofing</span>
+</div>
+<div>
+<div class="font-semibold text-primary">Roof Membrane (Tower A)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">SBS Modified Bitumen 2-Ply</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">25 yrs</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">2 yrs (2026)</span>
+</td>
+<td class="py-3.5 px-3 font-mono font-medium">$265,000</td>
+<td class="py-3.5 px-3 font-mono font-medium text-primary">$280,000</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-16 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 100%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">100%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-sm text-label-sm text-on-surface transition-all" type="button">Inspect Specs</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">elevator</span>
+</div>
+<div>
+<div class="font-semibold text-primary">Passenger Elevators (Otis)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">4-Cab Traction Machine Modernization</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">30 yrs</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">5 yrs (2029)</span>
+</td>
+<td class="py-3.5 px-3 font-mono font-medium">$310,000</td>
+<td class="py-3.5 px-3 font-mono font-medium text-primary">$340,000</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-16 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 96%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">96%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-sm text-label-sm text-on-surface transition-all" type="button">View RFP</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">mode_fan</span>
+</div>
+<div>
+<div class="font-semibold text-primary">Central Chiller &amp; Cooling Towers</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Trane Centrifugal + Evaporative Loop</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">20 yrs</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">11 yrs (2035)</span>
+</td>
+<td class="py-3.5 px-3 font-mono font-medium">$345,000</td>
+<td class="py-3.5 px-3 font-mono font-medium text-primary">$410,000</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-16 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 92%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">92%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-sm text-label-sm text-on-surface transition-all" type="button">Telemetry</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">texture</span>
+</div>
+<div>
+<div class="font-semibold text-primary">Architectural Façade &amp; Sealant</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Elastomeric Perimeter Expansion Joints</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">15 yrs</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">8 yrs (2032)</span>
+</td>
+<td class="py-3.5 px-3 font-mono font-medium">$190,000</td>
+<td class="py-3.5 px-3 font-mono font-medium text-primary">$220,000</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-16 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 88%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">88%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-sm text-label-sm text-on-surface transition-all" type="button">Drone Scan</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">fire_extinguisher</span>
+</div>
+<div>
+<div class="font-semibold text-primary">Fire Alarm &amp; Master Riser System</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Simplex 4100ES Panel &amp; Wet Risers</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">30 yrs</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">16 yrs (2040)</span>
+</td>
+<td class="py-3.5 px-3 font-mono font-medium">$145,000</td>
+<td class="py-3.5 px-3 font-mono font-medium text-primary">$195,000</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-16 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 95%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">95%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-sm text-label-sm text-on-surface transition-all" type="button">NFPA Cert</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">chair</span>
+</div>
+<div>
+<div class="font-semibold text-primary">Lobby &amp; Corridors Refurbishment</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Flooring, Millwork, &amp; Smart LED Sconces</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">10 yrs</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">4 yrs (2028)</span>
+</td>
+<td class="py-3.5 px-3 font-mono font-medium">$105,000</td>
+<td class="py-3.5 px-3 font-mono font-medium text-primary">$115,000</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-16 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 100%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">100%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-sm text-label-sm text-on-surface transition-all" type="button">Moodboard</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Showing 6 of 18 physical subsystem items tracked in operating register</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-variant transition-all font-semibold" type="button">Previous</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary transition-all font-semibold" type="button">Next Page</button>
+</div>
+</div>
+</div>
+<!-- Reserve Asset Health Context Gallery -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="rounded-2xl bg-surface-container p-space-md shadow-sm flex gap-4 items-center">
+<img class="w-24 h-24 rounded-xl object-cover flex-shrink-0" data-alt="High quality aerial architectural photography of a modern high-rise building rooftop membrane with gravel ballast, HVAC air handlers, and parapet walls under gentle natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1CWzOFeD9Jh1wSj0uzJS0RNBS-Aqp26CXHODQ0-i1YDtedZSZloCHFjF9aWZNk0G4q0ZR52BJnVUEm96rPDnRpHZWgf7M5W54PyXBeNVD5FBV7_fry7ZqUrsglEcn3Bw0P2RuBo43ls5pvoHlr5ByyUkLPcj6qUkyygDk7bAgr6Z7fElcswgx13k0vm_nzhd-site6TjXCDb6BYctmwTiSUdFB7cYyyQdzvjrQ4E">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-primary-container text-primary font-label-sm text-label-sm font-semibold">Drone Inspection</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Aug 2024</span>
+</div>
+<h4 class="font-label-lg text-label-lg text-primary truncate">Roof Membrane Core Sampling</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">Core cuts reveal minor lap-joint delamination near Tower A south drain. Recommended 2026 re-cover.</p>
+</div>
+</div>
+<div class="rounded-2xl bg-surface-container p-space-md shadow-sm flex gap-4 items-center">
+<img class="w-24 h-24 rounded-xl object-cover flex-shrink-0" data-alt="Interior clean architectural shot of an elevator machine room penthouse with precision traction cables, green machinery, and computer control telemetry panels in deep forest green and polished metals" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiok16Ue-7Uw3pJQ6_kyDN0QmVgdp8Hp39pjbsnYfmHDN7iCvbkxBgrJFguMjKIItsS3cI9zqSCKba6l64OpQ8xwIpmMbjs_nEv5g-w21LjrJml8F6964aLVVdHGKMEiJfSsgMBosSbRWygE8716ebt5iqltVsjlRzjEhOlZkQz6ukECxyxHAJSGTTpnR0gv99KsJLFbr4ocKlFeUh4LH99-XRe20zQnngYsd3MfY">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Vibration Telemetry</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live Sensor</span>
+</div>
+<h4 class="font-label-lg text-label-lg text-primary truncate">Otis Traction Cable Wear Status</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">Crown wire fracture score at 0.12% allowable tolerance. Scheduled rope replacement within 2029 overhaul.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Rail: Statutory Portfolio Breakdown & Actuary Sign-Off (4 cols) -->
+<div class="lg:col-span-4 space-y-space-md"><div class="rounded-2xl bg-surface-container p-space-lg shadow-sm space-y-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[18px]">account_balance</span></div><div><h3 class="font-headline-sm text-headline-sm text-primary">Operating Account Summary</h3><span class="font-label-sm text-label-sm text-on-surface-variant">Internal Recorded Ledger Balances</span></div></div><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-semibold">Active</span></div><div class="flex items-center justify-center p-2"><div class="relative w-44 h-44 flex items-center justify-center"><svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="transparent" r="40" stroke="#E7EFE8" stroke-width="12"></circle><circle cx="50" cy="50" fill="transparent" r="40" stroke="#093425" stroke-dasharray="150.7 251.2" stroke-dashoffset="0" stroke-width="12"></circle><circle cx="50" cy="50" fill="transparent" r="40" stroke="#476553" stroke-dasharray="62.8 251.2" stroke-dashoffset="-150.7" stroke-width="12"></circle><circle cx="50" cy="50" fill="transparent" r="40" stroke="#c0ecd5" stroke-dasharray="37.7 251.2" stroke-dashoffset="-213.5" stroke-width="12"></circle></svg><div class="absolute inset-0 flex flex-col items-center justify-center text-center"><span class="font-label-sm text-label-sm text-on-surface-variant">Total Cash</span><span class="font-headline-sm text-primary font-bold">$1.428M</span><span class="font-label-sm text-label-sm text-secondary font-semibold">Reconciled</span></div></div></div><div class="space-y-space-sm pt-2"><div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-high/40"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-md bg-primary"></span><div><div class="font-label-md text-label-md text-on-surface">Primary Checking</div><div class="font-label-sm text-label-sm text-on-surface-variant">Operating disbursements &amp; payroll</div></div></div><div class="text-right"><div class="font-mono font-semibold text-primary text-body-sm">$857,100</div><div class="font-label-sm text-label-sm text-on-surface-variant">60.0%</div></div></div><div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-high/40"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-md bg-secondary"></span><div><div class="font-label-md text-label-md text-on-surface">Capital Savings Account</div><div class="font-label-sm text-label-sm text-on-surface-variant">Short-term planned maintenance</div></div></div><div class="text-right"><div class="font-mono font-semibold text-primary text-body-sm">$357,125</div><div class="font-label-sm text-label-sm text-on-surface-variant">25.0%</div></div></div><div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-high/40"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-md bg-primary-fixed"></span><div><div class="font-label-md text-label-md text-on-surface">Security Deposit Escrow</div><div class="font-label-sm text-label-sm text-on-surface-variant">Tenant residential bonds held</div></div></div><div class="text-right"><div class="font-mono font-semibold text-primary text-body-sm">$214,275</div><div class="font-label-sm text-label-sm text-on-surface-variant">15.0%</div></div></div></div><div class="pt-2 flex items-center justify-between border-t-0"><div><div class="font-label-md text-label-md text-on-surface">Automated Nightly Sweep</div><div class="font-label-sm text-label-sm text-on-surface-variant">Transfer surplus to yield interest</div></div><label class="relative inline-flex items-center cursor-pointer"><input checked="" class="sr-only peer" type="checkbox"><div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div></label></div></div><div class="rounded-2xl bg-surface-container p-space-lg shadow-sm space-y-space-md"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">fact_check</span></div><div><h4 class="font-headline-sm text-headline-sm text-primary">Audited Ledger Review</h4><span class="font-label-sm text-label-sm text-on-surface-variant">Internal Financial Review Notes</span></div></div><div class="p-space-md rounded-xl bg-surface-container-low/60 space-y-2"><div class="flex items-center justify-between text-label-sm font-label-sm"><span class="text-on-surface-variant">Internal Auditor:</span><span class="font-semibold text-on-surface">Finance Committee Lead</span></div><div class="flex items-center justify-between text-label-sm font-label-sm"><span class="text-on-surface-variant">Reconciliation Date:</span><span class="font-semibold text-on-surface">Oct 31, 2024</span></div><div class="flex items-center justify-between text-label-sm font-label-sm"><span class="text-on-surface-variant">Variance Status:</span><span class="font-mono text-primary font-bold">$0.00 (Balanced)</span></div><div class="flex items-center justify-between text-label-sm font-label-sm"><span class="text-on-surface-variant">Reporting Standard:</span><span class="font-semibold text-on-surface">Accrual Accounting</span></div></div><div class="space-y-1"><span class="font-label-sm text-label-sm text-on-surface-variant block">Review Notes</span><div class="text-body-sm text-[12px] p-2 rounded-lg bg-surface-container-high text-on-surface font-normal">All vendor invoices processed and verified against monthly Pacific Northwest Bank records. Zero reconciliation discrepancy recorded for the fiscal period.</div></div><div class="flex items-center gap-2 pt-1 text-on-surface font-label-sm text-label-sm"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="">Internal Books Approved &amp; Reconciled</span></div></div></div>
+</div>
+<!-- Statutory Disclosures & Compliance Footer -->
+<div class="rounded-2xl bg-surface-container p-space-md shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-primary">description</span><span class="">Monthly financial summary and operating budget variances are reviewed monthly by the finance committee and property management.</span></div><div class="flex items-center gap-4"><a class="text-primary hover:underline font-semibold flex items-center gap-1" href=""><span class="">Form 1099-INT Tax Schedule</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a><span class="text-outline">|</span><a class="text-primary hover:underline font-semibold flex items-center gap-1" href=""><span class="">Annual Budget Summary</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a></div></div>
+</div>
+</div>
+<script>
+  function switchScenario(scenario) {
+    const btnBaseline = document.getElementById('scenario-btn-baseline');
+    const btnConservative = document.getElementById('scenario-btn-conservative');
+    const btnDeferred = document.getElementById('scenario-btn-deferred');
+    const curveLine = document.getElementById('curveLine');
+    const curveArea = document.getElementById('curveArea');
+
+    // Reset buttons
+    [btnBaseline, btnConservative, btnDeferred].forEach(b => {
+      b.className = 'px-3 py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-all';
+    });
+
+    if (scenario === 'baseline') {
+      btnBaseline.className = 'px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container text-on-surface shadow-sm transition-all font-semibold';
+      curveLine.setAttribute('d', 'M 0 100 C 40 95, 60 145, 80 135 C 120 120, 150 160, 180 145 C 260 90, 340 130, 380 110 C 480 60, 570 120, 610 95 C 700 45, 770 90, 810 75 C 900 35, 960 40, 1000 30');
+      curveArea.setAttribute('d', 'M 0 100 C 40 95, 60 145, 80 135 C 120 120, 150 160, 180 145 C 260 90, 340 130, 380 110 C 480 60, 570 120, 610 95 C 700 45, 770 90, 810 75 C 900 35, 960 40, 1000 30 L 1000 225 L 0 225 Z');
+      curveLine.setAttribute('stroke', '#093425');
+    } else if (scenario === 'conservative') {
+      btnConservative.className = 'px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container text-on-surface shadow-sm transition-all font-semibold';
+      // Lower ending balance due to +15% cost inflation
+      curveLine.setAttribute('d', 'M 0 100 C 40 105, 60 160, 80 150 C 120 140, 150 175, 180 165 C 260 120, 340 160, 380 145 C 480 100, 570 155, 610 130 C 700 95, 770 135, 810 120 C 900 80, 960 85, 1000 70');
+      curveArea.setAttribute('d', 'M 0 100 C 40 105, 60 160, 80 150 C 120 140, 150 175, 180 165 C 260 120, 340 160, 380 145 C 480 100, 570 155, 610 130 C 700 95, 770 135, 810 120 C 900 80, 960 85, 1000 70 L 1000 225 L 0 225 Z');
+      curveLine.setAttribute('stroke', '#476553');
+    } else if (scenario === 'deferred') {
+      btnDeferred.className = 'px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container text-on-surface shadow-sm transition-all font-semibold';
+      // Severe drop dipping toward the critical threshold
+      curveLine.setAttribute('d', 'M 0 100 C 40 85, 60 110, 80 105 C 120 95, 150 110, 180 100 C 260 80, 340 190, 380 185 C 480 192, 570 195, 610 190 C 700 150, 770 170, 810 165 C 900 140, 960 130, 1000 115');
+      curveArea.setAttribute('d', 'M 0 100 C 40 85, 60 110, 80 105 C 120 95, 150 110, 180 100 C 260 80, 340 190, 380 185 C 480 192, 570 195, 610 190 C 700 150, 770 170, 810 165 C 900 140, 960 130, 1000 115 L 1000 225 L 0 225 Z');
+      curveLine.setAttribute('stroke', '#BA1A1A');
+    }
+  }
+</script></main></div>
+
+</body></html>

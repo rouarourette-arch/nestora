@@ -1,0 +1,896 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nestora - Buildings Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#234B3A",
+            "primary-container": "#234B3A",
+            "primary-dark": "#8FAF9A",
+            "secondary": "#476553",
+            "secondary-container": "#c9ebd4",
+            "warm-ivory": "#F7F6F0",
+            "warm-accent": "#D9A66F",
+            "tertiary-fixed": "#ffddbb",
+            "tertiary-container": "#5f3c0e",
+            "surface": "#F3F5F2",
+            "surface-card": "#FFFFFF",
+            "surface-container-low": "#ECEFEC",
+            "surface-container-high": "#e1e3e0",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#414844",
+            "text-muted": "#78847C",
+            "dark-bg": "#18231E",
+            "dark-surface": "#26372E",
+            "dark-sidebar": "#1D2A23",
+            "dark-border": "#354A3D",
+            "dark-text": "#F1F4F0",
+            "dark-text-muted": "#B1BDB4"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<meta content="web_dashboard" name="shell-type"></head>
+<body class="bg-[#F3F5F2] dark:bg-[#18231E] font-sans text-on-surface dark:text-[#F1F4F0] antialiased transition-colors duration-300">
+<!-- Persistent Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#1D2A23] border-r border-[#E3EAE4] dark:border-[#354A3D] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-colors duration-300" id="main-sidebar">
+<div class="flex flex-col">
+<!-- Logo + Brand name + Tagline Pill -->
+<div class="h-16 px-5 flex items-center justify-between border-b border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[18px] tracking-tight text-[#234B3A] dark:text-[#F1F4F0] leading-none">Nestora</span>
+<span class="text-[10px] font-semibold text-[#78847C] dark:text-[#B1BDB4] tracking-wide mt-0.5">Buildings OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#c9ebd4]/60 text-[#234B3A] dark:bg-[#354A3D] dark:text-[#8FAF9A]">PRO</span>
+</div>
+<!-- Workspace Dropdown with Quick Switch -->
+<div class="px-4 py-3">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-2.5 flex items-center justify-between border border-[#E3EAE4]/60 dark:border-[#354A3D]/70 hover:border-[#234B3A]/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-7 h-7 rounded-lg bg-[#234B3A]/10 dark:bg-[#8FAF9A]/20 flex items-center justify-center text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[17px]">apartment</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#78847C] dark:text-[#B1BDB4]">Workspace</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Nestora Buildings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[18px] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">swap_horiz</span>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-5 pt-1 pb-1.5 flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Main Management</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 px-3">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Buildings & Units -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="">Buildings &amp; Units</span>
+</a>
+<!-- Residents & Owners -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="">Residents &amp; Owners</span>
+</a>
+<!-- Shared Expenses -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="">Shared Expenses</span>
+</a>
+<!-- Maintenance (Badge 4) -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="">Maintenance</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[11px] font-bold">4</span>
+</a>
+<!-- Documents -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="">Documents</span>
+</a>
+<!-- Meetings & Voting -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">how_to_vote</span>
+<span class="">Meetings &amp; Voting</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="">Calendar</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="">Reports</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Community Care / Profile -->
+<div class="flex flex-col gap-2.5 p-3.5 border-t border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-3 flex flex-col gap-1 border border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2 text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[19px]">support_agent</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0]">Community Care</span>
+</div>
+<p class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4] leading-snug">Need operational guidance or 24/7 hotline?</p>
+<a class="text-[12px] font-semibold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-1 mt-1" href="#">
+<span class="">Support Desk</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-[#354A3D]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-[#1D2A23]"></span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[12.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Sarah Ben Ali</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Admin</span>
+</div>
+</div>
+<button class="text-[#78847C] dark:text-[#B1BDB4] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] p-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="pl-64">
+<!-- Top Header -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#F3F5F2]/80 dark:bg-[#18231E]/80 backdrop-blur-xl border-b border-[#E3EAE4] dark:border-[#354A3D] z-40 flex items-center justify-between px-6 transition-colors duration-300">
+<!-- Breadcrumb + Page Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-[13px] font-medium text-[#78847C] dark:text-[#B1BDB4]">
+<span class="hover:text-[#234B3A] dark:hover:text-[#8FAF9A] cursor-pointer">Nestora Buildings</span>
+<span class="text-[#78847C]/60">/</span>
+<span class="text-[#191c1b] dark:text-[#F1F4F0] font-semibold">Dashboard</span>
+</div>
+<!-- Search Bar with Ctrl+K -->
+<div class="relative flex items-center ml-2">
+<span class="material-symbols-outlined absolute left-3.5 text-[#78847C] dark:text-[#B1BDB4] text-[19px]">search</span>
+<input class="w-72 lg:w-80 h-10 pl-10 pr-12 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#191c1b] dark:text-[#F1F4F0] placeholder:text-[#78847C] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#234B3A] dark:focus:ring-[#8FAF9A] transition-all shadow-xs" placeholder="Search units, residents, tickets..." type="text">
+<kbd class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#ECEFEC] dark:bg-[#1D2A23] text-[#78847C] dark:text-[#B1BDB4]">Ctrl K</kbd>
+</div>
+<!-- Portfolio Status Tag -->
+<div class="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c9ebd4]/70 dark:bg-[#354A3D] border border-[#c9ebd4] dark:border-[#354A3D]">
+<span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#8FAF9A] animate-pulse"></span>
+<span class="text-[11px] font-bold text-[#234B3A] dark:text-[#8FAF9A] uppercase tracking-wider">12 Units Live</span>
+</div>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Interactive Theme Switcher Button -->
+
+<!-- Notifications with Badge -->
+<button class="relative w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] flex items-center justify-center text-[#414844] dark:text-[#F1F4F0] hover:bg-[#ECEFEC] dark:hover:bg-[#354A3D] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</span>
+</button>
+<div class="h-6 w-px bg-[#E3EAE4] dark:bg-[#354A3D] mx-1"></div>
+<!-- Profile Avatar & Details -->
+<div class="flex items-center gap-2.5 pl-1 py-1 pr-2 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] hover:shadow-xs transition-all cursor-pointer">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<div class="hidden md:flex flex-col text-left pr-1">
+<span class="text-[12px] font-bold text-[#191c1b] dark:text-[#F1F4F0] leading-none">Sarah Ben Ali</span>
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] mt-0.5 font-medium">(Admin)</span>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="relative pt-20 w-full px-6 py-6 min-h-screen"><div class="flex flex-col w-full">
+<!-- Hidden Overlay Drawer for Notification Preferences -->
+<div class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="prefs-drawer-backdrop">
+<div class="absolute inset-0" onclick="togglePrefsDrawer(false)"></div>
+<div class="absolute right-0 top-0 h-full w-[460px] bg-surface-container-lowest shadow-2xl p-space-xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out overflow-y-auto" id="prefs-drawer-panel">
+<div class="flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Alert Rules &amp; Channels</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Real-time delivery routing matrix</span>
+</div>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant transition-colors" onclick="togglePrefsDrawer(false)" type="button">
+<span class="material-symbols-outlined text-[19px]">close</span>
+</button>
+</div>
+<!-- Quiet Hours Section -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">bedtime</span>
+<span class="font-label-lg text-label-lg text-on-surface">Quiet Hours (DND)</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="dnd-master-toggle" type="checkbox">
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Suppresses non-critical push pings from 10:00 PM to 7:00 AM PST.</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-secondary-container font-label-sm text-label-sm">22:00 PST</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">→</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-secondary-container font-label-sm text-label-sm">07:00 PST</span>
+</div>
+</div>
+<!-- Channel Matrix -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Delivery Matrix By Event</span>
+<!-- Emergency (Locked) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-lg text-label-lg text-on-surface">Life Safety &amp; Evacuation</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">Mandatory</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-1">
+<span class="">Push • SMS • Phone Call</span>
+<span class="font-semibold text-primary">Always Enabled</span>
+</div>
+</div>
+<!-- Financial Assessments -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Financial Dues &amp; Ledger</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Statements, receipts, balance warnings</span>
+</div>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1 cursor-pointer font-label-sm text-label-sm text-on-surface">
+<input checked="" class="rounded border-outline text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="">Push</span>
+</label>
+<label class="flex items-center gap-1 cursor-pointer font-label-sm text-label-sm text-on-surface">
+<input checked="" class="rounded border-outline text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="">Email</span>
+</label>
+</div>
+</div>
+<!-- Maintenance Updates -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Maintenance Work Orders</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vendor check-ins, status resolution</span>
+</div>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1 cursor-pointer font-label-sm text-label-sm text-on-surface">
+<input checked="" class="rounded border-outline text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="">Push</span>
+</label>
+<label class="flex items-center gap-1 cursor-pointer font-label-sm text-label-sm text-on-surface">
+<input class="rounded border-outline text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="">SMS</span>
+</label>
+</div>
+</div>
+<!-- Governance & Voting -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Governance &amp; HOA Ballots</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Quorum notifications, voting deadlines</span>
+</div>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1 cursor-pointer font-label-sm text-label-sm text-on-surface">
+<input checked="" class="rounded border-outline text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="">Push</span>
+</label>
+<label class="flex items-center gap-1 cursor-pointer font-label-sm text-label-sm text-on-surface">
+<input checked="" class="rounded border-outline text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="">Email</span>
+</label>
+</div>
+</div>
+<!-- Household Shared Living -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Household &amp; Co-Living</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pantry additions, quiet hours notices</span>
+</div>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1 cursor-pointer font-label-sm text-label-sm text-on-surface">
+<input checked="" class="rounded border-outline text-primary focus:ring-0 w-4 h-4" type="checkbox">
+<span class="">In-App</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Action -->
+<div class="pt-space-lg flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface hover:bg-surface-container-high transition-colors" onclick="togglePrefsDrawer(false)" type="button">
+          Cancel
+        </button>
+<button class="px-space-lg py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity" onclick="savePrefsToast()" type="button">
+          Save Preferences
+        </button>
+</div>
+</div>
+</div>
+<!-- Main View Grid -->
+<div class="flex flex-col gap-space-lg">
+<!-- Top Action & Title Row -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span class="">Tower Operations</span>
+<span class="">/</span>
+<span class="text-primary font-semibold">Activity Ledger</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mt-0.5 tracking-tight">Notifications &amp; Activity</h1>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-2 px-space-md py-2 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-secondary-container font-label-lg text-label-lg shadow-sm transition-all" id="mark-all-read-btn" onclick="markAllAsRead()" type="button">
+<span class="material-symbols-outlined text-[19px]">done_all</span>
+<span class="">Mark all as read</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity" onclick="togglePrefsDrawer(true)" type="button">
+<span class="material-symbols-outlined text-[19px]">tune</span>
+<span class="">Channel Preferences</span>
+</button>
+</div>
+</div>
+<!-- Telemetry & Delivery Health Summary (4 Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Unread Alerts -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Unread Alerts</span>
+<span class="w-8 h-8 rounded-lg bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">mark_email_unread</span>
+</span>
+</div>
+<div class="mt-space-md flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-[40px] leading-tight text-on-surface" id="unread-count-display">4</span>
+<span class="font-label-sm text-label-sm text-error font-medium">1 Critical</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">3 standard broadcast updates</span>
+</div>
+</div>
+<!-- Card 2: Active Channels -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Active Channels</span>
+<span class="w-8 h-8 rounded-lg bg-secondary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+</span>
+</div>
+<div class="mt-space-md flex flex-col">
+<div class="flex items-center gap-1.5 font-headline-sm text-headline-sm text-on-surface">
+<span class="">Push</span>
+<span class="text-on-surface-variant text-[14px]">•</span>
+<span class="">Email</span>
+<span class="text-on-surface-variant text-[14px]">•</span>
+<span class="">SMS</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span class="">99.8% delivery SLA confirmed</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Muted Channels -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Muted Channels</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">notifications_paused</span>
+</span>
+</div>
+<div class="mt-space-md flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-[40px] leading-tight text-on-surface">0</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Active Mode</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">DND kicks in 10:00 PM PST</span>
+</div>
+</div>
+<!-- Card 4: Scheduled Digests -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Scheduled Digests</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-low text-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</span>
+</div>
+<div class="mt-space-md flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Daily 8:00 AM</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Next delivery tomorrow morning</span>
+</div>
+</div>
+</div>
+<!-- Filter Tab Bar -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 scrollbar-none">
+<button class="filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary transition-all flex items-center gap-1.5 shadow-sm" onclick="setFilter('all', this)" type="button">
+<span class="">All Notifications</span>
+<span class="px-1.5 py-0.2 rounded-full bg-white/20 text-white font-label-sm text-label-sm" id="all-count-badge">18</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-secondary-container hover:bg-surface-container-high transition-all flex items-center gap-1.5" onclick="setFilter('unread', this)" type="button">
+<span class="">Unread</span>
+<span class="px-1.5 py-0.2 rounded-full bg-error text-white font-label-sm text-label-sm" id="unread-pill-badge">4</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-secondary-container hover:bg-surface-container-high transition-all flex items-center gap-1.5" onclick="setFilter('urgent', this)" type="button">
+<span class="">Urgent &amp; Safety</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">1</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-secondary-container hover:bg-surface-container-high transition-all flex items-center gap-1.5" onclick="setFilter('financial', this)" type="button">
+<span class="">Financial &amp; Dues</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">5</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-secondary-container hover:bg-surface-container-high transition-all flex items-center gap-1.5" onclick="setFilter('maintenance', this)" type="button">
+<span class="">Maintenance</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">6</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-secondary-container hover:bg-surface-container-high transition-all flex items-center gap-1.5" onclick="setFilter('governance', this)" type="button">
+<span class="">Governance &amp; Voting</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">2</span>
+</button>
+</div>
+<!-- Master Notifications Feed with Grouped Sections -->
+<div class="flex flex-col gap-space-xl" id="notifications-stream">
+<!-- Section: TODAY -->
+<div class="flex flex-col gap-space-md feed-group" data-group="today">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Today</span>
+<div class="h-0.5 flex-1 bg-surface-container-high rounded-full"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 events</span>
+</div>
+<!-- 1. Critical Safety Alert -->
+<div class="notification-item unread urgent bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden" data-category="urgent" data-read="false">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<div class="flex items-start gap-space-md pl-1">
+<div class="w-11 h-11 rounded-xl bg-error-container text-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">water_damage</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-error font-label-sm text-label-sm font-semibold">Critical Safety &amp; Utilities</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12 min ago • Broadcast to Tower A</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-error"></span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Tower A Water Riser Maintenance scheduled tomorrow 9am–1pm PST</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed max-w-3xl">
+                Hydronic shutoff affecting Units 401–1208. Main isolation valve replacement by Pacific Hydro Service. Domestic cold and hot supply paused during working window.
+              </p>
+<div class="flex items-center gap-2 mt-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="">Tower A Riser Shaft #3</span>
+<span class="">•</span>
+<span class="">Ticket #WO-8911</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity" type="button">
+              View Work Order
+            </button>
+<button class="w-9 h-9 rounded-xl hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" onclick="dismissItem(this)" title="Acknowledge" type="button">
+<span class="material-symbols-outlined text-[19px]">check</span>
+</button>
+</div>
+</div>
+<!-- 2. Financial Alert -->
+<div class="notification-item unread financial bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden" data-category="financial" data-read="false">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary-fixed-dim"></div>
+<div class="flex items-start gap-space-md pl-1">
+<div class="w-11 h-11 rounded-xl bg-surface-container-low text-tertiary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-low text-tertiary-container font-label-sm text-label-sm font-semibold">Assessment Notice</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 hours ago • Unit 804</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">November 2024 Common Assessment Due in 3 days ($420.00)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed max-w-3xl">Monthly HOA operating dues and reserve contribution for Unit 804. Recorded in mutual assessment ledger.</p>
+<div class="flex items-center gap-3 mt-space-sm text-on-surface font-label-sm text-label-sm">
+<span class="font-semibold text-primary">Invoice #INV-2024-1188</span>
+<span class="">•</span>
+<span class="">ACH Free via Stripe Treasury</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity" type="button">View Assessment Details</button>
+<button class="w-9 h-9 rounded-xl hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" onclick="dismissItem(this)" title="Mark read" type="button">
+<span class="material-symbols-outlined text-[19px]">check</span>
+</button>
+</div>
+</div>
+<!-- 3. Household Living Ping -->
+<div class="notification-item unread living bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden" data-category="living" data-read="false">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start gap-space-md pl-1">
+<div class="w-11 h-11 rounded-xl bg-secondary-container text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">kitchen</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold">Shared Living</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 hours ago • Unit 804 Suite</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Chloe Zhao added Organic Almond Milk &amp; Dish Soap to Shared Pantry Restock</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed max-w-3xl">
+                Added to the unit communal shopping list with automated split billing on next household weekly reconciliation.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-secondary-container font-label-lg text-label-lg transition-colors" type="button">
+              View Pantry
+            </button>
+<button class="w-9 h-9 rounded-xl hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" onclick="dismissItem(this)" title="Mark read" type="button">
+<span class="material-symbols-outlined text-[19px]">check</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section: YESTERDAY -->
+<div class="flex flex-col gap-space-md feed-group" data-group="yesterday">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">Yesterday</span>
+<div class="h-0.5 flex-1 bg-surface-container-high rounded-full"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 events</span>
+</div>
+<!-- 4. Governance Alert -->
+<div class="notification-item unread governance bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden" data-category="governance" data-read="false">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex items-start gap-space-md pl-1">
+<div class="w-11 h-11 rounded-xl bg-primary-container text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">how_to_vote</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold">Governance &amp; Voting</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Yesterday at 3:45 PM • Ballot ID #B08</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Resolution #2024-B08 Ballot Closes in 48h — Vote Recorded (In Favor)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed max-w-3xl">
+                Resolution regarding EV Charger Expansion in Sub-Basement 2. Your digital ballot was verified with cryptographic proof hash #7c90...a1f4.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-secondary-container font-label-lg text-label-lg transition-colors" type="button">
+              View Ledger Proof
+            </button>
+<button class="w-9 h-9 rounded-xl hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" onclick="dismissItem(this)" title="Mark read" type="button">
+<span class="material-symbols-outlined text-[19px]">check</span>
+</button>
+</div>
+</div>
+<!-- 5. Maintenance Ticket Update -->
+<div class="notification-item maintenance bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden" data-category="maintenance" data-read="true">
+<div class="flex items-start gap-space-md pl-1">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">construction</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Maintenance Resolved</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Yesterday at 11:20 AM • Common Facilities</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Work Order #4829 (Elevator Cab 2 Hydraulic Sensor) marked Resolved by Otis Commercial</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed max-w-3xl">
+                Technician completed calibration checklist and 20-cycle automated run test. Cab 2 has returned to full operational dispatch.
+              </p>
+<!-- Star Rating Prompt -->
+<div class="flex items-center gap-2 mt-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rate service quality:</span>
+<div class="flex items-center text-warm-accent">
+<span class="material-symbols-outlined text-[20px] cursor-pointer hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] cursor-pointer hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] cursor-pointer hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] cursor-pointer hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] text-surface-container-highest cursor-pointer hover:scale-110 transition-transform">star</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-secondary-container font-label-lg text-label-lg transition-colors" type="button">
+              Work Report PDF
+            </button>
+</div>
+</div>
+</div>
+<!-- Section: EARLIER THIS WEEK -->
+<div class="flex flex-col gap-space-md feed-group" data-group="earlier">
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">Earlier this Week</span>
+<div class="h-0.5 flex-1 bg-surface-container-high rounded-full"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 events</span>
+</div>
+<!-- 6. Earlier Financial -->
+<div class="notification-item financial bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden" data-category="financial" data-read="true">
+<div class="flex items-start gap-space-md pl-1">
+<div class="w-11 h-11 rounded-xl bg-surface-container-low text-tertiary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">receipt</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-low text-tertiary-container font-label-sm text-label-sm font-semibold">Payment Receipt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mon Nov 11 • Recorded via Direct Transfer</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Storage Locker #B-12 Annual Fee Paid ($180.00)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed max-w-3xl">Automatic debit confirmed. Transaction reference: Nestora-TX-99021-B. Valid through Nov 2025.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-secondary-container font-label-lg text-label-lg transition-colors" type="button">
+              Download Receipt
+            </button>
+</div>
+</div>
+<!-- 7. Earlier Maintenance -->
+<div class="notification-item maintenance bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden" data-category="maintenance" data-read="true">
+<div class="flex items-start gap-space-md pl-1">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">air</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">HVAC Inspection</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sun Nov 10 • Building Wide</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Annual Rooftop Chiller Winterization Completed</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed max-w-3xl">
+                Seasonal heat loop balancing calibrated for winter operating temperatures. Heat recovery efficiency rated 94.2%.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-secondary-container font-label-lg text-label-lg transition-colors" type="button">
+              Telemetry Log
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Container (Hidden initially) -->
+<div class="hidden flex-col items-center justify-center py-space-2xl bg-surface-container-lowest rounded-xl p-space-xl text-center" id="filter-empty-state">
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-space-sm">
+<span class="material-symbols-outlined text-[28px]">notifications_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">No alerts in this category</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-1">
+        All activity items matching this filter have been acknowledged or there are no historical events logged.
+      </p>
+<button class="mt-space-md px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg" onclick="setFilter('all', document.querySelector('.filter-tab'))" type="button">
+        Reset to All Notifications
+      </button>
+</div>
+</div>
+</div>
+<script>
+  function togglePrefsDrawer(show) {
+    const backdrop = document.getElementById('prefs-drawer-backdrop');
+    const panel = document.getElementById('prefs-drawer-panel');
+    if (!backdrop || !panel) return;
+    
+    if (show) {
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100', 'pointer-events-auto');
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+    } else {
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+      panel.classList.add('translate-x-full');
+      panel.classList.remove('translate-x-0');
+    }
+  }
+
+  function savePrefsToast() {
+    togglePrefsDrawer(false);
+    const toast = document.createElement('div');
+    toast.className = 'fixed bottom-6 right-6 z-50 bg-primary text-on-primary px-4 py-3 rounded-xl shadow-xl font-label-md text-label-md flex items-center gap-2 transition-all';
+    toast.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span> Preferences successfully synchronized';
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.classList.add('opacity-0');
+      setTimeout(() => toast.remove(), 400);
+    }, 2800);
+  }
+
+  function markAllAsRead() {
+    const unreadDots = document.querySelectorAll('.unread-dot');
+    unreadDots.forEach(dot => dot.remove());
+
+    const items = document.querySelectorAll('.notification-item[data-read="false"]');
+    items.forEach(el => {
+      el.setAttribute('data-read', 'true');
+      el.classList.remove('unread');
+    });
+
+    const display = document.getElementById('unread-count-display');
+    if (display) display.textContent = '0';
+
+    const pill = document.getElementById('unread-pill-badge');
+    if (pill) {
+      pill.textContent = '0';
+      pill.className = 'px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm';
+    }
+
+    const btn = document.getElementById('mark-all-read-btn');
+    if (btn) {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[19px]">check</span> All marked read';
+      btn.disabled = true;
+      btn.classList.add('opacity-60', 'cursor-default');
+    }
+  }
+
+  function dismissItem(button) {
+    const card = button.closest('.notification-item');
+    if (!card) return;
+
+    const wasUnread = card.getAttribute('data-read') === 'false';
+    card.setAttribute('data-read', 'true');
+    card.classList.remove('unread');
+    const dot = card.querySelector('.unread-dot');
+    if (dot) dot.remove();
+
+    if (wasUnread) {
+      const display = document.getElementById('unread-count-display');
+      const pill = document.getElementById('unread-pill-badge');
+      let count = parseInt(display.textContent, 10);
+      if (!isNaN(count) && count > 0) {
+        count -= 1;
+        display.textContent = count;
+        if (pill) pill.textContent = count;
+      }
+    }
+
+    card.classList.add('opacity-40');
+    setTimeout(() => {
+      card.classList.remove('opacity-40');
+    }, 300);
+  }
+
+  function setFilter(filterType, tabElement) {
+    document.querySelectorAll('.filter-tab').forEach(t => {
+      t.className = 'filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-secondary-container hover:bg-surface-container-high transition-all flex items-center gap-1.5';
+    });
+    tabElement.className = 'filter-tab px-4 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary transition-all flex items-center gap-1.5 shadow-sm';
+
+    const items = document.querySelectorAll('.notification-item');
+    let visibleCount = 0;
+
+    items.forEach(item => {
+      const isUnread = item.getAttribute('data-read') === 'false';
+      const category = item.getAttribute('data-category');
+
+      let show = false;
+      if (filterType === 'all') {
+        show = true;
+      } else if (filterType === 'unread') {
+        show = isUnread;
+      } else if (filterType === category) {
+        show = true;
+      }
+
+      if (show) {
+        item.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+
+    // Check group headers
+    document.querySelectorAll('.feed-group').forEach(group => {
+      const visibleChildren = group.querySelectorAll('.notification-item:not(.hidden)');
+      if (visibleChildren.length === 0) {
+        group.classList.add('hidden');
+      } else {
+        group.classList.remove('hidden');
+      }
+    });
+
+    const emptyState = document.getElementById('filter-empty-state');
+    if (visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+      emptyState.classList.add('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+    }
+  }
+</script></main>
+</div>
+<!-- Interactive Scripts: Theme Switcher & Checklist -->
+<script>
+    // Theme Switcher Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const iconLight = document.getElementById('theme-icon-light');
+    const iconDark = document.getElementById('theme-icon-dark');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+      }
+    }
+
+    // Default to Light mode or read preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentDark = false;
+    updateThemeUI(currentDark);
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        currentDark = !currentDark;
+        updateThemeUI(currentDark);
+      });
+    }
+
+    // Checklist interactive counters
+    document.querySelectorAll('.task-checkbox').forEach(box => {
+      box.addEventListener('change', () => {
+        const all = document.querySelectorAll('.task-checkbox');
+        const unchecked = Array.from(all).filter(b => !b.checked).length;
+        const badge = document.getElementById('tasks-remaining-badge');
+        if (badge) {
+          badge.textContent = `${unchecked} of ${all.length} tasks incomplete`;
+        }
+      });
+    });
+  </script>
+
+
+</body></html>

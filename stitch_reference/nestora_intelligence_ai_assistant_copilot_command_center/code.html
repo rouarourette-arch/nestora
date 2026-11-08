@@ -1,0 +1,612 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nestora - Buildings Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#234B3A",
+            "primary-container": "#234B3A",
+            "primary-dark": "#8FAF9A",
+            "secondary": "#476553",
+            "secondary-container": "#c9ebd4",
+            "warm-ivory": "#F7F6F0",
+            "warm-accent": "#D9A66F",
+            "tertiary-fixed": "#ffddbb",
+            "tertiary-container": "#5f3c0e",
+            "surface": "#F3F5F2",
+            "surface-card": "#FFFFFF",
+            "surface-container-low": "#ECEFEC",
+            "surface-container-high": "#e1e3e0",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#414844",
+            "text-muted": "#78847C",
+            "dark-bg": "#18231E",
+            "dark-surface": "#26372E",
+            "dark-sidebar": "#1D2A23",
+            "dark-border": "#354A3D",
+            "dark-text": "#F1F4F0",
+            "dark-text-muted": "#B1BDB4"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<meta content="web_dashboard" name="shell-type"></head>
+<body class="bg-[#F3F5F2] dark:bg-[#18231E] font-sans text-on-surface dark:text-[#F1F4F0] antialiased transition-colors duration-300">
+<!-- Persistent Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#1D2A23] border-r border-[#E3EAE4] dark:border-[#354A3D] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-colors duration-300" id="main-sidebar">
+<div class="flex flex-col">
+<!-- Logo + Brand name + Tagline Pill -->
+<div class="h-16 px-5 flex items-center justify-between border-b border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[18px] tracking-tight text-[#234B3A] dark:text-[#F1F4F0] leading-none">Nestora</span>
+<span class="text-[10px] font-semibold text-[#78847C] dark:text-[#B1BDB4] tracking-wide mt-0.5">Buildings OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#c9ebd4]/60 text-[#234B3A] dark:bg-[#354A3D] dark:text-[#8FAF9A]">PRO</span>
+</div>
+<!-- Workspace Dropdown with Quick Switch -->
+<div class="px-4 py-3">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-2.5 flex items-center justify-between border border-[#E3EAE4]/60 dark:border-[#354A3D]/70 hover:border-[#234B3A]/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-7 h-7 rounded-lg bg-[#234B3A]/10 dark:bg-[#8FAF9A]/20 flex items-center justify-center text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[17px]">apartment</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#78847C] dark:text-[#B1BDB4]">Workspace</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Nestora Buildings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[18px] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">swap_horiz</span>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-5 pt-1 pb-1.5 flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Main Management</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 px-3">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Buildings & Units -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="">Buildings &amp; Units</span>
+</a>
+<!-- Residents & Owners -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="">Residents &amp; Owners</span>
+</a>
+<!-- Shared Expenses -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="">Shared Expenses</span>
+</a>
+<!-- Maintenance (Badge 4) -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="">Maintenance</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[11px] font-bold">4</span>
+</a>
+<!-- Documents -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="">Documents</span>
+</a>
+<!-- Meetings & Voting -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">how_to_vote</span>
+<span class="">Meetings &amp; Voting</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="">Calendar</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="">Reports</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Community Care / Profile -->
+<div class="flex flex-col gap-2.5 p-3.5 border-t border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-3 flex flex-col gap-1 border border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2 text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[19px]">support_agent</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0]">Community Care</span>
+</div>
+<p class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4] leading-snug">Need operational guidance or 24/7 hotline?</p>
+<a class="text-[12px] font-semibold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-1 mt-1" href="#">
+<span class="">Support Desk</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-[#354A3D]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-[#1D2A23]"></span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[12.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Sarah Ben Ali</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Admin</span>
+</div>
+</div>
+<button class="text-[#78847C] dark:text-[#B1BDB4] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] p-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="pl-64">
+<!-- Top Header -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#F3F5F2]/80 dark:bg-[#18231E]/80 backdrop-blur-xl border-b border-[#E3EAE4] dark:border-[#354A3D] z-40 flex items-center justify-between px-6 transition-colors duration-300">
+<!-- Breadcrumb + Page Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-[13px] font-medium text-[#78847C] dark:text-[#B1BDB4]">
+<span class="hover:text-[#234B3A] dark:hover:text-[#8FAF9A] cursor-pointer">Nestora Buildings</span>
+<span class="text-[#78847C]/60">/</span>
+<span class="text-[#191c1b] dark:text-[#F1F4F0] font-semibold">Dashboard</span>
+</div>
+<!-- Search Bar with Ctrl+K -->
+<div class="relative flex items-center ml-2">
+<span class="material-symbols-outlined absolute left-3.5 text-[#78847C] dark:text-[#B1BDB4] text-[19px]">search</span>
+<input class="w-72 lg:w-80 h-10 pl-10 pr-12 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#191c1b] dark:text-[#F1F4F0] placeholder:text-[#78847C] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#234B3A] dark:focus:ring-[#8FAF9A] transition-all shadow-xs" placeholder="Search units, residents, tickets..." type="text">
+<kbd class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#ECEFEC] dark:bg-[#1D2A23] text-[#78847C] dark:text-[#B1BDB4]">Ctrl K</kbd>
+</div>
+<!-- Portfolio Status Tag -->
+<div class="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c9ebd4]/70 dark:bg-[#354A3D] border border-[#c9ebd4] dark:border-[#354A3D]">
+<span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#8FAF9A] animate-pulse"></span>
+<span class="text-[11px] font-bold text-[#234B3A] dark:text-[#8FAF9A] uppercase tracking-wider">12 Units Live</span>
+</div>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Interactive Theme Switcher Button -->
+<button class="relative flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#234B3A] dark:text-[#D9A66F] hover:scale-105 active:scale-95 shadow-xs transition-all" id="theme-toggle-btn" title="Toggle Light / Dark Theme" type="button">
+<!-- Sun Icon (for Dark mode) -->
+<span class="material-symbols-outlined text-[20px] hidden" id="theme-icon-light">light_mode</span>
+<!-- Moon Icon (for Light mode) -->
+<span class="material-symbols-outlined text-[20px]" id="theme-icon-dark">dark_mode</span>
+</button>
+<!-- Notifications with Badge -->
+<button class="relative w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] flex items-center justify-center text-[#414844] dark:text-[#F1F4F0] hover:bg-[#ECEFEC] dark:hover:bg-[#354A3D] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</span>
+</button>
+<div class="h-6 w-px bg-[#E3EAE4] dark:bg-[#354A3D] mx-1"></div>
+<!-- Profile Avatar & Details -->
+<div class="flex items-center gap-2.5 pl-1 py-1 pr-2 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] hover:shadow-xs transition-all cursor-pointer">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<div class="hidden md:flex flex-col text-left pr-1">
+<span class="text-[12px] font-bold text-[#191c1b] dark:text-[#F1F4F0] leading-none">Sarah Ben Ali</span>
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] mt-0.5 font-medium">(Admin)</span>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="relative pt-20 w-full px-6 py-6 min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Status Bar -->
+<div class="w-full bg-surface-container rounded-xl shadow-sm p-space-lg mb-space-lg">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Title & Context Breadcrumb -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap"><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Assistive Copilot Engine</span><span class="text-outline-variant font-label-sm text-label-sm">/</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Proposal &amp; Advisory Engine (Human Approval Required)</span></div>
+<div class="flex items-center gap-space-md flex-wrap">
+<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Nestora Intelligence — Copilot Hub</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> Assistive Proposal Mode (Execution Requires Admin Approval)</span>
+</div>
+</div>
+<!-- Quick Action Utility Bar -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-high text-on-secondary-container font-label-lg text-label-lg hover:bg-secondary-container transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="">System Prompt</span>
+</button>
+<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-high text-on-secondary-container font-label-lg text-label-lg hover:bg-secondary-container transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+<span class="">Export Logs</span>
+</button>
+<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-high text-on-secondary-container font-label-lg text-label-lg hover:bg-error-container hover:text-error transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span class="">Clear Thread</span>
+</button>
+</div>
+</div>
+<!-- Live Telemetry Badges Strip -->
+<div class="flex items-center gap-space-sm mt-space-md pt-space-md bg-surface-container-low rounded-xl px-space-md py-2.5 overflow-x-auto">
+<div class="flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">neurology</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Model:</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">Nestora-GPT-4o Omniscient v2.4</span>
+</div>
+<div class="w-1 h-3.5 bg-outline-variant shrink-0 rounded-full"></div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">memory</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Context:</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">128k Tokens Active</span>
+</div>
+<div class="w-1 h-3.5 bg-outline-variant shrink-0 rounded-full"></div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">speed</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Latency:</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">280ms P95</span>
+</div>
+<div class="w-1 h-3.5 bg-outline-variant shrink-0 rounded-full"></div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">shield</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Safety:</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">Strict (Escrow Gated)</span>
+</div>
+</div>
+</div>
+<!-- Top KPI Telemetry Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-lg"><div class="bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col justify-between"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Pending Work Orders</span><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-lg text-headline-lg font-bold text-primary">5</span><span class="font-label-sm text-label-sm text-secondary font-semibold">Drafted proposals</span></div></div><div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">build</span></div></div><div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-[16px]">verified</span><span class="font-label-sm text-label-sm text-on-surface-variant">Awaiting Admin Review</span></div><span class="font-label-sm text-label-sm font-bold text-primary">3 HVAC · 2 Plumbing</span></div></div><div class="bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col justify-between"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Expense Splitting</span><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-lg text-headline-lg font-bold text-primary">12</span><span class="font-label-sm text-label-sm text-secondary font-semibold">Units calculated</span></div></div><div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">receipt_long</span></div></div><div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">Draft allocation preview</span><span class="font-label-sm text-label-sm font-bold text-secondary">No auto-disburse</span></div></div><div class="bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col justify-between"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Meeting Agendas</span><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-lg text-headline-lg font-bold text-primary">2</span><span class="font-label-sm text-label-sm text-secondary font-semibold">Drafts prepared</span></div></div><div class="w-10 h-10 rounded-xl bg-tertiary-container flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[22px]">event_available</span></div></div><div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">AGM Dec 5 · Board Dec 12</span><span class="font-label-sm text-label-sm font-bold text-primary">Ready for Review</span></div></div><div class="bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col justify-between"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Review Queue</span><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-lg text-headline-lg font-bold text-primary">3</span><span class="font-label-sm text-label-sm text-secondary font-semibold">Requires human approval</span></div></div><div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">rate_review</span></div></div><div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">Work Orders &amp; Allocations</span><span class="font-label-sm text-label-sm font-bold text-secondary">Manual sign-off</span></div></div></div>
+<!-- Main Split Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Conversational AI Canvas (65% / 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Quick Prompt Suggestion Chips -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm">
+<span class="font-label-sm text-label-sm font-semibold uppercase text-secondary tracking-wider block mb-space-sm">Recommended Inquiries for Sarah Ben Ali</span>
+<div class="flex items-center gap-2 overflow-x-auto pb-1"><button class="prompt-chip shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface hover:bg-secondary-container hover:text-primary transition-colors text-left font-label-sm text-label-sm font-medium"><span class="material-symbols-outlined text-[16px] text-secondary">build</span><span class="">Draft Maintenance Work Order for HVAC Chiller SB-2</span></button><button class="prompt-chip shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface hover:bg-secondary-container hover:text-primary transition-colors text-left font-label-sm text-label-sm font-medium"><span class="material-symbols-outlined text-[16px] text-secondary">event_note</span><span class="">Prepare draft Meeting Agenda for AGM statutory quorum</span></button><button class="prompt-chip shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface hover:bg-secondary-container hover:text-primary transition-colors text-left font-label-sm text-label-sm font-medium"><span class="material-symbols-outlined text-[16px] text-secondary">receipt_long</span><span class="">Calculate shared expense splitting proposal for common utilities</span></button></div>
+</div>
+<!-- Conversational Transcript Feed -->
+<div class="bg-surface-container rounded-xl shadow-sm p-space-lg flex flex-col gap-space-lg">
+<!-- Message 1: User Request -->
+<div class="flex items-start gap-space-md flex-row-reverse">
+<div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-xs">
+<span class="font-label-sm text-label-sm font-bold">SB</span>
+</div>
+<div class="flex flex-col items-end max-w-[85%]">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Sarah Ben Ali</span>
+<span class="font-label-sm text-label-sm text-secondary">Building Admin · 10:42 AM</span>
+</div>
+<div class="bg-primary text-on-primary rounded-xl rounded-tr-none p-space-md font-body-md text-body-md shadow-xs">
+              Please analyze our HVAC maintenance telemetry from yesterday and determine why Tower A electricity consumption jumped by 24%.
+            </div>
+</div>
+</div>
+<!-- Message 2: Nestora Intelligence Response with Deep Reasoning & Telemetry Graph -->
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+<div class="flex flex-col max-w-[92%] w-full">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm font-bold text-primary">Nestora Intelligence</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-semibold">
+                Verified Ingestion
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">10:42 AM · 284ms</span>
+</div>
+<!-- Deep Reasoning Accordion/Pill -->
+<div class="bg-surface-container-low rounded-xl p-3.5 mb-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[17px] text-primary">psychology</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Assistive Multi-Modal Reasoning Trace</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">3 sources ingested</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Ingested <strong>4,820 Modbus BMS telemetry packets</strong> across 12 zones; cross-referenced with Pacific Hydro Work Order <strong>#WO-8911</strong> and local ambient wet-bulb weather metrics (42.4°F). Identified valve bypass divergence on Chiller SB-2.
+              </p>
+</div>
+<!-- Rich Telemetry Insight Visual Card -->
+<div class="bg-surface-container-high rounded-xl p-space-md mb-space-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Tower A Primary Bus Load Trace (Yesterday)</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-error">+24.3% Anomaly Spike</span>
+</div>
+<!-- Inline SVG Sparkline / Bar Graph Visualization -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-3">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-secondary">Kilowatt Demand (00:00 — 23:59)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Surge window: <strong>11:00 AM – 3:30 PM</strong></span>
+</div>
+<svg class="w-full h-24 overflow-visible" preserveAspectRatio="none" viewBox="0 0 600 100">
+<defs>
+<linearGradient id="spikeGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#BA1A1A" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#BA1A1A" stop-opacity="0.0"></stop>
+</linearGradient>
+<linearGradient id="normGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#093425" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#093425" stop-opacity="0.0"></stop>
+</linearGradient>
+</defs>
+<!-- Baseline normal line -->
+<path d="M 0 75 Q 75 70 150 72 T 300 70 T 450 68 T 600 74" fill="none" stroke="#DDEDE2" stroke-dasharray="4 4" stroke-width="2"></path>
+<!-- Shaded surge area -->
+<path d="M 230 71 L 230 20 L 380 18 L 380 69 Z" fill="url(#spikeGradient)"></path>
+<!-- Actual continuous telemetry line with peak -->
+<path d="M 0 78 L 70 76 L 140 74 L 210 70 L 240 32 L 280 22 L 320 18 L 360 25 L 390 68 L 460 70 L 530 73 L 600 75" fill="none" stroke="#BA1A1A" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<!-- Normal line before surge -->
+<path d="M 0 78 L 70 76 L 140 74 L 210 70" fill="none" stroke="#093425" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="320" cy="18" fill="#BA1A1A" r="4"></circle>
+<text class="font-label-sm text-[11px] font-bold" fill="#BA1A1A" text-anchor="middle" x="320" y="10">Peak: 488 kW (Chiller runaway)</text>
+</svg>
+<div class="flex justify-between text-secondary font-label-sm text-[11px] mt-2">
+<span class="">00:00 (Idle)</span>
+<span class="">06:00</span>
+<span class="text-error font-bold">11:00 AM (WO-8911 Test)</span>
+<span class="">16:00 (Manual throttle)</span>
+<span class="">23:59</span>
+</div>
+</div>
+<!-- Root Cause Explanation -->
+<div class="mt-space-md p-space-sm bg-surface-container rounded-lg flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">warning</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Identified Root Cause</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Hydronic valve bypass on <strong>Chiller Sub-Basement 2</strong> remained <strong>60% open</strong> following the 11:15 AM emergency valve calibration test, causing compressor loop runaway against cold water loop setpoints.
+                  </p>
+</div>
+</div>
+<!-- Proposed Action Plan Box -->
+<div class="mt-space-md p-space-md bg-secondary-container rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-secondary-container">Recommended Remediation Action</span>
+<span class="font-body-sm text-body-sm text-on-secondary-fixed-variant">Draft expedited work order dispatch to Trane Commercial ($420.00 estimate)</span>
+</div>
+</div>
+<button class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:opacity-95 transition-opacity shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px]">send_time_extension</span>
+<span class="">Approve Dispatch</span>
+</button>
+</div>
+</div>
+<!-- Context Action Control Chips -->
+<div class="flex items-center gap-2 flex-wrap">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">ssid_chart</span>
+<span class="">Inspect Raw BMS Packets</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">share</span>
+<span class="">Share Summary with Board</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">thumb_up</span>
+<span class="">Helpful Insight</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Message 3: Autonomous Proactive Notification -->
+<div class="flex items-start gap-space-md"><div class="w-9 h-9 rounded-full bg-tertiary-container text-tertiary flex items-center justify-center shrink-0 shadow-xs"><span class="material-symbols-outlined text-[20px]">notifications_active</span></div><div class="flex flex-col max-w-[92%] w-full"><div class="flex items-center gap-2 mb-1"><span class="font-label-sm text-label-sm font-bold text-primary">Nestora Assistive Advisory</span><span class="font-label-sm text-label-sm text-secondary">Routine Check · 10:44 AM</span></div><div class="bg-surface-container-high rounded-xl p-space-md"><div class="flex items-start gap-space-sm"><span class="material-symbols-outlined text-tertiary text-[20px] shrink-0">assignment_late</span><div class="flex flex-col"><span class="font-label-sm text-label-sm font-bold text-on-surface">Proposed Work Order: 3 Vendor COI Renewals Expiring Within 14 Days</span><p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">Certificates of Insurance (COI) for <strong>Apex Elevator Systems</strong>, <strong>CleanGreen Landscaping</strong>, and <strong>Sound Fire Protection</strong> lapse before Dec 15. Standard RCW 64.90 liability clause requires manual verification and admin dispatch approval prior to physical premises work.</p><div class="flex items-center gap-3 mt-space-sm"><button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm hover:opacity-90 transition-opacity" type="button"><span class="material-symbols-outlined text-[16px]">edit_document</span><span class="">Review Proposed Work Orders</span></button><button class="px-2 py-1 text-secondary hover:text-error font-label-sm text-label-sm font-semibold" type="button">Reject Draft</button><button class="text-secondary hover:text-primary font-label-sm text-label-sm font-semibold" type="button">Dismiss</button></div></div></div></div></div></div>
+</div>
+<!-- Rich Multimodal Copilot Command Bar -->
+<div class="bg-surface-container rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Multimodal Prompt Console</span>
+<span class="text-outline-variant font-label-sm text-label-sm">|</span>
+<span class="font-label-sm text-label-sm text-secondary">Audio, Modbus, PDF, &amp; Financial Ledger Support</span>
+</div>
+<div class="relative flex items-center bg-surface-container-low rounded-xl p-2 focus-within:bg-surface-container-lowest transition-colors shadow-inner">
+<textarea class="w-full bg-transparent resize-none border-0 text-on-surface placeholder:text-secondary font-body-sm text-body-sm p-2 focus:ring-0 focus:outline-none min-h-[56px] max-h-36" id="chat-prompt-input" placeholder="Ask Nestora Intelligence to analyze, draft notices, inspect bylaws, or compute budget spreads..."></textarea>
+<div class="flex items-center gap-1.5 ml-2 shrink-0">
+<!-- Attach File/Invoice -->
+<button class="p-2 rounded-lg text-secondary hover:text-primary hover:bg-surface-container-high transition-colors" title="Attach Document or Invoices (PDF/CSV)" type="button">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+<!-- Link BMS Sensor/Unit -->
+<button class="p-2 rounded-lg text-secondary hover:text-primary hover:bg-surface-container-high transition-colors" title="Link BMS Node or Unit ID" type="button">
+<span class="material-symbols-outlined text-[20px]">dataset</span>
+</button>
+<!-- Mic / Speech Input -->
+<button class="p-2 rounded-lg text-secondary hover:text-primary hover:bg-surface-container-high transition-colors" title="Voice Dictation" type="button">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<!-- Send Button -->
+<button class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary text-on-primary hover:opacity-95 transition-opacity shadow-xs" id="send-prompt-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between px-1 text-secondary font-label-sm text-[11px]">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">enhanced_encryption</span>
+<span class="">Tenant data isolated with zero external training retention</span>
+</div>
+<span class="">Escrow write lock active</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Context Awareness & Proactive Intelligence Rail (35% / 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Active Context Memory Card -->
+<div class="bg-surface-container rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">memory_alt</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Context Memory</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold">128k Live</span>
+</div>
+<!-- Property Visual Card with Injected Placeholder & Data-Alt -->
+<div class="relative w-full h-32 rounded-xl overflow-hidden mb-space-md shadow-xs">
+<img class="w-full h-full object-cover" data-alt="Modern architectural photography of Green Park Towers luxury residential high-rise building with lush green botanical gardens, glass facade in soft natural morning daylight, deep emerald tones, architectural calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSgnzPeumWx1lK6xkkTvqTK_Ik5VIHHeLNk1pmQ9ucbcgA_NrG7iTc1CEW4V1B56bgf7XIUUKDDLoF81suNXWvsQeZCAi9_YICvKgADmqoVIL0KYvMJCv6al5dNI5J_qkr7Cy6AHbKGxapS6w0NyMYVVqMCbyCIGstSnNEyW85qDmVZse5E4grSeiULAQMwS9Ak63TGQKIxaRPl8cDpQBOUuRZdDPz_4OHZ6FstVI">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex items-end p-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-primary">Green Park Towers (NYC)</span>
+<span class="font-label-sm text-[11px] text-secondary-container">Portfolio ID: #NY-GPT-441</span>
+</div>
+</div>
+</div>
+<!-- Memory Domains -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[17px]">account_balance</span>
+<span class="font-label-sm text-label-sm font-medium text-on-surface">Financial Ledger</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary">Synced (10m ago)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[17px]">sensors</span>
+<span class="font-label-sm text-label-sm font-medium text-on-surface">IoT BMS Gateways</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary">1,420 Feeds Live</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[17px]">policy</span>
+<span class="font-label-sm text-label-sm font-medium text-on-surface">RCW 64.90 Statutory Bylaws</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary">Indexed (v4.2)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[17px]">badge</span>
+<span class="font-label-sm text-label-sm font-medium text-on-surface">Occupant Directory</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary">68 Profiles</span>
+</div>
+</div>
+<!-- Active Integrations Sub-strip -->
+<div class="mt-space-md pt-space-sm flex flex-col gap-2"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Supported Backend Services</span><div class="flex items-center gap-2 flex-wrap"><span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Expense Ledger (Drafting)</span><span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Work Order Dispatch</span><span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Meeting Agendas</span><span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Document Indexing</span></div></div>
+</div>
+<!-- Proactive Recommendations Engine (3 Cards) -->
+<div class="bg-surface-container rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">rule_folder</span><h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Proactive Proposal Queue</h2></div><span class="w-6 h-6 rounded-full bg-secondary-container text-primary font-label-sm text-label-sm font-bold flex items-center justify-center">3</span></div><div class="bg-surface-container-high rounded-xl p-space-md flex flex-col gap-2 shadow-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">build</span> Maintenance Work Order</span><span class="font-label-sm text-label-sm text-secondary font-semibold">Requires Approval</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Drafted work order for HVAC Chiller SB-2 hydronic valve bypass calibration with Trane Commercial ($420.00 estimate). Awaiting admin sign-off.</p><div class="flex items-center gap-2 mt-1"><button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:opacity-95 transition-opacity" type="button"><span class="material-symbols-outlined text-[15px]">edit_note</span><span class="">Review Work Order</span></button><button class="px-2 py-1 text-secondary hover:text-primary font-label-sm text-label-sm" type="button">Dismiss</button></div></div><div class="bg-surface-container-high rounded-xl p-space-md flex flex-col gap-2 shadow-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-bold text-tertiary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">event_available</span> Meeting Agenda Proposal</span><span class="font-label-sm text-label-sm text-error font-bold">Draft Ready</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Draft agenda compiled for Dec 5 AGM meeting: Quorum status resolution, 2025 Reserve Study review, and vendor renewals.</p><div class="flex items-center gap-2 mt-1"><button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:opacity-95 transition-opacity" type="button"><span class="material-symbols-outlined text-[15px]">visibility</span><span class="">Review Agenda</span></button><button class="px-2 py-1 text-secondary hover:text-primary font-label-sm text-label-sm" type="button">Dismiss</button></div></div><div class="bg-surface-container-high rounded-xl p-space-md flex flex-col gap-2 shadow-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-bold text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">receipt_long</span> Expense Splitting Review</span><span class="font-label-sm text-label-sm text-secondary">12 Units</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Calculated November shared utility cost allocations ($3,840.00 total) across residential units according to square-footage bylaws. No automated payment execution.</p><div class="flex items-center gap-2 mt-1"><button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold hover:bg-secondary-container transition-colors" type="button"><span class="material-symbols-outlined text-[15px]">fact_check</span><span class="">Inspect Allocation Split</span></button></div></div></div>
+<!-- AI Audit & Governance Footnote -->
+<div class="bg-surface-container rounded-xl shadow-sm p-space-md flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Cryptographic Audit Signature</span>
+<p class="font-label-sm text-[11px] text-secondary leading-snug">All AI recommendations are non-autonomous proposals requiring explicit admin authorization before any work order dispatch or ledger commitment.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple prompt chip click autofill
+  document.querySelectorAll('.prompt-chip').forEach(button => {
+    button.addEventListener('click', () => {
+      const input = document.getElementById('chat-prompt-input');
+      const text = button.querySelector('span:last-child').textContent.trim();
+      if (input) {
+        input.value = text;
+        input.focus();
+      }
+    });
+  });
+
+  // Basic interaction feedback for Send
+  const sendBtn = document.getElementById('send-prompt-btn');
+  const chatInput = document.getElementById('chat-prompt-input');
+  if (sendBtn && chatInput) {
+    sendBtn.addEventListener('click', () => {
+      if (chatInput.value.trim() !== '') {
+        chatInput.value = '';
+        chatInput.placeholder = 'Inference dispatched to Nestora-GPT-4o engine...';
+        setTimeout(() => {
+          chatInput.placeholder = 'Ask Nestora Intelligence to analyze, draft notices, inspect bylaws, or compute budget spreads...';
+        }, 2500);
+      }
+    });
+  }
+</script></main>
+</div>
+<!-- Interactive Scripts: Theme Switcher & Checklist -->
+<script>
+    // Theme Switcher Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const iconLight = document.getElementById('theme-icon-light');
+    const iconDark = document.getElementById('theme-icon-dark');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+      }
+    }
+
+    // Default to Light mode or read preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentDark = false;
+    updateThemeUI(currentDark);
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        currentDark = !currentDark;
+        updateThemeUI(currentDark);
+      });
+    }
+
+    // Checklist interactive counters
+    document.querySelectorAll('.task-checkbox').forEach(box => {
+      box.addEventListener('change', () => {
+        const all = document.querySelectorAll('.task-checkbox');
+        const unchecked = Array.from(all).filter(b => !b.checked).length;
+        const badge = document.getElementById('tasks-remaining-badge');
+        if (badge) {
+          badge.textContent = `${unchecked} of ${all.length} tasks incomplete`;
+        }
+      });
+    });
+  </script>
+
+
+</body></html>

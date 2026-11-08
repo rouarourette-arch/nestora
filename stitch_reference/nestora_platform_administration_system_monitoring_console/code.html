@@ -1,0 +1,1043 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nestora - Buildings Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#234B3A",
+            "primary-container": "#234B3A",
+            "primary-dark": "#8FAF9A",
+            "secondary": "#476553",
+            "secondary-container": "#c9ebd4",
+            "warm-ivory": "#F7F6F0",
+            "warm-accent": "#D9A66F",
+            "tertiary-fixed": "#ffddbb",
+            "tertiary-container": "#5f3c0e",
+            "surface": "#F3F5F2",
+            "surface-card": "#FFFFFF",
+            "surface-container-low": "#ECEFEC",
+            "surface-container-high": "#e1e3e0",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#414844",
+            "text-muted": "#78847C",
+            "dark-bg": "#18231E",
+            "dark-surface": "#26372E",
+            "dark-sidebar": "#1D2A23",
+            "dark-border": "#354A3D",
+            "dark-text": "#F1F4F0",
+            "dark-text-muted": "#B1BDB4"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<meta content="web_dashboard" name="shell-type"></head>
+<body class="bg-[#F3F5F2] dark:bg-[#18231E] font-sans text-on-surface dark:text-[#F1F4F0] antialiased transition-colors duration-300">
+<!-- Persistent Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#1D2A23] border-r border-[#E3EAE4] dark:border-[#354A3D] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-colors duration-300" id="main-sidebar">
+<div class="flex flex-col">
+<!-- Logo + Brand name + Tagline Pill -->
+<div class="h-16 px-5 flex items-center justify-between border-b border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#234B3A] dark:bg-[#8FAF9A] text-white dark:text-[#18231E] flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[18px] tracking-tight text-[#234B3A] dark:text-[#F1F4F0] leading-none">Nestora</span>
+<span class="text-[10px] font-semibold text-[#78847C] dark:text-[#B1BDB4] tracking-wide mt-0.5">Buildings OS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#c9ebd4]/60 text-[#234B3A] dark:bg-[#354A3D] dark:text-[#8FAF9A]">PRO</span>
+</div>
+<!-- Workspace Dropdown with Quick Switch -->
+<div class="px-4 py-3">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-2.5 flex items-center justify-between border border-[#E3EAE4]/60 dark:border-[#354A3D]/70 hover:border-[#234B3A]/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-7 h-7 rounded-lg bg-[#234B3A]/10 dark:bg-[#8FAF9A]/20 flex items-center justify-center text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[17px]">apartment</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#78847C] dark:text-[#B1BDB4]">Workspace</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Nestora Buildings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[18px] group-hover:text-[#234B3A] dark:group-hover:text-[#8FAF9A] transition-colors">swap_horiz</span>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-5 pt-1 pb-1.5 flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#78847C] dark:text-[#B1BDB4] uppercase tracking-wider">Main Management</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 px-3">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Buildings & Units -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="">Buildings &amp; Units</span>
+</a>
+<!-- Residents & Owners -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="">Residents &amp; Owners</span>
+</a>
+<!-- Shared Expenses -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="">Shared Expenses</span>
+</a>
+<!-- Maintenance (Badge 4) -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="">Maintenance</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#c9ebd4] dark:bg-[#354A3D] text-[#234B3A] dark:text-[#8FAF9A] text-[11px] font-bold">4</span>
+</a>
+<!-- Documents -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="">Documents</span>
+</a>
+<!-- Meetings & Voting -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">how_to_vote</span>
+<span class="">Meetings &amp; Voting</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="">Calendar</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-[#414844] dark:text-[#B1BDB4] hover:bg-[#ECEFEC] dark:hover:bg-[#26372E] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] font-medium text-[13.5px] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="">Reports</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Community Care / Profile -->
+<div class="flex flex-col gap-2.5 p-3.5 border-t border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="bg-[#ECEFEC]/80 dark:bg-[#26372E] rounded-xl p-3 flex flex-col gap-1 border border-[#E3EAE4]/60 dark:border-[#354A3D]/60">
+<div class="flex items-center gap-2 text-[#234B3A] dark:text-[#8FAF9A]">
+<span class="material-symbols-outlined text-[19px]">support_agent</span>
+<span class="text-[13px] font-bold text-[#191c1b] dark:text-[#F1F4F0]">Community Care</span>
+</div>
+<p class="text-[11.5px] text-[#78847C] dark:text-[#B1BDB4] leading-snug">Need operational guidance or 24/7 hotline?</p>
+<a class="text-[12px] font-semibold text-[#234B3A] dark:text-[#8FAF9A] hover:underline flex items-center gap-1 mt-1" href="#">
+<span class="">Support Desk</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-[#354A3D]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-[#1D2A23]"></span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-[12.5px] font-bold text-[#191c1b] dark:text-[#F1F4F0] truncate">Sarah Ben Ali</span>
+<span class="text-[11px] text-[#78847C] dark:text-[#B1BDB4]">Admin</span>
+</div>
+</div>
+<button class="text-[#78847C] dark:text-[#B1BDB4] hover:text-[#191c1b] dark:hover:text-[#F1F4F0] p-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="pl-64">
+<!-- Top Header -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#F3F5F2]/80 dark:bg-[#18231E]/80 backdrop-blur-xl border-b border-[#E3EAE4] dark:border-[#354A3D] z-40 flex items-center justify-between px-6 transition-colors duration-300">
+<!-- Breadcrumb + Page Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-[13px] font-medium text-[#78847C] dark:text-[#B1BDB4]">
+<span class="hover:text-[#234B3A] dark:hover:text-[#8FAF9A] cursor-pointer">Nestora Buildings</span>
+<span class="text-[#78847C]/60">/</span>
+<span class="text-[#191c1b] dark:text-[#F1F4F0] font-semibold">Dashboard</span>
+</div>
+<!-- Search Bar with Ctrl+K -->
+<div class="relative flex items-center ml-2">
+<span class="material-symbols-outlined absolute left-3.5 text-[#78847C] dark:text-[#B1BDB4] text-[19px]">search</span>
+<input class="w-72 lg:w-80 h-10 pl-10 pr-12 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#191c1b] dark:text-[#F1F4F0] placeholder:text-[#78847C] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#234B3A] dark:focus:ring-[#8FAF9A] transition-all shadow-xs" placeholder="Search units, residents, tickets..." type="text">
+<kbd class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#ECEFEC] dark:bg-[#1D2A23] text-[#78847C] dark:text-[#B1BDB4]">Ctrl K</kbd>
+</div>
+<!-- Portfolio Status Tag -->
+<div class="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c9ebd4]/70 dark:bg-[#354A3D] border border-[#c9ebd4] dark:border-[#354A3D]">
+<span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#8FAF9A] animate-pulse"></span>
+<span class="text-[11px] font-bold text-[#234B3A] dark:text-[#8FAF9A] uppercase tracking-wider">12 Units Live</span>
+</div>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Interactive Theme Switcher Button -->
+<button class="relative flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] text-[#234B3A] dark:text-[#D9A66F] hover:scale-105 active:scale-95 shadow-xs transition-all" id="theme-toggle-btn" title="Toggle Light / Dark Theme" type="button">
+<!-- Sun Icon (for Dark mode) -->
+<span class="material-symbols-outlined text-[20px] hidden" id="theme-icon-light">light_mode</span>
+<!-- Moon Icon (for Light mode) -->
+<span class="material-symbols-outlined text-[20px]" id="theme-icon-dark">dark_mode</span>
+</button>
+<!-- Notifications with Badge -->
+<button class="relative w-10 h-10 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] flex items-center justify-center text-[#414844] dark:text-[#F1F4F0] hover:bg-[#ECEFEC] dark:hover:bg-[#354A3D] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</span>
+</button>
+<div class="h-6 w-px bg-[#E3EAE4] dark:bg-[#354A3D] mx-1"></div>
+<!-- Profile Avatar & Details -->
+<div class="flex items-center gap-2.5 pl-1 py-1 pr-2 rounded-full bg-white dark:bg-[#26372E] border border-[#E3EAE4] dark:border-[#354A3D] hover:shadow-xs transition-all cursor-pointer">
+<img alt="Sarah Ben Ali" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKbsMvjv0a6Wg3FycMnBSJbedG6ySDIOuOcD4g0TQgJ7UZqsb9Ym7zXi8DKLgGNUUXHkrzvLCBwN28WhA89VK64Hrcp6arvhxXRKMhTPxlC-1xXPTQr2HSHNZX91YsNk0x-CShmc5xU1ClKmsDquUCmS4x3ltOhRoLCkvqQecRGw4-qvDMHZNmeE82eoYg-28puuZK8XqNsrNG6p5vCBMQstF7U3a4tr2Bew3jyY">
+<div class="hidden md:flex flex-col text-left pr-1">
+<span class="text-[12px] font-bold text-[#191c1b] dark:text-[#F1F4F0] leading-none">Sarah Ben Ali</span>
+<span class="text-[10px] text-[#78847C] dark:text-[#B1BDB4] mt-0.5 font-medium">(Admin)</span>
+</div>
+<span class="material-symbols-outlined text-[#78847C] dark:text-[#B1BDB4] text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="relative pt-20 w-full px-6 py-6 min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow -->
+<div class="relative w-full">
+<div class="absolute -top-12 right-12 w-96 h-96 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-48 left-1/4 w-80 h-80 rounded-full bg-tertiary-container/30 blur-3xl pointer-events-none -z-10"></div>
+<!-- 1. Breadcrumb, Header & Global Cluster Metadata -->
+<header class="flex flex-col gap-5 pb-6">
+<!-- Breadcrumb Bar & Quick Metadata Tags -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary transition-colors cursor-pointer">Nestora Ecosystem</span>
+<span class="text-on-surface-variant/40">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Administration &amp; Infrastructure</span>
+<span class="text-on-surface-variant/40">/</span>
+<span class="text-primary font-bold">Platform Admin Console</span>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<!-- Cluster Live Indicator -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-on-surface shadow-xs">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wide">Cluster: us-west-2 (Prod-Ecosystem)</span>
+</div>
+<!-- Uptime Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed shadow-xs">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm font-bold">99.98% Uptime SLA</span>
+</div>
+<!-- Tenants Count -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant shadow-xs">
+<span class="material-symbols-outlined text-[15px]">apartment</span>
+<span class="font-label-sm text-label-sm font-semibold">48 Orgs / 142 Communities</span>
+</div>
+<!-- Security Compliance -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant shadow-xs">
+<span class="material-symbols-outlined text-[15px]">lock</span>
+<span class="font-label-sm text-label-sm font-semibold">TLS 1.3 / SOC2 Type II</span>
+</div>
+</div>
+</div>
+<!-- Main Title & Operational Buttons Strip -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Platform Administration &amp; System Monitoring</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-4xl">
+            Real-time telemetry, microservices orchestration mesh, multi-tenant database isolation quotas, and distributed ledger gateway health across all live property sectors.
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-2.5 shrink-0">
+<!-- Download SOC2 Audit -->
+<button class="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-all shadow-xs cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[19px]">download</span>
+<span class="">SOC2 Audit (PDF)</span>
+</button>
+<!-- Scheduler -->
+<button class="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-all shadow-xs cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[19px]">event_repeat</span>
+<span class="">Maintenance Window</span>
+</button>
+<!-- Deploy Hotfix / Emergency Patch -->
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-all shadow-md hover:shadow-lg cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[19px]">rocket_launch</span>
+<span class="">Deploy Hotfix</span>
+</button>
+</div>
+</div>
+</header>
+<!-- 2. Executive Infrastructure KPI Strip (4-Card Metric Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 pb-6">
+<!-- KPI 1: API Gateway Throughput -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">API Gateway &amp; Edge</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">4,820</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">req/s</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed/50 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">swap_calls</span>
+</div>
+</div>
+<!-- Latency Metrics & Sparkline Visual -->
+<div class="mt-4 pt-3 bg-surface-container-low/60 rounded-xl p-3">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Latency p50: <strong class="text-on-surface">24ms</strong></span>
+<span class="">p99: <strong class="text-on-surface">68ms</strong></span>
+<span class="text-emerald-700 font-bold">2xx: 99.94%</span>
+</div>
+<!-- Inline Sparkline SVG -->
+<div class="h-8 w-full mt-2">
+<svg class="w-full h-full text-secondary" fill="none" preserveAspectRatio="none" viewBox="0 0 240 32">
+<path d="M0,24 Q15,22 30,18 T60,20 T90,14 T120,22 T150,10 T180,16 T210,8 T240,12" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
+<path d="M0,24 Q15,22 30,18 T60,20 T90,14 T120,22 T150,10 T180,16 T210,8 T240,12 L240,32 L0,32 Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- KPI 2: Compute Fleet & K8s Node Pool -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Compute &amp; Pod Fleet</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">86 / 94</span>
+<span class="font-label-md text-label-md text-emerald-700 font-semibold">Nodes Active</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">developer_board</span>
+</div>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/60 rounded-xl p-3 flex flex-col gap-2">
+<!-- CPU Progress -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1 text-on-surface-variant">
+<span class="">CPU Load: <strong>42% Avg</strong></span>
+<span class="">Headroom: Healthy</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 42%;"></div>
+</div>
+</div>
+<!-- RAM Progress -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1 text-on-surface-variant">
+<span class="">Memory: <strong>384 / 660 GB</strong></span>
+<span class="text-primary font-bold">58%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full transition-all duration-500" style="width: 58%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- KPI 3: Multi-Tenant Data Isolation & Aurora Cluster -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Postgres / Redis Aurora</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">14.2 TB</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">Managed</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">database</span>
+</div>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/60 rounded-xl p-3 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Replication Lag:</span>
+<span class="font-bold text-emerald-700 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> 3ms (Hot Sync)
+            </span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Read Replica IOPS:</span>
+<span class="font-bold text-on-surface">18,420 peak</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Active Connections:</span>
+<span class="font-bold text-on-surface">612 pool connections</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Security Shield & Threat Intelligence -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Threat Shield &amp; WAF</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md text-emerald-800 font-bold">0 Active</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">P0 Incidents</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-tertiary-container text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">shield_lock</span>
+</div>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/60 rounded-xl p-3 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">WAF Filtered Challenges:</span>
+<span class="font-bold text-on-surface">1,420 blocked</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">MFA Enforcement:</span>
+<span class="font-bold text-emerald-700">100% Admin / 98.2% Resident</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">DLP / Data Leak Scans:</span>
+<span class="font-bold text-on-surface">Passed (0 flags)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Primary Workspace Grid: Main Operations (Left 2/3) + Security Telemetry Rail (Right 1/3) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pb-8">
+<!-- LEFT 8 COLS: Core Operational Health, Resource Allocations & Tenant Directory -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Panel A: System Service Mesh Matrix -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[19px]">hub</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Microservices &amp; Infrastructure Mesh</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous health ping every 1,500ms across all cluster pods</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mesh Protocol: Envoy v1.28</span>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="Force Refresh" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+</div>
+<!-- Service List Items -->
+<div class="flex flex-col gap-2.5 mt-2">
+<!-- Service 1: Auth & IAM Service -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-3.5 rounded-xl bg-surface hover:bg-surface-container/60 transition-colors gap-3">
+<div class="flex items-center gap-3.5">
+<div class="w-3 h-3 rounded-full bg-emerald-500 shadow-xs"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Auth &amp; IAM Identity Gateway</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">OAuth2 / Keycloak</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">JWT Token Revocation, Session broker, Resident SAML Federation</span>
+</div>
+</div>
+<div class="flex items-center gap-4 shrink-0 font-label-md text-label-md">
+<div class="text-right">
+<span class="text-emerald-800 font-bold">99.99% Healthy</span>
+<span class="block text-on-surface-variant text-label-sm">p50 Latency: 12ms</span>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-secondary-fixed text-primary font-bold text-label-sm">18 Pods</span>
+</div>
+</div>
+<!-- Service 2: Buildings Real-Time Engine -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-3.5 rounded-xl bg-surface hover:bg-surface-container/60 transition-colors gap-3">
+<div class="flex items-center gap-3.5">
+<div class="w-3 h-3 rounded-full bg-emerald-500 shadow-xs"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Buildings Real-Time Telemetry Engine</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm">WebSocket &amp; MQTT</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">IoT BMS Bridge, smart access turnstiles, elevator dispatch feeds</span>
+</div>
+</div>
+<div class="flex items-center gap-4 shrink-0 font-label-md text-label-md">
+<div class="text-right">
+<span class="text-emerald-800 font-bold">99.98% Live</span>
+<span class="block text-on-surface-variant text-label-sm">1,420 Socket Conns</span>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface font-bold text-label-sm">24 Pods</span>
+</div>
+</div>
+<!-- Service 3: Financial Settlement & Ledger Engine -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-3.5 rounded-xl bg-surface hover:bg-surface-container/60 transition-colors gap-3">
+<div class="flex items-center gap-3.5">
+<div class="w-3 h-3 rounded-full bg-emerald-500 shadow-xs"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Internal Financial Settlement &amp; Ledger Engine</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">PostgreSQL / Double-Entry Audit</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Double-entry ledger immutable write verification, automated rent escrow</span>
+</div>
+</div>
+<div class="flex items-center gap-4 shrink-0 font-label-md text-label-md">
+<div class="text-right">
+<span class="text-emerald-800 font-bold">100.0% Nominal</span>
+<span class="block text-on-surface-variant text-label-sm">0 Failed Webhooks (24h)</span>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface font-bold text-label-sm">12 Pods</span>
+</div>
+</div>
+<!-- Service 4: Communications Hub -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-3.5 rounded-xl bg-surface hover:bg-surface-container/60 transition-colors gap-3">
+<div class="flex items-center gap-3.5">
+<div class="w-3 h-3 rounded-full bg-amber-500 shadow-xs"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Multi-Channel Resident Communications Hub</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">Twilio / SendGrid / FCM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Emergency SMS broadcasts, concierge app push queues, building lobby screens</span>
+</div>
+</div>
+<div class="flex items-center gap-4 shrink-0 font-label-md text-label-md">
+<div class="text-right">
+<span class="text-amber-800 font-bold">99.92% High Load</span>
+<span class="block text-on-surface-variant text-label-sm">Queue Latency: 320ms</span>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface font-bold text-label-sm">16 Pods</span>
+</div>
+</div>
+<!-- Service 5: Document Vault & KMS -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-3.5 rounded-xl bg-surface hover:bg-surface-container/60 transition-colors gap-3">
+<div class="flex items-center gap-3.5">
+<div class="w-3 h-3 rounded-full bg-emerald-500 shadow-xs"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Document Vault &amp; Cryptographic KMS</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">AWS S3 / AES-256</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lease agreement signatures, deed escrow, asynchronous ClamAV virus scanning</span>
+</div>
+</div>
+<div class="flex items-center gap-4 shrink-0 font-label-md text-label-md">
+<div class="text-right">
+<span class="text-emerald-800 font-bold">99.99% Nominal</span>
+<span class="block text-on-surface-variant text-label-sm">KMS Envelope Encrypted</span>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface font-bold text-label-sm">10 Pods</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel B: Cluster Resource Utilization & Tenant Storage Breakdown (Visual Data Viz) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Visual 1: Real-Time Cluster Resource Balance -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Cluster Resource Distribution</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last 6 Hours</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Worker pod CPU load split across core execution tiers</p>
+<!-- Clean SVG Multi-Bar Telemetry Chart -->
+<div class="space-y-3.5">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1 text-on-surface">
+<span class="">Core Web &amp; API Ingress (42 pods)</span>
+<span class="font-bold">48% capacity</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="bg-primary h-full rounded-full" style="width: 48%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1 text-on-surface">
+<span class="">IoT BMS &amp; MQTT Telemetry (24 pods)</span>
+<span class="font-bold">36% capacity</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full rounded-full" style="width: 36%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1 text-on-surface">
+<span class="">Background Ledger &amp; Nightly Reconciliation</span>
+<span class="font-bold">18% capacity</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full" style="width: 18%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1 text-on-surface">
+<span class="">Standby Disaster Recovery Failover Buffer</span>
+<span class="font-bold">25% reserved</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="bg-surface-variant h-full rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-5 pt-4 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low p-3 rounded-xl">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> Auto-scale Policy: 75% limit</span>
+<span class="font-bold text-primary">Cooldown: 180s</span>
+</div>
+</div>
+<!-- Visual 2: Multi-Tenant Schema Storage Distribution -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Storage Isolation by Workspace</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14.2 TB Total</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Partitioned schema boundaries with zero shared tenant buffers</p>
+<!-- Schema distribution cards -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface">
+<div class="flex items-center gap-2.5">
+<div class="w-2 h-7 rounded-full bg-primary"></div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Green Park Towers (NYC)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Schema: nestora_gpt_01 • 3,240 Units</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">4.8 TB</span>
+<span class="block font-label-sm text-label-sm text-emerald-700 font-semibold">99.98% SLA</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface">
+<div class="flex items-center gap-2.5">
+<div class="w-2 h-7 rounded-full bg-secondary"></div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface">Oakwood Co-Living Portfolio</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Schema: nestora_oak_coliv • 18 Hubs</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">3.2 TB</span>
+<span class="block font-label-sm text-label-sm text-emerald-700 font-semibold">99.95% SLA</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface">
+<div class="flex items-center gap-2.5">
+<div class="w-2 h-7 rounded-full bg-tertiary-fixed-dim"></div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface">Pacific Rim HOA Association</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Schema: nestora_pacrim_hoa • 880 Condos</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">2.4 TB</span>
+<span class="block font-label-sm text-label-sm text-emerald-700 font-semibold">99.95% SLA</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface">
+<div class="flex items-center gap-2.5">
+<div class="w-2 h-7 rounded-full bg-surface-variant"></div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface">Other 45 Provisioned Tenancies</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Shared replica read pools</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-on-surface">3.8 TB</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Pool quota 64%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Automated Daily Snapshot Retention: <strong>90 Days</strong></span>
+<a class="text-primary font-bold hover:underline" href="#">Inspect Aurora Topology →</a>
+</div>
+</div>
+</div>
+<!-- Panel C: Multi-Tenant Workspace Provisioning & Operations Directory Table -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Enterprise Tenancy Fleet Isolation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Granular security envelopes, per-tenant rate-limiting and administrative debug controls</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold transition-colors" type="button">
+                Filter Tenancies
+              </button>
+<button class="px-3.5 py-1.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-xs" type="button">
+                + Provision Workspace
+              </button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto mt-2">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-low rounded-xl">
+<th class="py-3 px-4 rounded-l-xl">Workspace / Tenant</th>
+<th class="py-3 px-3">Service Tier</th>
+<th class="py-3 px-3">Residents / Units</th>
+<th class="py-3 px-3">DB Size</th>
+<th class="py-3 px-3">API Limit Load</th>
+<th class="py-3 px-3">SLA Status</th>
+<th class="py-3 px-4 rounded-r-xl text-right">Admin Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 space-y-2">
+<!-- Row 1 -->
+<tr class="hover:bg-surface transition-colors rounded-xl">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold font-label-md text-label-md">
+                        GP
+                      </div>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">Green Park Towers</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">org_gpt_9941a</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm font-semibold">Enterprise Elite</span>
+</td>
+<td class="py-3.5 px-3 font-label-md text-label-md text-on-surface">3,240 / 1,480</td>
+<td class="py-3.5 px-3 font-label-md text-label-md text-on-surface">4.8 TB</td>
+<td class="py-3.5 px-3">
+<div class="w-24 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 62%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 block">62% of 10k req/m</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1.5 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span> 99.98%
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Impersonate Support Session" type="button">
+<span class="material-symbols-outlined text-[18px]">support</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Token Rotation" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Quota Adjustments" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface transition-colors rounded-xl">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold font-label-md text-label-md">
+                        OW
+                      </div>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">Oakwood Co-Living Hubs</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">org_oak_2011f</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Shared Living Pro</span>
+</td>
+<td class="py-3.5 px-3 font-label-md text-label-md text-on-surface">1,890 / 620</td>
+<td class="py-3.5 px-3 font-label-md text-label-md text-on-surface">3.2 TB</td>
+<td class="py-3.5 px-3">
+<div class="w-24 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 44%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 block">44% of 10k req/m</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1.5 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span> 99.95%
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Impersonate Support Session" type="button">
+<span class="material-symbols-outlined text-[18px]">support</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Token Rotation" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Quota Adjustments" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface transition-colors rounded-xl">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold font-label-md text-label-md">
+                        PR
+                      </div>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">Pacific Rim HOA Syndicate</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">org_pacrim_772</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Standard HOA</span>
+</td>
+<td class="py-3.5 px-3 font-label-md text-label-md text-on-surface">940 / 880</td>
+<td class="py-3.5 px-3 font-label-md text-label-md text-on-surface">2.4 TB</td>
+<td class="py-3.5 px-3">
+<div class="w-24 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 29%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 block">29% of 5k req/m</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1.5 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span> 99.95%
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Impersonate Support Session" type="button">
+<span class="material-symbols-outlined text-[18px]">support</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Token Rotation" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Quota Adjustments" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- RIGHT 4 COLS: Real-Time Audit Ingestion Feed, Feature Flags & Emergency Controls -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Panel D: Live Security & Event Ingestion Stream (High-Tech Terminal Card) -->
+<div class="bg-primary rounded-2xl p-5 text-on-primary shadow-md flex flex-col">
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[19px] text-tertiary-fixed">terminal</span>
+<h3 class="font-label-lg text-label-lg font-bold text-on-primary">Live Security &amp; Audit Feed</h3>
+</div>
+<span class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high/20 text-on-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Streaming
+            </span>
+</div>
+<!-- Terminal Content Stream -->
+<div class="font-mono text-[11px] leading-relaxed flex flex-col gap-2.5 mt-2 bg-dark-surface/60 p-3.5 rounded-xl text-on-primary/90 max-h-72 overflow-y-auto">
+<div class="p-1.5 rounded bg-white/5">
+<span class="text-secondary-fixed">[14:28:10 UTC]</span>
+<span class="text-emerald-300 font-bold ml-1">INFO:</span>
+<span class="text-on-primary/80"> Automated DB snapshot #SNAP-88192 completed (Fidelity Escrow schema).</span>
+</div>
+<div class="p-1.5 rounded bg-white/5">
+<span class="text-secondary-fixed">[14:22:45 UTC]</span>
+<span class="text-tertiary-fixed font-bold ml-1">WARN:</span>
+<span class="text-on-primary/80"> WAF rate-limit triggered for IP 194.26.29.112 (Challenged &amp; blocked).</span>
+</div>
+<div class="p-1.5 rounded bg-white/5">
+<span class="text-secondary-fixed">[14:15:02 UTC]</span>
+<span class="text-emerald-300 font-bold ml-1">SUCCESS:</span>
+<span class="text-on-primary/80"> Internal treasury reconciliation completed for Green Park Towers ($842,650 verified).</span>
+</div>
+<div class="p-1.5 rounded bg-white/5">
+<span class="text-secondary-fixed">[14:04:19 UTC]</span>
+<span class="text-primary-fixed font-bold ml-1">AUDIT:</span>
+<span class="text-on-primary/80"> Admin Sarah Ben Ali rotated API Service Key for IoT BMS Gateway.</span>
+</div>
+<div class="p-1.5 rounded bg-white/5">
+<span class="text-secondary-fixed">[13:58:04 UTC]</span>
+<span class="text-emerald-300 font-bold ml-1">INFO:</span>
+<span class="text-on-primary/80"> Envoy proxy connection drained pod-ingress-k8s-992 with zero drops.</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 mt-1 font-label-sm text-label-sm text-on-primary/70">
+<span class="">Log retention: Immutable 365d</span>
+<button class="text-tertiary-fixed hover:underline font-bold" type="button">Export Syslog</button>
+</div>
+</div>
+<!-- Panel E: Feature Flags & Hot Operational Toggles -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[19px]">toggle_on</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Dynamic Feature Flags</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hot Reload</span>
+</div>
+<div class="flex flex-col gap-3 mt-2">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface">
+<div class="pr-2">
+<span class="font-label-md text-label-md font-bold text-on-surface block">Global Maintenance Mode</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Presents informational banner to all tenants</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="flag-maint" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface">
+<div class="pr-2">
+<span class="font-label-md text-label-md font-bold text-on-surface block">Automated Audit Archival</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Schedules periodic cold-storage compliance backups</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="flag-audit-archive" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 3 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface">
+<div class="pr-2">
+<span class="font-label-md text-label-md font-bold text-on-surface block">High-Frequency IoT BMS Polling</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lowers HVAC &amp; smart lock interval to 10s</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="flag-iot" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 4 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface">
+<div class="pr-2">
+<span class="font-label-md text-label-md font-bold text-on-surface block">AI Voice Dispatch Concierge</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Automated resident urgent hotline synthesis</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="flag-ai-voice" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Panel F: Emergency & Failover Administrative Controls -->
+<div class="bg-surface-container-low rounded-2xl p-6 shadow-sm">
+<div class="flex items-center gap-2 pb-3">
+<span class="material-symbols-outlined text-[20px] text-tertiary">warning</span>
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Emergency &amp; Failover Protocol</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            Critical tier actions require dual-approver confirmation. Current secondary standby hot-zone is <strong class="text-on-surface">us-east-1</strong>.
+          </p>
+<div class="flex flex-col gap-2.5">
+<button class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-xs cursor-pointer" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">chevron_forward</span>
+<span class="font-bold">Multi-AZ Standby Sync</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-700 font-bold">Ready</span>
+</button>
+<button class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-xs cursor-pointer" onclick="alert('Redis global edge cache purged across 14 clusters.')" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">cleaning_services</span>
+<span class="">Flush Redis Global Cache</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14 Regions</span>
+</button>
+<button class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-xs cursor-pointer" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">alt_route</span>
+<span class="">Graceful Worker Drain</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Kubernetes CLI</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Architectural System Operations Footer Metadata -->
+<footer class="pt-6 pb-4 border-t-0 flex flex-col md:flex-row md:items-center justify-between gap-3 text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/60 rounded-2xl px-5 py-3">
+<div class="flex flex-wrap items-center gap-3">
+<span class="font-semibold text-primary">Nestora System Operations Kernel v2.4.8-LTS</span>
+<span class="">•</span>
+<span class="">Multi-AZ Cluster (us-west-2a, 2b, 2c)</span>
+<span class="">•</span>
+<span class="">HIPAA &amp; SOC2 Type II Certified</span>
+</div>
+<div class="flex items-center gap-2 font-mono text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">verified_user</span>
+<span class="">SHA-256 Immutable Audit Log #849,291</span>
+</div>
+</footer>
+</div>
+</div></main>
+</div>
+<!-- Interactive Scripts: Theme Switcher & Checklist -->
+<script>
+    // Theme Switcher Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const iconLight = document.getElementById('theme-icon-light');
+    const iconDark = document.getElementById('theme-icon-dark');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+      }
+    }
+
+    // Default to Light mode or read preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentDark = false;
+    updateThemeUI(currentDark);
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        currentDark = !currentDark;
+        updateThemeUI(currentDark);
+      });
+    }
+
+    // Checklist interactive counters
+    document.querySelectorAll('.task-checkbox').forEach(box => {
+      box.addEventListener('change', () => {
+        const all = document.querySelectorAll('.task-checkbox');
+        const unchecked = Array.from(all).filter(b => !b.checked).length;
+        const badge = document.getElementById('tasks-remaining-badge');
+        if (badge) {
+          badge.textContent = `${unchecked} of ${all.length} tasks incomplete`;
+        }
+      });
+    });
+  </script>
+
+
+</body></html>
